@@ -1,0 +1,88 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent" android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    >
+
+	<LinearLayout 
+	    android:layout_width="wrap_content" android:layout_height="fill_parent"
+	    android:orientation="horizontal" android:gravity="center_vertical"
+	    android:layout_marginTop="-18dip" android:layout_marginLeft="5dip"
+	    >
+	
+	    <ImageView 
+		     android:layout_width="wrap_content" android:layout_height="wrap_content"
+		     android:src="@drawable/liquor_32"
+		     />
+	 
+	</LinearLayout>
+
+	<LinearLayout 
+	    android:layout_width="fill_parent" android:layout_height="wrap_content"
+	    android:orientation="vertical"
+	    >
+
+		<LinearLayout 
+	        android:layout_width="fill_parent" android:layout_height="wrap_content"
+	        android:background="@drawable/liquor_brand_gadget"
+	        android:orientation="vertical"
+	        >
+	        
+	        <LinearLayout 
+	            android:layout_width="fill_parent" android:layout_height="wrap_content"
+	            >
+	            
+	            <TextView android:id="@+id/liquor_brand_name"
+	                android:layout_width="fill_parent" android:layout_height="wrap_content"
+	                android:gravity="center_horizontal" android:textColor="@android:color/black"
+	                />
+	            
+	        </LinearLayout>
+
+	    </LinearLayout>
+	
+		<LinearLayout 
+		    android:layout_width="fill_parent" android:layout_height="40dip" 
+		    android:gravity="center_horizontal" android:layout_marginTop="-16dip"
+		    >
+
+			<LinearLayout 
+				android:layout_width="wrap_content" android:layout_height="fill_parent" 
+				android:background="@drawable/liquor_brand_gadget_options" android:orientation="horizontal" 
+				>
+		
+		        <LinearLayout android:id="@+id/detail"
+		            android:layout_width="wrap_content" android:layout_height="fill_parent"
+		            android:orientation="horizontal" android:gravity="left|center_vertical" android:layout_gravity="left|center_vertical" 
+		            android:layout_weight="30" android:layout_marginLeft="5dip" android:tag="@string/liquor_brand_detail"
+		            >
+		            
+		            <LinearLayout 
+			            android:layout_width="wrap_content" android:layout_height="fill_parent"
+			            android:layout_gravity="center_vertical" android:layout_marginRight="3dip" 
+		                >
+			            <ImageView 
+				            android:layout_width="wrap_content" android:layout_height="fill_parent"
+				            android:src="@drawable/circle" 
+				            />
+		            </LinearLayout>
+		            
+		            <LinearLayout 
+						android:layout_width="wrap_content" android:layout_height="fill_parent"
+					    android:layout_gravity="center_vertical" android:layout_marginRight="3dip"
+		                >
+					    <TextView android:id="@+id/comment_detail"
+							android:layout_width="wrap_content" android:layout_height="fill_parent"
+						    android:text="@string/liquor_brand_detail" android:textColor="@android:color/black" 
+						    android:gravity="center_vertical" android:layout_gravity="center_vertical"
+						    />
+		            </LinearLayout>
+		            
+		        </LinearLayout>
+		
+			</LinearLayout>
+		    
+		</LinearLayout>
+    	    
+	</LinearLayout>
+	
+</LinearLayout>

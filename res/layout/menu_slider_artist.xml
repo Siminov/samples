@@ -1,0 +1,17 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/menu_slider_artist"
+    android:layout_width="fill_parent" android:layout_height="wrap_content" 
+    >
+
+    <ImageView android:id="@+id/menu_icon"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_marginLeft="8dip" android:layout_marginTop="5dip" android:layout_marginBottom="5dip"
+        android:layout_gravity="center_vertical"
+        />
+
+    <TextView android:id="@+id/menu"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_marginLeft="8dip" android:layout_gravity="center_vertical"
+        android:textStyle="bold|italic" android:textColor="@android:color/black"
+        />
+    
+</LinearLayout>
