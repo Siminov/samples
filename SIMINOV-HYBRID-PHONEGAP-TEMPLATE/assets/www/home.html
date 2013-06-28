@@ -1,0 +1,338 @@
+
+<!--
+
+/** 
+ * [SIMINOV FRAMEWORK]
+ * Copyright [2013] [Siminov Software Solution LLP|support@siminov.com]
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **/
+
+
+-->
+
+<html>
+
+	<head>
+
+        <script src="Cordova/cordova-2.3.0.js"></script>
+
+        <link rel="stylesheet" href="Jquery/css/jquery.css" />
+        <script src="Jquery/js/jquery.js"></script>
+        <script src="Jquery/js/jquery-mobile.js"></script>
+
+
+		<script src="Siminov/Siminov.js"></script>
+
+		<script src="Liquor/Models/Liquor.js"></script>
+		<script src="Liquor/Models/LiquorBrand.js"></script>
+		<script src="Liquor/Models/Credential.js"></script>
+
+        <script src="Liquor/Constants.js"></script>
+
+        <script src="Liquor/Database/DatabaseUtils.js"></script>
+
+        <script src="Liquor/Events/SiminovEventHandler.js"></script>
+        <script src="Liquor/Events/DatabaseEventHandler.js"></script>
+
+		<script>
+
+            var credential;
+            var liquors;
+
+            document.addEventListener("deviceready", deviceReady, false);
+
+
+			$(document).on("click", ".show-page-loading-msg", function() {
+				var $this = $( this ),
+					theme = $this.jqmData("theme") || $.mobile.loader.prototype.options.theme,
+					msgText = $this.jqmData("msgtext") || $.mobile.loader.prototype.options.text,
+					textVisible = $this.jqmData("textvisible") || $.mobile.loader.prototype.options.textVisible,
+					textonly = !!$this.jqmData("textonly");
+					html = $this.jqmData("html") || "";
+					$.mobile.loading( 'show', {
+						text: msgText,
+						textVisible: textVisible,
+						theme: theme,
+						textonly: textonly,
+						html: html
+					});
+			})
+			.on("click", ".hide-page-loading-msg", function() {
+				$.mobile.loading( 'hide' );
+			});
+
+
+			function deviceReady() {
+			    document.addEventListener("backbutton", onBackKeyPressed, false);
+				document.getElementById('show-loader').click();
+				Siminov.initialize();
+			}
+
+			
+			function onBackKeyPressed() {
+				var currentPage = window.location;
+				
+				if(currentPage == "file:///android_asset/www/home.html#login-page" || currentPage == "file:///android_asset/www/home.html") {
+					closeApp();
+				} else if(currentPage == "file:///android_asset/www/home.html#home-page") {
+					closeApp();
+				} 				
+			
+			}
+
+
+			function closeApp() {
+				Siminov.shutdown();
+			}
+
+		
+			function exitApp() {
+				navigator.app.exitApp();			
+			}
+
+		    function initialize() {
+
+                var credentials;
+				credentials = new Credential().select().fetch();
+
+                if(credentials != undefined && credentials != null && credentials.length > 0) {
+					credential = credentials[0];
+                } else {
+                }
+                
+				document.getElementById('hide-loader').click();
+                
+            }
+
+
+			function login() {
+
+				if(credential != undefined && credential != null) {
+	                var accountId = document.getElementById('user-name').value;
+					var password = document.getElementById('password').value;
+					
+					if(credential != undefined) {
+						if(credential.getAccountId() === accountId) {
+							if(credential.getToken() === password) {
+	                            navHome();
+							} else {
+								alert("Invalid Passsword.");
+							}				
+						} else {
+							alert("No Such Account.");
+						}
+	                }
+						
+				} else {
+					document.getElementById('show-loader').click();
+	
+	                var accountId = document.getElementById('user-name').value;
+	                var password = document.getElementById('password').value;
+	
+	                credential = new Credential();
+	
+	                credential.setAccountId(accountId);
+	                credential.setToken(password);
+	                credential.setCredentialType("SIMINOV");
+	
+	                credential.saveOrUpdate();
+	
+					navHome();
+				
+				}
+
+			}
+			
+
+			function navHome() {
+
+                $.mobile.changePage($('#home-page'));
+				document.getElementById('show-loader').click();
+                
+                $('liquor-types').empty();
+                
+                liquors = new Liquor().select().fetch();
+
+				if(liquors != undefined) {
+					
+					for(var i = 0;i < liquors.length;i++) {
+						var liquor = liquors[i];
+					
+                        $('#liquor-types').append('<li onclick="navDetail(' + i + ')" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c">' + 
+				                        			'<div class="ui-btn-inner ui-li">' + 
+				    	                    			'<div class="ui-btn-text">'+
+				            		            			'<a href="index.html" class="ui-link-inherit">' + 
+																'<img src="Liquor/Resources/Images/liquor.png" class="ui-li-thumb">' + 
+																'<h3 class="ui-li-heading">' + liquor.getLiquorType() + '</h3>' + 
+																'<p class="ui-li-desc">' + liquor.getDescription() + '</p>' +
+															'</a>' +
+														'</div>' +
+														
+														'<span class="ui-icon ui-icon-arrow-r ui-icon-shadow">' +
+															'&nbsp;' +
+														'</span>' +
+													'</div>' +
+												'</li>');
+												
+					}			
+				}
+				
+				
+				document.getElementById('hide-loader').click();
+				
+			}			
+			
+			function navDetail(id) {
+			
+				$.mobile.changePage($('#detail-page'));
+				var liquor = liquors[id];
+				
+				document.getElementById('liquor-brand').innerHTML = liquor.getLiquorType();
+				document.getElementById('liquor-description').innerHTML = liquor.getDescription();
+                document.getElementById('liquor-history').innerHTML = liquor.getHistory();
+                document.getElementById('liquor-alcohol-content').innerHTML = liquor.getAlcholContent();
+                document.getElementById('liquor-link').innerHTML = liquor.getLink();
+
+                var liquorBrands = liquor.getLiquorBrands();
+                if(liquorBrands != undefined && liquorBrands != null && liquorBrands.length > 0) {
+
+                    for(var i = 0;i < liquorBrands.length;i++) {
+                    	
+                    	var liquorBrand = liquorBrands[i];		
+                    			
+                        $('#liquor-brands').append('<li class="ui-li ui-li-static ui-btn-up-c">' + 
+                        								liquorBrand.getBrandName() +
+												'</li>');
+												
+                    }
+                }
+
+			}
+		
+		</script>
+	
+	</head>
+	
+	
+	<body>
+	
+		<button id="show-loader" class="show-page-loading-msg" data-theme="b" data-textonly="false" data-textvisible="true" data-msgtext="Please wait..." data-icon="arrow-r" data-iconpos="right" style="display:none;"></button>
+		<button id="hide-loader" class="hide-page-loading-msg" data-icon="delete" data-iconpos="right" style="display:none"></button>
+		
+	
+		<div data-role="page" id="login-page">
+	  		<div data-role="header">
+		    	<h1>Siminov Framework</h1>
+		  	</div>
+		  
+		  	<div data-role="content">
+		    	
+		    	<div>
+		    		Account Id: <input type="text" id="user-name" />
+		    		Token: <input type="password" id="password" />
+		    		
+		    		<input type="button" value="Cancel" onclick="closeApp();"/>
+		    		<input id="login" type="button" value="Login" onclick="login();" />
+		    	</div>
+		    	
+		    	
+		  	</div> 
+		</div>
+
+		<div data-role="page" id="home-page">
+	  		<div data-role="header">
+		    	<h1>Siminov Framework</h1>
+		  	</div>
+
+		  	<div data-role="content">
+		    	<ul id="liquor-types" data-role="listview" class="ui-listview">
+
+				</ul>
+		  	</div>
+		</div>
+
+		<div data-role="page" id="detail-page">
+
+	  		<div data-role="header">
+		    	<h1>Siminov Framework</h1>
+		  	</div>
+
+		  	<div data-role="content">
+
+                <table cellspacing="0" border-spacing: 0;>
+
+                    <tr>
+                        <td>&nbsp; &nbsp; <b>Brand</b></td>
+                    </tr>
+
+					<tr>
+                        <td id="liquor-brand" style="background-color: #FFFFFF; width:100%; padding-left: 10px; padding-right: 10px;"></td>
+                        <td style="width:100%; background-color: #FFFFFF;">&nbsp;</td>
+					</tr>
+
+                    <tr>
+                        <td style="padding-top: 15px;">&nbsp; &nbsp; <b>Description</b></td>
+                    </tr>
+
+					<tr>
+                        <td id="liquor-description" style="background-color: #FFFFFF; width:100%; padding-left: 10px; padding-right: 10px;"></td>
+                        <td style="width:100%; background-color: #FFFFFF">&nbsp;</td>
+					</tr>
+				
+                    <tr>
+                        <td style="padding-top: 15px;">&nbsp; &nbsp; <b>History</b></td>
+                    </tr>
+
+					<tr>
+                        <td id="liquor-history" style="background-color: #FFFFFF; width:100%; padding-left: 10px; padding-right: 10px;"></td>
+                        <td style="width:100%; background-color: #FFFFFF">&nbsp;</td>
+					</tr>
+	
+                    <tr>
+                        <td style="padding-top: 15px;">&nbsp; &nbsp; <b>Alchol Content</b></td>
+                    </tr>
+
+					<tr>
+                        <td id="liquor-alcohol-content" style="background-color: #FFFFFF; width:100%; padding-left: 10px; padding-right: 10px;"></td>
+                        <td style="width:100%; background-color: #FFFFFF">&nbsp;</td>
+					</tr>
+
+                    <tr>
+                        <td style="padding-top: 15px;">&nbsp; &nbsp; <b>Link</b></td>
+                    </tr>
+
+					<tr>
+                        <td id="liquor-link" style="background-color: #FFFFFF; width:100%; padding-left: 10px; padding-right: 10px;"></td>
+                        <td style="width:100%; background-color: #FFFFFF">&nbsp;</td>
+					</tr>				
+
+                </table>
+
+				<div style="padding-top: 15px;">
+					&nbsp; &nbsp; <b>Brands</b>
+				</div>
+
+			  	<div data-role="content">
+			    	<ol data-role="listview" id="liquor-brands" class="ui-listview">
+	
+					</ol>
+			  	</div>
+		
+		  	</div>
+
+		</div>
+	
+	</body>
+
+</html>
