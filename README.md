@@ -1,9 +1,9 @@
 Siminov Framework
 ===================================================
 
-Siminov ORM is a open source Object/Relational Mapping solution for Android environments. It maps data from an object model representation to a relational data model representation (and visa versa). 
+Siminov Framework is a open source Object/Relational Mapping solution for Android environments. It maps data from an object model representation to a relational data model representation (and visa versa). 
 
-Siminov ORM not only takes care of the mapping from Java classes to database tables (and from Java data types to SQL data types), but also provides data query and retrieval facilities. 
+Siminov not only takes care of the mapping from Java/JavaScript classes to database tables (and from Java/JavaScript data types to SQL data types), but also provides data query and retrieval facilities. 
 
 
 LICENSE
