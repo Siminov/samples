@@ -109,4 +109,5 @@ LICENSE
 
 
 
-[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/e33c820e69c79ca01d7a6187045be8d6 "githalytics.com")](http://githalytics.com/Siminov/android-hybrid)
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/d50dad69fb419533f80fa96bc313bc79 "githalytics.com")](http://githalytics.com/Siminov/android-templates)
+
