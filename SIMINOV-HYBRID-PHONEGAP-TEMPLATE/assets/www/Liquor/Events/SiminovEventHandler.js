@@ -2,7 +2,7 @@
 function SiminovEventHandler() {
 
     this.firstTimeSiminovInitialized = function() {
-        alert("firstTimeSiminovInitialized");
+//        alert("firstTimeSiminovInitialized");
 
 		new DatabaseUtils().prepareData();
 
