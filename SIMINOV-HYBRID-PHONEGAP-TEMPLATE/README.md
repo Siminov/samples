@@ -286,5 +286,5 @@ LICENSE
  limitations under the License.
 
 
-[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/d50dad69fb419533f80fa96bc313bc79 "githalytics.com")](http://githalytics.com/Siminov/android-templates)
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/f423e443f4fc035eeb0ccf84cb7abdbe "githalytics.com")](http://githalytics.com/Siminov/android-templates)
 
