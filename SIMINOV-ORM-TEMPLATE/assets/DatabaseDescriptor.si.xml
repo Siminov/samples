@@ -24,6 +24,7 @@
 
 	<property name="database_name">SIMINOV-TEMPLATE</property>
 	<property name="description">Siminov Template Database Config</property>
+	<property name="version">1</property>
 	<property name="is_locking_required">true</property>
 
 	<database-mappings>
@@ -36,6 +37,7 @@
 	</libraries>
 
 </database-descriptor>
+
 
 
 
