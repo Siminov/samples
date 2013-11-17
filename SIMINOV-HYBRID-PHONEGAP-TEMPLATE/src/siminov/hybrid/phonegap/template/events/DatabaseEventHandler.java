@@ -7,30 +7,30 @@ import siminov.orm.model.DatabaseMappingDescriptor.Index;
 
 public class DatabaseEventHandler implements IDatabaseEvents {
 
-	public void databaseCreated(DatabaseDescriptor databaseDescriptor) {
+	public void onDatabaseCreated(DatabaseDescriptor databaseDescriptor) {
 		System.out.print("");
 	}
 
-	public void databaseDropped(DatabaseDescriptor databaseDescriptor) {
+	public void onDatabaseDropped(DatabaseDescriptor databaseDescriptor) {
 		System.out.print("");
 	}
 
-	public void tableCreated(DatabaseDescriptor databaseDescriptor,
+	public void onTableCreated(DatabaseDescriptor databaseDescriptor,
 			DatabaseMappingDescriptor databaseMapping) {
 		System.out.print("");
 	}
 
-	public void tableDropped(DatabaseDescriptor databaseDescriptor,
+	public void onTableDropped(DatabaseDescriptor databaseDescriptor,
 			DatabaseMappingDescriptor databaseMapping) {
 		System.out.print("");
 	}
 
-	public void indexCreated(DatabaseDescriptor databaseDescriptor,
+	public void onIndexCreated(DatabaseDescriptor databaseDescriptor,
 			DatabaseMappingDescriptor databaseMapping, Index index) {
 		System.out.print("");
 	}
 
-	public void indexDropped(DatabaseDescriptor databaseDescriptor,
+	public void onIndexDropped(DatabaseDescriptor databaseDescriptor,
 			DatabaseMappingDescriptor databaseMapping, Index index) {
 		System.out.print("");		
 	}

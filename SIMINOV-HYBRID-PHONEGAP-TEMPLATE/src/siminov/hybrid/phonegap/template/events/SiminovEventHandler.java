@@ -5,15 +5,15 @@ import siminov.orm.events.ISiminovEvents;
 
 public class SiminovEventHandler implements ISiminovEvents {
 
-	public void firstTimeSiminovInitialized() {
+	public void onFirstTimeSiminovInitialized() {
 		System.out.print("");
 	}
 
-	public void siminovInitialized() {
+	public void onSiminovInitialized() {
 		System.out.print("");
 	}
 
-	public void siminovStopped() {
+	public void onSiminovStopped() {
 		System.out.print("");
 	}
 

@@ -28,7 +28,7 @@
 	<property name="description">Siminov Hybrid Template Application</property>
 	<property name="version">0.9</property>
 
-	<property name="load_initially">false</property>
+	<property name="load_initially">true</property>
 
 	<!-- DATABASE-DESCRIPTORS -->
 	<database-descriptors>
