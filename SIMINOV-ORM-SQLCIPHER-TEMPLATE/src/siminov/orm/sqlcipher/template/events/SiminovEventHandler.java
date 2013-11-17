@@ -22,15 +22,15 @@ import siminov.orm.sqlcipher.template.DatabaseUtils;
 
 public class SiminovEventHandler implements ISiminovEvents {
 
-	public void siminovInitialized() {
+	public void onSiminovInitialized() {
 		new DatabaseUtils().prepareData();
 	}
 
-	public void firstTimeSiminovInitialized() {
+	public void onFirstTimeSiminovInitialized() {
 		new DatabaseUtils().prepareData();
 	}
 
-	public void siminovStopped() {
+	public void onSiminovStopped() {
 	}
 
 }
