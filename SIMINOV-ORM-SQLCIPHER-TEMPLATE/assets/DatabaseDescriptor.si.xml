@@ -27,14 +27,14 @@
 	<property name="type">sqlcipher</property>
 	<property name="version">1</property>
 	<property name="description">Siminov Sqlcipher Template Database Config</property>
-	<property name="is_locking_required">true</property>
+	<property name="transaction_safe">true</property>
 	<property name="external_storage">false</property>
 
 	<property name="password">siminov</property>
 	
 
 	<database-mappings>
-		<database-mapping path="Model-Mappings/Model.si.xml" />
+		<database-mapping>Model-Mappings/Model.si.xml</database-mapping>
 	</database-mappings>
 
 </database-descriptor>
