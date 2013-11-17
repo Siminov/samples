@@ -26,7 +26,7 @@
 	<property name="description">Siminov Library Template</property>
 
 	<database-mappings>
-		<database-mapping path="Credential.si.xml" />
+		<database-mapping>SIMINOV-TEMPLATE.Credential.si.xml</database-mapping>
 	</database-mappings>
 	 
 </library>

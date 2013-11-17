@@ -23,7 +23,6 @@ import siminov.orm.annotation.Table;
 import siminov.orm.database.Database;
 
 
-@Table(tableName=Credential.TABLE_NAME)
 public class Credential extends Database {
 
 	//Table Name.
