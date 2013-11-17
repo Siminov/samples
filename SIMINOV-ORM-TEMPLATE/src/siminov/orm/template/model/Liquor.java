@@ -30,7 +30,6 @@ import siminov.orm.annotation.RelationshipProperty;
 import siminov.orm.annotation.Table;
 import siminov.orm.database.Database;
 
-@Table(tableName=Liquor.TABLE_NAME)
 @Indexes({
 	@Index(name="LIQUOR_INDEX_BASED_ON_LINK", unique=true, value={
 		@IndexColumn(column=Liquor.LINK)

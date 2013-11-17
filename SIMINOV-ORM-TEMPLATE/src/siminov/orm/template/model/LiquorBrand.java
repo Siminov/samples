@@ -26,7 +26,6 @@ import siminov.orm.annotation.RelationshipProperty;
 import siminov.orm.annotation.Table;
 import siminov.orm.database.Database;
 
-@Table(tableName=LiquorBrand.TABLE_NAME)
 public class LiquorBrand extends Database implements Serializable {
 
 	//Table Name
