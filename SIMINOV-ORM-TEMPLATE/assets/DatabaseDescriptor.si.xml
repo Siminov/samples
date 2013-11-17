@@ -28,13 +28,9 @@
 	<property name="is_locking_required">true</property>
 
 	<database-mappings>
-		<database-mapping path="Liquor-Mappings/Liquor.si.xml" />
-		<database-mapping path="Liquor-Mappings/LiquorBrand.si.xml" />
+		<database-mapping>Liquor-Mappings/Liquor.si.xml</database-mapping>
+		<database-mapping>Liquor-Mappings/LiquorBrand.si.xml</database-mapping>
 	</database-mappings>
-
-	<libraries>
-		<library>siminov.orm.library.template.resources</library>
-	</libraries>
 
 </database-descriptor>
 
