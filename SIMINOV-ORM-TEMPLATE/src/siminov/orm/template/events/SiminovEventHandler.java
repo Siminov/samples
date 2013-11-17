@@ -22,14 +22,14 @@ import siminov.orm.template.database.DatabaseUtils;
 
 public class SiminovEventHandler implements ISiminovEvents {
 
-	public void siminovInitialized() {
+	public void onSiminovInitialized() {
 	}
 
-	public void firstTimeSiminovInitialized() {
+	public void onFirstTimeSiminovInitialized() {
 		new DatabaseUtils().prepareData();
 	}
 
-	public void siminovStopped() {
+	public void onSiminovStopped() {
 	}
 
 }
