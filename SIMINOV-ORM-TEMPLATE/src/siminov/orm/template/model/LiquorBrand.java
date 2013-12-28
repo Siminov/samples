@@ -23,7 +23,6 @@ import siminov.orm.annotation.Column;
 import siminov.orm.annotation.ColumnProperty;
 import siminov.orm.annotation.ManyToOne;
 import siminov.orm.annotation.RelationshipProperty;
-import siminov.orm.annotation.Table;
 import siminov.orm.database.Database;
 
 public class LiquorBrand extends Database implements Serializable {
@@ -37,7 +36,7 @@ public class LiquorBrand extends Database implements Serializable {
 	public static final String DESCRIPTION = "DESCRIPTION";
 	public static final String LINK = "LINK";
 	public static final String COUNTRY = "COUNTRY";
-
+	
 	//Brands
 	
 	/*
@@ -107,7 +106,7 @@ public class LiquorBrand extends Database implements Serializable {
 				@ColumnProperty(name=ColumnProperty.DEFAULT, value="www.wikipedia.org")
 				})
 	private String link = null;
-	
+
 	@Column(columnName=COUNTRY)
 	private String country = null;
 

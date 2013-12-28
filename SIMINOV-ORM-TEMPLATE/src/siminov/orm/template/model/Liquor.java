@@ -19,6 +19,8 @@ package siminov.orm.template.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 
 import siminov.orm.annotation.Column;
 import siminov.orm.annotation.ColumnProperty;
@@ -27,7 +29,6 @@ import siminov.orm.annotation.IndexColumn;
 import siminov.orm.annotation.Indexes;
 import siminov.orm.annotation.OneToMany;
 import siminov.orm.annotation.RelationshipProperty;
-import siminov.orm.annotation.Table;
 import siminov.orm.database.Database;
 
 @Indexes({
@@ -86,7 +87,7 @@ public class Liquor extends Database implements Serializable {
 			properties={
 				@RelationshipProperty(name=RelationshipProperty.LOAD, value="true")
 		})
-	private ArrayList<LiquorBrand> liquorBrands = null;
+	private Collection<LiquorBrand> liquorBrands = new ArrayList<LiquorBrand>();
 	
 	//Methods
 	
@@ -130,11 +131,14 @@ public class Liquor extends Database implements Serializable {
 		this.alcholContent = alcholContent;
 	}
 
-	public ArrayList<LiquorBrand> getLiquorBrands() {
-		return this.liquorBrands;
+	public Iterator<LiquorBrand> getLiquorBrands() {
+		return this.liquorBrands.iterator();
 	}
 	
-	public void setLiquorBrands(ArrayList<LiquorBrand> liquorBrands) {
-		this.liquorBrands = liquorBrands;
+	public void setLiquorBrands(Iterator<LiquorBrand> liquorBrands) {
+		
+		while(liquorBrands.hasNext()) {
+			this.liquorBrands.add(liquorBrands.next());
+		}
 	}
 }
