@@ -17,16 +17,13 @@
 
 package siminov.orm.library.template.model;
 
-import siminov.orm.annotation.Column;
-import siminov.orm.annotation.ColumnProperty;
-import siminov.orm.annotation.Table;
 import siminov.orm.database.Database;
 
 
 public class Credential extends Database {
 
 	//Table Name.
-	public static final String TABLE_NAME = "CREDENTIAL";
+	public static final String TABLE_NAME = "CONNECT-CREDENTIAL";
 	
 	//Column Names.
 	public static final String ACCOUNT_ID = "ACCOUNT_ID";
@@ -39,30 +36,9 @@ public class Credential extends Database {
 	
 	//Class Variables.
 
-	@Column(columnName=ACCOUNT_ID,
-		properties={
-			@ColumnProperty(name=ColumnProperty.PRIMARY_KEY, value="true"),
-			@ColumnProperty(name=ColumnProperty.NOT_NULL, value="true"), 
-			@ColumnProperty(name=ColumnProperty.UNIQUE, value="true"),
-			})
 	private String accountId = null;
-
-	@Column(columnName=CREDENTIAL_TYPE,
-		properties={
-			@ColumnProperty(name=ColumnProperty.PRIMARY_KEY, value="true"),
-			@ColumnProperty(name=ColumnProperty.NOT_NULL, value="true"), 
-			@ColumnProperty(name=ColumnProperty.UNIQUE, value="true")
-			})
 	private String credentialType = null;
-	
-	@Column(columnName=TOKEN,
-		properties={
-			@ColumnProperty(name=ColumnProperty.NOT_NULL, value="true"), 
-			@ColumnProperty(name=ColumnProperty.UNIQUE, value="true")
-			})
 	private String token = null;
-	
-	@Column(columnName=LOGGED)
 	private String logged = null;
 	
 	public String getAccountId() {
