@@ -19,10 +19,6 @@ package siminov.orm.template.model;
 
 import java.io.Serializable;
 
-import siminov.orm.annotation.Column;
-import siminov.orm.annotation.ColumnProperty;
-import siminov.orm.annotation.ManyToOne;
-import siminov.orm.annotation.RelationshipProperty;
 import siminov.orm.database.Database;
 
 public class LiquorBrand extends Database implements Serializable {
@@ -83,31 +79,10 @@ public class LiquorBrand extends Database implements Serializable {
 	
 	
 	//Variables
-
-	@ManyToOne(onUpdate="cascade", onDelete="cascade", 
-			properties={
-				@RelationshipProperty(name=RelationshipProperty.LOAD, value="true")
-		})
 	private Liquor liquor = null;
-	
-	@Column(columnName=BRAND_NAME,
-			properties={
-				@ColumnProperty(name=ColumnProperty.PRIMARY_KEY, value="true"),
-				@ColumnProperty(name=ColumnProperty.NOT_NULL, value="true"), 
-				@ColumnProperty(name=ColumnProperty.UNIQUE, value="true")
-				})
 	private String brandName = null;
-
-	@Column(columnName=DESCRIPTION)
 	private String description = null;
-	
-	@Column(columnName=LINK,
-			properties={
-				@ColumnProperty(name=ColumnProperty.DEFAULT, value="www.wikipedia.org")
-				})
 	private String link = null;
-
-	@Column(columnName=COUNTRY)
 	private String country = null;
 
 	//Methods 

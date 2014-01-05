@@ -22,20 +22,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
-import siminov.orm.annotation.Column;
-import siminov.orm.annotation.ColumnProperty;
-import siminov.orm.annotation.Index;
-import siminov.orm.annotation.IndexColumn;
-import siminov.orm.annotation.Indexes;
-import siminov.orm.annotation.OneToMany;
-import siminov.orm.annotation.RelationshipProperty;
 import siminov.orm.database.Database;
 
-@Indexes({
-	@Index(name="LIQUOR_INDEX_BASED_ON_LINK", unique=true, value={
-		@IndexColumn(column=Liquor.LINK)
-	}), 
-})
 public class Liquor extends Database implements Serializable {
 
 	//Table Name
@@ -59,34 +47,11 @@ public class Liquor extends Database implements Serializable {
 	
 	
 	//Variables
-	
-	@Column(columnName=LIQUOR_TYPE,
-			properties={
-				@ColumnProperty(name=ColumnProperty.PRIMARY_KEY, value="true"),
-				@ColumnProperty(name=ColumnProperty.NOT_NULL, value="true"), 
-				@ColumnProperty(name=ColumnProperty.UNIQUE, value="true")
-				})
 	private String liquorType = null;
-	
-	@Column(columnName=DESCRIPTION)
 	private String description = null;
-	
-	@Column(columnName=HISTORY)
 	private String history = null;
-
-	@Column(columnName=LINK,
-			properties={
-				@ColumnProperty(name=ColumnProperty.DEFAULT, value="www.wikipedia.org")
-				})
 	private String link = null;
-	
-	@Column(columnName=ALCHOL_CONTENT)
 	private String alcholContent = null;
-
-	@OneToMany(onUpdate="cascade", onDelete="cascade", 
-			properties={
-				@RelationshipProperty(name=RelationshipProperty.LOAD, value="true")
-		})
 	private Collection<LiquorBrand> liquorBrands = new ArrayList<LiquorBrand>();
 	
 	//Methods

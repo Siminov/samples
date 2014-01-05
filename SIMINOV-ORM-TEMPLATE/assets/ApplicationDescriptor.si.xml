@@ -25,7 +25,7 @@
 	<property name="description">Siminov Template Application</property>
 	<property name="version">0.9</property>
 
-	<property name="load_initially">true</property>
+	<property name="load_initially">false</property>
 
 	<!-- DATABASE-DESCRIPTORS -->
 	<database-descriptors>
@@ -38,7 +38,11 @@
 	    <event-handler>siminov.orm.template.events.SiminovEventHandler</event-handler>
 	    <event-handler>siminov.orm.template.events.DatabaseEventHandler</event-handler>
 	</event-handlers>
-		
+
+	<libraries>
+	 	<library>siminov.orm.library.template.resources</library>   
+	</libraries>
+			
 </siminov>
 
 
