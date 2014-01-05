@@ -23,13 +23,13 @@ public class Siminov extends DroidGap {
 
 	private void initializeSiminov() {
 
-		IInitializer initializer = siminov.hybrid.Siminov.initialize();
+		IInitializer initializer = siminov.hybrid.Siminov.initializer();
 		
 		initializer.addParameter(getApplicationContext());
 		initializer.addParameter(super.appView);
 		initializer.addParameter((Activity) this);
 		
-		initializer.start();
+		initializer.initialize();
 		
 	}
 
