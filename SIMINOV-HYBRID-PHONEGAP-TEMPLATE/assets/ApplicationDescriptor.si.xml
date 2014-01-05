@@ -40,5 +40,9 @@
 	    <event-handler>siminov.hybrid.phonegap.template.events.SiminovEventHandler</event-handler>
 	    <event-handler>siminov.hybrid.phonegap.template.events.DatabaseEventHandler</event-handler>
 	</event-handlers>
-		
+
+ 	<libraries>
+ 	    <library>siminov.hybrid.phonegap.library.template.resources</library>
+ 	</libraries>
+ 			
 </siminov>
