@@ -17,13 +17,9 @@
 
 package siminov.hybrid.phonegap.library.template.model;
 
-import siminov.orm.annotation.Column;
-import siminov.orm.annotation.ColumnProperty;
-import siminov.orm.annotation.Table;
 import siminov.orm.database.Database;
 
 
-@Table(tableName=Credential.TABLE_NAME)
 public class Credential extends Database {
 
 	//Table Name.
@@ -39,31 +35,9 @@ public class Credential extends Database {
 	public static final String CREDENTIAL_TYPE_SIMINOV = "SIMINOV";
 	
 	//Class Variables.
-
-	@Column(columnName=ACCOUNT_ID,
-		properties={
-			@ColumnProperty(name=ColumnProperty.PRIMARY_KEY, value="true"),
-			@ColumnProperty(name=ColumnProperty.NOT_NULL, value="true"), 
-			@ColumnProperty(name=ColumnProperty.UNIQUE, value="true"),
-			})
 	private String accountId = null;
-
-	@Column(columnName=CREDENTIAL_TYPE,
-		properties={
-			@ColumnProperty(name=ColumnProperty.PRIMARY_KEY, value="true"),
-			@ColumnProperty(name=ColumnProperty.NOT_NULL, value="true"), 
-			@ColumnProperty(name=ColumnProperty.UNIQUE, value="true")
-			})
 	private String credentialType = null;
-	
-	@Column(columnName=TOKEN,
-		properties={
-			@ColumnProperty(name=ColumnProperty.NOT_NULL, value="true"), 
-			@ColumnProperty(name=ColumnProperty.UNIQUE, value="true")
-			})
 	private String token = null;
-	
-	@Column(columnName=LOGGED)
 	private String logged = null;
 	
 	public String getAccountId() {
