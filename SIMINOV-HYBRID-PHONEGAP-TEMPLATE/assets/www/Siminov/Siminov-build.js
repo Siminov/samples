@@ -16,12 +16,6 @@
  **/
 
 
-/*
-    Import Required Siminov
- */
-document.write('<script type="text/javascript" src="Siminov/Import.js"></script>');
-
-
 /**
  	Exposes methods to deal with SIMINOV HYBRID FRAMEWORK.
 
@@ -39,6 +33,7 @@ function Siminov() {
 
 
 
+
 /**
  	It is the entry point to the SIMINOV HYBRID FRAMEWORK.
 
@@ -48,7 +43,7 @@ function Siminov() {
 
 	EXAMPLE: 
           document.addEventListener("deviceready", Siminov.initialize, false);
-	
+
 	@Siminov
 	@method initialize
 	@static
@@ -62,6 +57,7 @@ Siminov.initialize = function() {
 
     adapter.invoke();
 }
+
 
 
 /**
