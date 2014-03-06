@@ -1,0 +1,54 @@
+
+
+<!-- Design of ConnectDescriptor.si.xml -->
+
+<connect-descriptor>
+
+   	<!-- Services -->
+  		<!-- Service -->
+    <service-descriptors>
+        
+        <service-descriptor>Liquor-Services/Projects.si.xml</service-descriptor>
+
+	</service-descriptors>
+
+    <sync-descriptors>
+        
+        <sync-descriptor>
+     		<property name="name">SYNC_PROJECTS</property>
+     		<property name="interval">5000</property>
+
+     		<services>
+     		    <service>GOPLAN-PROJECTS.GET-PROJECTS</service>
+     		</services>
+        </sync-descriptor>
+
+        <sync-descriptor>
+     		<property name="name">SYNC_CATEGORIES</property>
+     		<property name="interval">5000</property>
+
+     		<services>
+     		    <service>GOPLAN-CATEGORY.GET-CATEGORIES</service>
+     		</services>
+        </sync-descriptor>
+        
+    </sync-descriptors>
+    
+    
+    <authentication-descriptor>
+        <property name="type">oauth</property>
+        <property name="consumer_key">s8ambtU4cWxp4GT7UTwoqEfWqdqR0jxWTN7Npw6p</property>
+        <property name="consumer_secret">RVGQ7bf1qrA2gWQBhcZCE3LxB8HY5lhbIJ7QKrog</property>
+        <property name="request_token_url">http://{@inline COMPANY_ALIAS}.goplanapp.com/oauth/request_token</property>
+        <property name="access_token_url">http://{@inline COMPANY_ALIAS}.goplanapp.com/oauth/access_token</property>
+        <property name="authorize_url">http://{@inline COMPANY_ALIAS}.goplanapp.com/oauth/authorize</property>
+        <property name="callback_url">authentication:///</property>
+    </authentication-descriptor>
+
+    
+    <notification-descriptor>
+        <property name="sender_id">853402201726</property>
+    </notification-descriptor>
+    
+</connect-descriptor>
+
