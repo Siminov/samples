@@ -1,0 +1,26 @@
+<service>
+    
+    <property name="name">GOPLAN-PROJECTS</property>
+    <property name="description">Goplan Projects Rest API</property>
+    <property name="protocol">HTTP</property>
+    <property name="instance">{@refer com.siminov.goplan.goplanservices.ServiceUtils.getCompanyAlias}.goplanapp.com</property>
+	<property name="context">api</property>    
+
+    <apis>
+     	<api>
+
+	   		<property name="name">GET-PROJECTS</property>
+         	<property name="type">GET</property>
+         	<property name="api">projects/get_all</property>
+         	<property name="handler">com.siminov.goplan.goplanservices.GetProjects</property>
+         	<property name="mode">SYNC</property>
+      
+	      	<header-parameters>
+	        	<header-parameter name="Accept">application/xml</header-parameter>
+	          	<header-parameter name="Content-Type">application/xml</header-parameter>
+	      	</header-parameters>
+     	
+     	</api>
+	</apis>
+    
+</service>
