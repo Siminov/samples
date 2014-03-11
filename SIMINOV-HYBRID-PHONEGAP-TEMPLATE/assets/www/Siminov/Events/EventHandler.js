@@ -96,40 +96,40 @@ function EventHandler() {
         }
 
         var eventHandler = FunctionUtils.createFunctionInstance(functionName);
-        if(apiName === Constants.EVENT_HANDLER_ISIMINOV_EVENT_FIRST_TIME_SIMINOV_INITIALIZED) {
+        if(apiName === Constants.EVENT_HANDLER_ISIMINOV_EVENT_FIRST_TIME_ON_SIMINOV_INITIALIZED) {
 
             FunctionUtils.invokeAndInflate(eventHandler, apiName);
-        } else if(apiName === Constants.EVENT_HANDLER_ISIMINOV_EVENT_SIMINOV_INITIALIZED) {
+        } else if(apiName === Constants.EVENT_HANDLER_ISIMINOV_EVENT_ON_SIMINOV_INITIALIZED) {
 
             FunctionUtils.invokeAndInflate(eventHandler, apiName);
-        } else if(apiName === Constants.EVENT_HANDLER_ISIMINOV_EVENT_SIMINOV_STOPPED) {
+        } else if(apiName === Constants.EVENT_HANDLER_ISIMINOV_EVENT_ON_SIMINOV_STOPPED) {
 
             setTimeout(FunctionUtils.invokeAndInflate(eventHandler, apiName), 0);
-        } else if(apiName === Constants.EVENT_HANDLER_IDATABASE_EVENT_DATABASE_CREATED) {
+        } else if(apiName === Constants.EVENT_HANDLER_IDATABASE_EVENT_ON_DATABASE_CREATED) {
             
             var databaseDescriptor = parameters[0];
             FunctionUtils.invokeAndInflate(eventHandler, apiName, databaseDescriptor);
             
-        } else if(apiName === Constants.EVENT_HANDLER_IDATABASE_EVENT_DATABASE_DROPPED) {
+        } else if(apiName === Constants.EVENT_HANDLER_IDATABASE_EVENT_ON_DATABASE_DROPPED) {
 
 			var databaseDescriptor = parameters[0];
 			FunctionUtils.invokeAndInflate(eventHandler, apiName, databaseDescriptor);
 
-        } else if(apiName === Constants.EVENT_HANDLER_IDATABASE_EVENT_TABLE_CREATED) {
+        } else if(apiName === Constants.EVENT_HANDLER_IDATABASE_EVENT_ON_TABLE_CREATED) {
 
 			var databaseDescriptor = parameters[0];
 			var databaseMappingDescriptor = parameters[1];
 		
 			FunctionUtils.invokeAndInflate(eventHandler, apiName, databaseDescriptor, databaseMappingDescriptor);
 
-        } else if(apiName === Constants.EVENT_HANDLER_IDATABASE_EVENT_TABLE_DROPPED) {
+        } else if(apiName === Constants.EVENT_HANDLER_IDATABASE_EVENT_ON_TABLE_DROPPED) {
 
 			var databaseDescriptor = parameters[0];
 			var databaseMappingDescriptor = parameters[1];
 		
 			FunctionUtils.invokeAndInflate(eventHandler, apiName, databaseDescriptor, databaseMappingDescriptor);
 
-        } else if(apiName === Constants.EVENT_HANDLER_IDATABASE_EVENT_INDEX_CREATED) {
+        } else if(apiName === Constants.EVENT_HANDLER_IDATABASE_EVENT_ON_INDEX_CREATED) {
 
 			var databaseDescriptor = parameters[0];
 			var databaseMappingDescriptor = parameters[1];
@@ -137,16 +137,25 @@ function EventHandler() {
 			
 			FunctionUtils.invokeAndInflate(eventHandler, apiName, databaseDescriptor, databaseMappingDescriptor, index);
 
-        } else if(apiName === Constants.EVENT_HANDLER_IDATABASE_EVENT_INDEX_DROPPED) {
+        } else if(apiName === Constants.EVENT_HANDLER_IDATABASE_EVENT_ON_INDEX_DROPPED) {
 
 			var databaseDescriptor = parameters[0];
 			var databaseMappingDescriptor = parameters[1];
 			var index = parameters[2];
 		
 			FunctionUtils.invokeAndInflate(eventHandler, apiName, databaseDescriptor, databaseMappingDescriptor, index);
+        } else if(apiName === Constants.EVENT_HANDLER_IAUTHENTICATION_EVENT_ON_AUTHENTICATION_START) {
 
+			var credential = parameters[0];
+        	FunctionUtils.invokeAndInflate(eventHandler, apiName, credential)
+        } else if(apiName === Constants.EVEVT_HANDLER_IAUTHENTICATION_EVENT_ON_AUTHENTICATION_FINISH) {
+        	
+			var credential = parameters[0];
+        	FunctionUtils.invokeAndInflate(eventHandler, apiName, credential)
+        } else if(apiName === Constants.EVENT_HANDLER_IAUTHENTICATION_EVENT_ON_AUTHENTICATION_TERMINATE) {
+        	
+			var credential = parameters[0];
+        	FunctionUtils.invokeAndInflate(eventHandler, apiName, credential)
         }
-
     }
-
 }

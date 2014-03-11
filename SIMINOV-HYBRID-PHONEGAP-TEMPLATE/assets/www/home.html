@@ -45,6 +45,9 @@
         <script src="Liquor/Events/SiminovEventHandler.js"></script>
         <script src="Liquor/Events/DatabaseEventHandler.js"></script>
 
+        <script src="Liquor/Services/GetProjects.js"></script>
+	
+
 		<script>
 
             var credential;
@@ -77,6 +80,9 @@
 			    document.addEventListener("backbutton", onBackKeyPressed, false);
 				document.getElementById('show-loader').click();
 				Siminov.initialize();
+				
+				var credentialManager = CredentialManager.getInstance();
+				alert("is any active account: " + credentialManager.isAnyActiveAccount());
 			}
 
 			
