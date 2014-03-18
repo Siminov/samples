@@ -20,16 +20,16 @@
 
 
  
-<library>
+<library-descriptor>
 
 	<property name="name">SIMINOV LIBRARY TEMPLATE</property>
 	<property name="description">Siminov Library Template</property>
 
-	<database-mappings>
-		<database-mapping>SIMINOV-TEMPLATE.Credential.si.xml</database-mapping>
-	</database-mappings>
+	<database-mapping-descriptors>
+		<database-mapping-descriptor>SIMINOV-TEMPLATE.Credential.si.xml</database-mapping-descriptor>
+	</database-mapping-descriptors>
 	 
-</library>
+</library-descriptor>
 
 
 
