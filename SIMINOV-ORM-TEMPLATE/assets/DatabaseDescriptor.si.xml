@@ -27,10 +27,10 @@
 	<property name="version">1</property>
 	<property name="is_locking_required">true</property>
 
-	<database-mappings>
-		<database-mapping>Liquor-Mappings/Liquor.si.xml</database-mapping>
-		<database-mapping>Liquor-Mappings/LiquorBrand.si.xml</database-mapping>
-	</database-mappings>
+	<database-mapping-descriptors>
+		<database-mapping-descriptor>Liquor-Mappings/Liquor.si.xml</database-mapping-descriptor>
+		<database-mapping-descriptor>Liquor-Mappings/LiquorBrand.si.xml</database-mapping-descriptor>
+	</database-mapping-descriptors>
 
 </database-descriptor>
 

@@ -39,9 +39,9 @@
 	    <event-handler>siminov.orm.template.events.DatabaseEventHandler</event-handler>
 	</event-handlers>
 
-	<libraries>
-	 	<library>siminov.orm.library.template.resources</library>   
-	</libraries>
+	<library-descriptors>
+	 	<library-descriptor>siminov.orm.library.template.resources</library-descriptor>   
+	</library-descriptors>
 			
 </siminov>
 

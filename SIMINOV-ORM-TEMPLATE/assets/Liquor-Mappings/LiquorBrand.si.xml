@@ -18,7 +18,7 @@
 
  -->
 
-<database-mapping>
+<database-mapping-descriptor>
 
 	<table table_name="LIQUOR_BRAND" class_name="siminov.orm.template.model.LiquorBrand">
 
@@ -52,5 +52,5 @@
 
 	</table>
 
-</database-mapping>		
+</database-mapping-descriptor>		
 		
