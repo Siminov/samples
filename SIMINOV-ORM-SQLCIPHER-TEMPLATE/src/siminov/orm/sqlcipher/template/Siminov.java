@@ -30,11 +30,9 @@ public class Siminov extends Application {
 	
 	private void initializeSiminov() {
 		
-		IInitializer initializer = siminov.orm.Siminov.initialize();
+		IInitializer initializer = siminov.orm.Siminov.initializer();
 		initializer.addParameter(this);
 		
-		initializer.start();
-		
+		initializer.initialize();
 	}
-	
 }
