@@ -20,16 +20,16 @@
 
 
  
-<library>
+<library-descriptor>
 
 	<property name="name">SIMINOV-HYBRID-PHONEGAP-LIBRARY-TEMPLATE</property>
 	<property name="description">Siminov Hybrid Phonegap Library Template</property>
 
-	<database-mappings>
-		<database-mapping>SIMINOV-HYBRID-TEMPLATE.Credential.si.xml</database-mapping>
-	</database-mappings>
+	<database-mapping-descriptors>
+		<database-mapping-descriptor>SIMINOV-HYBRID-TEMPLATE.Authentication.si.xml</database-mapping-descriptor>
+	</database-mapping-descriptors>
 	 
-</library>
+</library-descriptor>
 
 
 

@@ -17,7 +17,7 @@
 
 package siminov.hybrid.phonegap.library.template.apis;
 
-import siminov.hybrid.phonegap.library.template.model.Credential;
+import siminov.hybrid.phonegap.library.template.model.Authentication;
 import siminov.orm.exception.DatabaseException;
 import siminov.orm.log.Log;
 
@@ -25,30 +25,30 @@ public class AuthenticateAPI {
 
 	public void createAccount(String accountId, String token) throws DatabaseException {
 		
-		Credential credential = new Credential();
-		credential.setCredentialType(Credential.CREDENTIAL_TYPE_SIMINOV);
-		credential.setAccountId(accountId);
-		credential.setToken(token);
-		credential.setLogged("true");
+		Authentication authentication = new Authentication();
+		authentication.setCredentialType(Authentication.CREDENTIAL_TYPE_SIMINOV);
+		authentication.setAccountId(accountId);
+		authentication.setToken(token);
+		authentication.setLogged("true");
 
-		credential.save();
+		authentication.save();
 	}
 	
 	public boolean authenticateCredential(String accountId, String token) throws DatabaseException {
 		
-		Credential[] credentials = (Credential[]) new Credential().select().where(Credential.ACCOUNT_ID).equalTo(accountId).fetch();
+		Authentication[] authentications = (Authentication[]) new Authentication().select().where(Authentication.ACCOUNT_ID).equalTo(accountId).fetch();
 		
-		if(credentials == null || credentials.length <= 0) {
+		if(authentications == null || authentications.length <= 0) {
 			Log.logi(getClass().getName(), "authenticateCredential", "NO SUCH ACCOUNT ID PRESENT, ACCOUNT-ID: " + accountId);
 			throw new DatabaseException(getClass().getName(), "authenticateCredential", "NO SUCH ACCOUNT ID PRESENT, ACCOUNT-ID: " + accountId);
 		}
 
-		return credentials[0].getToken().equals(token);
+		return authentications[0].getToken().equals(token);
 	}
 
 	public boolean isAccountPresent() {
 		try {
-			Integer noOfCredentials = (Integer) new Credential().count().execute();
+			Integer noOfCredentials = (Integer) new Authentication().count().execute();
 			return noOfCredentials > 0 ? true : false;
 		} catch(DatabaseException databaseException) {
 			Log.loge(getClass().getName(), "isAccountPresent", databaseException.getMessage());

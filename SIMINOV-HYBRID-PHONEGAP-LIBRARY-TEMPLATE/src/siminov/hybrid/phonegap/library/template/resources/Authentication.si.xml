@@ -18,9 +18,9 @@
 
 -->
  
-<database-mapping>
+<database-mapping-descriptor>
 
-	<table table_name="CREDENTIAL" class_name="siminov.hybrid.phonegap.library.template.model.Credential">
+	<table table_name="AUTHENTICATION" class_name="siminov.hybrid.phonegap.library.template.model.Authentication">
 		
 		<column variable_name="accountId" column_name="ACCOUNT_ID">
 			<property name="type">java.lang.String</property>
@@ -48,4 +48,4 @@
 		
 	</table>
 
-</database-mapping>
+</database-mapping-descriptor>

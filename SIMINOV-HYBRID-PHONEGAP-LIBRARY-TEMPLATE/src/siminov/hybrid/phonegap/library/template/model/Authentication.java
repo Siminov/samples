@@ -20,7 +20,7 @@ package siminov.hybrid.phonegap.library.template.model;
 import siminov.orm.database.Database;
 
 
-public class Credential extends Database {
+public class Authentication extends Database {
 
 	//Table Name.
 	public static final String TABLE_NAME = "CREDENTIAL";
