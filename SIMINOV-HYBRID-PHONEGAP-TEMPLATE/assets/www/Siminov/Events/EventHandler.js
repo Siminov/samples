@@ -97,15 +97,23 @@ function EventHandler() {
 
 
         var eventHandler = FunctionUtils.createFunctionInstance(functionName);
+        
+        /*
+         * ISiminov Events
+         */
         if(apiName === Constants.EVENT_HANDLER_ISIMINOV_EVENT_ON_FIRST_TIME_SIMINOV_INITIALIZED) {
-			alert("invoke first: " + apiName);
+
             FunctionUtils.invokeAndInflate(eventHandler, apiName);
         } else if(apiName === Constants.EVENT_HANDLER_ISIMINOV_EVENT_ON_SIMINOV_INITIALIZED) {
-			alert("invoke initialized: " + apiName);
+
             FunctionUtils.invokeAndInflate(eventHandler, apiName);
         } else if(apiName === Constants.EVENT_HANDLER_ISIMINOV_EVENT_ON_SIMINOV_STOPPED) {
 
             setTimeout(FunctionUtils.invokeAndInflate(eventHandler, apiName), 0);
+            
+        /*
+         * IDatabase Events
+         */
         } else if(apiName === Constants.EVENT_HANDLER_IDATABASE_EVENT_ON_DATABASE_CREATED) {
             
             var databaseDescriptor = parameters[0];
@@ -157,6 +165,23 @@ function EventHandler() {
         	
 			var credential = parameters[0];
         	FunctionUtils.invokeAndInflate(eventHandler, apiName, credential)
+        
+        
+        /*
+         * INotification Events
+         */
+        } else if(apiName === Constants.EVENT_HANDLER_INOTIFICATION_EVENT_ON_REGISTRATION) {
+        	
+        	var registration = parameters[0];
+			FunctionUtils.invokeAndInflate(eventHandler, apiName, registration);        	
+        } else if(apiName === Constants.EVENT_HANDLER_INOTIFICATION_EVENT_ON_UNREGISTRATION) {
+        	
+        	var registration = parameters[0];
+			FunctionUtils.invokeAndInflate(eventHandler, apiName, registration);        	
+        } else if(apiName === Constants.EVENT_HANDLER_INOTIFICATION_EVENT_ON_NOTIFICATION) {
+        	
+        	var message = parameters[0];
+			FunctionUtils.invokeAndInflate(eventHandler, apiName, message);        	
         }
     }
 }

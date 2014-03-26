@@ -40,11 +40,17 @@
 	    <service-descriptor>Liquor-Services/Projects.si.xml</service-descriptor>
 	</service-descriptors>	
 	
+    
+    <notification-descriptor>
+        <property name="sender_id">853402201726</property>
+    </notification-descriptor>
 	
+    	
 	<!-- SIMINOV EVENTS -->
  	<event-handlers>
 	    <event-handler>siminov.hybrid.phonegap.template.events.SiminovEventHandler</event-handler>
 	    <event-handler>siminov.hybrid.phonegap.template.events.DatabaseEventHandler</event-handler>
+	    <event-handler>siminov.hybrid.phonegap.template.events.NotificationEventHandler</event-handler>
 	</event-handlers>
 
  	<library-descriptors>

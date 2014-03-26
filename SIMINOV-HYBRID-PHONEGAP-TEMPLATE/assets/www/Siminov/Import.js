@@ -137,20 +137,20 @@ document.write('<script type="text/javascript" src="Siminov/Service/Design/IServ
  
 
  
- 
-/*
-	Authentication Import
- */
-document.write('<script type="text/javascript" src="Siminov/Audthentication/AuthenticationFactory.js"></script>');
-document.write('<script type="text/javascript" src="Siminov/Audthentication/Credential.js"></script>');
-document.write('<script type="text/javascript" src="Siminov/Audthentication/CredentialManager.js"></script>');
-
-
 
 /*
  * Connection Import
  */ 
 document.write('<script type="text/javascript" src="Siminov/Connection/ConnectionRequest.js"></script>');
 document.write('<script type="text/javascript" src="Siminov/Connection/ConnectionResponse.js"></script>');
+ 
+
+
+/*
+ * Notification Import
+ */ 
+document.write('<script type="text/javascript" src="Siminov/Notification/NotificationManager.js"></script>');
+document.write('<script type="text/javascript" src="Siminov/Notification/Message.js"></script>');
+document.write('<script type="text/javascript" src="Siminov/Notification/Registration.js"></script>');
  
  

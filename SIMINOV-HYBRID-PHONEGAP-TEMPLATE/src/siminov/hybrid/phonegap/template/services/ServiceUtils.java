@@ -1,5 +1,7 @@
 package siminov.hybrid.phonegap.template.services;
 
+import java.sql.Connection;
+
 import oauth.signpost.OAuthConsumer;
 import oauth.signpost.commonshttp.CommonsHttpOAuthConsumer;
 
@@ -7,7 +9,6 @@ import org.apache.http.client.methods.HttpGet;
 
 import siminov.connect.Constants;
 import siminov.connect.authorization.oauth.OauthConstants;
-import siminov.connect.connection.http.Connection;
 import siminov.hybrid.phonegap.template.authorization.Credential;
 import siminov.hybrid.phonegap.template.authorization.CredentialManager;
 import siminov.orm.exception.SiminovException;

@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-import siminov.connect.authorization.design.ICredential;
+import siminov.connect.design.authorization.ICredential;
 import siminov.orm.database.Database;
 
 public class Credential extends Database implements ICredential {
