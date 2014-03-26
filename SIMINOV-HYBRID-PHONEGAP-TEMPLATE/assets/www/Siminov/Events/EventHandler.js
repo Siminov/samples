@@ -95,12 +95,13 @@ function EventHandler() {
             }
         }
 
-        var eventHandler = FunctionUtils.createFunctionInstance(functionName);
-        if(apiName === Constants.EVENT_HANDLER_ISIMINOV_EVENT_FIRST_TIME_ON_SIMINOV_INITIALIZED) {
 
+        var eventHandler = FunctionUtils.createFunctionInstance(functionName);
+        if(apiName === Constants.EVENT_HANDLER_ISIMINOV_EVENT_ON_FIRST_TIME_SIMINOV_INITIALIZED) {
+			alert("invoke first: " + apiName);
             FunctionUtils.invokeAndInflate(eventHandler, apiName);
         } else if(apiName === Constants.EVENT_HANDLER_ISIMINOV_EVENT_ON_SIMINOV_INITIALIZED) {
-
+			alert("invoke initialized: " + apiName);
             FunctionUtils.invokeAndInflate(eventHandler, apiName);
         } else if(apiName === Constants.EVENT_HANDLER_ISIMINOV_EVENT_ON_SIMINOV_STOPPED) {
 

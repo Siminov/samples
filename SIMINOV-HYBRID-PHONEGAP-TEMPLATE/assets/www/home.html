@@ -36,7 +36,7 @@
 
 		<script src="Liquor/Models/Liquor.js"></script>
 		<script src="Liquor/Models/LiquorBrand.js"></script>
-		<script src="Liquor/Models/Credential.js"></script>
+		<script src="Liquor/Models/Authentication.js"></script>
 
         <script src="Liquor/Constants.js"></script>
 
@@ -50,7 +50,7 @@
 
 		<script>
 
-            var credential;
+            var authentication;
             var liquors;
 
             document.addEventListener("deviceready", deviceReady, false);
@@ -80,6 +80,10 @@
 			    document.addEventListener("backbutton", onBackKeyPressed, false);
 				document.getElementById('show-loader').click();
 				Siminov.initialize();
+				
+				
+//				var getProjects = new GetProjects();
+//				getProjects.invoke();
 			}
 
 			
@@ -107,12 +111,13 @@
 			}
 
 		    function initialize() {
+		    	alert("initialize");
 
-                var credentials;
-				credentials = new Credential().select().fetch();
+                var authentications;
+				authentications = new Authentication().select().fetch();
 
-                if(credentials != undefined && credentials != null && credentials.length > 0) {
-					credential = credentials[0];
+                if(authentications != undefined && authentications != null && authentications.length > 0) {
+					authentication = authentications[0];
                 } else {
                 }
                 
@@ -123,13 +128,13 @@
 
 			function login() {
 
-				if(credential != undefined && credential != null) {
+				if(authentication != undefined && authentication != null) {
 	                var accountId = document.getElementById('user-name').value;
 					var password = document.getElementById('password').value;
 					
-					if(credential != undefined) {
-						if(credential.getAccountId() === accountId) {
-							if(credential.getToken() === password) {
+					if(authentication != undefined) {
+						if(authentication.getAccountId() === accountId) {
+							if(authentication.getToken() === password) {
 	                            navHome();
 							} else {
 								alert("Invalid Passsword.");
@@ -145,13 +150,13 @@
 	                var accountId = document.getElementById('user-name').value;
 	                var password = document.getElementById('password').value;
 	
-	                credential = new Credential();
+	                authentication = new Authentication();
 	
-	                credential.setAccountId(accountId);
-	                credential.setToken(password);
-	                credential.setCredentialType("SIMINOV");
+	                authentication.setAccountId(accountId);
+	                authentication.setToken(password);
+	                authentication.setCredentialType("SIMINOV");
 	
-	                credential.saveOrUpdate();
+	                authentication.saveOrUpdate();
 	
 					navHome();
 				

@@ -129,8 +129,28 @@ document.write('<script type="text/javascript" src="Siminov/Exception/SiminovExc
  */
 document.write('<script type="text/javascript" src="Siminov/Service/Service.js"></script>');
 document.write('<script type="text/javascript" src="Siminov/Service/ServiceHandler.js"></script>');
+document.write('<script type="text/javascript" src="Siminov/Service/ServiceEventHandler.js"></script>');
  
 document.write('<script type="text/javascript" src="Siminov/Service/Design/IInlineResource.js"></script>');
 document.write('<script type="text/javascript" src="Siminov/Service/Design/IService.js"></script>');
 document.write('<script type="text/javascript" src="Siminov/Service/Design/IServiceEvents.js"></script>');
+ 
+
+ 
+ 
+/*
+	Authentication Import
+ */
+document.write('<script type="text/javascript" src="Siminov/Audthentication/AuthenticationFactory.js"></script>');
+document.write('<script type="text/javascript" src="Siminov/Audthentication/Credential.js"></script>');
+document.write('<script type="text/javascript" src="Siminov/Audthentication/CredentialManager.js"></script>');
+
+
+
+/*
+ * Connection Import
+ */ 
+document.write('<script type="text/javascript" src="Siminov/Connection/ConnectionRequest.js"></script>');
+document.write('<script type="text/javascript" src="Siminov/Connection/ConnectionResponse.js"></script>');
+ 
  

@@ -1,32 +1,32 @@
 
 function DatabaseEventHandler() {
 
-    this.databaseCreated = function(databaseDescriptor) {
+    this.onDatabaseCreated = function(databaseDescriptor) {
 //        alert("databaseCreated");
     }
 
 
-    this.databaseDropped = function(databaseDescriptor) {
+    this.onDatabaseDropped = function(databaseDescriptor) {
 //        alert("databaseDropped");
     }
 
 
-    this.tableCreated = function(databaseDescriptor, databaseMappingDescriptor) {
+    this.onTableCreated = function(databaseDescriptor, databaseMappingDescriptor) {
 //        alert("tableCreated");
     }
 
 
-    this.tableDropped = function(databaseDescriptor, databaseMappingDescriptor) {
+    this.onTableDropped = function(databaseDescriptor, databaseMappingDescriptor) {
 //        alert("tableDropped");
     }
 
 
-    this.indexCreated = function(databaseDescriptor, databaseMappingDescriptor, index) {
+    this.onIndexCreated = function(databaseDescriptor, databaseMappingDescriptor, index) {
 //        alert("indexCreated");
     }
 
 
-    this.indexDropped = function(databaseDescriptor, databaseMappingDescriptor, index) {
+    this.onIndexDropped = function(databaseDescriptor, databaseMappingDescriptor, index) {
 //        alert("indexDropped");
     }
 

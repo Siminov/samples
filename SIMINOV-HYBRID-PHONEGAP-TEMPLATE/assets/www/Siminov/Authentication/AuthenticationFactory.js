@@ -7,6 +7,7 @@ var AuthenticationFactory = (function() {
 	return {
 	
 		getInstance : function() {
+			
 			if(authenticationFactory == null) {
 				authenticationFactory = new AuthenticationFactory();
 				

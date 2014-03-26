@@ -1,21 +1,21 @@
 
 function SiminovEventHandler() {
 
-    this.firstTimeSiminovInitialized = function() {
-//        alert("firstTimeSiminovInitialized");
-
+    this.onFirstTimeSiminovInitialized = function() {
+    	alert("onFirstTimeSiminovInitialized");
 		new DatabaseUtils().prepareData();
 
         initialize();
     }
 
 
-    this.siminovInitialized = function() {
+    this.onSiminovInitialized = function() {
+    	alert("onSiminovInitialized");
         initialize();
     }
 
 
-    this.siminovStopped = function() {
+    this.onSiminovStopped = function() {
         exitApp();
     }
 

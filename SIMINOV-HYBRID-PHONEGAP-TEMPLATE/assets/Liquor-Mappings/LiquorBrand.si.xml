@@ -19,7 +19,7 @@
 
  -->
 
-<database-mapping>
+<database-mapping-descriptor>
 
 	<table table_name="LIQUOR_BRAND" class_name="LiquorBrand">
 
@@ -53,5 +53,5 @@
 
 	</table>
 
-</database-mapping>		
+</database-mapping-descriptor>		
 		

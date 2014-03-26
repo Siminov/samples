@@ -1,9 +1,9 @@
-<service>
+<service-descriptor>
     
     <property name="name">GOPLAN-PROJECTS</property>
     <property name="description">Goplan Projects Rest API</property>
     <property name="protocol">HTTP</property>
-    <property name="instance">{@refer com.siminov.goplan.goplanservices.ServiceUtils.getCompanyAlias}.goplanapp.com</property>
+    <property name="instance">{@refer siminov.hybrid.phonegap.template.services.ServiceUtils.getCompanyAlias}.goplanapp.com</property>
 	<property name="context">api</property>    
 
     <apis>
@@ -12,7 +12,7 @@
 	   		<property name="name">GET-PROJECTS</property>
          	<property name="type">GET</property>
          	<property name="api">projects/get_all</property>
-         	<property name="handler">com.siminov.goplan.goplanservices.GetProjects</property>
+         	<property name="handler">GetProjects</property>
          	<property name="mode">SYNC</property>
       
 	      	<header-parameters>
@@ -23,4 +23,4 @@
      	</api>
 	</apis>
     
-</service>
+</service-descriptor>

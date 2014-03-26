@@ -119,7 +119,6 @@ function Adapter() {
         }
 
         var json = SIJsonHelper.toJson(siminovDatas);
-        alert("call: " + adapterName + ", " + handlerName + ", " + json);
         return window.SIMINOV.handleWebToNative(adapterName + "." + handlerName, json);
     }
 

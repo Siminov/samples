@@ -23,7 +23,7 @@ var ServiceHandler = (function() {
 		
 		
 		this.handle = function(iService) {
-			alert("handle");
+
 	        var adapter = new Adapter();
 	        adapter.setAdapterName(Constants.SIMINOV_SERVICE_ADAPTER);
 	        adapter.setHandlerName(Constants.SIMINOV_SERVICE_ADAPTER_INVOKE_HANDLER);
@@ -41,14 +41,11 @@ var ServiceHandler = (function() {
 			var inlineResourcesHybrid = new HybridSiminovDatas.HybridSiminovData();
 			inlineResourcesHybrid.setDataType(Constants.SIMINOV_SERVICE_ADAPTER_INVOKE_HANDLER_INLINE_RESOURCES);			
 
-			alert("before get inline resources");
 			var inlineResources = iService.getInlineResources();
-			alert("inline resourcs: " + inlineResources.length);
 			for(var i = 0;i < inlineResources.length;i++) {
 				
 				var inlineResourceKey = inlineResources[i];
 				var inlineResourceValue = iService.getInlineResource(inlineResourceKey);
-				alert("key: " + inlineResourceKey + ", value: " + inlineResourceValue);
 
 				var inlineResourceHybrid = new HybridSiminovDatas.HybridSiminovData();
 				inlineResourceHybrid.setDataType(inlineResourceKey);
@@ -67,7 +64,6 @@ var ServiceHandler = (function() {
 			var data = SIJsonHelper.toJson(hybridSiminovDatas);
 			
 			adapter.addParameter(encodeURI(data));
-			alert("data: " + data);
 			adapter.invoke();
 		}
 	}

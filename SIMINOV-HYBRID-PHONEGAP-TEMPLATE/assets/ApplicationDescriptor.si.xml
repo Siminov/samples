@@ -35,14 +35,20 @@
 		<database-descriptor>DatabaseDescriptor.si.xml</database-descriptor>
 	</database-descriptors>
 
+	
+	<service-descriptors>
+	    <service-descriptor>Liquor-Services/Projects.si.xml</service-descriptor>
+	</service-descriptors>	
+	
+	
 	<!-- SIMINOV EVENTS -->
  	<event-handlers>
 	    <event-handler>siminov.hybrid.phonegap.template.events.SiminovEventHandler</event-handler>
 	    <event-handler>siminov.hybrid.phonegap.template.events.DatabaseEventHandler</event-handler>
 	</event-handlers>
 
- 	<libraries>
- 	    <library>siminov.hybrid.phonegap.library.template.resources</library>
- 	</libraries>
+ 	<library-descriptors>
+ 	    <library-descriptor>siminov.hybrid.phonegap.library.template.resources</library-descriptor>
+ 	</library-descriptors> 
  			
 </siminov>

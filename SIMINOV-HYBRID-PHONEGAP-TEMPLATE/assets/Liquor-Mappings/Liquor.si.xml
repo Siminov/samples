@@ -18,7 +18,7 @@
 
  -->
 
-<database-mapping>
+<database-mapping-descriptor>
 
 	<table table_name="LIQUOR" class_name="Liquor">
 		
@@ -55,10 +55,10 @@
 		    <one-to-many refer="liquorBrands" refer_to="LiquorBrand" on_update="cascade" on_delete="cascade">
 				<property name="load">true</property>
 			</one-to-many>		
-		    
-		</relationships>
+	
+   		</relationships>
 											
 	</table>
 
-</database-mapping>		
+</database-mapping-descriptor>		
 		

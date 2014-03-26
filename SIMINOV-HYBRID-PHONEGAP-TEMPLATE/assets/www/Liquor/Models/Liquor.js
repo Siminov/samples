@@ -57,7 +57,6 @@ function Liquor() {
 	this.addLiquorBrand = function(liquorBrand) {
 		liquorBrands[liquorBrands.length] = liquorBrand;
 	}
-
 }
 
 
