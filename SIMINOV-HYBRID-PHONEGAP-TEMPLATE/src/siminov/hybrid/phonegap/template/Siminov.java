@@ -17,7 +17,6 @@ public class Siminov extends DroidGap {
 		initializeSiminov();
 
 		super.loadUrl("file:///android_asset/www/home.html");
-		
 	}
 
 
