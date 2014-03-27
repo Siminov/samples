@@ -39,5 +39,4 @@ function SiminovExceptionHandler() {
     this.display = function(data) {
         alert(data);
     }
-
 }

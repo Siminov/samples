@@ -97,6 +97,7 @@ function EventHandler() {
 
 
         var eventHandler = FunctionUtils.createFunctionInstance(functionName);
+      
         
         /*
          * ISiminov Events
@@ -171,7 +172,7 @@ function EventHandler() {
          * INotification Events
          */
         } else if(apiName === Constants.EVENT_HANDLER_INOTIFICATION_EVENT_ON_REGISTRATION) {
-        	
+
         	var registration = parameters[0];
 			FunctionUtils.invokeAndInflate(eventHandler, apiName, registration);        	
         } else if(apiName === Constants.EVENT_HANDLER_INOTIFICATION_EVENT_ON_UNREGISTRATION) {
@@ -182,6 +183,10 @@ function EventHandler() {
         	
         	var message = parameters[0];
 			FunctionUtils.invokeAndInflate(eventHandler, apiName, message);        	
+        } else if(apiName === Constants.EVENT_HANDLER_INOTIFICATION_EVENT_ON_ERROR) {
+        	
+        	var notificationException = parameters[0];
+        	FunctionUtils.invokeAndInflate(eventHandler, apiName, notificationException);
         }
     }
 }
