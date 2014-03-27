@@ -10,7 +10,7 @@ public class SiminovEventHandler implements ISiminovEvents {
 	public void onFirstTimeSiminovInitialized() {
 
 		
-		Credential credential = new Credential();
+		/*Credential credential = new Credential();
 		credential.setAccountId("pranavchauhan001");
 		credential.setToken("1ZqY6hQUBByC0Iak3Cjb5l8ts5vBLijshAWeNgBQ:40KwoQakQu4xouOb8GPjDWu4fHHna3adCnwlfB3K");
 		credential.setActive(true);
@@ -21,12 +21,12 @@ public class SiminovEventHandler implements ISiminovEvents {
 			credential.saveOrUpdate();
 		} catch(DatabaseException de) {
 			//Log.loge(Siminov.class.getName(), "", "DatabaseException caught while saving or updating credential: " + de.getMessage());
-		}
+		}*/
 	}
 
 	public void onSiminovInitialized() {
 		
-		Credential credential = new Credential();
+		/*Credential credential = new Credential();
 		credential.setAccountId("pranavchauhan001");
 		credential.setToken("1ZqY6hQUBByC0Iak3Cjb5l8ts5vBLijshAWeNgBQ:40KwoQakQu4xouOb8GPjDWu4fHHna3adCnwlfB3K");
 		credential.setActive(true);
@@ -37,11 +37,10 @@ public class SiminovEventHandler implements ISiminovEvents {
 			credential.saveOrUpdate();
 		} catch(DatabaseException de) {
 			//Log.loge(Siminov.class.getName(), "", "DatabaseException caught while saving or updating credential: " + de.getMessage());
-		}
+		}*/
 	}
 
 	public void onSiminovStopped() {
-		System.out.print("");
+		
 	}
-
 }
