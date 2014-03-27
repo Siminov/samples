@@ -44,6 +44,7 @@
 
         <script src="Liquor/Events/SiminovEventHandler.js"></script>
         <script src="Liquor/Events/DatabaseEventHandler.js"></script>
+        <script src="Liquor/Events/NotificationEventHandler.js"></script>
 
         <script src="Liquor/Services/GetProjects.js"></script>
 	
@@ -82,8 +83,8 @@
 				Siminov.initialize();
 				
 				
-//				var getProjects = new GetProjects();
-//				getProjects.invoke();
+				var notificationManager = NotificationManager.getInstance();
+				notificationManager.doRegistration();
 			}
 
 			
@@ -111,7 +112,6 @@
 			}
 
 		    function initialize() {
-		    	alert("initialize");
 
                 var authentications;
 				authentications = new Authentication().select().fetch();
