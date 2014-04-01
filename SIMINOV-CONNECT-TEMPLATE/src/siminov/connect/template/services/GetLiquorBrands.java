@@ -16,7 +16,7 @@ import android.support.v4.app.Fragment;
 
 public class GetLiquorBrands extends Service {
 
-	public static final String SERVICE_NAME = "SIMINOV-CONNECT-LIQUOR-BRANDS";
+	public static final String SERVICE_NAME = "SIMINOV-CONNECT-LIQUOR-BRANDS-SERVICE";
 	public static final String API_NAME = "GET-LIQUOR-BRANDS";
 	
 	public static final String LIQUOR_NAME = "LIQUOR-NAME";
