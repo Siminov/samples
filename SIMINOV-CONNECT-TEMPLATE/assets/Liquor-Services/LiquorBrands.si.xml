@@ -1,0 +1,31 @@
+<service-descriptor>
+    
+    <property name="name">SIMINOV-CONNECT-LIQUOR-BRANDS-SERVICE</property>
+    <property name="description">Siminov Connect Liquor Brands Service</property>
+    <property name="protocol">HTTP</property>
+    <property name="instance">10.0.2.2</property>
+    <property name="port">8080</property>
+	<property name="context">CONNECT-ENTERPRISE</property>    
+
+    <apis>
+     	<api>
+
+        	<property name="name">GET-LIQUOR-BRANDS</property>
+         	<property name="type">GET</property>
+         	<property name="api">get-liquor-brands</property>
+         	<property name="handler">siminov.connect.template.services.GetLiquorBrands</property>
+	     	<property name="mode">SYNC</property>
+
+	     	<query-parameters>
+	     	    <query-parameter name="name">{@inline LIQUOR-NAME}</query-parameter>
+	     	</query-parameters>
+	     	
+	      	<header-parameters>
+	        	<header-parameter name="Accept">application/xml</header-parameter>
+	          	<header-parameter name="Content-Type">application/xml</header-parameter>
+	      	</header-parameters>
+     	
+		</api>
+    </apis>
+    
+</service-descriptor>

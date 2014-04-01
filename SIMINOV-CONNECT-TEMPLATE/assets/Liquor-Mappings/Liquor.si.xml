@@ -1,0 +1,64 @@
+<!-- 
+/** 
+ * [SIMINOV FRAMEWORK]
+ * Copyright [2013] [Siminov Software Solution LLP|support@siminov.com]
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **/
+
+ -->
+
+<database-mapping-descriptor>
+
+	<table table_name="LIQUOR" class_name="siminov.connect.template.model.Liquor">
+		
+		<column variable_name="liquorType" column_name="LIQUOR_TYPE">
+			<property name="type">java.lang.String</property>
+			<property name="primary_key">true</property>
+			<property name="not_null">true</property>
+			<property name="unique">true</property>
+		</column>		
+
+		<column variable_name="description" column_name="DESCRIPTION">
+			<property name="type">java.lang.String</property>
+		</column>
+
+		<column variable_name="history" column_name="HISTORY">
+			<property name="type">java.lang.String</property>
+		</column>
+
+		<column variable_name="link" column_name="LINK">
+			<property name="type">java.lang.String</property>
+			<property name="default">www.wikipedia.org</property>
+		</column>
+
+		<column variable_name="alcholContent" column_name="ALCHOL_CONTENT">
+			<property name="type">java.lang.String</property>
+		</column>
+
+		<index name="LIQUOR_INDEX_BASED_ON_LINK" unique="true">
+			<column>HISTORY</column>
+		</index>
+
+		<relationships>
+
+		    <one-to-many refer="liquorBrands" refer_to="siminov.connect.template.model.LiquorBrand" on_update="cascade" on_delete="cascade">
+				<property name="load">true</property>
+			</one-to-many>		
+		    
+		</relationships>
+											
+	</table>
+
+</database-mapping-descriptor>		
+		
