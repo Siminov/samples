@@ -46,6 +46,12 @@
 	</event-handlers>
 
 	
+	<syn-descriptors>
+	    <sync-descriptor>Liquor-Sync/Liquors.si.xml</sync-descriptor>
+	    <sync-descriptor>Liquor-Sync/LiquorBrands.si.xml</sync-descriptor>
+	</syn-descriptors>
+	
+	
 	<!-- <library-descriptors>
 	 	<library-descriptor>siminov.orm.library.template.resources</library-descriptor>   
 	</library-descriptors> -->
