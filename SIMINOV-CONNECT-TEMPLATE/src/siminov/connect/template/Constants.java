@@ -26,4 +26,11 @@ public interface Constants {
 
 
 	public String NEW_LINE = "\n";
+	
+	
+	/*
+	 * Sync Constants
+	 */
+	public String SYNC_LIQUORS = "SYNC-LIQUORS";
+	public String SYNC_LIQUOR_BRANDS = "SYNC-LIQUOR-BRANDS";
 }
