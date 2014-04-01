@@ -17,6 +17,10 @@
 
 package siminov.connect.template.fragments;
 
+import siminov.connect.design.sync.ISyncRequest;
+import siminov.connect.sync.SyncHandler;
+import siminov.connect.sync.SyncRequest;
+import siminov.connect.template.Constants;
 import siminov.connect.template.R;
 import siminov.connect.template.StateManager;
 import siminov.connect.template.model.Liquor;
@@ -75,9 +79,12 @@ public class Home extends ListFragment {
 	
 	private void getLiquors() {
 		
-		GetLiquors getLiquors = new GetLiquors();
-		getLiquors.setComponent(this);
+		ISyncRequest syncRequest = new SyncRequest();
+		syncRequest.setName(Constants.SYNC_LIQUORS);
+		syncRequest.addResource(GetLiquors.UI_COMPONENT, this);
+	
 		
-		getLiquors.invoke();
+		SyncHandler syncHandler = SyncHandler.getInstance();
+		syncHandler.handle(syncRequest);
 	}
 }

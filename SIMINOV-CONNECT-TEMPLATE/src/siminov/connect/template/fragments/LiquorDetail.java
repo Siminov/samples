@@ -20,6 +20,10 @@ package siminov.connect.template.fragments;
 import java.util.Collection;
 import java.util.LinkedList;
 
+import siminov.connect.design.sync.ISyncRequest;
+import siminov.connect.sync.SyncHandler;
+import siminov.connect.sync.SyncRequest;
+import siminov.connect.template.Constants;
 import siminov.connect.template.R;
 import siminov.connect.template.StateManager;
 import siminov.connect.template.controllers.LiquorDetailController;
@@ -101,11 +105,13 @@ public class LiquorDetail extends ListFragment {
 
 		Liquor liquor = ((siminov.connect.template.activities.LiquorDetail) getActivity()).getLiquor();
 
-		GetLiquorBrands getLiquorBrands = new GetLiquorBrands();
-		getLiquorBrands.addInlineResource(GetLiquorBrands.LIQUOR_NAME, liquor.getLiquorType());
-		getLiquorBrands.setLiquor(liquor);
-		getLiquorBrands.setComponent(this);
+		ISyncRequest syncRequest = new SyncRequest();
+		syncRequest.setName(Constants.SYNC_LIQUOR_BRANDS);
+		syncRequest.addResource(GetLiquorBrands.LIQUOR_NAME, liquor.getLiquorType());
+		syncRequest.addResource(GetLiquorBrands.LIQUOR, liquor);
+		syncRequest.addResource(GetLiquorBrands.UI_COMPONENT, this);
 		
-		getLiquorBrands.invoke();
+		SyncHandler syncHandler = SyncHandler.getInstance();
+		syncHandler.handle(syncRequest);
 	}
 }
