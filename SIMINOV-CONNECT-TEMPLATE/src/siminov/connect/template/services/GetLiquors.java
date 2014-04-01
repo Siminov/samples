@@ -18,19 +18,11 @@ public class GetLiquors extends Service {
 	public static final String SERVICE_NAME = "SIMINOV-CONNECT-LIQUORS-SERVICE";
 	public static final String API_NAME = "GET-LIQUORS";
 	
-	private Fragment fragment = null;
+	public static final String UI_COMPONENT = "UI_COMPONENT";
 	
 	public GetLiquors() {
 		setService(SERVICE_NAME);
 		setApi(API_NAME);
-	}
-	
-	public Fragment getComponent() {
-		return this.fragment;
-	}
-	
-	public void setComponent(Fragment fragment) {
-		this.fragment = fragment;
 	}
 	
 	public void onServiceStart() {
@@ -59,6 +51,8 @@ public class GetLiquors extends Service {
 
 	public void onServiceApiFinish(IConnectionResponse connectionResponse) {
 		
+		Fragment uiComponent = (Fragment) getResource(UI_COMPONENT);
+		
 		LiquorsReader liquorsReader = new LiquorsReader(connectionResponse.getResponse());
 		Iterator<Liquor> liquors = liquorsReader.getLiquors();
 		
@@ -72,7 +66,7 @@ public class GetLiquors extends Service {
 			}
 		}
 		
-		((Home) fragment).refresh();
+		((Home) uiComponent).refresh();
 	}
 
 	public void onServiceTerminate(ServiceException serviceException) {

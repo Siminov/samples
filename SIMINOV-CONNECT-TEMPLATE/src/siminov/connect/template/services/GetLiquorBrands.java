@@ -21,32 +21,13 @@ public class GetLiquorBrands extends Service {
 	
 	public static final String LIQUOR_NAME = "LIQUOR-NAME";
 	public static final String LIQUOR = "LIQUOR";
-	
-	private Liquor liquor = null;
-	private Fragment fragment = null;
-	
+	public static final String UI_COMPONENT = "UI_COMPONENT";
 	
 	public GetLiquorBrands() {
 		setService(SERVICE_NAME);
 		setApi(API_NAME);
 	}
 
-	public Fragment getComponent() {
-		return this.fragment;
-	}
-	
-	public void setComponent(Fragment fragment) {
-		this.fragment = fragment;
-	}
-	
-	public Liquor getLiquor() {
-		return this.liquor;
-	}
-	
-	public void setLiquor(Liquor liquor) {
-		this.liquor = liquor;
-	}
-	
 	public void onServiceStart() {
 
 	}
@@ -72,6 +53,9 @@ public class GetLiquorBrands extends Service {
 	}
 
 	public void onServiceApiFinish(IConnectionResponse connectionResponse) {
+	
+		Liquor liquor = (Liquor) getResource(LIQUOR);
+		Fragment uiComponent = (Fragment) getResource(UI_COMPONENT);
 		
 		LiquorBrandsReader liquorBrandsReader = new LiquorBrandsReader(connectionResponse.getResponse());
 		Iterator<LiquorBrand> liquorBrands = liquorBrandsReader.getLiquorBrands();
@@ -87,7 +71,7 @@ public class GetLiquorBrands extends Service {
 			}
 		}
 		
-		((LiquorDetail) fragment).refresh();
+		((LiquorDetail) uiComponent).refresh();
 	}
 
 	public void onServiceTerminate(ServiceException serviceException) {
