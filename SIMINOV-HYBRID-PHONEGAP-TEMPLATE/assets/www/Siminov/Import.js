@@ -159,4 +159,12 @@ document.write('<script type="text/javascript" src="Siminov/Notification/Notific
 document.write('<script type="text/javascript" src="Siminov/Notification/Message.js"></script>');
 document.write('<script type="text/javascript" src="Siminov/Notification/Registration.js"></script>');
  
+
+
+/*
+ * Sync Import
+ */ 
+document.write('<script type="text/javascript" src="Siminov/Sync/SyncRequest.js"></script>');
+document.write('<script type="text/javascript" src="Siminov/Sync/SyncHandler.js"></script>');
+ 
  

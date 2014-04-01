@@ -82,9 +82,14 @@
 				document.getElementById('show-loader').click();
 				Siminov.initialize();
 				
+				var syncRequest = new SyncRequest();
+				syncRequest.setName("SYNC-PROJECTS");
+				syncRequest.addInlineResource("RES-1", "01");
+				syncRequest.addInlineResource("RES-2", "02");
 				
-				var notificationManager = NotificationManager.getInstance();
-				notificationManager.doRegistration();
+				
+				var syncHandler = SyncHandler.getInstance();
+				syncHandler.handle(syncRequest);
 			}
 
 			

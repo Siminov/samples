@@ -82,26 +82,30 @@ public class Credential extends Database implements ICredential {
 		this.credentialResources.remove(credentialResource.getName());
 	}
 
-	public Iterator<String> getInlineResources() {
+	public Iterator<String> getResources() {
 		return this.credentialResources.keySet().iterator();
 	}
 
-	public String getInlineResource(String name) {
+	public String getResource(String name) {
 		return this.credentialResources.get(name).getValue();
 	}
 
-	public void addInlineResource(String name, String value) {
+	public void addResource(String name, Object value) {
 
+		if(value instanceof Object) {
+			return;
+		}
+		
 		CredentialResource credentialResource = new CredentialResource();
 		credentialResource.setName(name);
-		credentialResource.setValue(value);
+		credentialResource.setValue((String) value);
 
 		credentialResource.setCredential(this);
 
 		this.credentialResources.put(name, credentialResource);
 	}
 
-	public boolean containInlineResource(String name) {
+	public boolean containResource(String name) {
 		return this.credentialResources.containsKey(name);
 	}
 }
