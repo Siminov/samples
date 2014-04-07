@@ -36,22 +36,43 @@
 	<service-descriptors>
 	    <service-descriptor>Liquor-Services/Liquors.si.xml</service-descriptor>
 	    <service-descriptor>Liquor-Services/LiquorBrands.si.xml</service-descriptor>
+	    <service-descriptor>Liquor-Services/NotificationService.si.xml</service-descriptor>
 	</service-descriptors>
 	
-	
-	<!-- SIMINOV EVENTS -->
-	<event-handlers>
-	    <event-handler>siminov.connect.template.events.SiminovEventHandler</event-handler>
-	    <event-handler>siminov.connect.template.events.DatabaseEventHandler</event-handler>
-	</event-handlers>
-
 	
 	<syn-descriptors>
 	    <sync-descriptor>Liquor-Sync/Liquors.si.xml</sync-descriptor>
 	    <sync-descriptor>Liquor-Sync/LiquorBrands.si.xml</sync-descriptor>
 	</syn-descriptors>
 	
-	
+
+    <!-- Push Notification -->
+    <notification-descriptor>
+        <property name="sender_id">251333150904</property>
+    </notification-descriptor>
+
+    
+		
+	<!-- SIMINOV EVENTS -->
+	<event-handlers>
+	    <event-handler>siminov.connect.template.events.SiminovEventHandler</event-handler>
+	    <event-handler>siminov.connect.template.events.DatabaseEventHandler</event-handler>
+   	    <event-handler>siminov.connect.template.events.NotificationEventHandler</event-handler>
+	</event-handlers>
+
+    
+    <authorization-descriptor>
+        <property name="type">oauth</property>
+        <property name="provider">siminov.connect.template.authorization.CredentialManager</property>
+        <property name="consumer_key">s8ambtU4cWxp4GT7UTwoqEfWqdqR0jxWTN7Npw6p</property>
+        <property name="consumer_secret">RVGQ7bf1qrA2gWQBhcZCE3LxB8HY5lhbIJ7QKrog</property>
+        <property name="request_token_url">http://10.0.2.2:8080/oauth/request_token</property>
+        <property name="access_token_url">http://10.0.2.2:8080/oauth/access_token</property>
+        <property name="authorize_url">http://10.0.2.2:8080/oauth/authorize</property>
+        <property name="callback_url">authentication:///</property>
+    </authorization-descriptor>
+		
+    			
 	<!-- <library-descriptors>
 	 	<library-descriptor>siminov.orm.library.template.resources</library-descriptor>   
 	</library-descriptors> -->
