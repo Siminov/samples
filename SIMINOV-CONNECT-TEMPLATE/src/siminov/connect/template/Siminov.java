@@ -17,6 +17,13 @@
 
 package siminov.connect.template;
 
+import siminov.connect.authorization.AuthorizationFactory;
+import siminov.connect.design.authorization.IAuthorization;
+import siminov.connect.design.authorization.ICredentialManager;
+import siminov.connect.exception.AuthorizationException;
+import siminov.connect.notification.NotificationManager;
+import siminov.connect.template.authorization.Credential;
+import siminov.connect.template.authorization.CredentialManager;
 import siminov.orm.IInitializer;
 import android.app.Application;
 
@@ -26,6 +33,8 @@ public class Siminov extends Application {
 		super.onCreate();
 
 		initializeSiminov();
+		//initializeNotificationService();
+		doAuthorization();
 	}
 	
 	private void initializeSiminov() {
@@ -34,5 +43,32 @@ public class Siminov extends Application {
 		initializer.addParameter(this);
 		
 		initializer.initialize();
+	}
+	
+	
+	private void initializeNotificationService() {
+		
+		NotificationManager notificationManager = NotificationManager.getInstance();
+		notificationManager.doRegistration();
+	}
+	
+	private void doAuthorization() {
+
+		Credential credential = new Credential();
+		credential.setAccountId("pranavchauhan01");
+		credential.setActive(true);
+		
+		ICredentialManager credentialManager = new CredentialManager();
+		credentialManager.setActiveCredential(credential);
+		
+		
+		AuthorizationFactory authorizationFactory = AuthorizationFactory.getInstance();
+		IAuthorization authorization = authorizationFactory.getAuthorization();
+	
+		try {
+			authorization.doAuthentication();
+		} catch(AuthorizationException ae) {
+			
+		}
 	}
 }

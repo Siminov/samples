@@ -18,9 +18,9 @@
 package siminov.connect.template.fragments;
 
 import siminov.connect.design.authorization.ICredential;
-import siminov.connect.template.CredentialManager;
 import siminov.connect.template.R;
-import siminov.connect.template.model.Credential;
+import siminov.connect.template.authorization.Credential;
+import siminov.connect.template.authorization.CredentialManager;
 import siminov.orm.exception.DatabaseException;
 import siminov.orm.log.Log;
 import android.content.Intent;

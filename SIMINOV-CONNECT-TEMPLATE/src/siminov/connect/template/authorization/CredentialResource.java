@@ -1,4 +1,4 @@
-package siminov.connect.template.model;
+package siminov.connect.template.authorization;
 
 import java.io.Serializable;
 

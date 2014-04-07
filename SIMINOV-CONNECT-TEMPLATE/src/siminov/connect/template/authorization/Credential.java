@@ -1,4 +1,4 @@
-package siminov.connect.template.model;
+package siminov.connect.template.authorization;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -86,7 +86,7 @@ public class Credential extends Database implements ICredential {
 		return this.credentialResources.keySet().iterator();
 	}
 
-	public String getResource(String name) {
+	public Object getResource(String name) {
 		return this.credentialResources.get(name).getValue();
 	}
 
