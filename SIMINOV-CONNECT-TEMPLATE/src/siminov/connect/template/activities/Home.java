@@ -18,11 +18,11 @@
 package siminov.connect.template.activities;
 
 import siminov.connect.template.R;
+import siminov.connect.template.StateManager;
 import siminov.connect.template.artist.SliderScroll;
 import siminov.connect.template.artist.SliderScroll.ClickListenerForScrolling;
 import siminov.connect.template.artist.SliderScroll.SizeCallbackForMenu;
 import siminov.connect.template.fragments.TitleBar;
-import siminov.connect.template.services.GetLiquors;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -30,6 +30,9 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
@@ -42,7 +45,7 @@ public class Home extends FragmentActivity implements OnClickListener {
 	
 	private View home = null;
 	private View menuSlider = null;
-
+	
 	private LinearLayout sourceCode = null;
 	
 	public static final String SHOW_MENU_INTENT_HANDLER = Home.class.getName() + "." + "SHOW_MENU_INTENT_HANDLER";
@@ -57,7 +60,7 @@ public class Home extends FragmentActivity implements OnClickListener {
         home = inflater.inflate(R.layout.home_artist, null);
         sourceCode = (LinearLayout) home.findViewById(R.id.source_code);
         sourceCode.setOnClickListener(this);
-        
+
         menuSlider = inflater.inflate(R.layout.menu_slider, null);
         
         final View[] children = new View[] { menuSlider, home };
@@ -69,8 +72,9 @@ public class Home extends FragmentActivity implements OnClickListener {
 	
 	public void onResume() {
 		super.onResume();
-
 		registerReceiver(backgroundRefreshHandler, new IntentFilter(SHOW_MENU_INTENT_HANDLER));
+		
+		StateManager.getInstance().putState(StateManager.ACTIVE_ACTIVITY, this);
 	}
 
 	public void onPause() {
@@ -95,10 +99,14 @@ public class Home extends FragmentActivity implements OnClickListener {
 	};
 
 	public void onClick(View v) {
-		onClick(SOURCE_CODE_KEY);
+		
+		if(v == sourceCode) {
+			onClick(SOURCE_CODE_KEY);
+		}
 	}
 	
 	private void onClick(int key) {
+		
 		switch(key) {
 			case SOURCE_CODE_KEY:
 				Intent intent = new Intent(this, HomeSourceCode.class);
@@ -107,5 +115,27 @@ public class Home extends FragmentActivity implements OnClickListener {
 			default:
 				break;
 		}
+	}
+
+
+	public boolean onCreateOptionsMenu(Menu menu) {
+	    MenuInflater inflater = getMenuInflater();
+	    inflater.inflate(R.menu.home_menu, menu);
+	    return true;
+	}
+
+	
+	public boolean onOptionsItemSelected(MenuItem item) {
+		
+	    switch (item.getItemId()) {
+	        case R.id.add_liquor:
+	        	
+	        	Intent intent = new Intent(this, AddLiquor.class);
+	        	startActivity(intent);
+	        	
+	        	return true;
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
 	}
 }

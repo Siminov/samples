@@ -18,6 +18,7 @@
 package siminov.connect.template.activities;
 
 import siminov.connect.template.R;
+import siminov.connect.template.StateManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 
@@ -28,5 +29,10 @@ public class Login extends FragmentActivity {
 		
 		setContentView(R.layout.login);
 	}
-	
+
+	public void onResume() {
+		super.onResume();
+		
+		StateManager.getInstance().putState(StateManager.ACTIVE_ACTIVITY, this);
+	}
 }

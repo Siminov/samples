@@ -18,6 +18,7 @@
 package siminov.connect.template.activities;
 
 import siminov.connect.template.R;
+import siminov.connect.template.StateManager;
 import android.app.Activity;
 import android.os.Bundle;
 
@@ -27,6 +28,12 @@ public class About extends Activity {
 		super.onCreate(savedInstanceState);
 		
 		setContentView(R.layout.about);
+	}
+	
+	public void onResume() {
+		super.onResume();
+		
+		StateManager.getInstance().putState(StateManager.ACTIVE_ACTIVITY, this);
 	}
 	
 }

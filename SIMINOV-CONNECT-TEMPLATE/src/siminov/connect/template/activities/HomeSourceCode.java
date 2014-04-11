@@ -20,6 +20,7 @@ package siminov.connect.template.activities;
 import java.io.InputStream;
 
 import siminov.connect.template.R;
+import siminov.connect.template.StateManager;
 import siminov.orm.log.Log;
 import siminov.orm.utils.Utils;
 import android.app.Activity;
@@ -38,6 +39,13 @@ public class HomeSourceCode extends Activity {
 		sourceCode = (TextView) findViewById(R.id.source_code);
 		initialize();
 	}
+
+	public void onResume() {
+		super.onResume();
+		
+		StateManager.getInstance().putState(StateManager.ACTIVE_ACTIVITY, this);
+	}
+	
 	
 	private void initialize() {
 		InputStream sourceCodeStream = null;

@@ -18,6 +18,7 @@
 package siminov.connect.template.activities;
 
 import siminov.connect.template.R;
+import siminov.connect.template.StateManager;
 import siminov.connect.template.model.Liquor;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -36,6 +37,12 @@ public class LiquorDetail extends FragmentActivity {
 		setContentView(R.layout.liquor_detail);
 	}
 
+	public void onResume() {
+		super.onResume();
+		
+		StateManager.getInstance().putState(StateManager.ACTIVE_ACTIVITY, this);
+	}
+	
 	public Liquor getLiquor() {
 		return this.liquor;
 	}
