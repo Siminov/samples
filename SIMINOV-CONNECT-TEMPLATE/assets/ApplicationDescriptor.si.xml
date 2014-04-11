@@ -61,7 +61,7 @@
 	</event-handlers>
 
     
-    <authorization-descriptor>
+    <!-- <authorization-descriptor>
         <property name="type">oauth</property>
         <property name="provider">siminov.connect.template.authorization.CredentialManager</property>
         <property name="consumer_key">s8ambtU4cWxp4GT7UTwoqEfWqdqR0jxWTN7Npw6p</property>
@@ -70,7 +70,7 @@
         <property name="access_token_url">http://10.0.2.2:8080/oauth/access_token</property>
         <property name="authorize_url">http://10.0.2.2:8080/oauth/authorize</property>
         <property name="callback_url">authentication:///</property>
-    </authorization-descriptor>
+    </authorization-descriptor> -->
 		
     			
 	<!-- <library-descriptors>

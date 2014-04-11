@@ -28,7 +28,21 @@
          	<property name="type">PUT</property>
          	<property name="api">add-liquor</property>
          	<property name="handler">siminov.connect.template.services.AddLiquor</property>
-	     	<property name="mode">SYNC</property>
+	     	<property name="mode">ASYNC</property>
+
+	      	<header-parameters>
+	        	<header-parameter name="Accept">application/xml</header-parameter>
+	          	<header-parameter name="Content-Type">application/xml</header-parameter>
+	      	</header-parameters>
+     	
+		</api>
+     	<api>
+
+        	<property name="name">MODIFY-LIQUOR</property>
+         	<property name="type">PUT</property>
+         	<property name="api">modify-liquor</property>
+         	<property name="handler">siminov.connect.template.services.ModifyLiquor</property>
+	     	<property name="mode">ASYNC</property>
 
 	      	<header-parameters>
 	        	<header-parameter name="Accept">application/xml</header-parameter>
@@ -42,11 +56,12 @@
          	<property name="type">DELETE</property>
          	<property name="api">delete-liquor</property>
          	<property name="handler">siminov.connect.template.services.DeleteLiquor</property>
-	     	<property name="mode">SYNC</property>
+	     	<property name="mode">ASYNC</property>
 
 	      	<header-parameters>
 	        	<header-parameter name="Accept">application/xml</header-parameter>
 	          	<header-parameter name="Content-Type">application/xml</header-parameter>
+	          	<header-parameter name="name">{@inline LIQUOR_NAME}</header-parameter>
 	      	</header-parameters>
      	
 		</api>
