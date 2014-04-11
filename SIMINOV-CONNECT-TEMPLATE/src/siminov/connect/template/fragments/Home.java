@@ -36,9 +36,6 @@ public class Home extends ListFragment {
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
-		refresh();
-        getLiquors();
 	}
 
 	public void onResume() {
@@ -50,8 +47,14 @@ public class Home extends ListFragment {
 		getListView().setCacheColorHint(Color.TRANSPARENT);
 		
 		StateManager.getInstance().putState(StateManager.ACTIVE_FRAGMENT, this);
+		
+		refresh();
+        getLiquors();
 	}
 
+	
+	
+	
 	public void refresh() {
 		loadData = new LoadData();
 		loadData.execute();

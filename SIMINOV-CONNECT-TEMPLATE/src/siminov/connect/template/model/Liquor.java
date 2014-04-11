@@ -106,4 +106,8 @@ public class Liquor extends Database implements Serializable {
 			this.liquorBrands.add(liquorBrands.next());
 		}
 	}
+	
+	public void addLiquorBrand(LiquorBrand liquorBrand) {
+		this.liquorBrands.add(liquorBrand);
+	}
 }

@@ -18,6 +18,7 @@
 package siminov.connect.template.fragments;
 
 import siminov.connect.template.R;
+import siminov.connect.template.activities.AddLiquor;
 import siminov.connect.template.model.Liquor;
 import android.app.Activity;
 import android.content.Intent;
@@ -25,13 +26,17 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class TitleBar extends Fragment {
+public class TitleBar extends Fragment implements OnClickListener {
 
+	private final int ADD_LIQUOR_KEY = 1;
+	
 	public static ImageView menuLauncher = null;
+	
 	private TextView title = null;
 	private View titleBar = null;
 	
@@ -59,6 +64,7 @@ public class TitleBar extends Fragment {
 	}
 	
 	private void initialize() {
+
 		Activity currentActivity = getActivity();
 		if(currentActivity instanceof siminov.connect.template.activities.Home) {
 			title.setText(getResources().getString(R.string.liquors));
@@ -68,9 +74,32 @@ public class TitleBar extends Fragment {
 			
 			menuLauncher.setVisibility(View.INVISIBLE);
 		} else if(currentActivity instanceof siminov.connect.template.activities.Login) {
+
 			title.setText(R.string.welcome_note);
+			menuLauncher.setVisibility(View.INVISIBLE);
+		} else if(currentActivity instanceof siminov.connect.template.activities.AddLiquor) {
 			
+			title.setText(R.string.add_liquor_title);
+			menuLauncher.setVisibility(View.INVISIBLE);
+		} else if(currentActivity instanceof siminov.connect.template.activities.AddLiquorBrand) {
+			
+			title.setText(R.string.add_liquor_brand_title);
 			menuLauncher.setVisibility(View.INVISIBLE);
 		}
+	}
+
+	
+	private void onClick(int key) {
+
+		Activity currentActivity = getActivity();
+		if(currentActivity instanceof siminov.connect.template.activities.Home) {
+			
+			Intent intent = new Intent(currentActivity, AddLiquor.class);
+			startActivity(intent);
+		}
+	}
+	
+	public void onClick(View arg0) {
+		onClick(ADD_LIQUOR_KEY);
 	}
 }
