@@ -25,6 +25,7 @@ public class StateManager {
 	private Hashtable<String, Object> stateList = null;
 	
 	public static final String ACTIVE_FRAGMENT = "ACTIVE_FRAGMENT";
+	public static final String ACTIVE_ACTIVITY = "ACTIVE_ACTIVITY";
 	
 	private StateManager() {
 		stateList = new Hashtable<String, Object>();

@@ -34,7 +34,7 @@ public class Siminov extends Application {
 
 		initializeSiminov();
 		//initializeNotificationService();
-		doAuthorization();
+		//doAuthorization();
 	}
 	
 	private void initializeSiminov() {
