@@ -26,7 +26,7 @@ public class Home {
 	public Liquor[] getLiquors() {
 		
 		try {
-			return (Liquor[]) new Liquor().select().fetch();
+			return (Liquor[]) new Liquor().select().execute();
 		} catch(DatabaseException databaseException) {
 			Log.loge(getClass().getName(), "getLiquors", "DatabaseException caught while getting liquors, " + databaseException.getMessage());
 			return null;

@@ -96,12 +96,23 @@ public class AddLiquor extends FragmentActivity {
 	    switch (item.getItemId()) {
 	        case R.id.save_liquor:
 	        	
+	        	/*
+	        	 * Save Liquor
+	        	 */
 	        	try {
 		        	liquor.save();
 	        	} catch(Exception e) {
 	        		
 	        	}
 
+	        	
+	        	/*
+	        	 * Submit Liquor
+	        	 */
+	        	siminov.connect.template.services.AddLiquor addLiquor = new siminov.connect.template.services.AddLiquor();
+	        	addLiquor.addResource(siminov.connect.template.services.AddLiquor.LIQUOR, liquor.getLiquorType());
+	        	addLiquor.invoke();
+	        	
 	        	finish();
 	        	
 	        	return true;

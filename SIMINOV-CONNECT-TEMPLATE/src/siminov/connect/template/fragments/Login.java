@@ -117,7 +117,7 @@ public class Login extends Fragment implements OnClickListener {
 				boolean authenticated = false;
 				
 				try {
-					Credential[] credentials = (Credential[]) new Credential().select().where(Credential.ACCOUNT_ID).equalTo(accountId).fetch();
+					Credential[] credentials = (Credential[]) new Credential().select().where(Credential.ACCOUNT_ID).equalTo(accountId).execute();
 					authenticated = credentials[0].getToken().equals(token);					
 				} catch(DatabaseException databaseException) {
 					Log.loge(getClass().getName(), "onClick", "DatabaseException caught while authenticating account, " + databaseException.getMessage());
