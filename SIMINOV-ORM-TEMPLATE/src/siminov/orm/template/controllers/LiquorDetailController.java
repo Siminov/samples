@@ -26,7 +26,7 @@ public class LiquorDetailController {
 	public LiquorBrand[] getLiquorBrands(String liquorType) {
 		
 		try {
-			return (LiquorBrand[]) new LiquorBrand().select().where(LiquorBrand.LIQUOR_TYPE).equalTo(liquorType).fetch();
+			return new LiquorBrand().select().where(LiquorBrand.LIQUOR_TYPE).equalTo(liquorType).execute();
 		} catch(DatabaseException databaseException) {
 			Log.loge(getClass().getName(), "getLiquorBrands", "DatabaseException caught while getting liquor brands, " + databaseException.getMessage());
 			return null;

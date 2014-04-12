@@ -115,7 +115,7 @@
     
     <!-- BEER HEINEKEN BRAND CONSTANTS -->
     <string name="beer_brand_heineken_country">Dutch</string>
-    <string name="beer_brand_heineken_description">eineken Lager Beer (Dutch: Heineken Pilsener) or simply Heineken is a pale lager beer with 5% alcohol by volume produced by the Dutch brewing company Heineken International.</string>
+    <string name="beer_brand_heineken_description">Heineken Lager Beer (Dutch: Heineken Pilsener) or simply Heineken is a pale lager beer with 5% alcohol by volume produced by the Dutch brewing company Heineken International.</string>
     <string name="beer_brand_heineken_link">http://www.heineken.com</string>
     
     
