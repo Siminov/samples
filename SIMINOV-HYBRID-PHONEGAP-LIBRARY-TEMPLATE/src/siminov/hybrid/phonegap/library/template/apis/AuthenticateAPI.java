@@ -36,7 +36,7 @@ public class AuthenticateAPI {
 	
 	public boolean authenticateCredential(String accountId, String token) throws DatabaseException {
 		
-		Authentication[] authentications = (Authentication[]) new Authentication().select().where(Authentication.ACCOUNT_ID).equalTo(accountId).fetch();
+		Authentication[] authentications = (Authentication[]) new Authentication().select().where(Authentication.ACCOUNT_ID).equalTo(accountId).execute();
 		
 		if(authentications == null || authentications.length <= 0) {
 			Log.logi(getClass().getName(), "authenticateCredential", "NO SUCH ACCOUNT ID PRESENT, ACCOUNT-ID: " + accountId);
