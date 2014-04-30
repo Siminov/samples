@@ -42,7 +42,7 @@ public class CredentialManager implements ICredentialManager {
 		try {
 			credentials = (Credential[]) new Credential().select().
 					where(Credential.ACTIVE).equalTo(true).
-					fetch();
+					execute();
 		} catch(SiminovException se) {
 			Log.loge(CredentialManager.class.getName(), "getActiveCredential", "SiminovException caught while getting active account, " + se.getMessage());
 			throw new SiminovCriticalException(CredentialManager.class.getName(), "getActiveCredential", "SiminovException caught while getting active account, " + se.getMessage());
@@ -69,7 +69,7 @@ public class CredentialManager implements ICredentialManager {
 		try {
 			credentials = (ICredential[]) new Credential().select().
 					where(Credential.ACTIVE).equalTo(true).
-					fetch();
+					execute();
 		} catch(SiminovException se) {
 			Log.loge(CredentialManager.class.getName(), "getCredentials", "SiminovException caught while getting active account, " + se.getMessage());
 			throw new SiminovCriticalException(CredentialManager.class.getName(), "getCredentials", "SiminovException caught while getting active account, " + se.getMessage());
@@ -87,5 +87,11 @@ public class CredentialManager implements ICredentialManager {
 		}
 
 		return accounts.iterator();
+	}
+
+	@Override
+	public void setActiveCredential(ICredential credential) {
+		// TODO Auto-generated method stub
+		
 	}
 }
