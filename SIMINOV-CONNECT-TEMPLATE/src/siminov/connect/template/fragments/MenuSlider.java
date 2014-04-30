@@ -17,7 +17,13 @@
 
 package siminov.connect.template.fragments;
 
+import siminov.connect.authorization.AuthorizationFactory;
+import siminov.connect.design.authorization.IAuthorization;
+import siminov.connect.design.authorization.ICredentialManager;
+import siminov.connect.exception.AuthorizationException;
 import siminov.connect.template.activities.About;
+import siminov.connect.template.authorization.Credential;
+import siminov.connect.template.authorization.CredentialManager;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -32,12 +38,13 @@ import android.widget.AdapterView.OnItemClickListener;
 
 public class MenuSlider extends ListFragment implements OnItemClickListener {
 
-	private final int HOME_ABOUT_SIMINOV_FRAMEWORK_KEY = 0;
-
+	private final int HOME_ABOUT_SIMINOV_FRAMEWORK_KEY = 1;
+	private final int DO_OAUTH_AUTHENTICATION_KEY = 0;
+	
 	public static final String HOME_ABOUT_SIMINOV_FRAMEWORK = "About Siminov Framework";
+	public static final String DO_OAUTH_AUTHENTICATION = "Ouath Authentication";
 
-
-	private String[] HOME_MENUS = { HOME_ABOUT_SIMINOV_FRAMEWORK };
+	private String[] HOME_MENUS = { DO_OAUTH_AUTHENTICATION, HOME_ABOUT_SIMINOV_FRAMEWORK };
 	
 	private LoadMenu loadMenu = null;
 	
@@ -81,6 +88,24 @@ public class MenuSlider extends ListFragment implements OnItemClickListener {
 		Activity activity = getActivity();
 		if(activity instanceof siminov.connect.template.activities.Home) {
 			switch(key) {
+			case DO_OAUTH_AUTHENTICATION_KEY:
+				
+				Credential credential = new Credential();
+				credential.setAccountId("pranavchauhan01");
+				credential.setActive(true);
+				
+				ICredentialManager credentialManager = new CredentialManager();
+				credentialManager.setActiveCredential(credential);
+				
+				
+				AuthorizationFactory authorizationFactory = AuthorizationFactory.getInstance();
+				IAuthorization authorization = authorizationFactory.getAuthorization();
+			
+				try {
+					authorization.doAuthentication();
+				} catch(AuthorizationException ae) {
+					
+				}
 				case HOME_ABOUT_SIMINOV_FRAMEWORK_KEY:
 					Intent intent = new Intent(activity, About.class);
 					startActivity(intent);

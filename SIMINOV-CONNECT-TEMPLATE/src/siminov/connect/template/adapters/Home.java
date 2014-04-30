@@ -17,13 +17,10 @@
 
 package siminov.connect.template.adapters;
 
-import siminov.connect.design.service.IService;
 import siminov.connect.template.R;
 import siminov.connect.template.StateManager;
 import siminov.connect.template.model.Liquor;
-import siminov.connect.template.services.DeleteLiquor;
-import siminov.orm.exception.DatabaseException;
-import siminov.orm.log.Log;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -57,7 +54,9 @@ public class Home extends ArrayAdapter<Liquor> implements OnClickListener, OnLon
 		
 		liquorType.setText(liquor.getLiquorType());
 		liquorDetails.setId(position);
+
 		view.setId(position);
+		view.setTag(liquor);
 		
 		liquorDetails.setOnClickListener(this);
 
@@ -76,23 +75,9 @@ public class Home extends ArrayAdapter<Liquor> implements OnClickListener, OnLon
 
 	public boolean onLongClick(View view) {
 		
-		Liquor liquor = (Liquor) getItem(view.getId());
-		
-		IService deleteLiquorService = new DeleteLiquor();
-		deleteLiquorService.addResource(DeleteLiquor.LIQUOR_NAME, liquor.getLiquorType());
-		
-		deleteLiquorService.invoke();
-
-		try {
-			liquor.delete().execute();
-		} catch(DatabaseException de) {
-			Log.loge(Home.class.getName(), "onLongClick", "DatabaseException caught while deleting liquor from database, " + de.getMessage());
-		}
-
-		
-		siminov.connect.template.fragments.Home home = (siminov.connect.template.fragments.Home) StateManager.getInstance().getState(StateManager.ACTIVE_FRAGMENT);
-		home.refresh();
-		
+		((siminov.connect.template.activities.Home) StateManager.getInstance().getState(StateManager.ACTIVE_ACTIVITY)).selectedLiquor = getItem(view.getId());
+		((Activity) StateManager.getInstance().getState(StateManager.ACTIVE_ACTIVITY)).openContextMenu(view);
+		 
 		return true;
 	}
 }

@@ -112,6 +112,9 @@ public class AddLiquor extends FragmentActivity {
 	        	siminov.connect.template.services.AddLiquor addLiquor = new siminov.connect.template.services.AddLiquor();
 	        	addLiquor.addResource(siminov.connect.template.services.AddLiquor.LIQUOR, liquor.getLiquorType());
 	        	addLiquor.invoke();
+
+	        	siminov.connect.template.fragments.Home home = (siminov.connect.template.fragments.Home) StateManager.getInstance().getState(StateManager.ACTIVE_FRAGMENT);
+	        	home.refresh();
 	        	
 	        	finish();
 	        	

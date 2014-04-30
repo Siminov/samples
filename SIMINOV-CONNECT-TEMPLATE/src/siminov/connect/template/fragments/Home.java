@@ -50,6 +50,8 @@ public class Home extends ListFragment {
 		
 		refresh();
         getLiquors();
+
+        registerForContextMenu(getListView());        
 	}
 
 	

@@ -25,6 +25,11 @@ public class LiquorsReader extends SiminovSAXDefaultHandler implements Constants
 	
 	public LiquorsReader(InputStream data) {
 		
+		if(data == null) {
+			return;
+		}
+		
+		
 		try {
 			parseMessage(data);
 		} catch(Exception exception) {

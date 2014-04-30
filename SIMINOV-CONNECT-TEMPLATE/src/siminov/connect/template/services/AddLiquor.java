@@ -43,11 +43,16 @@ public class AddLiquor extends Service {
 
 	public void onServiceApiInvoke(IConnectionRequest connectionRequest) {
 		
+		if(connectionRequest.getDataStream() == null) {
+			return;
+		}
+		
+		
 		String liquorType = (String) getResource(LIQUOR);
 		Liquor liquor = null;
 		
 		try {
-			Liquor[] liquors = (Liquor[]) new Liquor().select().where(Liquor.LIQUOR_TYPE).equalTo(liquorType).execute();
+			Liquor[] liquors = new Liquor().select().where(Liquor.LIQUOR_TYPE).equalTo(liquorType).execute();
 			if(liquors != null && liquors.length > 0) {
 				liquor = liquors[0];
 			}

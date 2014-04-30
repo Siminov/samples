@@ -54,6 +54,11 @@ public class GetLiquorBrands extends Service {
 
 	public void onServiceApiFinish(IConnectionResponse connectionResponse) {
 	
+		if(connectionResponse.getResponse() == null) {
+			return;
+		}
+		
+		
 		Liquor liquor = (Liquor) getResource(LIQUOR);
 		Fragment uiComponent = (Fragment) getResource(UI_COMPONENT);
 		

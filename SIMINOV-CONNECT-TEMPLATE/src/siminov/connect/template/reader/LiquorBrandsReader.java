@@ -24,6 +24,11 @@ public class LiquorBrandsReader extends SiminovSAXDefaultHandler implements Cons
 
 	
 	public LiquorBrandsReader(InputStream data) {
+
+		if(data == null) {
+			return;
+		}
+		
 		
 		try {
 			parseMessage(data);

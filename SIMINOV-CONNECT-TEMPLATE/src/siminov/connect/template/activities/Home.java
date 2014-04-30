@@ -17,18 +17,25 @@
 
 package siminov.connect.template.activities;
 
+import siminov.connect.design.service.IService;
 import siminov.connect.template.R;
 import siminov.connect.template.StateManager;
 import siminov.connect.template.artist.SliderScroll;
 import siminov.connect.template.artist.SliderScroll.ClickListenerForScrolling;
 import siminov.connect.template.artist.SliderScroll.SizeCallbackForMenu;
 import siminov.connect.template.fragments.TitleBar;
+import siminov.connect.template.model.Liquor;
+import siminov.connect.template.services.DeleteLiquor;
+import siminov.orm.exception.DatabaseException;
+import siminov.orm.log.Log;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -47,6 +54,8 @@ public class Home extends FragmentActivity implements OnClickListener {
 	private View menuSlider = null;
 	
 	private LinearLayout sourceCode = null;
+	
+	public Liquor selectedLiquor = null;
 	
 	public static final String SHOW_MENU_INTENT_HANDLER = Home.class.getName() + "." + "SHOW_MENU_INTENT_HANDLER";
 	
@@ -117,7 +126,38 @@ public class Home extends FragmentActivity implements OnClickListener {
 		}
 	}
 
+	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
+		super.onCreateContextMenu(menu, v, menuInfo);
+	    MenuInflater inflater = getMenuInflater();
+	    inflater.inflate(R.menu.home_context_menu, menu);
+	}
 
+	public boolean onContextItemSelected(MenuItem item) {
+
+		switch(item.getItemId()) {
+	    	case R.id.delete_liquor:
+	    		
+		    	IService deleteLiquorService = new DeleteLiquor();
+		    	deleteLiquorService.addResource(DeleteLiquor.LIQUOR_NAME, selectedLiquor.getLiquorType());
+		    		
+		    	deleteLiquorService.invoke();
+	
+		    	try {
+		    		selectedLiquor.delete().execute();
+		    	} catch(DatabaseException de) {
+		    		Log.loge(Home.class.getName(), "onLongClick", "DatabaseException caught while deleting liquor from database, " + de.getMessage());
+		    	}
+	
+		    		
+		    	siminov.connect.template.fragments.Home home = (siminov.connect.template.fragments.Home) StateManager.getInstance().getState(StateManager.ACTIVE_FRAGMENT);
+		    	home.refresh();
+    			
+		    	return true;
+	    	default:
+	    		return super.onContextItemSelected(item);
+		}
+	}
+	
 	public boolean onCreateOptionsMenu(Menu menu) {
 	    MenuInflater inflater = getMenuInflater();
 	    inflater.inflate(R.menu.home_menu, menu);
