@@ -188,4 +188,6 @@ Siminov ORM not only takes care of the mapping from Java classes to database tab
 	<string name="add_liquor_title">Add Liquor</string>
 	<string name="add_liquor_brand_title">Add Liquor Brand</string>
 	
+	<string name="delete_liquor">Delete</string>
+	
 </resources>
