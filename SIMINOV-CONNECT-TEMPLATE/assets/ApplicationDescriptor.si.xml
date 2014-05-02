@@ -64,7 +64,7 @@
     
     <authorization-descriptor>
         <property name="type">oauth</property>
-        <property name="provider">siminov.connect.template.authorization.CredentialManager</property>
+        <property name="credential">siminov.connect.template.model.Credential</property>
         <property name="consumer_key">s8ambtU4cWxp4GT7UTwoqEfWqdqR0jxWTN7Npw6p</property>
         <property name="consumer_secret">RVGQ7bf1qrA2gWQBhcZCE3LxB8HY5lhbIJ7QKrog</property>
         <property name="request_token_url">http://10.0.2.2:8080/CONNECT-ENTERPRISE/oauth/request-token</property>

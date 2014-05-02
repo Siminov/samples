@@ -17,10 +17,10 @@
 
 package siminov.connect.template.fragments;
 
+import siminov.connect.authorization.CredentialManager;
 import siminov.connect.design.authorization.ICredential;
 import siminov.connect.template.R;
-import siminov.connect.template.authorization.Credential;
-import siminov.connect.template.authorization.CredentialManager;
+import siminov.connect.template.model.Credential;
 import siminov.orm.exception.DatabaseException;
 import siminov.orm.log.Log;
 import android.content.Intent;
@@ -55,7 +55,7 @@ public class Login extends Fragment implements OnClickListener {
 		View view = inflater.inflate(R.layout.login_artist, null);
 		
 		TextView loginNote = (TextView) view.findViewById(R.id.login_note);
-		isAccountPresent = new CredentialManager().isAnyActiveCredential();
+		isAccountPresent = CredentialManager.getInstance().isAnyActiveCredential();
 		
 		accountId = (TextView) view.findViewById(R.id.account_id);
 		token = (TextView) view.findViewById(R.id.token);

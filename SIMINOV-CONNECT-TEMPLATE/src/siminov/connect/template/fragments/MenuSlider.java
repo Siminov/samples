@@ -19,11 +19,10 @@ package siminov.connect.template.fragments;
 
 import siminov.connect.authorization.AuthorizationFactory;
 import siminov.connect.design.authorization.IAuthorization;
-import siminov.connect.design.authorization.ICredentialManager;
 import siminov.connect.exception.AuthorizationException;
 import siminov.connect.template.activities.About;
-import siminov.connect.template.authorization.Credential;
-import siminov.connect.template.authorization.CredentialManager;
+import siminov.connect.template.model.Credential;
+import siminov.orm.log.Log;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -91,22 +90,19 @@ public class MenuSlider extends ListFragment implements OnItemClickListener {
 			case DO_OAUTH_AUTHENTICATION_KEY:
 				
 				Credential credential = new Credential();
-				credential.setAccountId("pranavchauhan01");
+				credential.setAccountId("siminov");
 				credential.setActive(true);
-				
-				ICredentialManager credentialManager = new CredentialManager();
-				credentialManager.setActiveCredential(credential);
-				
 				
 				AuthorizationFactory authorizationFactory = AuthorizationFactory.getInstance();
 				IAuthorization authorization = authorizationFactory.getAuthorization();
 			
 				try {
-					authorization.doAuthentication();
+					authorization.doAuthentication(credential);
 				} catch(AuthorizationException ae) {
-					
+					Log.loge(MenuSlider.class.getName(), "onClick", "AuthorizationException caught while authenticating the user, " + ae.getMessage());
 				}
-				case HOME_ABOUT_SIMINOV_FRAMEWORK_KEY:
+
+			case HOME_ABOUT_SIMINOV_FRAMEWORK_KEY:
 					Intent intent = new Intent(activity, About.class);
 					startActivity(intent);
 					break;

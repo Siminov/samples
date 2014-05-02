@@ -29,7 +29,6 @@
 
 	<database-mapping-descriptors>
 		<database-mapping-descriptor>Liquor-Mappings/Credential.si.xml</database-mapping-descriptor>
-		<database-mapping-descriptor>Liquor-Mappings/CredentialResource.si.xml</database-mapping-descriptor>
 		<database-mapping-descriptor>Liquor-Mappings/Liquor.si.xml</database-mapping-descriptor>
 		<database-mapping-descriptor>Liquor-Mappings/LiquorBrand.si.xml</database-mapping-descriptor>
 	</database-mapping-descriptors>
