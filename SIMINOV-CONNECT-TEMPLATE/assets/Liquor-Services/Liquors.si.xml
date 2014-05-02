@@ -25,7 +25,7 @@
      	<api>
 
         	<property name="name">ADD-LIQUOR</property>
-         	<property name="type">PUT</property>
+         	<property name="type">POST</property>
          	<property name="api">add-liquor</property>
          	<property name="handler">siminov.connect.template.services.AddLiquor</property>
 	     	<property name="mode">ASYNC</property>

@@ -58,19 +58,20 @@
 	    <event-handler>siminov.connect.template.events.SiminovEventHandler</event-handler>
 	    <event-handler>siminov.connect.template.events.DatabaseEventHandler</event-handler>
    	    <event-handler>siminov.connect.template.events.NotificationEventHandler</event-handler>
+   	    <event-handler>siminov.connect.template.events.AuthenticationEventHandler</event-handler>
 	</event-handlers>
 
     
-    <!-- <authorization-descriptor>
+    <authorization-descriptor>
         <property name="type">oauth</property>
         <property name="provider">siminov.connect.template.authorization.CredentialManager</property>
         <property name="consumer_key">s8ambtU4cWxp4GT7UTwoqEfWqdqR0jxWTN7Npw6p</property>
         <property name="consumer_secret">RVGQ7bf1qrA2gWQBhcZCE3LxB8HY5lhbIJ7QKrog</property>
-        <property name="request_token_url">http://10.0.2.2:8080/oauth/request_token</property>
-        <property name="access_token_url">http://10.0.2.2:8080/oauth/access_token</property>
-        <property name="authorize_url">http://10.0.2.2:8080/oauth/authorize</property>
+        <property name="request_token_url">http://10.0.2.2:8080/CONNECT-ENTERPRISE/oauth/request-token</property>
+        <property name="access_token_url">http://10.0.2.2:8080/CONNECT-ENTERPRISE/oauth/access-token</property>
+        <property name="authorize_url">http://10.0.2.2:8080/CONNECT-ENTERPRISE/oauth/authorize</property>
         <property name="callback_url">authentication:///</property>
-    </authorization-descriptor> -->
+    </authorization-descriptor> 
 		
     			
 	<!-- <library-descriptors>
