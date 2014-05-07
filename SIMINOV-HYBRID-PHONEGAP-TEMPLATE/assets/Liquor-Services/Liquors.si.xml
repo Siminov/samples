@@ -1,0 +1,70 @@
+<service-descriptor>
+    
+    <property name="name">SIMINOV-HYBRID-LIQUORS-SERVICE</property>
+    <property name="description">Siminov Hybrid Liquors Service</property>
+    <property name="protocol">HTTP</property>
+    <property name="instance">10.0.2.2</property>
+    <property name="port">8080</property>
+	<property name="context">CONNECT-ENTERPRISE</property>    
+
+    <apis>
+     	<api>
+
+        	<property name="name">GET-LIQUORS</property>
+         	<property name="type">GET</property>
+         	<property name="api">get-liquors</property>
+         	<property name="handler">GetLiquors</property>
+	     	<property name="mode">SYNC</property>
+
+	      	<header-parameters>
+	        	<header-parameter name="Accept">application/xml</header-parameter>
+	          	<header-parameter name="Content-Type">application/xml</header-parameter>
+	      	</header-parameters>
+     	
+		</api>
+     	<api>
+
+        	<property name="name">ADD-LIQUOR</property>
+         	<property name="type">POST</property>
+         	<property name="api">add-liquor</property>
+         	<property name="handler">AddLiquor</property>
+	     	<property name="mode">ASYNC</property>
+
+	      	<header-parameters>
+	        	<header-parameter name="Accept">application/xml</header-parameter>
+	          	<header-parameter name="Content-Type">application/xml</header-parameter>
+	      	</header-parameters>
+     	
+		</api>
+     	<api>
+
+        	<property name="name">MODIFY-LIQUOR</property>
+         	<property name="type">PUT</property>
+         	<property name="api">modify-liquor</property>
+         	<property name="handler">ModifyLiquor</property>
+	     	<property name="mode">ASYNC</property>
+
+	      	<header-parameters>
+	        	<header-parameter name="Accept">application/xml</header-parameter>
+	          	<header-parameter name="Content-Type">application/xml</header-parameter>
+	      	</header-parameters>
+     	
+		</api>
+     	<api>
+
+        	<property name="name">DELETE-LIQUOR</property>
+         	<property name="type">DELETE</property>
+         	<property name="api">delete-liquor</property>
+         	<property name="handler">DeleteLiquor</property>
+	     	<property name="mode">ASYNC</property>
+
+	      	<header-parameters>
+	        	<header-parameter name="Accept">application/xml</header-parameter>
+	          	<header-parameter name="Content-Type">application/xml</header-parameter>
+	          	<header-parameter name="name">{@resource LIQUOR_NAME}</header-parameter>
+	      	</header-parameters>
+     	
+		</api>
+    </apis>
+    
+</service-descriptor>

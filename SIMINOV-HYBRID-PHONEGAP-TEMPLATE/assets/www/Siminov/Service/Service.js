@@ -6,7 +6,7 @@ function Service() {
 	var service;
 	var api;
 	
-	var inlineResources = new Dictionary();
+	var resources = new Dictionary();
 
 	var serviceDescriptor;	
 	
@@ -59,22 +59,22 @@ function Service() {
 	
 	
 	/*
-	 * IInlineResource APIs
+	 * IResource APIs
 	 */
 	
-	this.getInlineResources = function() {
-		return inlineResources.keys();
+	this.getResources = function() {
+		return resources.keys();
 	} 
 	
-	this.getInlineResource = function(val) {
-		return inlineResources.get(val);
+	this.getResource = function(val) {
+		return resources.get(val);
 	}
 	
-	this.addInlineResource = function(key, value) {
-		inlineResources.add(key, value);
+	this.addResource = function(key, value) {
+		resources.add(key, value);
 	}
 	
-	this.containInlineResource = function(val) {
-		return inlineResources.exists(val);
+	this.containResource = function(val) {
+		return resources.exists(val);
 	}
 }

@@ -51,7 +51,7 @@ function IDelete(select) {
 		/**
 			Name of Interface
 		*/
-		interfaceName : "IDelete",
+		interfaceName: "IDelete",
 		
 		
 		/**
@@ -61,7 +61,7 @@ function IDelete(select) {
 			@param column {String} Name of column.
 		 	@return {IDeleteClause} IDeleteClause Interface.
 		 */
-		where : select.where,
+		where: select.where,
 		
 
 		/**
@@ -71,7 +71,7 @@ function IDelete(select) {
 			@param whereClause {String} Manually created where clause.
 		 	@return {IDelete} IDelete Interface.
 		 */
-		whereClause : select.whereClause,
+		whereClause: select.whereClause,
 		
 
 		/**
@@ -81,7 +81,7 @@ function IDelete(select) {
 			@param column {String} Name of column on which condition need to be specified.
 		 	@return {IDeleteClause} IDeleteClause Interface.
 		 */
-		and : select.and,
+		and: select.and,
 		
 
 		/**
@@ -91,7 +91,7 @@ function IDelete(select) {
 			@param column {String} Name of column on which condition need to be specified.
 		 	@return {IDeleteClause} IDeleteClause Interface.
 		 */
-        or : select.or,
+        or: select.or,
 
 
 		/**
@@ -100,7 +100,7 @@ function IDelete(select) {
 		 	@method execute
 		 	@throws {SiminovException} Throws exception if any error occur while deleting tuples from table. 
 		 */
-        execute : select.execute
+        execute: select.execute
 		
 	}
 

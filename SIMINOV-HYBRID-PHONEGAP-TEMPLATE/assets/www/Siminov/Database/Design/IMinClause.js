@@ -49,7 +49,7 @@ function IMinClause(clause) {
 		/**
 			Name of Interface
 		*/
-        interfaceName : "IMinClause",
+        interfaceName: "IMinClause",
 
 
 		/**
@@ -59,7 +59,7 @@ function IMinClause(clause) {
 		 	@param value {String} Value for which EQUAL TO (=) condition will be applied.
 		 	@return {IMax} IMax Interface.
 		 */
-        equalTo : clause.equalTo,
+        equalTo: clause.equalTo,
 
 
 		/**
@@ -69,7 +69,7 @@ function IMinClause(clause) {
 		 	@param value {String} Value for which NOT EQUAL TO (=) condition will be applied.
 		 	@return {IMax} IMax Interface.
 		 */
-        notEqualTo : clause.notEqualTo,
+        notEqualTo: clause.notEqualTo,
 
 
 		/**
@@ -79,7 +79,7 @@ function IMinClause(clause) {
 		 	@param value {String} Value for while GREATER THAN (>) condition will be specified.
 		 	@return {IMax} IMax Interface.
 		 */
-        greaterThan : clause.greaterThan,
+        greaterThan: clause.greaterThan,
 
 
 		/**
@@ -89,7 +89,7 @@ function IMinClause(clause) {
 		 	@param value {String} Value for which GREATER THAN EQUAL (>=) condition will be specified.
 		 	@return {IMax} IMax Interface.
 		 */
-        greaterThanEqual : clause.greaterThanEqual,
+        greaterThanEqual: clause.greaterThanEqual,
 
 
 		/**
@@ -99,7 +99,7 @@ function IMinClause(clause) {
 		 	@param value {String} Value for which LESS THAN (<) condition will be specified.
 		 	@return {IMax} IMax Interface.
 		 */
-        lessThan : clause.lessThan,
+        lessThan: clause.lessThan,
 
 
 		/**
@@ -109,7 +109,7 @@ function IMinClause(clause) {
 		 	@param value {String} Value for which LESS THAN EQUAL (<=) condition will be specified.
 		 	@return {IMax} IMax Interface.
 		 */
-        lessThanEqual : clause.lessThanEqual,
+        lessThanEqual: clause.lessThanEqual,
 
 
 		/**
@@ -120,7 +120,7 @@ function IMinClause(clause) {
 		 	@param end {String} End Range.
 		 	@return {IMax} IMax Interface.
 		 */
-        between : clause.between,
+        between: clause.between,
 
 
 		/**
@@ -130,7 +130,7 @@ function IMinClause(clause) {
 		 	@param like {String} LIKE condition.
 		 	@return {IMax} IMax Interface.
 		 */
-        like : clause.like,
+        like: clause.like,
 
 
 		/**
@@ -140,7 +140,7 @@ function IMinClause(clause) {
 		 	@param values {Array} Values for IN condition.
 		 	@return {IMax} IMax Interface.
 		 */
-        'in' : clause['in']
+        'in': clause['in']
 
     }
 

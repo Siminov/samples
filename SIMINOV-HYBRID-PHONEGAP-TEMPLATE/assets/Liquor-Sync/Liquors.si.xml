@@ -1,0 +1,10 @@
+
+
+<sync-descriptor>
+	<property name="name">SYNC-LIQUORS</property>
+	<property name="interval">5000</property>
+	
+	<service-descriptors>
+	    <service-descriptor>SIMINOV-HYBRID-LIQUORS-SERVICE.GET-LIQUORS</service-descriptor>
+	</service-descriptors>
+</sync-descriptor>

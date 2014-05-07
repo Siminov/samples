@@ -1,0 +1,39 @@
+<service-descriptor>
+    
+    <property name="name">SIMINOV-HYBRID-NOTIFICATION-SERVICE</property>
+    <property name="description">Siminov Hybrid Notification Service</property>
+    <property name="protocol">HTTP</property>
+    <property name="instance">10.0.2.2</property>
+    <property name="port">8080</property>
+	<property name="context">CONNECT-ENTERPRISE</property>    
+
+    <apis>
+     	<api>
+
+        	<property name="name">REGISTER-DEVICE</property>
+         	<property name="type">POST</property>
+         	<property name="api">register-device</property>
+         	<property name="handler">RegisterDevice</property>
+	     	<property name="mode">SYNC</property>
+
+	      	<header-parameters>
+	     	    <header-parameter name="id">{@resource ID}</header-parameter>
+	      	</header-parameters>
+     	
+		</api>
+     	<api>
+
+        	<property name="name">UNREGISTER-DEVICE</property>
+         	<property name="type">POST</property>
+         	<property name="api">register-device</property>
+         	<property name="handler">UnregisterDevice</property>
+	     	<property name="mode">SYNC</property>
+
+	      	<header-parameters>
+	     	    <header-parameter name="id">{@resource ID}</header-parameter>
+	      	</header-parameters>
+     	
+		</api>
+    </apis>
+    
+</service-descriptor>

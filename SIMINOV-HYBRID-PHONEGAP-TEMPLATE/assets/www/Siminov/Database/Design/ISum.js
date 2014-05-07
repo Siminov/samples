@@ -54,7 +54,7 @@ function ISum(select) {
 		/**
 			Name of Interface
 		*/
-        interfaceName : "ISum",
+        interfaceName: "ISum",
 
 
 		/**
@@ -64,7 +64,7 @@ function ISum(select) {
 		 	@param column {String} Name of column.
 		 	@return {ISumClause} ISumClause Interface.
 		 */
-        where : select.where,
+        where: select.where,
 
 
 		/**
@@ -74,7 +74,7 @@ function ISum(select) {
 		 	@param whereClause {String} Manually created where clause.
 		 	@return {ISum} ISum Interface.
 		 */
-        whereClause : select.whereClause,
+        whereClause: select.whereClause,
 
 
 		/**
@@ -84,7 +84,7 @@ function ISum(select) {
 		 	@param column {column} Name of column on which condition need to be specified.
 		 	@return {ISumClause} ISumClause Interface.
 		 */
-        and : select.and,
+        and: select.and,
 
 
 		/**
@@ -94,7 +94,7 @@ function ISum(select) {
 		 	@param column {column} Name of column on which condition need to be specified.
 		 	@return {ISumClause} ISumClause Interface.
 		 */
-        or : select.or,
+        or: select.or,
 
 
 		/**
@@ -104,7 +104,7 @@ function ISum(select) {
 		 	@param columns {Array} Name of columns.
 		 	@return {ISum} ISum Interface.
 		 */
-        groupBy : select.groupBy,
+        groupBy: select.groupBy,
 
 
 		/**
@@ -114,7 +114,7 @@ function ISum(select) {
 		 	@param column {String} Name of column on which condition need to be applied.
 		 	@return {ISumClause} ISumClause Interface.
 		 */
-        having : select.having,
+        having: select.having,
 
 
 		/**
@@ -124,7 +124,7 @@ function ISum(select) {
 		 	@param havingClause {String} Where clause.
 		 	@return {ISum} ISum Interface.
 		 */
-        havingClause : select.havingClause,
+        havingClause: select.havingClause,
 
 
 		/**
@@ -134,7 +134,7 @@ function ISum(select) {
 		 	@param column {String} Name of column.
 		 	@return {ISum} ISum Interface.
 		 */
-        column : select.column,
+        column: select.column,
 
 
 		/**
@@ -144,7 +144,7 @@ function ISum(select) {
 		 	@return {Object} Return sum.
 		 	@throws {SiminovException} Throws exception if any error occur while calculating sum. 
 		 */
-        execute : select.execute
+        execute: select.execute
 
     }
 

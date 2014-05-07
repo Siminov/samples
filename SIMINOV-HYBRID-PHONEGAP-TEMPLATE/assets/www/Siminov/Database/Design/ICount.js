@@ -49,7 +49,7 @@ function ICount(select) {
 		/**
 			Name of Interface
 		*/
-        interfaceName : "ICount",
+        interfaceName: "ICount",
 
 
 		/**
@@ -57,7 +57,7 @@ function ICount(select) {
 		 
 			@return {ICount} ICount Interface.
 		 */
-        distinct : select.distinct,
+        distinct: select.distinct,
 
 
 		/**
@@ -67,7 +67,7 @@ function ICount(select) {
 			@param column {String} Name of column.
 			@return {ICountClause} ICountClause Interface.
 		 */
-        where : select.where,
+        where: select.where,
 
 	
 		/**
@@ -77,7 +77,7 @@ function ICount(select) {
 			@param whereClause {String} Manually created where clause.
 		 	@return {ICount} ICount Interface.
 		 */
-        whereClause : select.whereClause,
+        whereClause: select.whereClause,
 
 	
 		/**
@@ -87,7 +87,7 @@ function ICount(select) {
 			@param column {String} Name of column on which condition need to be specified.
 		 	@return {ICountClause} ICountClause Interface.
 		 */
-        and : select.and,
+        and: select.and,
 
 
 		/**
@@ -97,7 +97,7 @@ function ICount(select) {
 			@param column {String} Name of column on which condition need to be specified.
 		 	@return {ICountClause} ICountClause Interface.
 		 */
-        or : select.or,
+        or: select.or,
 
 
 		/**
@@ -107,7 +107,7 @@ function ICount(select) {
 			@param columns {Array} Name of columns.
 		 	@return {ICount} ICount Interface.
 		 */
-        groupBy : select.groupBy,
+        groupBy: select.groupBy,
 
 
 		/**
@@ -117,7 +117,7 @@ function ICount(select) {
 			@param column {String} Name of column on which condition need to be applied.
 		 	@return {ICountClause} ICountClause Interface.
 		 */
-        having : select.having,
+        having: select.having,
 
 
 		/**
@@ -127,7 +127,7 @@ function ICount(select) {
 			@param havingClause {String} Where clause.
 		 	@return {ICount} ICount Interface.
 		 */
-        havingClause : select.havingClause,
+        havingClause: select.havingClause,
 
 
 		/**
@@ -137,7 +137,7 @@ function ICount(select) {
 			@param column {String} Name of column.
 		 	@return {ICount} ICount Interface.
 		 */
-        column : select.column,
+        column: select.column,
 
 		
 		/**
@@ -147,7 +147,7 @@ function ICount(select) {
 			@return {Object} Return count.
 		 	@throws {SiminovException} Throws exception if any error occur while calculating count. 
 		 */
-        execute : select.execute
+        execute: select.execute
 
     }
 

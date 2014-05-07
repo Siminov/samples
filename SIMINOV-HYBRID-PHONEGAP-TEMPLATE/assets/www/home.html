@@ -46,7 +46,12 @@
         <script src="Liquor/Events/DatabaseEventHandler.js"></script>
         <script src="Liquor/Events/NotificationEventHandler.js"></script>
 
-        <script src="Liquor/Services/GetProjects.js"></script>
+        <script src="Liquor/Services/AddLiquor.js"></script>
+        <script src="Liquor/Services/DeleteLiquor.js"></script>
+        <script src="Liquor/Services/GetLiquorBrands.js"></script>
+        <script src="Liquor/Services/GetLiquors.js"></script>
+        <script src="Liquor/Services/RegisterDevice.js"></script>
+        <script src="Liquor/Services/UnregisterDevice.js"></script>
 	
 
 		<script>
@@ -80,16 +85,8 @@
 			function deviceReady() {
 			    document.addEventListener("backbutton", onBackKeyPressed, false);
 				document.getElementById('show-loader').click();
+
 				Siminov.initialize();
-				
-				var syncRequest = new SyncRequest();
-				syncRequest.setName("SYNC-PROJECTS");
-				syncRequest.addInlineResource("RES-1", "01");
-				syncRequest.addInlineResource("RES-2", "02");
-				
-				
-				var syncHandler = SyncHandler.getInstance();
-				syncHandler.handle(syncRequest);
 			}
 
 			
@@ -118,8 +115,8 @@
 
 		    function initialize() {
 
-                var authentications;
-				authentications = new Authentication().select().fetch();
+				var credentialManager = CredentialManager.getInstance();
+                var authentications = new Authentication().select().execute();
 
                 if(authentications != undefined && authentications != null && authentications.length > 0) {
 					authentication = authentications[0];
@@ -127,7 +124,6 @@
                 }
                 
 				document.getElementById('hide-loader').click();
-                
             }
 
 
@@ -159,53 +155,65 @@
 	
 	                authentication.setAccountId(accountId);
 	                authentication.setToken(password);
-	                authentication.setCredentialType("SIMINOV");
 	
 	                authentication.saveOrUpdate();
 	
 					navHome();
-				
 				}
-
 			}
 			
 
 			function navHome() {
 
-                $.mobile.changePage($('#home-page'));
-				document.getElementById('show-loader').click();
-                
-                $('liquor-types').empty();
-                
-                liquors = new Liquor().select().fetch();
-
-				if(liquors != undefined) {
+				var syncRequest = new SyncRequest();
+				syncRequest.setName(SYNC_LIQUORS);
+				
+				//var populateHomeCallback = '' + populateHome;
+				//	populateHomeCallback = populateHomeCallback.replace(new RegExp("'", 'g'), "''");
 					
-					for(var i = 0;i < liquors.length;i++) {
-						var liquor = liquors[i];
-					
-                        $('#liquor-types').append('<li onclick="navDetail(' + i + ')" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c">' + 
-				                        			'<div class="ui-btn-inner ui-li">' + 
-				    	                    			'<div class="ui-btn-text">'+
-				            		            			'<a href="index.html" class="ui-link-inherit">' + 
-																'<img src="Liquor/Resources/Images/liquor.png" class="ui-li-thumb">' + 
-																'<h3 class="ui-li-heading">' + liquor.getLiquorType() + '</h3>' + 
-																'<p class="ui-li-desc">' + liquor.getDescription() + '</p>' +
-															'</a>' +
+				//syncRequest.addResource(GetLiquors.UI_COMPONENT, populateHomeCallback);
+			
+				
+				var syncHandler = SyncHandler.getInstance();
+				syncHandler.handle(syncRequest);
+				
+				
+				function populateHome() {
+				
+	                $.mobile.changePage($('#home-page'));
+					document.getElementById('show-loader').click();
+	                
+	                $('liquor-types').empty();
+	                
+	                liquors = new Liquor().select().execute();
+	
+					if(liquors != undefined) {
+						
+						for(var i = 0;i < liquors.length;i++) {
+							var liquor = liquors[i];
+						
+	                        $('#liquor-types').append('<li onclick="navDetail(' + i + ')" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c">' + 
+					                        			'<div class="ui-btn-inner ui-li">' + 
+					    	                    			'<div class="ui-btn-text">'+
+					            		            			'<a href="index.html" class="ui-link-inherit">' + 
+																	'<img src="Liquor/Resources/Images/liquor.png" class="ui-li-thumb">' + 
+																	'<h3 class="ui-li-heading">' + liquor.getLiquorType() + '</h3>' + 
+																	'<p class="ui-li-desc">' + liquor.getDescription() + '</p>' +
+																'</a>' +
+															'</div>' +
+															
+															'<span class="ui-icon ui-icon-arrow-r ui-icon-shadow">' +
+																'&nbsp;' +
+															'</span>' +
 														'</div>' +
-														
-														'<span class="ui-icon ui-icon-arrow-r ui-icon-shadow">' +
-															'&nbsp;' +
-														'</span>' +
-													'</div>' +
-												'</li>');
-												
-					}			
+													'</li>');
+													
+						}			
+					}
+					
+					
+					document.getElementById('hide-loader').click();
 				}
-				
-				
-				document.getElementById('hide-loader').click();
-				
 			}			
 			
 			function navDetail(id) {

@@ -52,7 +52,7 @@ function IMin(select) {
 		/**
 			Name of Interface
 		*/
-        interfaceName : "IMin",
+        interfaceName: "IMin",
 
 
 		/**
@@ -62,7 +62,7 @@ function IMin(select) {
 		 	@param column {String} Name of column.
 		 	@return {IMinClause} IMinClause Interface.
 		 */
-        where : select.where,
+        where: select.where,
 
 
 		/**
@@ -72,7 +72,7 @@ function IMin(select) {
 		 	@param whereClause {String} Manually created where clause.
 		 	@return {IMin} IMin Interface.
 		 */
-        whereClause : select.whereClause,
+        whereClause: select.whereClause,
 
 
 		/**
@@ -82,7 +82,7 @@ function IMin(select) {
 		 	@param column {String} Name of column on which condition need to be specified.
 		 	@return {IMinClause} IMinClause Interface.
 		 */
-        and : select.and,
+        and: select.and,
 
 
 		/**
@@ -92,7 +92,7 @@ function IMin(select) {
 		 	@param column {String} Name of column on which condition need to be specified.
 		 	@return {IMinClause} IMinClause Interface.
 		 */
-        or : select.or,
+        or: select.or,
 
 
 		/**
@@ -102,7 +102,7 @@ function IMin(select) {
 		 	@param columns {Array} Name of columns.
 		 	@return {IMin} IMin Interface.
 		 */
-        groupBy : select.groupBy,
+        groupBy: select.groupBy,
 
 
 		/**
@@ -112,7 +112,7 @@ function IMin(select) {
 		 	@param column {String} Name of column on which condition need to be applied.
 		 	@return {IMinClause} IMinClause Interface.
 		 */
-        having : select.having,
+        having: select.having,
 
 
 		/**
@@ -122,7 +122,7 @@ function IMin(select) {
 		 	@param havingClause {String} Where clause.
 		 	@return {IMin} IMin Interface.
 		 */
-        havingClause : select.havingClause,
+        havingClause: select.havingClause,
 
 
 		/**
@@ -132,7 +132,7 @@ function IMin(select) {
 		 	@param column {String} Name of column.
 		 	@return {IMin} IMin Interface.
 		 */
-        column : select.column,
+        column: select.column,
 
 
 		/**
@@ -142,7 +142,7 @@ function IMin(select) {
 		 	@return {Object} Return minimum.
 		 	@throws {SiminovException} Throws exception if any error occur while calculating minimum. 
 		 */
-        execute : select.execute
+        execute: select.execute
 
     }
 

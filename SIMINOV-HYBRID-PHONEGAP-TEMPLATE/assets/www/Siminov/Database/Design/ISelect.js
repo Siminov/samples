@@ -49,7 +49,7 @@ function ISelect(select) {
 		/**
 			Name of Interface
 		*/
-        interfaceName : "ISelect",
+        interfaceName: "ISelect",
 
 
 		/**
@@ -58,7 +58,7 @@ function ISelect(select) {
 		 	@method distinct
 		 	@return {ICount} ICount Interface.
 		 */
-        distinct : select.distinct,
+        distinct: select.distinct,
 
 
 		/**
@@ -68,7 +68,7 @@ function ISelect(select) {
 		 	@param column {String} Name of column.
 		 	@return {ISelectClause} ISelectClause Interface.
 		 */
-        where : select.where,
+        where: select.where,
 
 
 		/**
@@ -78,7 +78,7 @@ function ISelect(select) {
 		 	@param whereClause {String} Manually created where clause.
 		 	@return {ISelect} ISelect Interface.
 		 */
-        whereClause : select.whereClause,
+        whereClause: select.whereClause,
 
 
 		/**
@@ -88,7 +88,7 @@ function ISelect(select) {
 		 	@param column {String} Name of column on which condition need to be specified.
 		 	@return {ISelectClause} ISelectClause Interface.
 		 */
-        and : select.and,
+        and: select.and,
 
 
 		/**
@@ -98,7 +98,7 @@ function ISelect(select) {
 		 	@param column {String} Name of column on which condition need to be specified.
 		 	@return {ISelectClause} ISelectClause Interface.
 		 */
-        or : select.or,
+        or: select.or,
 
 
 		/**
@@ -108,7 +108,7 @@ function ISelect(select) {
 			@param columns {String} Name of columns which need to be sorted.
 		 	@return {ISelect} ISelect Interface.
 		 */
-        orderBy : select.orderBy,
+        orderBy: select.orderBy,
 
 
 		/**
@@ -118,7 +118,7 @@ function ISelect(select) {
 		 	@param columns {String} Name of columns which need to be sorted.
 		 	@return {ISelect} ISelect Interface.
 		 */
-        ascendingOrderBy : select.ascendingOrderBy,
+        ascendingOrderBy: select.ascendingOrderBy,
 
 
 		/**
@@ -128,7 +128,7 @@ function ISelect(select) {
 		 	@param columns {String} Name of columns which need to be sorted.
 		 	@return {ISelect} ISelect Interface.
 		 */
-        descendingOrderBy : select.descendingOrderBy,
+        descendingOrderBy: select.descendingOrderBy,
 
 
 		/**
@@ -138,7 +138,7 @@ function ISelect(select) {
 		 	@param limit {String} LIMIT of data.
 		 	@return {ISelect} ISelect Interface.
 		 */
-        limit : select.limit,
+        limit: select.limit,
 
 
 		/**
@@ -148,7 +148,7 @@ function ISelect(select) {
 		 	@param columns {Array} Name of columns.
 		 	@return {ISelect} ISelect Interface.
 		 */
-        groupBy : select.groupBy,
+        groupBy: select.groupBy,
 
 
 		/**
@@ -158,7 +158,7 @@ function ISelect(select) {
 		 	@param column {String} Name of column on which condition need to be applied.
 		 	@return {ISelectClause} ISelectClause Interface.
 		 */
-        having : select.having,
+        having: select.having,
 
 
 		/**
@@ -168,7 +168,7 @@ function ISelect(select) {
 		 	@param havingClause {String} Where clause.
 		 	@return {ISelect} ISelect Interface.
 		 */
-        havingClause : select.havingClause,
+        havingClause: select.havingClause,
 
 	
 		/**
@@ -178,7 +178,7 @@ function ISelect(select) {
 		 	@param column {Array} Name of columns.
 		 	@return {ISelect} ISelect Interface.
 		 */
-        columns : select.columns,
+        columns: select.columns,
 
 
 		/**
@@ -188,7 +188,7 @@ function ISelect(select) {
 		 	@return {Object} Return array of model objects.
 		 	@throws {SiminovException} Throws exception if any error occur while getting tuples from table. 
 		 */
-        fetch : select.fetch
+        execute: select.execute
 
     }
 

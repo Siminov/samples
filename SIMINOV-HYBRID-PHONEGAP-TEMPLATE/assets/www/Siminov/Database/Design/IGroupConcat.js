@@ -51,7 +51,7 @@ function IGroupConcat(select) {
 		/**
 			Name of Interface
 		*/
-        interfaceName : "IGroupConcat",
+        interfaceName: "IGroupConcat",
 
 		
 		/**
@@ -61,7 +61,7 @@ function IGroupConcat(select) {
 			@param delimiter {String} Delimiter.
 		 	@return {IGroupConcat} IGroupConcat Interface.
 		 */
-        delimiter : select.delimiter,
+        delimiter: select.delimiter,
 
 
 		/**
@@ -71,7 +71,7 @@ function IGroupConcat(select) {
 			@param column {String} Name of column.
 		 	@return {IGroupConcatClause} IGroupConcatClause Interface.
 		 */
-        where : select.where,
+        where: select.where,
 
 
 		/**
@@ -81,7 +81,7 @@ function IGroupConcat(select) {
 			@param whereClause {String} Manually created where clause.
 		 	@return {IGroupConcat} IGroupConcat Interface.
 		 */
-        whereClause : select.whereClause,
+        whereClause: select.whereClause,
 
 
 		/**
@@ -91,7 +91,7 @@ function IGroupConcat(select) {
 		 	@param column {String} Name of column on which condition need to be specified.
 		 	@return {IGroupConcatClause} IGroupConcatClause Interface.
 		 */
-        and : select.and,
+        and: select.and,
 
 
 		/**
@@ -101,7 +101,7 @@ function IGroupConcat(select) {
 		 	@param column {String} Name of column on which condition need to be specified.
 		 	@return {IGroupConcatClause} IGroupConcatClause Interface.
 		 */
-        or : select.or,
+        or: select.or,
 
 
 		/**
@@ -111,7 +111,7 @@ function IGroupConcat(select) {
 		 	@param columns {Array} Name of columns.
 		 	@return {IGroupConcat} IGroupConcat Interface.
 		 */
-        groupBy : select.groupBy,
+        groupBy: select.groupBy,
 
 
 		/**
@@ -121,7 +121,7 @@ function IGroupConcat(select) {
 			@param column {String} Name of column on which condition need to be applied.
 		 	@return {IGroupConcatClause} IGroupConcatClause Interface.
 		 */
-        having : select.having,
+        having: select.having,
 
 
 		/**
@@ -131,7 +131,7 @@ function IGroupConcat(select) {
 		 	@param havingClause {String} Where clause.
 		 	@return {IGroupConcat} IGroupConcat Interface.
 		 */
-        havingClause : select.havingClause,
+        havingClause: select.havingClause,
 
 
 		/**
@@ -141,7 +141,7 @@ function IGroupConcat(select) {
 			@param column {String} Name of column.
 		 	@return {IGroupConcat} IGroupConcat Interface.
 		 */
-        column : select.column,
+        column: select.column,
 
 
 		/**
@@ -151,7 +151,7 @@ function IGroupConcat(select) {
 			@return {Object} Return group concat.
 		 	@throws {SiminovException} Throws exception if any error occur while calculating group concat. 
 		 */
-        execute : select.execute
+        execute: select.execute
 
     }
 

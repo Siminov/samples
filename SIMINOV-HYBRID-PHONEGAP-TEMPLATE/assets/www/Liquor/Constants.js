@@ -133,6 +133,11 @@ var wine_brand_gallo_link = "http://gallo.com/";
 
 
 
+/*
+ * Sync Constants
+ */
+var SYNC_LIQUORS = "SYNC-LIQUORS";
+var SYNC_LIQUOR_BRANDS = "SYNC-LIQUOR-BRANDS";
 
 
 

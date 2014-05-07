@@ -38,27 +38,27 @@ var ServiceHandler = (function() {
 			apiHybrid.setDataType(Constants.SIMINOV_SERVICE_ADAPTER_INVOKE_HANDLER_API_PARAMETER);
 			apiHybrid.setDataValue(iService.getApi());
 
-			var inlineResourcesHybrid = new HybridSiminovDatas.HybridSiminovData();
-			inlineResourcesHybrid.setDataType(Constants.SIMINOV_SERVICE_ADAPTER_INVOKE_HANDLER_INLINE_RESOURCES);			
+			var resourcesHybrid = new HybridSiminovDatas.HybridSiminovData();
+			resourcesHybrid.setDataType(Constants.SIMINOV_SERVICE_ADAPTER_INVOKE_HANDLER_RESOURCES);			
 
-			var inlineResources = iService.getInlineResources();
-			for(var i = 0;i < inlineResources.length;i++) {
+			var resources = iService.getResources();
+			for(var i = 0;i < resources.length;i++) {
 				
-				var inlineResourceKey = inlineResources[i];
-				var inlineResourceValue = iService.getInlineResource(inlineResourceKey);
+				var resourceKey = resources[i];
+				var resourceValue = iService.getResource(resourceKey);
 
-				var inlineResourceHybrid = new HybridSiminovDatas.HybridSiminovData();
-				inlineResourceHybrid.setDataType(inlineResourceKey);
-				inlineResourceHybrid.setDataValue(inlineResourceValue);
+				var resourceHybrid = new HybridSiminovDatas.HybridSiminovData();
+				resourceHybrid.setDataType(resourceKey);
+				resourceHybrid.setDataValue(resourceValue);
 				
-				inlineResourcesHybrid.addData(inlineResourceHybrid);
+				resourcesHybrid.addData(resourceHybrid);
 			}
 
 			
 			hybridSiminovDatas.addHybridSiminovData(serviceHybrid);
 			hybridSiminovDatas.addHybridSiminovData(apiHybrid);
 
-			hybridSiminovDatas.addHybridSiminovData(inlineResourcesHybrid);
+			hybridSiminovDatas.addHybridSiminovData(resourcesHybrid);
 
 
 			var data = SIJsonHelper.toJson(hybridSiminovDatas);

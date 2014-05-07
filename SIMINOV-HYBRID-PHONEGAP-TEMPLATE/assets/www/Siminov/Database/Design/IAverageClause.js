@@ -49,7 +49,7 @@ function IAverageClause(clause) {
 		/**
 			Name of Interface
 		*/
-        interfaceName : "IAverageClause",
+        interfaceName: "IAverageClause",
 
 
 		/**
@@ -59,7 +59,7 @@ function IAverageClause(clause) {
 			@param value {String} Value for which EQUAL TO (=) condition will be applied.
 		 	@return {IAverage} IAverage Interface.
 		 */
-        equalTo : clause.equalTo,
+        equalTo: clause.equalTo,
 
 
 		/**
@@ -69,7 +69,7 @@ function IAverageClause(clause) {
 			@param value {String} Value for which NOT EQUAL TO (=) condition will be applied.
 		 	@return {IAverage} IAverage Interface.
 		 */
-        notEqualTo : clause.notEqualTo,
+        notEqualTo: clause.notEqualTo,
 
 
 		/**
@@ -79,7 +79,7 @@ function IAverageClause(clause) {
 		 	@param value {String} Value for while GREATER THAN (>) condition will be specified.
 		 	@return {IAverage} IAverage Interface.
 		 */
-        greaterThan : clause.greaterThan,
+        greaterThan: clause.greaterThan,
 
 
 		/**
@@ -89,7 +89,7 @@ function IAverageClause(clause) {
 			@param value {String} Value for which GREATER THAN EQUAL (>=) condition will be specified.
 		 	@return {IAverage} IAverage Interface.
 		 */
-        greaterThanEqual : clause.greaterThanEqual,
+        greaterThanEqual: clause.greaterThanEqual,
 
 
 		/**
@@ -99,7 +99,7 @@ function IAverageClause(clause) {
 			@param value {String} Value for which LESS THAN (<) condition will be specified.
 		 	@return {IAverage} IAverage Interface.
 		 */
-        lessThan : clause.lessThan,
+        lessThan: clause.lessThan,
 
 	
 		/**
@@ -109,7 +109,7 @@ function IAverageClause(clause) {
 			@param value {String} Value for which LESS THAN EQUAL (<=) condition will be specified.
 		 	@return {IAverage} IAverage Interface.
 		 */
-        lessThanEqual : clause.lessThanEqual,
+        lessThanEqual: clause.lessThanEqual,
 
 
 		/**
@@ -120,7 +120,7 @@ function IAverageClause(clause) {
 		 	@param end {String} End Range.
 		 	@return {IAverage} IAverage Interface.
 		 */
-        between : clause.between,
+        between: clause.between,
 
 
 		/**
@@ -130,7 +130,7 @@ function IAverageClause(clause) {
 			@param like {String} LIKE condition.
 		 	@return {IAverage} IAverage Interface.
 		 */
-        like : clause.like,
+        like: clause.like,
 
 
 		/**
@@ -140,7 +140,7 @@ function IAverageClause(clause) {
 			@param values {Array} Values for IN condition.
 		 	@return {IAverage} IAverage Interface.
 		 */
-        'in' : clause['in']
+        'in': clause['in']
 
     }
 

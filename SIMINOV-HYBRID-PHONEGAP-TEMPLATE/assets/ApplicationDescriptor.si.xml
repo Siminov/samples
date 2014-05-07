@@ -24,8 +24,8 @@
 
 <siminov>
 
-	<property name="name">SIMINOV HYBRID TEMPLATE</property>	
-	<property name="description">Siminov Hybrid Template Application</property>
+	<property name="name">SIMINOV HYBRID PHONEGAP TEMPLATE</property>	
+	<property name="description">Siminov Hybrid Phonegap Template Application</property>
 	<property name="version">0.9</property>
 
 	<property name="load_initially">true</property>
@@ -37,20 +37,41 @@
 
 	
 	<service-descriptors>
-	    <service-descriptor>Liquor-Services/Projects.si.xml</service-descriptor>
-	</service-descriptors>	
+	    <service-descriptor>Liquor-Services/Liquors.si.xml</service-descriptor>
+	    <service-descriptor>Liquor-Services/LiquorBrands.si.xml</service-descriptor>
+	    <service-descriptor>Liquor-Services/NotificationService.si.xml</service-descriptor>
+	</service-descriptors>
 	
     
-    <notification-descriptor>
+	<syn-descriptors>
+	    <sync-descriptor>Liquor-Sync/Liquors.si.xml</sync-descriptor>
+	    <sync-descriptor>Liquor-Sync/LiquorBrands.si.xml</sync-descriptor>
+	</syn-descriptors>
+	
+	
+	<notification-descriptor>
         <property name="sender_id">853402201726</property>
     </notification-descriptor>
 	
-    	
+
+    <authorization-descriptor>
+        <property name="type">oauth</property>
+        <property name="credential">Credential</property>
+        <property name="consumer_key">s8ambtU4cWxp4GT7UTwoqEfWqdqR0jxWTN7Npw6p</property>
+        <property name="consumer_secret">RVGQ7bf1qrA2gWQBhcZCE3LxB8HY5lhbIJ7QKrog</property>
+        <property name="request_token_url">http://10.0.2.2:8080/CONNECT-ENTERPRISE/oauth/request-token</property>
+        <property name="access_token_url">http://10.0.2.2:8080/CONNECT-ENTERPRISE/oauth/access-token</property>
+        <property name="authorize_url">http://10.0.2.2:8080/CONNECT-ENTERPRISE/oauth/authorize</property>
+        <property name="callback_url">authentication:///</property>
+    </authorization-descriptor> 
+	
+    		
 	<!-- SIMINOV EVENTS -->
  	<event-handlers>
 	    <event-handler>siminov.hybrid.phonegap.template.events.SiminovEventHandler</event-handler>
 	    <event-handler>siminov.hybrid.phonegap.template.events.DatabaseEventHandler</event-handler>
 	    <event-handler>siminov.hybrid.phonegap.template.events.NotificationEventHandler</event-handler>
+   	    <event-handler>siminov.hybrid.phonegap.template.events.AuthenticationEventHandler</event-handler>
 	</event-handlers>
 
  	<library-descriptors>

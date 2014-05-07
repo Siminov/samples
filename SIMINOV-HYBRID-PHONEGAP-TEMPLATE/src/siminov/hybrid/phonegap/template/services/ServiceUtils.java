@@ -8,9 +8,9 @@ import oauth.signpost.commonshttp.CommonsHttpOAuthConsumer;
 import org.apache.http.client.methods.HttpGet;
 
 import siminov.connect.Constants;
+import siminov.connect.authorization.CredentialManager;
 import siminov.connect.authorization.oauth.OauthConstants;
-import siminov.hybrid.phonegap.template.authorization.Credential;
-import siminov.hybrid.phonegap.template.authorization.CredentialManager;
+import siminov.connect.design.authorization.ICredential;
 import siminov.orm.exception.SiminovException;
 import siminov.orm.log.Log;
 
@@ -18,7 +18,7 @@ public class ServiceUtils {
 
 	public String getCompanyAlias() {
 
-		Credential credential = new CredentialManager().getActiveCredential();
+		ICredential credential = CredentialManager.getInstance().getActiveCredential();
 		if(credential == null) {
 			Log.loge(ServiceUtils.class.getName(), "getUrl", "Invalid Credential Found.");
 			return "";
@@ -29,7 +29,7 @@ public class ServiceUtils {
 	
 	public String getOAuthAuthorization(final String protocol, final String instance, final String context, final String api) throws SiminovException {
 		
-    	Credential credential = new CredentialManager().getActiveCredential();
+    	ICredential credential = CredentialManager.getInstance().getActiveCredential();
     	if(credential == null) {
     		Log.loge(Connection.class.getName(), "sign", "Invalid Credential Found.");
     		throw new SiminovException(Connection.class.getName(), "sign", "Invalid Credential Found.");

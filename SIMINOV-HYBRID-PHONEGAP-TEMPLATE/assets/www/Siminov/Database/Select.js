@@ -316,60 +316,48 @@ function Select(object) {
             } else {
                 Database['delete'](object.getObjectName(), whereCondition, undefined);
             }
+        } else if(this.interfaceName == 'ISelect') {
+        	
+	        var whereCondition = "";
+	        if(whereClause == undefined || whereClause.length <= 0) {
+	            if(where != undefined && where != null) {
+	                whereCondition = where.toString();
+	            }
+	        } else {
+	            whereCondition = whereClause;
+	        }
+	
+	
+	        var havingCondition = "";
+	        if(havingClause == undefined || havingClause.length <= 0) {
+	            if(having != undefined && having !=  null) {
+	                havingCondition = having.toString();
+	            }
+	        } else {
+	            havingCondition = havingClause;
+	        }
+	
+	
+	        if(columns == undefined || columns == null) {
+	            columns = [];
+	        }
+	
+	
+	        if(orderBy == undefined || orderBy == null) {
+	            orderBy = [];
+	        }
+	
+	
+	        if(groupBy == undefined || groupBy == null) {
+	            groupBy = [];
+	        }
+	
+	
+	        if(limit == undefined || limit.length <= 0) {
+	            limit = "0";
+	        }
+	
+	        return Database.select(object.getObjectName(), distinct, columns, groupBy, having, orderBy, whichOrderBy, limit);
         }
     }
-
-
-	/**
-	 	Used to get tuples, this method should be called in last to get tuples from table.
-	 	
-	 	@method fetch
-	 	@return {Object} Return array of model objects.
-	 	@throws {SiminovException} Throws exception if any error occur while getting tuples from table. 
-	 */
-    this.fetch = function() {
-
-        var whereCondition = "";
-        if(whereClause == undefined || whereClause.length <= 0) {
-            if(where != undefined && where != null) {
-                whereCondition = where.toString();
-            }
-        } else {
-            whereCondition = whereClause;
-        }
-
-
-        var havingCondition = "";
-        if(havingClause == undefined || havingClause.length <= 0) {
-            if(having != undefined && having !=  null) {
-                havingCondition = having.toString();
-            }
-        } else {
-            havingCondition = havingClause;
-        }
-
-
-        if(columns == undefined || columns == null) {
-            columns = [];
-        }
-
-
-        if(orderBy == undefined || orderBy == null) {
-            orderBy = [];
-        }
-
-
-        if(groupBy == undefined || groupBy == null) {
-            groupBy = [];
-        }
-
-
-        if(limit == undefined || limit.length <= 0) {
-            limit = "0";
-        }
-
-        return Database.select(object.getObjectName(), distinct, columns, groupBy, having, orderBy, whichOrderBy, limit);
-
-    }
-
 }

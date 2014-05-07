@@ -50,7 +50,7 @@ function ISumClause(clause) {
     	/**
     		Name of Interface
     	*/
-        interfaceName : "ISumClause",
+        interfaceName: "ISumClause",
 
 
 		/**
@@ -60,7 +60,7 @@ function ISumClause(clause) {
 		 	@param value {String} Value for which EQUAL TO (=) condition will be applied.
 		 	@return {ISum} ISum Interface.
 		 */
-        equalTo : clause.equalTo,
+        equalTo: clause.equalTo,
 
 
 		/**
@@ -70,7 +70,7 @@ function ISumClause(clause) {
 		 	@param value {String} Value for which NOT EQUAL TO (=) condition will be applied.
 		 	@return {ISum} ISum Interface.
 		 */
-        notEqualTo : clause.notEqualTo,
+        notEqualTo: clause.notEqualTo,
 
 
 		/**
@@ -80,7 +80,7 @@ function ISumClause(clause) {
 		 	@param value {String} Value for while GREATER THAN (>) condition will be specified.
 		 	@return {ISum} ISum Interface.
 		 */
-        greaterThan : clause.greaterThan,
+        greaterThan: clause.greaterThan,
 
 
 		/**
@@ -90,7 +90,7 @@ function ISumClause(clause) {
 		 	@param value {String} Value for which GREATER THAN EQUAL (>=) condition will be specified.
 		 	@return {ISum} ISum Interface.
 		 */
-        greaterThanEqual : clause.greaterThanEqual,
+        greaterThanEqual: clause.greaterThanEqual,
 
 
 		/**
@@ -100,7 +100,7 @@ function ISumClause(clause) {
 		 	@param value {String} Value for which LESS THAN (<) condition will be specified.
 		 	@return {ISum} ISum Interface.
 		 */
-        lessThan : clause.lessThan,
+        lessThan: clause.lessThan,
 
 
 		/**
@@ -110,7 +110,7 @@ function ISumClause(clause) {
 		 	@param value {String} Value for which LESS THAN EQUAL (<=) condition will be specified.
 		 	@return {ISum} ISum Interface.
 		 */
-        lessThanEqual : clause.lessThanEqual,
+        lessThanEqual: clause.lessThanEqual,
 
 
 		/**
@@ -121,7 +121,7 @@ function ISumClause(clause) {
 		 	@param end {String} End Range.
 		 	@return {ISum} ISum Interface.
 		 */
-        between : clause.between,
+        between: clause.between,
 
 
 		/**
@@ -131,7 +131,7 @@ function ISumClause(clause) {
 		 	@param like {String} LIKE condition.
 		 	@return {ISum} ISum Interface.
 		 */
-        like : clause.like,
+        like: clause.like,
 
 
 		/**
@@ -141,7 +141,7 @@ function ISumClause(clause) {
 		 	@param values {Array} Values for IN condition.
 		 	@return {ISum} ISum Interface.
 		 */
-        'in' : clause['in']
+        'in': clause['in']
 
     }
 

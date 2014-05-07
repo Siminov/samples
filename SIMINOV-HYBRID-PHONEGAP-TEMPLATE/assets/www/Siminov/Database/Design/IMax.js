@@ -51,7 +51,7 @@ function IMax(select) {
 		/**
 			Name of Interface
 		*/
-        interfaceName : "IMax",
+        interfaceName: "IMax",
 
 
 		/**
@@ -61,7 +61,7 @@ function IMax(select) {
 		 	@param column {String} Name of column.
 		 	@return {IMaxClause} IMaxClause Interface.
 		 */
-        where : select.where,
+        where: select.where,
 
 
 		/**
@@ -71,7 +71,7 @@ function IMax(select) {
 			@param whereClause {String} Manually created where clause.
 		 	@return {IMax} IMax Interface.
 		 */
-        whereClause : select.whereClause,
+        whereClause: select.whereClause,
 
 
 		/**
@@ -81,7 +81,7 @@ function IMax(select) {
 		 	@param column {String} Name of column on which condition need to be specified.
 		 	@return {IMaxClause} IMaxClause Interface.
 		 */
-        and : select.and,
+        and: select.and,
 
 
 		/**
@@ -91,7 +91,7 @@ function IMax(select) {
 		 	@param column {String} Name of column on which condition need to be specified.
 		 	@return {IMaxClause} IMaxClause Interface.
 		 */
-        or : select.or,
+        or: select.or,
 
 
 		/**
@@ -101,7 +101,7 @@ function IMax(select) {
 		 	@param columns {Array} Name of columns.
 		 	@return {IMax} IMax Interface.
 		 */
-        groupBy : select.groupBy,
+        groupBy: select.groupBy,
 
 
 		/**
@@ -111,7 +111,7 @@ function IMax(select) {
 		 	@param column {String} Name of column on which condition need to be applied.
 		 	@return {IMaxClause} IMaxClause Interface.
 		 */
-        having : select.having,
+        having: select.having,
 
 
 		/**
@@ -121,7 +121,7 @@ function IMax(select) {
 		 	@param havingClause {String} Where clause.
 		 	@return {IMax} IMax Interface.
 		 */
-        havingClause : select.havingClause,
+        havingClause: select.havingClause,
 
 
 		/**
@@ -131,7 +131,7 @@ function IMax(select) {
 			@param column {String} Name of column.
 		 	@return {IMax} IMax Interface.
 		 */
-        column : select.column,
+        column: select.column,
 
 
 		/**
@@ -141,7 +141,7 @@ function IMax(select) {
 		 	@return {Object} Return maximum.
 		 	@throws {SiminovException} Throws exception if any error occur while calculating maximum. 
 		 */
-        execute : select.execute
+        execute: select.execute
 
     }
 

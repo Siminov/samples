@@ -4,7 +4,7 @@ function SyncRequest() {
 
 	var name;
 	
-	var inlineResources = new Dictionary();
+	var resources = new Dictionary();
 	
 	this.getName = function() {
 		return name;
@@ -14,19 +14,19 @@ function SyncRequest() {
 		name = val;
 	}
 	
-	this.getInlineResources = function() {
-		return inlineResources;
+	this.getResources = function() {
+		return resources;
 	}
 
-	this.getInlineResource = function(val) {
-		return inlineResources.get(val);
+	this.getResource = function(val) {
+		return resources.get(val);
 	}
 
-	this.addInlineResource = function(name, value) {
-		inlineResources.add(name, value);
+	this.addResource = function(name, value) {
+		resources.add(name, value);
 	}
 
-	this.containInlineResource = function(name) {
-		return inlineResources.exists(name);
+	this.containResource = function(name) {
+		return resources.exists(name);
 	}
 }

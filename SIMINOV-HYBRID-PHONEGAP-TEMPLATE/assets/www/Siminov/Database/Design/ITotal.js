@@ -52,7 +52,7 @@ function ITotal(select) {
 		/**
 			Name of Interface
 		*/
-        interfaceName : "ITotal",
+        interfaceName: "ITotal",
 
 
 		/**
@@ -62,7 +62,7 @@ function ITotal(select) {
 		 	@param column {String} Name of column.
 		 	@return {ITotalClause} ITotalClause Interface.
 		 */
-        where : select.where,
+        where: select.where,
 
 	
 		/**
@@ -72,7 +72,7 @@ function ITotal(select) {
 		 	@param whereClause {String} Manually created where clause.
 		 	@return {ITotal} ITotal Interface.
 		 */
-        whereClause : select.whereClause,
+        whereClause: select.whereClause,
 
 
 		/**
@@ -82,7 +82,7 @@ function ITotal(select) {
 		 	@param column {String} Name of column on which condition need to be specified.
 		 	@return {ITotalClause} ITotalClause Interface.
 		 */
-        and : select.and,
+        and: select.and,
 
 
 		/**
@@ -92,7 +92,7 @@ function ITotal(select) {
 		 	@param column {String} Name of column on which condition need to be specified.
 		 	@return {ITotalClause} ITotalClause Interface.
 		 */
-        or : select.or,
+        or: select.or,
 
 
 		/**
@@ -102,7 +102,7 @@ function ITotal(select) {
 		 	@param columns {String} Name of columns.
 		 	@return {ITotal} ITotal Interface.
 		 */
-        groupBy : select.groupBy,
+        groupBy: select.groupBy,
 
 
 		/**
@@ -112,7 +112,7 @@ function ITotal(select) {
 		 	@param column {String} Name of column on which condition need to be applied.
 		 	@return {ITotalClause} ITotalClause Interface.
 		 */
-        having : select.having,
+        having: select.having,
 
 
 		/**
@@ -122,7 +122,7 @@ function ITotal(select) {
 		 	@param havingClause {String} Where clause.
 		 	@return {ITotal} ITotal Interface.
 		 */
-        havingClause : select.havingClause,
+        havingClause: select.havingClause,
 
 
 		/**
@@ -132,7 +132,7 @@ function ITotal(select) {
 		 	@param column {String} Name of column.
 		 	@return {ITotal} ITotal Interface.
 		 */
-        column : select.column,
+        column: select.column,
 
 
 		/**
@@ -142,7 +142,7 @@ function ITotal(select) {
 		 	@return {Object} Return total.
 		 	@throws {SiminovException} Throws exception if any error occur while calculating total. 
 		 */
-        execute : select.execute
+        execute: select.execute
 
     }
 

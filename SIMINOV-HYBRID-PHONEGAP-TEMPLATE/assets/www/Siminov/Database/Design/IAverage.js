@@ -52,7 +52,7 @@ function IAverage(select) {
 		/**
 			Name of Interface
 		*/
-        interfaceName : "IAverage",
+        interfaceName: "IAverage",
 
 
 		/**
@@ -62,7 +62,7 @@ function IAverage(select) {
 		 	@param column {String} Name of column.
 		 	@return {IAerageClause} IAerageClause Interface.
 		*/
-        where : select.where,
+        where: select.where,
 
 
 		/**
@@ -72,7 +72,7 @@ function IAverage(select) {
 			@param whereClause {String} Manually created where clause.
 			@return {IAverage} IAverage Interface.
 		*/
-        whereClause : select.whereClause,
+        whereClause: select.whereClause,
 
 
 		/**
@@ -82,7 +82,7 @@ function IAverage(select) {
 	 		@param column {String} Name of column on which condition need to be specified.
 	 		@return {IAerageClause} IAerageClause Interface.
 		*/
-        and : select.and,
+        and: select.and,
 
 		
 		/**
@@ -92,7 +92,7 @@ function IAverage(select) {
 	 		@param column {String} Name of column on which condition need to be specified.
 	 		@return {IAverageClause} IAverageClause Interface.
 		*/
-        or : select.or,
+        or: select.or,
 
 		
 		/**
@@ -102,7 +102,7 @@ function IAverage(select) {
 	 		@param columns {Array} Name of columns.
 	 		@return {IAverage} IAverage Interface.
 		*/
-        groupBy : select.groupBy,
+        groupBy: select.groupBy,
 
 		
 		/**
@@ -112,7 +112,7 @@ function IAverage(select) {
 	 		@param column {String} Name of column on which condition need to be applied.
 	 		@return {IAverageClause} IAverageClause Interface.
 		*/
-        having : select.having,
+        having: select.having,
 
 
 		/**
@@ -122,7 +122,7 @@ function IAverage(select) {
 	 		@param havingClause {String} Where clause.
 	 		@return {IAverage} IAverage Interface.
 		*/
-        havingClause : select.havingClause,
+        havingClause: select.havingClause,
 
 			
 		/**
@@ -132,7 +132,7 @@ function IAverage(select) {
 			@param column {String} Name of column.
 	 		@return {IAverage} IAverage Interface.
 		*/
-        column : select.column,
+        column: select.column,
 
 			
 		/**
@@ -142,7 +142,7 @@ function IAverage(select) {
 			@return {Object} Return average.
 	 		@throws {SiminovException} Throws exception if any error occur while calculating average. 
 		*/
-        execute : select.execute
+        execute: select.execute
 
     }
 

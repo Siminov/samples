@@ -49,7 +49,7 @@ function ISelectClause(clause) {
 		/**
 			Name of Interface
 		*/
-        interfaceName : "ISelectClause",
+        interfaceName: "ISelectClause",
 
 		
 		/**
@@ -59,7 +59,7 @@ function ISelectClause(clause) {
 		 	@param value {String} Value for which EQUAL TO (=) condition will be applied.
 		 	@return {ISelect} ISelect Interface.
 		 */
-        equalTo : clause.equalTo,
+        equalTo: clause.equalTo,
 
 	
 		/**
@@ -69,7 +69,7 @@ function ISelectClause(clause) {
 		 	@param value {String} Value for which NOT EQUAL TO (=) condition will be applied.
 		 	@return {ISelect} ISelect Interface.
 		 */
-        notEqualTo : clause.notEqualTo,
+        notEqualTo: clause.notEqualTo,
 
 
 		/**
@@ -79,7 +79,7 @@ function ISelectClause(clause) {
 		 	@param value {String} Value for while GREATER THAN (>) condition will be specified.
 		 	@return {ISelect} ISelect Interface.
 		 */
-        greaterThan : clause.greaterThan,
+        greaterThan: clause.greaterThan,
 
 
 		/**
@@ -89,7 +89,7 @@ function ISelectClause(clause) {
 			@param value {String} Value for which GREATER THAN EQUAL (>=) condition will be specified.
 		 	@return {ISelect} ISelect Interface.
 		 */
-        greaterThanEqual : clause.greaterThanEqual,
+        greaterThanEqual: clause.greaterThanEqual,
 
 
 		/**
@@ -99,7 +99,7 @@ function ISelectClause(clause) {
 		 	@param value {String} Value for which LESS THAN (<) condition will be specified.
 		 	@return {ISelect} ISelect Interface.
 		 */
-        lessThan : clause.lessThan,
+        lessThan: clause.lessThan,
 
 
 		/**
@@ -109,7 +109,7 @@ function ISelectClause(clause) {
 		 	@param value {String} Value for which LESS THAN EQUAL (<=) condition will be specified.
 		 	@return {ISelect} ISelect Interface.
 		 */
-        lessThanEqual : clause.lessThanEqual,
+        lessThanEqual: clause.lessThanEqual,
 
 
 		/**
@@ -120,7 +120,7 @@ function ISelectClause(clause) {
 		 	@param end {String} End Range.
 		 	@return {ISelect} ISelect Interface.
 		 */
-        between : clause.between,
+        between: clause.between,
 
 
 		/**
@@ -130,7 +130,7 @@ function ISelectClause(clause) {
 		 	@param like {String} LIKE condition.
 		 	@return {ISelect} ISelect Interface.
 		 */
-        like : clause.like,
+        like: clause.like,
 
 
 		/**
@@ -140,7 +140,7 @@ function ISelectClause(clause) {
 		 	@param values {Array} Values for IN condition.
 		 	@return {ISelect} ISelect Interface.
 		 */
-        'in' : clause['in']
+        'in': clause['in']
 
     }
 

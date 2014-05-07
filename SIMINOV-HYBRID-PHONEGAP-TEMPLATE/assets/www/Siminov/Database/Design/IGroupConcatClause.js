@@ -49,7 +49,7 @@ function IGroupConcatClause(clause) {
 		/**
 			Name of Interface
 		*/
-        interfaceName : "IGroupConcatClause",
+        interfaceName: "IGroupConcatClause",
 
 		
 		/**
@@ -59,7 +59,7 @@ function IGroupConcatClause(clause) {
 			@param value {String} Value for which EQUAL TO (=) condition will be applied.
 		 	@return {IGroupConcat} IGroupConcat Interface.
 		 */
-        equalTo : clause.equalTo,
+        equalTo: clause.equalTo,
 
 
 		/**
@@ -69,7 +69,7 @@ function IGroupConcatClause(clause) {
 			@param value {String} Value for which NOT EQUAL TO (=) condition will be applied.
 		 	@return {IGroupConcat} IGroupConcat Interface.
 		 */
-        notEqualTo : clause.notEqualTo,
+        notEqualTo: clause.notEqualTo,
 
 
 		/**
@@ -79,7 +79,7 @@ function IGroupConcatClause(clause) {
 			@param value {String} Value for while GREATER THAN (>) condition will be specified.
 		 	@return {IGroupConcat} IGroupConcat Interface.
 		 */
-        greaterThan : clause.greaterThan,
+        greaterThan: clause.greaterThan,
 
 
 		/**
@@ -89,7 +89,7 @@ function IGroupConcatClause(clause) {
 		 	@param value {String} Value for which GREATER THAN EQUAL (>=) condition will be specified.
 		 	@return {IGroupConcat} IGroupConcat Interface.
 		 */
-        greaterThanEqual : clause.greaterThanEqual,
+        greaterThanEqual: clause.greaterThanEqual,
 
 
 		/**
@@ -99,7 +99,7 @@ function IGroupConcatClause(clause) {
 		 	@param value {String} Value for which LESS THAN (<) condition will be specified.
 		 	@return {IGroupConcat} IGroupConcat Interface.
 		 */
-        lessThan : clause.lessThan,
+        lessThan: clause.lessThan,
 
 
 		/**
@@ -109,7 +109,7 @@ function IGroupConcatClause(clause) {
 		 	@param value {String} Value for which LESS THAN EQUAL (<=) condition will be specified.
 		 	@return {IGroupConcat} IGroupConcat Interface.
 		 */
-        lessThanEqual : clause.lessThanEqual,
+        lessThanEqual: clause.lessThanEqual,
 
 
 		/**
@@ -120,7 +120,7 @@ function IGroupConcatClause(clause) {
 		 	@param end {String} End Range.
 		 	@return {IGroupConcat} IGroupConcat Interface.
 		 */
-        between : clause.between,
+        between: clause.between,
 
 
 		/**
@@ -130,7 +130,7 @@ function IGroupConcatClause(clause) {
 		 	@param like {String} LIKE condition.
 		 	@return {IGroupConcat} IGroupConcat Interface.
 		 */
-        like : clause.like,
+        like: clause.like,
 
 
 		/**
@@ -140,7 +140,7 @@ function IGroupConcatClause(clause) {
 		 	@param values {Array} Values for IN condition.
 		 	@return {IGroupConcat} IGroupConcat Interface.
 		 */
-        'in' : clause['in']
+        'in': clause['in']
 
     }
 

@@ -7,6 +7,7 @@ var SyncHandler = (function() {
 	return {
 	
 		getInstance : function() {
+			
 			if(syncHandler == null) {
 				syncHandler = new SyncHandler();
 				
@@ -15,7 +16,6 @@ var SyncHandler = (function() {
 			
 			return syncHandler;
 		}
-	
 	}
 	
 
@@ -40,30 +40,30 @@ var SyncHandler = (function() {
 			
 			hybridSyncRequest.addValue(hybridSyncRequestName);
 			
-			var hybridSyncRequestInlineResources = new HybridSiminovDatas.HybridSiminovData();
-			hybridSyncRequestInlineResources.setDataType(Constants.SIMINOV_SYNC_ADAPTER_HANDLE_HANDLER_SYNC_REQUEST_INLINE_RESOURCES);
+			var hybridSyncRequestResources = new HybridSiminovDatas.HybridSiminovData();
+			hybridSyncRequestResources.setDataType(Constants.SIMINOV_SYNC_ADAPTER_HANDLE_HANDLER_SYNC_REQUEST_RESOURCES);
 			
 
-			var inlineResources = syncRequest.getInlineResources();
-			if(inlineResources != undefined && inlineResources != null) {
+			var resources = syncRequest.getResources();
+			if(resources != undefined && resources != null) {
 				
-				var inlineResourceKeys = inlineResources.keys();
-				alert("inline rsource keys: " + inlineResourceKeys.length);
-				for(var i = 0;i < inlineResourceKeys.length;i++) {
+				var resourceKeys = resources.keys();
+				alert("rsource keys: " + resourceKeys.length);
+				for(var i = 0;i < resourceKeys.length;i++) {
 					
-					var inlineResource = inlineResources.get(inlineResourceKeys[i]);
+					var resource = resources.get(resourceKeys[i]);
 					
-					var hybridInlineResource = new HybridSiminovDatas.HybridSiminovData.HybridSiminovValue();
-					hybridInlineResource.setType(inlineResourceKeys[i]);
-					hybridInlineResource.setValue(inlineResource);
+					var hybridResource = new HybridSiminovDatas.HybridSiminovData.HybridSiminovValue();
+					hybridResource.setType(resourceKeys[i]);
+					hybridResource.setValue(resource);
 					
-					alert("inline: " + inlineResourceKeys[i] + ", " + inlineResource);
-					hybridSyncRequestInlineResources.addValue(hybridInlineResource);
+					alert("resource: " + resourceKeys[i] + ", " + resource);
+					hybridSyncRequestResources.addValue(hybridResource);
 				}
 			}
 
 
-			hybridSyncRequest.addData(hybridSyncRequestInlineResources);
+			hybridSyncRequest.addData(hybridSyncRequestResources);
 			hybridSiminovDatas.addHybridSiminovData(hybridSyncRequest);
 									
 			

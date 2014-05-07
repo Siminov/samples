@@ -1,7 +1,11 @@
 
 function Authorization() {
 	
-	this.doAuthentication = function() {
+	this.doAuthentication = function(credential) {
+		
+	},
+	
+	this.doSignature = function() {
 		
 	}	
 }

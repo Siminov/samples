@@ -2,9 +2,6 @@
 function SiminovEventHandler() {
 
     this.onFirstTimeSiminovInitialized = function() {
-
-		new DatabaseUtils().prepareData();
-
         initialize();
     }
 
