@@ -26,7 +26,7 @@
 	<property name="description">Siminov Hybrid Phonegap Library Template</property>
 
 	<database-mapping-descriptors>
-		<database-mapping-descriptor>SIMINOV-HYBRID-TEMPLATE.Authentication.si.xml</database-mapping-descriptor>
+		<database-mapping-descriptor>SIMINOV-HYBRID-PHONEGAP-TEMPLATE.Authentication.si.xml</database-mapping-descriptor>
 	</database-mapping-descriptors>
 	 
 </library-descriptor>

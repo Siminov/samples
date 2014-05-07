@@ -1,21 +1,22 @@
 <!-- 
-/** 
- * [SIMINOV FRAMEWORK]
- * Copyright [2013] [Siminov Software Solution LLP|support@siminov.com]
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- **/
-
+/**
+ * 
+ * 						SIMINOV SOFTWARE SOLUTIONS CONFIDENTIAL
+ * ____________________________________________________________________
+ * 
+ *  Copyright [2013] [Siminov Software Solutions|support@siminov.com] 
+ *  All Rights Reserved.
+ * ____________________________________________________________________
+ * NOTICE:  All information contained herein is, and remains the 
+ * property of Siminov Software Solutions and its suppliers, if any. 
+ * The intellectual and technical concepts contained herein are 
+ * proprietary to Siminov Software Solutions and its suppliers and may be 
+ * covered by India and Foreign Patents, patents in process, and are 
+ * protected by trade secret or copyright law. Dissemination of this 
+ * information or reproduction of this material  is strictly forbidden 
+ * unless prior written permission is obtained from Siminov Software Solutions.
+ * ____________________________________________________________________
+ */
 -->
  
 <database-mapping-descriptor>
@@ -29,23 +30,16 @@
 			<property name="unique">true</property>
 		</column>		
 		
-		<column variable_name="credentialType" column_name="CREDENTIAL_TYPE"> 
-			<property name="type">java.lang.String</property>
-			<property name="primary_key">true</property>
-			<property name="not_null">true</property>
-			<property name="unique">true</property>
-		</column>
-		
 		<column variable_name="token" column_name="TOKEN"> 
 			<property name="type">java.lang.String</property>
 			<property name="not_null">true</property>
 			<property name="unique">true</property>
 		</column>
 
-		<column variable_name="logged" column_name="LOGGED"> 
-			<property name="type">java.lang.String</property>
+		<column variable_name="active" column_name="ACTIVE"> 
+			<property name="type">boolean</property>
 		</column>
-		
+
 	</table>
 
 </database-mapping-descriptor>
