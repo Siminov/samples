@@ -18,7 +18,7 @@
 package siminov.orm.template.fragments;
 
 import siminov.orm.exception.DatabaseException;
-import siminov.orm.library.template.apis.AuthenticateAPI;
+import siminov.orm.library.template.apis.CredentialAPI;
 import siminov.orm.log.Log;
 import siminov.orm.template.R;
 import android.content.Intent;
@@ -53,7 +53,7 @@ public class Login extends Fragment implements OnClickListener {
 		View view = inflater.inflate(R.layout.login_artist, null);
 		
 		TextView loginNote = (TextView) view.findViewById(R.id.login_note);
-		isAccountPresent = new AuthenticateAPI().isAccountPresent();
+		isAccountPresent = new CredentialAPI().isAccountPresent();
 		
 		accountId = (TextView) view.findViewById(R.id.account_id);
 		token = (TextView) view.findViewById(R.id.token);
@@ -97,7 +97,7 @@ public class Login extends Fragment implements OnClickListener {
 				
 				if(!isAccountPresent) {
 					try {
-						new AuthenticateAPI().createAccount(accountId, token);
+						new CredentialAPI().createAccount(accountId, token);
 					} catch(DatabaseException databaseException) {
 						Log.loge(getClass().getName(), "onClick", "DatabaseException caught while creating account, " + databaseException.getMessage());
 						Toast.makeText(getActivity(), "DatabaseException caught while creating account, " + databaseException.getMessage(), Toast.LENGTH_LONG).show();
@@ -108,7 +108,7 @@ public class Login extends Fragment implements OnClickListener {
 				boolean authenticated = false;
 				
 				try {
-					authenticated = new AuthenticateAPI().authenticateCredential(accountId, token);
+					authenticated = new CredentialAPI().authenticateCredential(accountId, token);
 				} catch(DatabaseException databaseException) {
 					Log.loge(getClass().getName(), "onClick", "DatabaseException caught while authenticating account, " + databaseException.getMessage());
 					Toast.makeText(getActivity(), "DatabaseException caught while authenticating account, " + databaseException.getMessage(), Toast.LENGTH_LONG).show();
