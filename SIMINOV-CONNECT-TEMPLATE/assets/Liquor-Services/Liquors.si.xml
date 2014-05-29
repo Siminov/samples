@@ -61,7 +61,7 @@
 	      	<header-parameters>
 	        	<header-parameter name="Accept">application/xml</header-parameter>
 	          	<header-parameter name="Content-Type">application/xml</header-parameter>
-	          	<header-parameter name="name">{@inline LIQUOR_NAME}</header-parameter>
+	          	<header-parameter name="name">{@resource LIQUOR_NAME}</header-parameter>
 	      	</header-parameters>
      	
 		</api>

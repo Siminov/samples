@@ -62,7 +62,7 @@ public class GetLiquors extends Service {
 			try {
 				liquor.saveOrUpdate();
 			} catch(DatabaseException de) {
-				Log.loge(GetLiquors.class.getName(), "onServiceApiFinish", "Database Exception caught while saving liquors in database, " + de.getMessage());
+				Log.error(GetLiquors.class.getName(), "onServiceApiFinish", "Database Exception caught while saving liquors in database, " + de.getMessage());
 			}
 		}
 		

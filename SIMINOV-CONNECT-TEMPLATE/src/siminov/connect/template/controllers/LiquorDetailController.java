@@ -28,7 +28,7 @@ public class LiquorDetailController {
 		try {
 			return (LiquorBrand[]) new LiquorBrand().select().where(LiquorBrand.LIQUOR_TYPE).equalTo(liquorType).execute();
 		} catch(DatabaseException databaseException) {
-			Log.loge(getClass().getName(), "getLiquorBrands", "DatabaseException caught while getting liquor brands, " + databaseException.getMessage());
+			Log.error(getClass().getName(), "getLiquorBrands", "DatabaseException caught while getting liquor brands, " + databaseException.getMessage());
 			return null;
 		}
 	}

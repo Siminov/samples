@@ -17,7 +17,7 @@
 	     	<property name="mode">SYNC</property>
 
 	     	<query-parameters>
-	     	    <query-parameter name="name">{@inline LIQUOR-NAME}</query-parameter>
+	     	    <query-parameter name="name">{@resource LIQUOR-NAME}</query-parameter>
 	     	</query-parameters>
 	     	
 	      	<header-parameters>

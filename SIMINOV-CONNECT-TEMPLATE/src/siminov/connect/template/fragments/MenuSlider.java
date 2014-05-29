@@ -99,7 +99,7 @@ public class MenuSlider extends ListFragment implements OnItemClickListener {
 				try {
 					authorization.doAuthentication(credential);
 				} catch(AuthorizationException ae) {
-					Log.loge(MenuSlider.class.getName(), "onClick", "AuthorizationException caught while authenticating the user, " + ae.getMessage());
+					Log.error(MenuSlider.class.getName(), "onClick", "AuthorizationException caught while authenticating the user, " + ae.getMessage());
 				}
 
 			case HOME_ABOUT_SIMINOV_FRAMEWORK_KEY:

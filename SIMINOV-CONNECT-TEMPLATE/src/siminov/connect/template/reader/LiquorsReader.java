@@ -33,7 +33,7 @@ public class LiquorsReader extends SiminovSAXDefaultHandler implements Constants
 		try {
 			parseMessage(data);
 		} catch(Exception exception) {
-			Log.loge(getClass().getName(), "Constructor", "Exception caught while parsing Liquors, " + exception.getMessage());
+			Log.error(getClass().getName(), "Constructor", "Exception caught while parsing Liquors, " + exception.getMessage());
 			throw new DeploymentException(getClass().getName(), "Constructor", "Exception caught while parsing Liquors, " + exception.getMessage());
 		}
 	}

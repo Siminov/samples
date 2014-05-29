@@ -57,7 +57,7 @@ public class AddLiquor extends Service {
 				liquor = liquors[0];
 			}
 		} catch(DatabaseException de) {
-			Log.loge(AddLiquor.class.getName(), "onServiceApiInvoke", "Database Exception caught while getting liquor from database, " + de.getMessage());
+			Log.error(AddLiquor.class.getName(), "onServiceApiInvoke", "Database Exception caught while getting liquor from database, " + de.getMessage());
 			return;
 		}
 		

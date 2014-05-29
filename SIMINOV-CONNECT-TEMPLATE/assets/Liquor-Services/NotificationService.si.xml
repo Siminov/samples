@@ -17,7 +17,7 @@
 	     	<property name="mode">SYNC</property>
 
 	      	<header-parameters>
-	     	    <header-parameter name="id">{@inline ID}</header-parameter>
+	     	    <header-parameter name="id">{@resource ID}</header-parameter>
 	      	</header-parameters>
      	
 		</api>
@@ -30,7 +30,7 @@
 	     	<property name="mode">SYNC</property>
 
 	      	<header-parameters>
-	     	    <header-parameter name="id">{@inline ID}</header-parameter>
+	     	    <header-parameter name="id">{@resource ID}</header-parameter>
 	      	</header-parameters>
      	
 		</api>

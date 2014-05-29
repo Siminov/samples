@@ -114,7 +114,7 @@ public class DatabaseUtils {
 			createBeerBrands(beer);
 			createWineBrands(wine);
 		} catch(DatabaseException databaseException) {
-			Log.loge(DatabaseUtils.class.getName(), "createLiquors", "DatabaseException caught while creating liquors, " + databaseException.getMessage());
+			Log.error(DatabaseUtils.class.getName(), "createLiquors", "DatabaseException caught while creating liquors, " + databaseException.getMessage());
 		}
 		
 	}
@@ -140,7 +140,7 @@ public class DatabaseUtils {
 			theBotanist.saveOrUpdate();
 			tanqueray.saveOrUpdate();
 		} catch(DatabaseException databaseException) {
-			Log.loge(DatabaseUtils.class.getName(), "createGinBrands", "DatabaseException caught while creating gin brands, " + databaseException.getMessage());
+			Log.error(DatabaseUtils.class.getName(), "createGinBrands", "DatabaseException caught while creating gin brands, " + databaseException.getMessage());
 		}
 	}
 
@@ -166,7 +166,7 @@ public class DatabaseUtils {
 			bacardi.saveOrUpdate();
 			oldMonk.saveOrUpdate();
 		} catch(DatabaseException databaseException) {
-			Log.loge(getClass().getName(), "createRumBrands", "DatabaseException caught while creating rumbrands, " + databaseException.getMessage());
+			Log.error(getClass().getName(), "createRumBrands", "DatabaseException caught while creating rumbrands, " + databaseException.getMessage());
 		}
 	}
 
@@ -191,7 +191,7 @@ public class DatabaseUtils {
 			patron.saveOrUpdate();
 			sauzate.saveOrUpdate();
 		} catch(DatabaseException databaseException) {
-			Log.loge(getClass().getName(), "createTequilaBrands", "DatabaseException caught while creating tequila brands, " + databaseException.getMessage());
+			Log.error(getClass().getName(), "createTequilaBrands", "DatabaseException caught while creating tequila brands, " + databaseException.getMessage());
 		}
 	}
 	
@@ -217,7 +217,7 @@ public class DatabaseUtils {
 			absolut.saveOrUpdate();
 			smirnoff.saveOrUpdate();
 		} catch(DatabaseException databaseException) {
-			Log.loge(getClass().getName(), "createVodkaBrands", "DatabaseException caught while creating vodka brands, " + databaseException.getMessage());
+			Log.error(getClass().getName(), "createVodkaBrands", "DatabaseException caught while creating vodka brands, " + databaseException.getMessage());
 		}
 	}
 	
@@ -243,7 +243,7 @@ public class DatabaseUtils {
 			jackDaniels.saveOrUpdate();
 			johnnieWalker.saveOrUpdate();
 		} catch(DatabaseException databaseException) {
-			Log.loge(getClass().getName(), "createWhiskeyBrands", "DatabaseException caught while creating whiskey brands, " + databaseException.getMessage());
+			Log.error(getClass().getName(), "createWhiskeyBrands", "DatabaseException caught while creating whiskey brands, " + databaseException.getMessage());
 		}
 	}
 	
@@ -271,7 +271,7 @@ public class DatabaseUtils {
 		 	heineken.saveOrUpdate();
 			kingfisher.saveOrUpdate();
 		} catch(DatabaseException databaseException) {
-			Log.loge(getClass().getName(), "createBeerBrands", "DatabaseException caught while creating beer brands, " + databaseException.getMessage());
+			Log.error(getClass().getName(), "createBeerBrands", "DatabaseException caught while creating beer brands, " + databaseException.getMessage());
 		}
 	}
 	
@@ -298,7 +298,7 @@ public class DatabaseUtils {
 			gallo.saveOrUpdate();
 			yellowTail.saveOrUpdate();
 		} catch(DatabaseException databaseException) {
-			Log.loge(getClass().getName(), "createWineBrands", "DatabaseException caught while creating wines brands, " + databaseException.getMessage());
+			Log.error(getClass().getName(), "createWineBrands", "DatabaseException caught while creating wines brands, " + databaseException.getMessage());
 		}
 	}
 }

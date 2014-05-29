@@ -33,7 +33,7 @@ public class LiquorBrandsReader extends SiminovSAXDefaultHandler implements Cons
 		try {
 			parseMessage(data);
 		} catch(Exception exception) {
-			Log.loge(getClass().getName(), "Constructor", "Exception caught while parsing Liquor Brands, " + exception.getMessage());
+			Log.error(getClass().getName(), "Constructor", "Exception caught while parsing Liquor Brands, " + exception.getMessage());
 			throw new DeploymentException(getClass().getName(), "Constructor", "Exception caught while parsing Liquor Brands, " + exception.getMessage());
 		}
 	}

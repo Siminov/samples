@@ -108,7 +108,7 @@ public class Login extends Fragment implements OnClickListener {
 					try {
 						credential.saveOrUpdate();
 					} catch(DatabaseException databaseException) {
-						Log.loge(getClass().getName(), "onClick", "DatabaseException caught while creating account, " + databaseException.getMessage());
+						Log.error(getClass().getName(), "onClick", "DatabaseException caught while creating account, " + databaseException.getMessage());
 						Toast.makeText(getActivity(), "DatabaseException caught while creating account, " + databaseException.getMessage(), Toast.LENGTH_LONG).show();
 						return;
 					}
@@ -120,7 +120,7 @@ public class Login extends Fragment implements OnClickListener {
 					Credential[] credentials = (Credential[]) new Credential().select().where(Credential.ACCOUNT_ID).equalTo(accountId).execute();
 					authenticated = credentials[0].getToken().equals(token);					
 				} catch(DatabaseException databaseException) {
-					Log.loge(getClass().getName(), "onClick", "DatabaseException caught while authenticating account, " + databaseException.getMessage());
+					Log.error(getClass().getName(), "onClick", "DatabaseException caught while authenticating account, " + databaseException.getMessage());
 					Toast.makeText(getActivity(), "DatabaseException caught while authenticating account, " + databaseException.getMessage(), Toast.LENGTH_LONG).show();
 					return;
 				}

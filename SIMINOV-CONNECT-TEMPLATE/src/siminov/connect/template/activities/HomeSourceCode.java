@@ -54,7 +54,7 @@ public class HomeSourceCode extends Activity {
 		try {
 			sourceCode.setText(Utils.toString(sourceCodeStream));
 		} catch(Exception exception) {
-			Log.loge(getClass().getName(), "initialize", "Exception caught while getting input stream of home source code, " + exception.getMessage());
+			Log.error(getClass().getName(), "initialize", "Exception caught while getting input stream of home source code, " + exception.getMessage());
 		}
 	}
 	 

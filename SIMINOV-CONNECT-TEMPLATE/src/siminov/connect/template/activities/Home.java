@@ -145,7 +145,7 @@ public class Home extends FragmentActivity implements OnClickListener {
 		    	try {
 		    		selectedLiquor.delete().execute();
 		    	} catch(DatabaseException de) {
-		    		Log.loge(Home.class.getName(), "onLongClick", "DatabaseException caught while deleting liquor from database, " + de.getMessage());
+		    		Log.error(Home.class.getName(), "onLongClick", "DatabaseException caught while deleting liquor from database, " + de.getMessage());
 		    	}
 	
 		    		
