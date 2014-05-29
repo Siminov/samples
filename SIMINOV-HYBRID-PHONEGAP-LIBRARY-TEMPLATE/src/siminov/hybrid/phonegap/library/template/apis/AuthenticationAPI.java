@@ -22,7 +22,7 @@ public class AuthenticationAPI {
 		Authentication[] authentications = new Authentication().select().where(Authentication.ACCOUNT_ID).equalTo(accountId).execute();
 		
 		if(authentications == null || authentications.length <= 0) {
-			Log.logi(getClass().getName(), "authenticateCredential", "NO SUCH ACCOUNT ID PRESENT, ACCOUNT-ID: " + accountId);
+			Log.important(getClass().getName(), "authenticateCredential", "NO SUCH ACCOUNT ID PRESENT, ACCOUNT-ID: " + accountId);
 			throw new DatabaseException(getClass().getName(), "authenticateCredential", "NO SUCH ACCOUNT ID PRESENT, ACCOUNT-ID: " + accountId);
 		}
 
@@ -34,7 +34,7 @@ public class AuthenticationAPI {
 			Integer noOfAuthentications = (Integer) new Authentication().count().execute();
 			return noOfAuthentications > 0 ? true : false;
 		} catch(DatabaseException databaseException) {
-			Log.loge(getClass().getName(), "isAccountPresent", databaseException.getMessage());
+			Log.error(getClass().getName(), "isAccountPresent", databaseException.getMessage());
 		}
 		
 		return false;
