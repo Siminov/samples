@@ -42,7 +42,7 @@ function AddLiquor() {
 				liquor = liquors[0];
 			}
 		} catch(de) {
-			Log.loge("AddLiquor", "onServiceApiInvoke", "Database Exception caught while getting liquor from database, " + de.getMessage());
+			Log.error("AddLiquor", "onServiceApiInvoke", "Database Exception caught while getting liquor from database, " + de.getMessage());
 			return;
 		}
 		

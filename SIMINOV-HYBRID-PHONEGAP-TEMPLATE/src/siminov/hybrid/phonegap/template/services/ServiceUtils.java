@@ -20,7 +20,7 @@ public class ServiceUtils {
 
 		ICredential credential = CredentialManager.getInstance().getActiveCredential();
 		if(credential == null) {
-			Log.loge(ServiceUtils.class.getName(), "getUrl", "Invalid Credential Found.");
+			Log.error(ServiceUtils.class.getName(), "getUrl", "Invalid Credential Found.");
 			return "";
 		}
 
@@ -31,7 +31,7 @@ public class ServiceUtils {
 		
     	ICredential credential = CredentialManager.getInstance().getActiveCredential();
     	if(credential == null) {
-    		Log.loge(Connection.class.getName(), "sign", "Invalid Credential Found.");
+    		Log.error(Connection.class.getName(), "sign", "Invalid Credential Found.");
     		throw new SiminovException(Connection.class.getName(), "sign", "Invalid Credential Found.");
     	}
     	
@@ -39,10 +39,10 @@ public class ServiceUtils {
     	String consumerSecret = OauthConstants.CONSUMER_SECRET;
     	
     	if(consumerKey == null || consumerKey.length() <= 0) {
-    		Log.loge(Connection.class.getName(), "sign", "Inavlid ConsumerKey Found.");
+    		Log.error(Connection.class.getName(), "sign", "Inavlid ConsumerKey Found.");
     		throw new SiminovException(Connection.class.getName(), "sign", "Inavlid ConsumerKey Found.");
     	} else if(consumerSecret == null || consumerSecret.length() <= 0) {
-    		Log.loge(Connection.class.getName(), "sign", "Inavlid ConsumerSecret Found.");
+    		Log.error(Connection.class.getName(), "sign", "Inavlid ConsumerSecret Found.");
     		throw new SiminovException(Connection.class.getName(), "sign", "Inavlid ConsumerSecret Found.");
     	}
     	
@@ -76,7 +76,7 @@ public class ServiceUtils {
     	try {
     		signature = consumer.sign(httpRequest);    		
     	} catch(Exception exception) {
-    		Log.loge(Connection.class.getName(), "sign", "Exception caught while signing request url, " + exception.getMessage());
+    		Log.error(Connection.class.getName(), "sign", "Exception caught while signing request url, " + exception.getMessage());
     		throw new SiminovException(Connection.class.getName(), "sign", "Exception caught while signing request url, " + exception.getMessage());
     	}
 

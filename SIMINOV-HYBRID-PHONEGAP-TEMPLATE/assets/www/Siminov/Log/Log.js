@@ -45,7 +45,7 @@ function Log() {
  	@param methodName Method Name.
  	@param message Message.
  */
-Log.logi = function(className, methodName, message) {
+Log.important = function(className, methodName, message) {
     console.log("IMPORTANT - " + "CLASS-NAME: " + className + ", METHOD-NAME: " + methodName + ", MESSAGE: " + message);
 }
 
@@ -60,7 +60,7 @@ Log.logi = function(className, methodName, message) {
  	@param methodName Method Name.
  	@param message Message.
  */
-Log.loge = function(className, methodName, message) {
+Log.error = function(className, methodName, message) {
     console.log("ERROR - " + "CLASS-NAME: " + className + ", METHOD-NAME: " + methodName + ", MESSAGE: " + message);
 }
 
@@ -75,7 +75,7 @@ Log.loge = function(className, methodName, message) {
  	@param methodName Method Name.
  	@param message Message.
  */
-Log.logd = function(className, methodName, message) {
+Log.debug = function(className, methodName, message) {
     console.log("DEBUG - " + "CLASS-NAME: " + className + ", METHOD-NAME: " + methodName + ", MESSAGE: " + message);
 }
 

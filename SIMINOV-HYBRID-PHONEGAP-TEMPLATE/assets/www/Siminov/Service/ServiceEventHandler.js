@@ -27,6 +27,12 @@ function ServiceEventHandler() {
 					connectionRequest = SIDatasHelper.toModel(data);
                 } else if(dataType === ConnectionResponse.NAME) {
                 	connectionResponse = SIDatasHelper.toModel(data);
+                	
+                	var response = connectionResponse.getResponse();
+                	if(response != undefined && response != null) {
+                		response = decodeURIComponent(response);
+                		connectionResponse.setResponse(response);
+                	}
                 }
             }
         }

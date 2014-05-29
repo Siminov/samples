@@ -1,8 +1,14 @@
 
-function GetLiquorBrands() {
 
-	setService(GetLiquorBrands.SERVICE_NAME);
-	setApi(GetLiquorBrands.API_NAME);
+GetLiquorBrands.SERVICE_NAME = "SIMINOV-HYBRID-LIQUOR-BRANDS-SERVICE";
+GetLiquorBrands.API_NAME = "GET-LIQUOR-BRANDS";
+
+GetLiquorBrands.LIQUOR_NAME = "LIQUOR-NAME";
+GetLiquorBrands.LIQUOR = "LIQUOR";
+GetLiquorBrands.UI_COMPONENT = "UI_COMPONENT";
+
+
+function GetLiquorBrands() {
 
 	this.onServiceStart = function() {
 
@@ -35,8 +41,8 @@ function GetLiquorBrands() {
 		}
 		
 		
-		var liquor = getResource(GetLiquorBrands.LIQUOR);
-		var uiComponent = getResource(GetLiquorBrands.UI_COMPONENT);
+		var liquor = this.getResource(GetLiquorBrands.LIQUOR);
+		var uiComponent = this.getResource(GetLiquorBrands.UI_COMPONENT);
 		
 		var liquorBrandsReader = new LiquorBrandsReader(connectionResponse.getResponse());
 		var liquorBrands = liquorBrandsReader.getLiquorBrands();
@@ -48,27 +54,20 @@ function GetLiquorBrands() {
 			try {
 				liquorBrand.saveOrUpdate();
 			} catch(de) {
-				Log.loge("GetLiquors", "onServiceApiFinish", "Database Exception caught while saving liquor brands in database, " + de.getMessage());
+				Log.error("GetLiquors", "onServiceApiFinish", "Database Exception caught while saving liquor brands in database, " + de.getMessage());
 			}
 		}
 		
-		
-		uiComponent();
+
+		if(uiComponent != undefined && uiComponent != null) {
+			uiComponent();
+		}		
 	}
 
 	this.onServiceTerminate = function(serviceException) {
 		
 	}
 }
-
-
-
-GetLiquorBrands.SERVICE_NAME = "SIMINOV-HYBRID-LIQUOR-BRANDS-SERVICE";
-GetLiquorBrands.API_NAME = "GET-LIQUOR-BRANDS";
-
-GetLiquorBrands.LIQUOR_NAME = "LIQUOR-NAME";
-GetLiquorBrands.LIQUOR = "LIQUOR";
-GetLiquorBrands.UI_COMPONENT = "UI_COMPONENT";
 
 
 FunctionUtils.extend(Service, GetLiquorBrands);

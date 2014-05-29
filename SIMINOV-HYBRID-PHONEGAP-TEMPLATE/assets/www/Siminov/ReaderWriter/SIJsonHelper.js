@@ -43,7 +43,7 @@ function SIJsonHelper() {
 	@static
 */
 SIJsonHelper.toSI = function(datas) {
-    Log.logd("SIJsonHelper", "toSI", datas);
+    Log.debug("SIJsonHelper", "toSI", datas);
 
     var obj = eval("(" + datas + ")");
     var datas = new HybridSiminovDatas();
@@ -134,7 +134,7 @@ SIJsonHelper.toJson = function(datas) {
             json.append("}");
         json.append("}");
 
-    Log.logd("SIJsonHelper", "toJson", json.toString());
+    Log.debug("SIJsonHelper", "toJson", json.toString());
     return JSON.stringify(eval("(" + json.toString() + ")"));
 
 }
