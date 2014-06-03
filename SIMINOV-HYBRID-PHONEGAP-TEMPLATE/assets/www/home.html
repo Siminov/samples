@@ -117,6 +117,8 @@
 			}
 
 		    function initialize() {
+
+				var queryParameter = new ServiceDescriptor.API.QueryParameter();
 		    
 				var credentialManager = CredentialManager.getInstance();
                 var authentications = credentialManager.getCredentials();
@@ -181,57 +183,66 @@
 				//var syncHandler = SyncHandler.getInstance();
 				//syncHandler.handle(syncRequest);
 				
+				var populateHome = new PopulateHome();
+				
 				var getLiquors = new GetLiquors();
 				getLiquors.setService(GetLiquors.SERVICE_NAME);
 				getLiquors.setApi(GetLiquors.API_NAME);
+				
+				getLiquors.addResource(GetLiquors.UI_COMPONENT, populateHome);
+				
 				getLiquors.invoke();
 				
-				populateHome();
+				populateHome.call();
 			}			
 
-			function populateHome() {
-			
-                $.mobile.changePage($('#home-page'));
-				document.getElementById('show-loader').click();
-                
-                $('liquor-types').empty();
-                
-                liquors = new Liquor().select().execute();
+			function PopulateHome() {
 
-				if(liquors != undefined) {
-					
-					for(var i = 0;i < liquors.length;i++) {
-						var liquor = liquors[i];
-					
-                        $('#liquor-types').append('<li onclick="navDetail(' + i + ')" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c">' + 
-				                        			'<div class="ui-btn-inner ui-li">' + 
-				    	                    			'<div class="ui-btn-text">'+
-				            		            			'<a href="index.html" class="ui-link-inherit">' + 
-																'<img src="Liquor/Resources/Images/liquor.png" class="ui-li-thumb">' + 
-																'<h3 class="ui-li-heading">' + liquor.getLiquorType() + '</h3>' + 
-																'<p class="ui-li-desc">' + liquor.getDescription() + '</p>' +
-															'</a>' +
+				this.call = function() {
+
+	                $.mobile.changePage($('#home-page'));
+					document.getElementById('show-loader').click();
+	                
+	                $('liquor-types').empty();
+	                
+	                liquors = new Liquor().select().execute();
+	
+					if(liquors != undefined) {
+						
+						for(var i = 0;i < liquors.length;i++) {
+							var liquor = liquors[i];
+						
+	                        $('#liquor-types').append('<li onclick="navDetail(' + i + ')" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c">' + 
+					                        			'<div class="ui-btn-inner ui-li">' + 
+					    	                    			'<div class="ui-btn-text">'+
+					            		            			'<a href="index.html" class="ui-link-inherit">' + 
+																	'<img src="Liquor/Resources/Images/liquor.png" class="ui-li-thumb">' + 
+																	'<h3 class="ui-li-heading">' + liquor.getLiquorType() + '</h3>' + 
+																	'<p class="ui-li-desc">' + liquor.getDescription() + '</p>' +
+																'</a>' +
+															'</div>' +
+															
+															'<span class="ui-icon ui-icon-arrow-r ui-icon-shadow">' +
+																'&nbsp;' +
+															'</span>' +
 														'</div>' +
-														
-														'<span class="ui-icon ui-icon-arrow-r ui-icon-shadow">' +
-															'&nbsp;' +
-														'</span>' +
-													'</div>' +
-												'</li>');
-												
-					}			
+													'</li>');
+													
+						}			
+					}
+					
+					
+					document.getElementById('hide-loader').click();
 				}
-				
-				
-				document.getElementById('hide-loader').click();
 			}
 
 			
 			function navDetail(id) {
 			
 				$.mobile.changePage($('#detail-page'));
+
 				var liquor = liquors[id];
-				
+				var populateDetail = new PopulateDetail(id);
 				
 				var getLiquorBrands = new GetLiquorBrands();
 				getLiquorBrands.setService(GetLiquorBrands.SERVICE_NAME);
@@ -239,30 +250,43 @@
 				
 				getLiquorBrands.addResource(GetLiquorBrands.LIQUOR_NAME, liquor.getLiquorType());
 				getLiquorBrands.addResource(GetLiquorBrands.LIQUOR, liquor);
+
+				getLiquorBrands.addResource(GetLiquorBrands.UI_COMPONENT, populateDetail);
 				
 				getLiquorBrands.invoke();				
-
 				
-				document.getElementById('liquor-brand').innerHTML = liquor.getLiquorType();
-				document.getElementById('liquor-description').innerHTML = liquor.getDescription();
-                document.getElementById('liquor-history').innerHTML = liquor.getHistory();
-                document.getElementById('liquor-alcohol-content').innerHTML = liquor.getAlcholContent();
-                document.getElementById('liquor-link').innerHTML = liquor.getLink();
+				populateDetail.call();
+			}
+			
+			
+			function PopulateDetail(liquorId) {
+			
+				var id = liquorId;
+				
+				this.call = function() {
 
-                var liquorBrands = liquor.getLiquorBrands();
-                if(liquorBrands != undefined && liquorBrands != null && liquorBrands.length > 0) {
+					var liquor = liquors[id];
 
-                    for(var i = 0;i < liquorBrands.length;i++) {
-                    	
-                    	var liquorBrand = liquorBrands[i];		
-                    			
-                        $('#liquor-brands').append('<li class="ui-li ui-li-static ui-btn-up-c">' + 
-                        								liquorBrand.getBrandName() +
-												'</li>');
-												
-                    }
-                }
-
+					document.getElementById('liquor-brand').innerHTML = liquor.getLiquorType();
+					document.getElementById('liquor-description').innerHTML = liquor.getDescription();
+	                document.getElementById('liquor-history').innerHTML = liquor.getHistory();
+	                document.getElementById('liquor-alcohol-content').innerHTML = liquor.getAlcholContent();
+	                document.getElementById('liquor-link').innerHTML = liquor.getLink();
+	
+	                var liquorBrands = liquor.getLiquorBrands();
+	                if(liquorBrands != undefined && liquorBrands != null && liquorBrands.length > 0) {
+	
+	                    for(var i = 0;i < liquorBrands.length;i++) {
+	                    	
+	                    	var liquorBrand = liquorBrands[i];		
+	                    			
+	                        $('#liquor-brands').append('<li class="ui-li ui-li-static ui-btn-up-c">' + 
+	                        								liquorBrand.getBrandName() +
+													'</li>');
+													
+	                    }
+	                }
+				}
 			}
 
 		</script>

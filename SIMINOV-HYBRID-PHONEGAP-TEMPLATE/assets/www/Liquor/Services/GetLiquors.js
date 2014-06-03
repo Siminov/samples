@@ -29,11 +29,11 @@ function GetLiquors() {
 	}
 
 	this.onServiceApiInvoke = function(connectionRequest) {
-		alert("onServiceApiInvoke");
+		//alert("onServiceApiInvoke");
 	}
 
 	this.onServiceApiFinish = function(connectionResponse) {
-		alert("onServiceApiFinish");
+		//alert("onServiceApiFinish");
 
 		var uiComponent = this.getResource(GetLiquors.UI_COMPONENT);
 		
@@ -42,7 +42,7 @@ function GetLiquors() {
 		
 		var liquors = liquorsReader.getLiquors();
 		if(liquors != undefined && liquors != null && liquors.length > 0) {
-				
+			
 			for(var i = 0;i < liquors.length;i++) {
 
 				var liquor = liquors[i];
@@ -56,11 +56,7 @@ function GetLiquors() {
 		}		
 		
 		
-		if(uiComponent != undefined && uiComponent != null) {
-			uiComponent();
-		} else {
-			populateHome();
-		}
+		uiComponent.call();
 	}
 
 	this.onServiceTerminate = function(serviceException) {

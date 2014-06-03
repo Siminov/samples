@@ -136,7 +136,6 @@ SIJsonHelper.toJson = function(datas) {
 
     Log.debug("SIJsonHelper", "toJson", json.toString());
     return JSON.stringify(eval("(" + json.toString() + ")"));
-
 }
 
 

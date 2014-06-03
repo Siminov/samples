@@ -171,6 +171,8 @@ FunctionUtils.extend = function (parent, child) {
 	@return {Object} Function Instance
 */
 FunctionUtils.createFunctionInstance = function(functionName) {
+	Log.debug("FunctionUtils", "createFunctionInstance", "FUNCTION: " + functionName);
+	
     var obj = FunctionUtils.createFunctionInstanceDescend(window, functionName);
     return new obj();
 }
@@ -195,8 +197,9 @@ FunctionUtils.createFunctionInstanceDescend = function(obj, path) {
 	@method invokeAndInflate
 	@static
 */
-FunctionUtils.invokeAndInflate = function(object, functionName, parameterValues) {
-	object[functionName].apply(object, Array.prototype.slice.call(arguments, 2));
+FunctionUtils.invokeAndInflate = function(object, apiName, parameterValues) {
+	Log.debug("FunctionUtils", "invokeAndInflate", "FUNCTION: " + object.getObjectName() + ", API-NAME: " + apiName);
+	object[apiName].apply(object, Array.prototype.slice.call(arguments, 2));
 }
 
 
@@ -208,6 +211,7 @@ FunctionUtils.invokeAndInflate = function(object, functionName, parameterValues)
 	@static
 	@return {Object} Return object from invoked API
 */
-FunctionUtils.invokeAndFetch = function(object, functionName) {
-    return object[functionName] ();
+FunctionUtils.invokeAndFetch = function(object, apiName) {
+	Log.debug("FunctionUtils", "invokeAndFetch", "FUNCTION: " + object.getObjectName() + ", API-NAME: " + apiName);
+    return object[apiName] ();
 }

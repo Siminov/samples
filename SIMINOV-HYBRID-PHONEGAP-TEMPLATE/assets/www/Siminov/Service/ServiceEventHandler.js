@@ -10,6 +10,8 @@ function ServiceEventHandler() {
         var apiHandler;
         var event;
 
+		var resources = new Dictionary();
+
 		var connectionRequest;
 		var connectionResponse;
 
@@ -33,12 +35,37 @@ function ServiceEventHandler() {
                 		response = decodeURIComponent(response);
                 		connectionResponse.setResponse(response);
                 	}
-                }
+                } else if(dataType === Constants.SIMINOV_ISERVICE_RESOURCES) {
+                	
+                	var hybridResources = data.getDatas();
+                	if(hybridResources != undefined && hybridResources != null && hybridResources.length > 0) {
+                		
+                		for(var j = 0;j < hybridResources.length;j++) {
+                			
+                			var hybridResource = hybridResources[j];
+                			
+                			var key = hybridResource.getDataType();
+                			var value = hybridResource.getDataValue();
+                			
+                			resources.add(key, value);
+                		}
+                	}
+                } 
             }
         }
 
 
         var eventHandler = FunctionUtils.createFunctionInstance(apiHandler);
+        
+        //Inflate Resources
+        var resourceKeys = resources.keys();
+        for(var i = 0;i < resourceKeys.length;i++) {
+        	var resource = resources.get(resourceKeys[i]);
+        	FunctionUtils.invokeAndInflate(eventHandler, Constants.SIMINOV_ISERVICE_ADD_RESOURCE, resourceKeys[i], resource);
+        }
+        
+
+		//Invoke Event API
         if(event === Constants.SIMINOV_ISERVICE_ON_SERVICE_START) {
 					
             FunctionUtils.invokeAndInflate(eventHandler, event);

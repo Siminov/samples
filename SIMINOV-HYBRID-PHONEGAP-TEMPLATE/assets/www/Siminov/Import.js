@@ -36,8 +36,11 @@ document.write('<script type="text/javascript" src="Siminov/Model/ApplicationDes
 document.write('<script type="text/javascript" src="Siminov/Model/DatabaseDescriptor.js"></script>');
 document.write('<script type="text/javascript" src="Siminov/Model/LibraryDescriptor.js"></script>');
 document.write('<script type="text/javascript" src="Siminov/Model/DatabaseMappingDescriptor.js"></script>');
+document.write('<script type="text/javascript" src="Siminov/Model/ServiceDescriptor.js"></script>');
+document.write('<script type="text/javascript" src="Siminov/Model/AdapterDescriptor.js"></script>');
+document.write('<script type="text/javascript" src="Siminov/Model/NotificationDescriptor.js"></script>');
+document.write('<script type="text/javascript" src="Siminov/Model/SyncDescriptor.js"></script>');
 
-document.write('<script type="text/javascript" src="Siminov/Model/HybridDescriptor.js"></script>');
 document.write('<script type="text/javascript" src="Siminov/Model/HybridSiminovDatas.js"></script>');
 
 

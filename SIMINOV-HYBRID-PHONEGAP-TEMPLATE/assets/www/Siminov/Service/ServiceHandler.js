@@ -49,7 +49,7 @@ var ServiceHandler = (function() {
 
 				var resourceHybrid = new HybridSiminovDatas.HybridSiminovData();
 				resourceHybrid.setDataType(resourceKey);
-				resourceHybrid.setDataValue(resourceValue);
+				resourceHybrid.setDataValue('' + resourceValue);
 				
 				resourcesHybrid.addData(resourceHybrid);
 			}
@@ -60,10 +60,9 @@ var ServiceHandler = (function() {
 
 			hybridSiminovDatas.addHybridSiminovData(resourcesHybrid);
 
-
 			var data = SIJsonHelper.toJson(hybridSiminovDatas);
-			
 			adapter.addParameter(encodeURI(data));
+
 			adapter.invoke();
 		}
 	}

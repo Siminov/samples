@@ -31,10 +31,11 @@ function GetLiquorBrands() {
 	}
 
 	this.onServiceApiInvoke = function(connectionRequest) {
-		
+	
 	}
 
 	this.onServiceApiFinish = function(connectionResponse) {
+		//alert("onServiceApiFinish");
 	
 		if(connectionResponse.getResponse() == null) {
 			return;
@@ -59,9 +60,7 @@ function GetLiquorBrands() {
 		}
 		
 
-		if(uiComponent != undefined && uiComponent != null) {
-			uiComponent();
-		}		
+		uiComponent.call();
 	}
 
 	this.onServiceTerminate = function(serviceException) {

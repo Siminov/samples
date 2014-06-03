@@ -8,8 +8,8 @@ function ConnectionRequest() {
 	var protocol;
 	var type;
 	
-	var queryParameters = new Array();
-	var headerParameters = new Array();
+	var queryParameters = new Dictionary();
+	var headerParameters = new Dictionary();
 	
 	var dataStream;
 	
@@ -39,35 +39,27 @@ function ConnectionRequest() {
 	}
 	
 	this.getQueryParameters = function() {
-		return queryParameters;
+		return queryParameters.keys();
 	}
 	
 	this.getQueryParameter = function(value) {
 		return queryParameters.get(value);
 	}
 	
-	this.setQueryParameters = function(value) {
-		queryParameters = value;
-	}
-	
-	this.addQueryParameter = function(key, value) {
-		queryParameters.put(key, value);
+	this.addQueryParameter = function(queryParameter) {
+		queryParameters.add(queryParameter.getName(), queryParameter.getValue());
 	}
 	
 	this.getHeaderParameters = function() {
-		return headerParameters;
+		return headerParameters.keys();
 	}
 	
 	this.getHeaderParameter = function(key) {
 		return headerParameters.get(key);
 	}
 
-	this.setHeaderParameters = function(value) {
-		headerParameters = value;
-	}
-	
-	this.addHeaderParameter = function(key, value) {
-		headerParameters.put(key, value);
+	this.addHeaderParameter = function(headerParameter) {
+		headerParameters.add(headerParameter.getName(), headerParameter.getValue());
 	}
 
 	this.getDataStream = function() {
