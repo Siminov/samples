@@ -43,6 +43,7 @@ function GetLiquorBrands() {
 		
 		
 		var liquor = this.getResource(GetLiquorBrands.LIQUOR);
+		liquor.removeLiquorBrands();
 		
 		var uiComponent = this.getResource(GetLiquorBrands.UI_COMPONENT);
 

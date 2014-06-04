@@ -265,6 +265,10 @@
 				
 				this.call = function() {
 
+                    $('#liquor-brands').empty();
+                    $('#liquor-brands').html('');
+                    
+
 					var liquor = liquors[id];
 
 					document.getElementById('liquor-brand').innerHTML = liquor.getLiquorType();

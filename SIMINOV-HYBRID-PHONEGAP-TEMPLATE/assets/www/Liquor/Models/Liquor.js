@@ -7,7 +7,7 @@ function Liquor() {
     var link;
     var alcholContent;
 
-	var liquorBrands = [];
+	var liquorBrands = new Array();
 
     this.getLiquorType = function() {
         return liquorType;
@@ -54,8 +54,12 @@ function Liquor() {
 		return liquorBrands;
 	}
 
+	this.removeLiquorBrands = function() {
+		liquorBrands = new Array();
+	}
+
 	this.addLiquorBrand = function(liquorBrand) {
-		liquorBrands[liquorBrands.length] = liquorBrand;
+		liquorBrands.push(liquorBrand);
 	}
 }
 
