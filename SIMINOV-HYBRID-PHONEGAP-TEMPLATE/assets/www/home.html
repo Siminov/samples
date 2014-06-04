@@ -274,6 +274,7 @@
 	                document.getElementById('liquor-link').innerHTML = liquor.getLink();
 	
 	                var liquorBrands = liquor.getLiquorBrands();
+	                alert("populate: " + liquorBrands.length);
 	                if(liquorBrands != undefined && liquorBrands != null && liquorBrands.length > 0) {
 	
 	                    for(var i = 0;i < liquorBrands.length;i++) {

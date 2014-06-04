@@ -43,11 +43,15 @@ function GetLiquorBrands() {
 		
 		
 		var liquor = this.getResource(GetLiquorBrands.LIQUOR);
+		
 		var uiComponent = this.getResource(GetLiquorBrands.UI_COMPONENT);
+
+		var liquorBrandsReader = new LiquorBrandsReader();
+		liquorBrandsReader.parse(connectionResponse.getResponse());
 		
-		var liquorBrandsReader = new LiquorBrandsReader(connectionResponse.getResponse());
 		var liquorBrands = liquorBrandsReader.getLiquorBrands();
-		
+
+		alert("liquor brands: " + liquorBrands.length);		
 		for(var i = 0;i < liquorBrands.length;i++) {
 			var liquorBrand = liquorBrands[i];
 			liquorBrand.setLiquor(liquor);
@@ -59,6 +63,10 @@ function GetLiquorBrands() {
 			}
 		}
 		
+
+		for(var i = 0;i < liquorBrands.length;i++) {
+			liquor.addLiquorBrand(liquorBrands[i]);
+		}
 
 		uiComponent.call();
 	}

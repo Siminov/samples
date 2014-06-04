@@ -4,10 +4,9 @@ function LiquorBrandsReader() {
 	var liquorBrands = new Array();
 	
 	this.parse = function(data) {
-		
+
 		Log.important("LiquorBrandsReader", "parse", "DATA: " + data);
 		
-
 		var xmlDoc;
 		if(window.DOMParser) {
 			var parser = new DOMParser();
@@ -23,7 +22,7 @@ function LiquorBrandsReader() {
 				throw new ServiceException("LiquorBrandsReader", "parse", "Error while parsing liquor brands.");					
 			} else if(nodeName === GET_LIQUOR_BRANDS_WS_BRAND) {
 
-				var liquor = parseLiquorBrand(rootElement[i]);
+				var liquorBrand = parseLiquorBrand(rootElement[i]);
 				liquorBrands.push(liquorBrand);
 			}			
 		}		
