@@ -9,8 +9,8 @@ import org.apache.http.client.methods.HttpGet;
 
 import siminov.connect.Constants;
 import siminov.connect.authorization.CredentialManager;
+import siminov.connect.authorization.design.ICredential;
 import siminov.connect.authorization.oauth.OauthConstants;
-import siminov.connect.design.authorization.ICredential;
 import siminov.orm.exception.SiminovException;
 import siminov.orm.log.Log;
 

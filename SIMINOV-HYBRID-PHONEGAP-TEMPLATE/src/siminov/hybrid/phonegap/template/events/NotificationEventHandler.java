@@ -1,9 +1,9 @@
 package siminov.hybrid.phonegap.template.events;
 
-import siminov.connect.design.notification.IMessage;
-import siminov.connect.design.notification.IRegistration;
 import siminov.connect.events.INotificationEvents;
 import siminov.connect.exception.NotificationException;
+import siminov.connect.notification.design.IMessage;
+import siminov.connect.notification.design.IRegistration;
 
 public class NotificationEventHandler implements INotificationEvents {
 
