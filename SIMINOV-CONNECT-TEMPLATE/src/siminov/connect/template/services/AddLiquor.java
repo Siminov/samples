@@ -1,7 +1,7 @@
 package siminov.connect.template.services;
 
-import siminov.connect.design.connection.IConnectionRequest;
-import siminov.connect.design.connection.IConnectionResponse;
+import siminov.connect.connection.design.IConnectionRequest;
+import siminov.connect.connection.design.IConnectionResponse;
 import siminov.connect.exception.ServiceException;
 import siminov.connect.service.Service;
 import siminov.connect.template.model.Liquor;
@@ -48,7 +48,7 @@ public class AddLiquor extends Service {
 		}
 		
 		
-		String liquorType = (String) getResource(LIQUOR);
+		String liquorType = (String) getResource(LIQUOR).getValue();
 		Liquor liquor = null;
 		
 		try {

@@ -17,9 +17,10 @@
 
 package siminov.connect.template.fragments;
 
-import siminov.connect.design.sync.ISyncRequest;
+import siminov.connect.service.NameValuePair;
 import siminov.connect.sync.SyncHandler;
 import siminov.connect.sync.SyncRequest;
+import siminov.connect.sync.design.ISyncRequest;
 import siminov.connect.template.Constants;
 import siminov.connect.template.R;
 import siminov.connect.template.StateManager;
@@ -86,7 +87,7 @@ public class Home extends ListFragment {
 		
 		ISyncRequest syncRequest = new SyncRequest();
 		syncRequest.setName(Constants.SYNC_LIQUORS);
-		syncRequest.addResource(GetLiquors.UI_COMPONENT, this);
+		syncRequest.addResource(new NameValuePair(GetLiquors.UI_COMPONENT, this));
 	
 		
 		SyncHandler syncHandler = SyncHandler.getInstance();

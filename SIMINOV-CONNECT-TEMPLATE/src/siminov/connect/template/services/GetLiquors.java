@@ -2,8 +2,8 @@ package siminov.connect.template.services;
 
 import java.util.Iterator;
 
-import siminov.connect.design.connection.IConnectionRequest;
-import siminov.connect.design.connection.IConnectionResponse;
+import siminov.connect.connection.design.IConnectionRequest;
+import siminov.connect.connection.design.IConnectionResponse;
 import siminov.connect.exception.ServiceException;
 import siminov.connect.service.Service;
 import siminov.connect.template.fragments.Home;
@@ -51,7 +51,7 @@ public class GetLiquors extends Service {
 
 	public void onServiceApiFinish(IConnectionResponse connectionResponse) {
 		
-		Fragment uiComponent = (Fragment) getResource(UI_COMPONENT);
+		Fragment uiComponent = (Fragment) getResource(UI_COMPONENT).getValue();
 		
 		LiquorsReader liquorsReader = new LiquorsReader(connectionResponse.getResponse());
 		Iterator<Liquor> liquors = liquorsReader.getLiquors();

@@ -17,7 +17,8 @@
 
 package siminov.connect.template.activities;
 
-import siminov.connect.design.service.IService;
+import siminov.connect.service.NameValuePair;
+import siminov.connect.service.design.IService;
 import siminov.connect.template.R;
 import siminov.connect.template.StateManager;
 import siminov.connect.template.artist.SliderScroll;
@@ -138,7 +139,7 @@ public class Home extends FragmentActivity implements OnClickListener {
 	    	case R.id.delete_liquor:
 	    		
 		    	IService deleteLiquorService = new DeleteLiquor();
-		    	deleteLiquorService.addResource(DeleteLiquor.LIQUOR_NAME, selectedLiquor.getLiquorType());
+		    	deleteLiquorService.addResource(new NameValuePair(DeleteLiquor.LIQUOR_NAME, selectedLiquor.getLiquorType()));
 		    		
 		    	deleteLiquorService.invoke();
 	

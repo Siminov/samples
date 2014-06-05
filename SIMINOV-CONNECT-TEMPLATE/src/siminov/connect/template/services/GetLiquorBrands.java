@@ -2,8 +2,8 @@ package siminov.connect.template.services;
 
 import java.util.Iterator;
 
-import siminov.connect.design.connection.IConnectionRequest;
-import siminov.connect.design.connection.IConnectionResponse;
+import siminov.connect.connection.design.IConnectionRequest;
+import siminov.connect.connection.design.IConnectionResponse;
 import siminov.connect.exception.ServiceException;
 import siminov.connect.service.Service;
 import siminov.connect.template.fragments.LiquorDetail;
@@ -59,8 +59,8 @@ public class GetLiquorBrands extends Service {
 		}
 		
 		
-		Liquor liquor = (Liquor) getResource(LIQUOR);
-		Fragment uiComponent = (Fragment) getResource(UI_COMPONENT);
+		Liquor liquor = (Liquor) getResource(LIQUOR).getValue();
+		Fragment uiComponent = (Fragment) getResource(UI_COMPONENT).getValue();
 		
 		LiquorBrandsReader liquorBrandsReader = new LiquorBrandsReader(connectionResponse.getResponse());
 		Iterator<LiquorBrand> liquorBrands = liquorBrandsReader.getLiquorBrands();

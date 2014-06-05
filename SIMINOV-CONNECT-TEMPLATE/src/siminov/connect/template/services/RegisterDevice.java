@@ -1,7 +1,7 @@
 package siminov.connect.template.services;
 
-import siminov.connect.design.connection.IConnectionRequest;
-import siminov.connect.design.connection.IConnectionResponse;
+import siminov.connect.connection.design.IConnectionRequest;
+import siminov.connect.connection.design.IConnectionResponse;
 import siminov.connect.exception.ServiceException;
 import siminov.connect.service.Service;
 

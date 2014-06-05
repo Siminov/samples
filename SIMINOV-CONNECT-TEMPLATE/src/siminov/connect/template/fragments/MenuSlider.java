@@ -18,7 +18,7 @@
 package siminov.connect.template.fragments;
 
 import siminov.connect.authorization.AuthorizationFactory;
-import siminov.connect.design.authorization.IAuthorization;
+import siminov.connect.authorization.design.IAuthorization;
 import siminov.connect.exception.AuthorizationException;
 import siminov.connect.template.activities.About;
 import siminov.connect.template.model.Credential;

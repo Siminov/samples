@@ -18,7 +18,7 @@
 package siminov.connect.template.fragments;
 
 import siminov.connect.authorization.CredentialManager;
-import siminov.connect.design.authorization.ICredential;
+import siminov.connect.authorization.design.ICredential;
 import siminov.connect.template.R;
 import siminov.connect.template.model.Credential;
 import siminov.orm.exception.DatabaseException;
