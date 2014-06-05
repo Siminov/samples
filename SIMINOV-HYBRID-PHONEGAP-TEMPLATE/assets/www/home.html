@@ -171,19 +171,17 @@
 
 			function navHome() {
 
-				//var syncRequest = new SyncRequest();
-				//syncRequest.setName(SYNC_LIQUORS);
+				var populateHome = new PopulateHome();
+
+				/*var syncRequest = new SyncRequest();
+				syncRequest.setName(SYNC_LIQUORS);
 				
-				//var populateHomeCallback = '' + populateHome;
-				//	populateHomeCallback = populateHomeCallback.replace(new RegExp("'", 'g'), "''");
-					
-				//syncRequest.addResource(GetLiquors.UI_COMPONENT, populateHomeCallback);
+				syncRequest.addResource(GetLiquors.UI_COMPONENT, populateHome);
 			
 				
-				//var syncHandler = SyncHandler.getInstance();
-				//syncHandler.handle(syncRequest);
-				
-				var populateHome = new PopulateHome();
+				var syncHandler = SyncHandler.getInstance();
+				syncHandler.handle(syncRequest);*/
+
 				
 				var getLiquors = new GetLiquors();
 				getLiquors.setService(GetLiquors.SERVICE_NAME);

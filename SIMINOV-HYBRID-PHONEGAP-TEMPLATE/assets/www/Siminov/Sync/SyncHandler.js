@@ -55,7 +55,7 @@ var SyncHandler = (function() {
 					
 					var hybridResource = new HybridSiminovDatas.HybridSiminovData.HybridSiminovValue();
 					hybridResource.setType(resourceKeys[i]);
-					hybridResource.setValue(resource);
+					hybridResource.setValue('' + resource);
 					
 					alert("resource: " + resourceKeys[i] + ", " + resource);
 					hybridSyncRequestResources.addValue(hybridResource);
