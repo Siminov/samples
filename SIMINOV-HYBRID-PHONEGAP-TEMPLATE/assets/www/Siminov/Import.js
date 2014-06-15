@@ -139,6 +139,7 @@ document.write('<script type="text/javascript" src="Siminov/Exception/SiminovExc
 document.write('<script type="text/javascript" src="Siminov/Service/Service.js"></script>');
 document.write('<script type="text/javascript" src="Siminov/Service/ServiceHandler.js"></script>');
 document.write('<script type="text/javascript" src="Siminov/Service/ServiceEventHandler.js"></script>');
+document.write('<script type="text/javascript" src="Siminov/Service/NameValuePair.js"></script>');
  
 document.write('<script type="text/javascript" src="Siminov/Service/Design/IResource.js"></script>');
 document.write('<script type="text/javascript" src="Siminov/Service/Design/IService.js"></script>');

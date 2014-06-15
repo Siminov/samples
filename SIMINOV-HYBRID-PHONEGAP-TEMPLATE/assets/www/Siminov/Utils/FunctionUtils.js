@@ -51,7 +51,7 @@ Object.defineProperty(
 	@return {Boolean} true/false; TRUE: If it contain property; FALSE: If it does not contain property.
 */
 Object.defineProperty(
-    Object.prototype, "containProperties", {
+    Object.prototype, "containProperty", {
         value: function(property) {
             var properties = this.properties();
 
@@ -124,7 +124,7 @@ Object.defineProperty(
 	@return {String} Name of Function 
 */
 Object.defineProperty(
-    Object.prototype, "getObjectName", {
+    Object.prototype, "getFunctionName", {
         value: function() {
             var funcNameRegex = /function (.{1,})\(/;
             var results = (funcNameRegex).exec((this).constructor.toString());
@@ -198,7 +198,7 @@ FunctionUtils.createFunctionInstanceDescend = function(obj, path) {
 	@static
 */
 FunctionUtils.invokeAndInflate = function(object, apiName, parameterValues) {
-	Log.debug("FunctionUtils", "invokeAndInflate", "FUNCTION: " + object.getObjectName() + ", API-NAME: " + apiName);
+	Log.debug("FunctionUtils", "invokeAndInflate", "FUNCTION: " + object.getFunctionName() + ", API-NAME: " + apiName);
 	object[apiName].apply(object, Array.prototype.slice.call(arguments, 2));
 }
 
@@ -212,6 +212,6 @@ FunctionUtils.invokeAndInflate = function(object, apiName, parameterValues) {
 	@return {Object} Return object from invoked API
 */
 FunctionUtils.invokeAndFetch = function(object, apiName) {
-	Log.debug("FunctionUtils", "invokeAndFetch", "FUNCTION: " + object.getObjectName() + ", API-NAME: " + apiName);
+	Log.debug("FunctionUtils", "invokeAndFetch", "FUNCTION: " + object.getFunctionName() + ", API-NAME: " + apiName);
     return object[apiName] ();
 }

@@ -102,7 +102,15 @@ function Dictionary() {
 		@return {Array} Values.
 	*/
 	this.values = function() {
-		return data;
+		
+		var values = new Array();
+		var keys = this.keys();
+		
+		for(var i = 0;i < keys.length;i++) {
+			values.push(this.get(keys[i]));
+		}
+		
+		return values;
 	}
 
 	/**

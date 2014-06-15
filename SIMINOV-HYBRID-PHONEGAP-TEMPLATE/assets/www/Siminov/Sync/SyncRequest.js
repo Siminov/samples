@@ -15,18 +15,28 @@ function SyncRequest() {
 	}
 	
 	this.getResources = function() {
-		return resources;
+		return resources.values();
 	}
 
 	this.getResource = function(val) {
-		return resources.get(val);
+		
+		var resource = resources.get(name);
+		if(resource == undefined || resource == null) {
+			return null;
+		}
+
+		return resource.getValue();
 	}
 
-	this.addResource = function(name, value) {
-		resources.add(name, value);
+	this.addResource = function(nameValuePair) {
+		resources.add(nameValuePair.getName(), nameValuePair);
 	}
 
-	this.containResource = function(name) {
-		return resources.exists(name);
+	this.addNameValuePair = function(nameValuePair) {
+		resources.add(nameValuePair.getName(), nameValuePair);
+	}
+
+	this.containResource = function(nameValuePair) {
+		return resources.exists(nameValuePair.getName());
 	}
 }

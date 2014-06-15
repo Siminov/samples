@@ -23,7 +23,6 @@ var SyncHandler = (function() {
 
 
 		this.handle = function(syncRequest) {
-			alert("handle");
 			
 	        var adapter = new Adapter();
 	        adapter.setAdapterName(Constants.SIMINOV_SYNC_ADAPTER);
@@ -47,30 +46,29 @@ var SyncHandler = (function() {
 			var resources = syncRequest.getResources();
 			if(resources != undefined && resources != null) {
 				
-				var resourceKeys = resources.keys();
-				alert("rsource keys: " + resourceKeys.length);
-				for(var i = 0;i < resourceKeys.length;i++) {
+				for(var i = 0;i < resources.length;i++) {
 					
-					var resource = resources.get(resourceKeys[i]);
+					var nameValuePair = resources[i];
 					
-					var hybridResource = new HybridSiminovDatas.HybridSiminovData.HybridSiminovValue();
-					hybridResource.setType(resourceKeys[i]);
-					hybridResource.setValue('' + resource);
+					var resourceKey = nameValuePair.getName();
+					var resourceValue = nameValuePair.getValue();
 					
-					alert("resource: " + resourceKeys[i] + ", " + resource);
-					hybridSyncRequestResources.addValue(hybridResource);
+					var hybridResource = new HybridSiminovDatas.HybridSiminovData();
+					hybridResource.setDataType(resourceKey);
+					hybridResource.setDataValue('' + resourceValue);
+					alert("resource: " + hybridResource.getDataValue());					
+					hybridSyncRequestResources.addData(hybridResource);
 				}
 			}
 
 
-			hybridSyncRequest.addData(hybridSyncRequestResources);
 			hybridSiminovDatas.addHybridSiminovData(hybridSyncRequest);
+			hybridSiminovDatas.addHybridSiminovData(hybridSyncRequestResources);
 									
 			
 			var data = SIJsonHelper.toJson(hybridSiminovDatas);
-			alert("data: " + data);
-						
 			adapter.addParameter(encodeURI(data));
+
 			adapter.invoke();
 		}		
 	}

@@ -53,6 +53,7 @@ function Service() {
 		try {
 			serviceHandler.handle(this);
 		} catch(se) {
+			alert(se);
 			this.onServiceTerminate(se);
 		}
 	}
@@ -63,18 +64,28 @@ function Service() {
 	 */
 	
 	this.getResources = function() {
-		return resources.keys();
+		return resources.values();
 	} 
 	
-	this.getResource = function(val) {
-		return resources.get(val);
+	this.getResource = function(name) {
+		
+		var resource = resources.get(name);
+		if(resource == undefined || resource == null) {
+			return null;
+		}
+		
+		return resource.getValue();
 	}
 	
-	this.addResource = function(key, value) {
-		resources.add(key, value);
+	this.addResource = function(nameValuePair) {
+		resources.add(nameValuePair.getName(), nameValuePair);
 	}
-	
-	this.containResource = function(val) {
-		return resources.exists(val);
+
+	this.addNameValuePair = function(nameValuePair) {
+		resources.add(nameValuePair.getName(), nameValuePair);
+	}
+
+	this.containResource = function(nameValuePair) {
+		return resources.exists(nameValuePair.getName());
 	}
 }

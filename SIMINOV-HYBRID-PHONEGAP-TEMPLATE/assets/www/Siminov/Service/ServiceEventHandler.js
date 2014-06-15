@@ -61,7 +61,9 @@ function ServiceEventHandler() {
         var resourceKeys = resources.keys();
         for(var i = 0;i < resourceKeys.length;i++) {
         	var resource = resources.get(resourceKeys[i]);
-        	FunctionUtils.invokeAndInflate(eventHandler, Constants.SIMINOV_ISERVICE_ADD_RESOURCE, resourceKeys[i], resource);
+        	
+        	var nameValuePair = new NameValuePair(resourceKeys[i], resource);
+        	FunctionUtils.invokeAndInflate(eventHandler, Constants.SIMINOV_ISERVICE_ADD_RESOURCE, nameValuePair);
         }
         
 

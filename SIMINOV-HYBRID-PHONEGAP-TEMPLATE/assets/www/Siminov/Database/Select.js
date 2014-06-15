@@ -292,29 +292,29 @@ function Select(object) {
 
 
         if(this.interfaceName ==  "ICount") {
-            return Database.count(object.getObjectName(), column, distinct, whereCondition, groupBy, havingCondition);
+            return Database.count(object.getFunctionName(), column, distinct, whereCondition, groupBy, havingCondition);
         } else if(this.interfaceName == "IAverage") {
-            return Database.avg(object.getObjectName(), column, whereCondition, groupBy, havingCondition);
+            return Database.avg(object.getFunctionName(), column, whereCondition, groupBy, havingCondition);
         } else if(this.interfaceName == "ISum") {
-            return Database.sum(object.getObjectName(), column, whereCondition, groupBy, havingCondition);
+            return Database.sum(object.getFunctionName(), column, whereCondition, groupBy, havingCondition);
         } else if(this.interfaceName == "ITotal") {
-            return Database.total(object.getObjectName(), column, whereCondition, groupBy, havingCondition);
+            return Database.total(object.getFunctionName(), column, whereCondition, groupBy, havingCondition);
         } else if(this.interfaceName == "IMax") {
-            return Database.max(object.getObjectName(), column, whereCondition, groupBy, havingCondition);
+            return Database.max(object.getFunctionName(), column, whereCondition, groupBy, havingCondition);
         } else if(this.interfaceName == "IMin") {
-            return Database.min(object.getObjectName(), column, whereCondition, groupBy, havingCondition);
+            return Database.min(object.getFunctionName(), column, whereCondition, groupBy, havingCondition);
         } else if(this.interfaceName == "IGroupConcat") {
-            return Database.groupConcat(object.getObjectName(), column, delimiter, whereCondition, groupBy, havingCondition);
+            return Database.groupConcat(object.getFunctionName(), column, delimiter, whereCondition, groupBy, havingCondition);
         } else if(this.interfaceName == "IDelete") {
 
             if(whereCondition == undefined && whereCondition == null && whereCondition.length <= 0) {
                 var datas = SIDatasHelper.toSI(object);
                 var json = SIJsonHelper.toJson(datas);
 
-                Database['delete'](object.getObjectName(), undefined, json);
+                Database['delete'](object.getFunctionName(), undefined, json);
 
             } else {
-                Database['delete'](object.getObjectName(), whereCondition, undefined);
+                Database['delete'](object.getFunctionName(), whereCondition, undefined);
             }
         } else if(this.interfaceName == 'ISelect') {
         	
@@ -357,7 +357,7 @@ function Select(object) {
 	            limit = "0";
 	        }
 	
-	        return Database.select(object.getObjectName(), distinct, columns, groupBy, having, orderBy, whichOrderBy, limit);
+	        return Database.select(object.getFunctionName(), distinct, columns, groupBy, having, orderBy, whichOrderBy, limit);
         }
     }
 }

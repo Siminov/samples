@@ -72,6 +72,7 @@
 	    <event-handler>siminov.hybrid.phonegap.template.events.DatabaseEventHandler</event-handler>
 	    <event-handler>siminov.hybrid.phonegap.template.events.NotificationEventHandler</event-handler>
    	    <event-handler>siminov.hybrid.phonegap.template.events.AuthenticationEventHandler</event-handler>
+   	    <event-handler>siminov.hybrid.phonegap.template.events.SyncEventHandler</event-handler>
 	</event-handlers>
 
  	<library-descriptors>

@@ -3,29 +3,27 @@
 GetLiquors.SERVICE_NAME = "SIMINOV-HYBRID-LIQUORS-SERVICE";
 GetLiquors.API_NAME = "GET-LIQUORS";
 
-GetLiquors.UI_COMPONENT = "UI_COMPONENT";
-
 
 function GetLiquors() {
 
 	this.onServiceStart = function() {
-		alert("onServiceStart");		
+		//alert("onServiceStart");		
 	}
 
 	this.onServiceQueue = function() {
-		alert("onServiceQueue");
+		//alert("onServiceQueue");
 	}
 
 	this.onServicePause = function() {
-		alert("onServicePause");
+		//alert("onServicePause");
 	}
 
 	this.onServiceResume = function() {
-		alert("onServiceResume");
+		//alert("onServiceResume");
 	}
 
 	this.onServiceFinish = function() {
-		alert("onServiceFinish");
+		//alert("onServiceFinish");
 	}
 
 	this.onServiceApiInvoke = function(connectionRequest) {
@@ -35,8 +33,6 @@ function GetLiquors() {
 	this.onServiceApiFinish = function(connectionResponse) {
 		//alert("onServiceApiFinish");
 
-		var uiComponent = this.getResource(GetLiquors.UI_COMPONENT);
-		
 		var liquorsReader = new LiquorsReader();
 		liquorsReader.parse(connectionResponse.getResponse());
 		
@@ -56,11 +52,11 @@ function GetLiquors() {
 		}		
 		
 		
-		uiComponent.call();
+		populateHome();
 	}
 
 	this.onServiceTerminate = function(serviceException) {
-		alert("onServiceTerminate");
+		//alert("onServiceTerminate");
 	}
 }
 

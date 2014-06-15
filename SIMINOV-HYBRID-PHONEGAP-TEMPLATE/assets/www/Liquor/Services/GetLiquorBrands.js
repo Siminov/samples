@@ -4,8 +4,6 @@ GetLiquorBrands.SERVICE_NAME = "SIMINOV-HYBRID-LIQUOR-BRANDS-SERVICE";
 GetLiquorBrands.API_NAME = "GET-LIQUOR-BRANDS";
 
 GetLiquorBrands.LIQUOR_NAME = "LIQUOR-NAME";
-GetLiquorBrands.LIQUOR = "LIQUOR";
-GetLiquorBrands.UI_COMPONENT = "UI_COMPONENT";
 
 
 function GetLiquorBrands() {
@@ -41,18 +39,25 @@ function GetLiquorBrands() {
 			return;
 		}
 		
+		var liquorType = this.getResource(GetLiquorBrands.LIQUOR_NAME);
+
 		
-		var liquor = this.getResource(GetLiquorBrands.LIQUOR);
+		var liquor;
+		for(var i = 0;i < liquors.length;i++) {
+			
+			if(liquors[i].getLiquorType() === liquorType) {
+				liquor = liquors[i];
+			}
+		}
+
 		liquor.removeLiquorBrands();
-		
-		var uiComponent = this.getResource(GetLiquorBrands.UI_COMPONENT);
+
 
 		var liquorBrandsReader = new LiquorBrandsReader();
 		liquorBrandsReader.parse(connectionResponse.getResponse());
 		
 		var liquorBrands = liquorBrandsReader.getLiquorBrands();
 
-		alert("liquor brands: " + liquorBrands.length);		
 		for(var i = 0;i < liquorBrands.length;i++) {
 			var liquorBrand = liquorBrands[i];
 			liquorBrand.setLiquor(liquor);
@@ -69,7 +74,8 @@ function GetLiquorBrands() {
 			liquor.addLiquorBrand(liquorBrands[i]);
 		}
 
-		uiComponent.call();
+
+		populateDetail(liquorType);
 	}
 
 	this.onServiceTerminate = function(serviceException) {

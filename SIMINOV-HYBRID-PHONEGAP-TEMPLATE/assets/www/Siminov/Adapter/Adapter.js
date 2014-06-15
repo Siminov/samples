@@ -119,6 +119,8 @@ function Adapter() {
         }
 
         var json = SIJsonHelper.toJson(siminovDatas);
+        
+        Log.debug("Adapter", "invoke", "SIMINOV WEB TO NATIVE - ADAPTER: " + adapterName + ", HANDLER: " + handlerName + ", DATA: " + json);
         return window.SIMINOV.handleWebToNative(adapterName + "." + handlerName, json);
     }
 
@@ -131,14 +133,12 @@ function Adapter() {
 		@param data {String} Data Is Basically Parameter To WEB API.
 	*/
     this.handle = function(action, data) {
+		Log.debug("Adapter", "invoke", "SIMINOV NATIVE TO WEB - ACTION: " + action + ", DATA: " + data);
 
         var functionName = action.substring(0, action.indexOf('.'));
         var apiName = action.substring(action.lastIndexOf('.') + 1, action.length);
 
         var obj = FunctionUtils.createFunctionInstance(functionName);
         FunctionUtils.invokeAndInflate(obj, apiName, data);
-
     }
-
-
 }

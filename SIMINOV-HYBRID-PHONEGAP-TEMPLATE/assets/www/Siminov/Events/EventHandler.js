@@ -49,6 +49,8 @@ function EventHandler() {
         var events = new Array();
         var parameters = new Array();
 
+		var resources = new Dictionary();
+
         if(datas != undefined && datas != null && datas.length > 0) {
 
             for(var i = 0;i < datas.length;i++) {
@@ -77,7 +79,7 @@ function EventHandler() {
 							parameters.push(parameter);
 						}					
 					}
-                }
+                } 
             }
         }
 
@@ -85,19 +87,25 @@ function EventHandler() {
         if(events != undefined && events != null && events.length > 0) {
 
             for(var i = 0;i < events.length;i++) {
-                var obj = FunctionUtils.createFunctionInstance(events[i]);
 
-                var containEvent = obj.containProperties(apiName);
+                var obj = FunctionUtils.createFunctionInstance(events[i]);
+                var containEvent = obj.containProperty(apiName);
+                
                 if(containEvent) {
-                    functionName = obj.getObjectName();
+                    functionName = obj.getFunctionName();
                     break;
                 }
             }
         }
 
+	
+		if(functionName == undefined || functionName == null || functionName.length <= 0) {
+			Log.debug("EventHandler", "triggerEvent", "Event handler not defined, API: " + apiName);
+			return;
+		}
+
 
         var eventHandler = FunctionUtils.createFunctionInstance(functionName);
-      
         
         /*
          * ISiminov Events
@@ -187,6 +195,27 @@ function EventHandler() {
         	
         	var notificationException = parameters[0];
         	FunctionUtils.invokeAndInflate(eventHandler, apiName, notificationException);
-        }
+        
+        
+        /*
+         * ISync Events
+         */
+    	} else if(apiName === Constants.EVENT_HANDLER_ISYNC_EVENT_ON_SYNC_STARTED) {
+    		
+    		var syncRequest = parameters[0];
+    		FunctionUtils.invokeAndInflate(eventHandler, apiName, syncRequest)
+    	} else if(apiName === Constants.EVENT_HANDLER_ISYNC_EVENT_ON_SYNC_QUEUED) {
+    		
+    		var syncRequest = parameters[0];
+    		FunctionUtils.invokeAndInflate(eventHandler, apiName, syncRequest)
+    	} else if(apiName === Constants.EVENT_HANDLER_ISYNC_EVENT_ON_SYNC_REMOVED) {
+    		
+    		var syncRequest = parameters[0];
+    		FunctionUtils.invokeAndInflate(eventHandler, apiName, syncRequest)
+    	} else if(apiName === Constants.EVENT_HANDLER_ISYNC_EVENT_ON_SYNC_TERMINATED) {
+    		
+    		var syncRequest = parameters[0];
+    		FunctionUtils.invokeAndInflate(eventHandler, apiName, syncRequest)
+    	}
     }
 }

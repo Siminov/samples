@@ -71,6 +71,7 @@ SIDatasHelper.toModel = function(data) {
     var values = data.getValues();
 
     if(values != undefined) {
+
         for(var j = 0;j < values.length;j++) {
             var value = values[j];
 
@@ -78,6 +79,7 @@ SIDatasHelper.toModel = function(data) {
             var val = value.getValue();
 
             if(data.getDataType() === "Array") {
+            	
                 if(type != undefined) {
                     model[j] = [type, val];
                 } else {
@@ -91,17 +93,28 @@ SIDatasHelper.toModel = function(data) {
 
     var innerDatas = data.getDatas();
     if(innerDatas != undefined) {
+
         for(var i = 0;i < innerDatas.length;i++) {
             var innerData = innerDatas[i];
             var innerModel = SIDatasHelper.toModel(innerData);
 
             var innerDataType = innerData.getDataType();
-
             if(innerDataType === "Array" && innerModel != undefined) {
+                
                 for(var j = 0;j < innerModel.length;j++) {
+                	
                     var type = innerModel[j][0];
                     var value = innerModel[j][1];
 
+					if(type == undefined) {
+						var innerModelDataType = innerModel[j].getFunctionName();
+
+						console.log("inner model data type: " + innerModelDataType + ", inner data type: " + innerDataType);
+						type = innerModelDataType.substring(innerModelDataType.lastIndexOf('.') + 1, innerModelDataType.length);
+						console.log("type: " + type);
+						value = innerModel[j];
+					}
+					
                     var apiName = "add" + type.charAt(0).toUpperCase() + type.substring(1, type.length);
                     FunctionUtils.invokeAndInflate(model, apiName, value);
                 }
@@ -119,9 +132,11 @@ SIDatasHelper.toModel = function(data) {
                     }
 
                 } else {
+                	
                     if(data.getDataType() === "Array") {
                         model.push(innerModel);
                     } else {
+
                         var apiName = "add" + innerDataType.charAt(0).toUpperCase() + innerDataType.substring(1, innerDataType.length);
                         FunctionUtils.invokeAndInflate(model, apiName, innerModel);
                     }
@@ -153,7 +168,7 @@ SIDatasHelper.parseSI = function(object) {
 
     var data = new HybridSiminovDatas.HybridSiminovData();
 
-    var modelName = object.getObjectName();
+    var modelName = object.getFunctionName();
     data.setDataType(modelName);
 
     var getterProperties = object.getterProperties();

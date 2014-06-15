@@ -122,20 +122,26 @@ SIJsonHelper.toJson = function(datas) {
 
         var json = new StringBuilder();
 
-        json.append("{");
-            json.append('"' + Constants.SIMINOV_HYBRID_DATA + '": {');
-            json.append('"' + Constants.SIMINOV_HYBRID_DATA_DATA + '": [');
+        json.append('{');
+            json.append('"' + Constants.SIMINOV_HYBRID_DATA + '":{');
+            json.append('"' + Constants.SIMINOV_HYBRID_DATA_DATA + '":[');
 
             for(var i = 0;i < siDatas.length;i++) {
+            	
+            	if(i != 0) {
+            		 json.append(',');
+            	}
+            	
                 json.append(SIJsonHelper.parseSI(siDatas[i]));
             }
 
-            json.append("]");
-            json.append("}");
-        json.append("}");
+            json.append(']');
+            json.append('}');
+        json.append('}');
 
     Log.debug("SIJsonHelper", "toJson", json.toString());
-    return JSON.stringify(eval("(" + json.toString() + ")"));
+    return json.toString();
+    //return JSON.stringify(eval("(" + json.toString() + ")"));
 }
 
 
@@ -146,10 +152,10 @@ SIJsonHelper.parseSI = function(data) {
     var val = data.getDataValue();
 
     var json = new StringBuilder();
-    json.append("{");
+    json.append('{');
 
     if(type != undefined && type != null && type.length > 0) {
-        json.append('"' + Constants.SIMINOV_HYBRID_DATA_DATA_TYPE + '": "' + type + '", ');
+        json.append('"' + Constants.SIMINOV_HYBRID_DATA_DATA_TYPE + '":"' + type + '",');
     }
 
     var datas = data.getDatas();
@@ -162,7 +168,7 @@ SIJsonHelper.parseSI = function(data) {
         var values = data.getValues();
         if(values != undefined && values.length > 0) {
 
-            json.append('"' + Constants.SIMINOV_HYBRID_DATA_VALUE + '": [');
+            json.append('"' + Constants.SIMINOV_HYBRID_DATA_VALUE + '":[');
 
             for(var j = 0;j < values.length;j++) {
 
@@ -171,24 +177,26 @@ SIJsonHelper.parseSI = function(data) {
                 var valueType = value.getType();
                 var valueVal = value.getValue();
 
-                json.append("{");
-                    json.append('"' + Constants.SIMINOV_HYBRID_DATA_DATA_TYPE + '": "' + valueType + '", ');
-                    json.append('"' + Constants.SIMINOV_HYBRID_DATA_DATA_TEXT + '": "' + valueVal + '"');
-                json.append("},");
+				if(j != 0) {
+	                json.append(',');
+				}
 
+                json.append('{');
+                    json.append('"' + Constants.SIMINOV_HYBRID_DATA_DATA_TYPE + '":"' + valueType + '",');
+                    json.append('"' + Constants.SIMINOV_HYBRID_DATA_DATA_TEXT + '":"' + valueVal + '"');
+                json.append('}');
             }
 
-            json.append("], ");
-
+            json.append(']');
         }
 
     } else {
         if(val != undefined && val != null && val.length > 0) {
-            json.append('"' + Constants.SIMINOV_HYBRID_DATA_DATA_TEXT + '": "' + val + '"');
+            json.append('"' + Constants.SIMINOV_HYBRID_DATA_DATA_TEXT + '":"' + val + '"');
         }
     }
 
-    json.append("},");
+    json.append('}');
 
     return json.toString();
 }
@@ -197,13 +205,13 @@ SIJsonHelper.parseSI = function(data) {
 SIJsonHelper.parseInnerSI = function(datas) {
 
     var json = new StringBuilder();
-    json.append('"' + Constants.SIMINOV_HYBRID_DATA_DATA + '": [');
+    json.append('"' + Constants.SIMINOV_HYBRID_DATA_DATA + '":[');
 
     for(var i = 0;i < datas.length;i++) {
         json.append(SIJsonHelper.parseSI(datas[i]));
     }
 
-    json.append("], ");
+    json.append('],');
 
     return json.toString();
 }
