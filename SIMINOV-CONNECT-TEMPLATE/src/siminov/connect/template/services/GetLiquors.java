@@ -51,7 +51,7 @@ public class GetLiquors extends Service {
 
 	public void onServiceApiFinish(IConnectionResponse connectionResponse) {
 		
-		Fragment uiComponent = (Fragment) getResource(UI_COMPONENT).getValue();
+		Fragment uiComponent = (Fragment) getResource(UI_COMPONENT);
 		
 		LiquorsReader liquorsReader = new LiquorsReader(connectionResponse.getResponse());
 		Iterator<Liquor> liquors = liquorsReader.getLiquors();

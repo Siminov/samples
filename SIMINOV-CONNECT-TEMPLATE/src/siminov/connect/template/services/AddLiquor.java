@@ -48,7 +48,7 @@ public class AddLiquor extends Service {
 		}
 		
 		
-		String liquorType = (String) getResource(LIQUOR).getValue();
+		String liquorType = (String) getResource(LIQUOR);
 		Liquor liquor = null;
 		
 		try {

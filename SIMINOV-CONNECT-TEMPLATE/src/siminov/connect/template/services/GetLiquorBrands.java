@@ -59,8 +59,8 @@ public class GetLiquorBrands extends Service {
 		}
 		
 		
-		Liquor liquor = (Liquor) getResource(LIQUOR).getValue();
-		Fragment uiComponent = (Fragment) getResource(UI_COMPONENT).getValue();
+		Liquor liquor = (Liquor) getResource(LIQUOR);
+		Fragment uiComponent = (Fragment) getResource(UI_COMPONENT);
 		
 		LiquorBrandsReader liquorBrandsReader = new LiquorBrandsReader(connectionResponse.getResponse());
 		Iterator<LiquorBrand> liquorBrands = liquorBrandsReader.getLiquorBrands();
