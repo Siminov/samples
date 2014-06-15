@@ -173,27 +173,25 @@
 
 			function navHome() {
 
-				/*var syncRequest = new SyncRequest();
+				var syncRequest = new SyncRequest();
 				syncRequest.setName(SYNC_LIQUORS);
 				
-				syncRequest.addResource(new NameValuePair(GetLiquors.UI_COMPONENT, populateHome));
-			
-				
 				var syncHandler = SyncHandler.getInstance();
-				syncHandler.handle(syncRequest);*/
+				syncHandler.handle(syncRequest);
 
 				
-				var getLiquors = new GetLiquors();
+				/*var getLiquors = new GetLiquors();
 				getLiquors.setService(GetLiquors.SERVICE_NAME);
 				getLiquors.setApi(GetLiquors.API_NAME);
 				
-				getLiquors.invoke();
+				getLiquors.invoke();*/
 				
 				populateHome();
 			}			
 
 			function populateHome() {
-
+				alert("populateHome");
+			
                 $.mobile.changePage($('#home-page'));
 				document.getElementById('show-loader').click();
                 
@@ -231,18 +229,29 @@
 
 			
 			function navDetail(id) {
+				alert("navDetail");
 			
 				$.mobile.changePage($('#detail-page'));
 
 				var liquor = liquors[id];
 				
-				var getLiquorBrands = new GetLiquorBrands();
+				var syncRequest = new SyncRequest();
+				syncRequest.setName(SYNC_LIQUOR_BRANDS);
+				
+				syncRequest.addResource(new NameValuePair(GetLiquorBrands.LIQUOR_NAME, liquor.getLiquorType()));
+				
+				
+				var syncHandler = SyncHandler.getInstance();
+				syncHandler.handle(syncRequest);
+
+
+				/*var getLiquorBrands = new GetLiquorBrands();
 				getLiquorBrands.setService(GetLiquorBrands.SERVICE_NAME);
 				getLiquorBrands.setApi(GetLiquorBrands.API_NAME);
 				
 				getLiquorBrands.addResource(new NameValuePair(GetLiquorBrands.LIQUOR_NAME, liquor.getLiquorType()));
 
-				getLiquorBrands.invoke();				
+				getLiquorBrands.invoke();*/
 				
 				populateDetail(liquor.getLiquorType());
 			}

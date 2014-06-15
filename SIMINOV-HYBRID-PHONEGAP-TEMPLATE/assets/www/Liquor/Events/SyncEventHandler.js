@@ -3,12 +3,7 @@
 function SyncEventHandler() {
 	
 	this.onSyncStarted = function(syncRequest) {
-		alert("onSyncStarted: " + GetLiquors.UI_COMPONENT);
-		var uiComponent = syncRequest.getResource(GetLiquors.UI_COMPONENT);
-		uiComponent = eval("(" + uiComponent + ")");
-
-		alert(uiComponent.properties());
-		uiComponent();
+		alert("onSyncStarted");
 	}
 
 	
