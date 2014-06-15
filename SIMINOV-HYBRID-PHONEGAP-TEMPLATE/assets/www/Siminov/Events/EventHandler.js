@@ -162,6 +162,11 @@ function EventHandler() {
 			var index = parameters[2];
 		
 			FunctionUtils.invokeAndInflate(eventHandler, apiName, databaseDescriptor, databaseMappingDescriptor, index);
+
+			
+		/*
+		 * Authentication Events
+		 */	
         } else if(apiName === Constants.EVENT_HANDLER_IAUTHENTICATION_EVENT_ON_AUTHENTICATION_START) {
 
 			var credential = parameters[0];
