@@ -25,8 +25,6 @@
 	<property name="description">Siminov SqlCipher Template Application</property>
 	<property name="version">0.9</property>
 
-	<property name="load_initially">true</property>
-
 	<!-- DATABASE-DESCRIPTORS -->
 	<database-descriptors>
 		<database-descriptor>DatabaseDescriptor.si.xml</database-descriptor>

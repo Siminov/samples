@@ -20,23 +20,23 @@
 
 <database-mapping-descriptor>
 
-	<table table_name="MODEL" class_name="siminov.orm.sqlcipher.template.model.Model">
+	<entity table_name="MODEL" class_name="siminov.orm.sqlcipher.template.model.Model">
 		
-		<column variable_name="columnOne" column_name="COLUMN_ONE">
+		<attribute variable_name="columnOne" column_name="COLUMN_ONE">
 			<property name="type">java.lang.String</property>
 			<property name="primary_key">true</property>
 			<property name="not_null">true</property>
 			<property name="unique">true</property>
-		</column>		
+		</attribute>		
 
-		<column variable_name="columnTwo" column_name="COLUMN_TWO">
+		<attribute variable_name="columnTwo" column_name="COLUMN_TWO">
 			<property name="type">java.lang.String</property>
 			<property name="primary_key">true</property>
 			<property name="not_null">true</property>
 			<property name="unique">true</property>
-		</column>		
+		</attribute>		
 													
-	</table>
+	</entity>
 
 </database-mapping-descriptor>		
 		
