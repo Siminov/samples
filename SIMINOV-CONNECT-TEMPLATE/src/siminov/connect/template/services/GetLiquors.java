@@ -25,31 +25,31 @@ public class GetLiquors extends Service {
 		setApi(API_NAME);
 	}
 	
-	public void onServiceStart() {
+	public void onStart() {
 		
 	}
 
-	public void onServiceQueue() {
+	public void onQueue() {
 		
 	}
 
-	public void onServicePause() {
+	public void onPause() {
 		
 	}
 
-	public void onServiceResume() {
+	public void onResume() {
 		
 	}
 
-	public void onServiceFinish() {
+	public void onFinish() {
 		
 	}
 
-	public void onServiceApiInvoke(IConnectionRequest connectionRequest) {
+	public void onApiInvoke(IConnectionRequest connectionRequest) {
 		
 	}
 
-	public void onServiceApiFinish(IConnectionResponse connectionResponse) {
+	public void onApiFinish(IConnectionResponse connectionResponse) {
 		
 		Fragment uiComponent = (Fragment) getResource(UI_COMPONENT);
 		
@@ -69,7 +69,11 @@ public class GetLiquors extends Service {
 		((Home) uiComponent).refresh();
 	}
 
-	public void onServiceTerminate(ServiceException serviceException) {
+	public void onTerminate(ServiceException serviceException) {
+		
+	}
+
+	public void onRestart() {
 		
 	}
 }
