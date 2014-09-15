@@ -21,25 +21,25 @@
  
 <database-mapping-descriptor>
 
-	<table table_name="AUTHENTICATION" class_name="siminov.hybrid.phonegap.library.template.model.Authentication">
+	<entity table_name="AUTHENTICATION" class_name="siminov.hybrid.phonegap.library.template.model.Authentication">
 		
-		<column variable_name="accountId" column_name="ACCOUNT_ID">
+		<attribute variable_name="accountId" column_name="ACCOUNT_ID">
 			<property name="type">java.lang.String</property>
 			<property name="primary_key">true</property>
 			<property name="not_null">true</property>
 			<property name="unique">true</property>
-		</column>		
+		</attribute>		
 		
-		<column variable_name="token" column_name="TOKEN"> 
+		<attribute variable_name="token" column_name="TOKEN"> 
 			<property name="type">java.lang.String</property>
 			<property name="not_null">true</property>
 			<property name="unique">true</property>
-		</column>
+		</attribute>
 
-		<column variable_name="active" column_name="ACTIVE"> 
+		<attribute variable_name="active" column_name="ACTIVE"> 
 			<property name="type">boolean</property>
-		</column>
+		</attribute>
 
-	</table>
+	</entity>
 
 </database-mapping-descriptor>
