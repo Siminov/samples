@@ -20,12 +20,20 @@
 
 
 
+
+
+
+
+
+
+
+
 <database-descriptor>
 
-	<property name="database_name">SIMINOV-TEMPLATE</property>
-	<property name="description">Siminov Template Database Config</property>
+	<property name="database_name">SIMINOV-ORM-TEMPLATE</property>
+	<property name="description">Siminov ORM Template Database Config</property>
 	<property name="version">1</property>
-	<property name="is_locking_required">true</property>
+	<property name="transaction_safe">true</property>
 
 	<database-mapping-descriptors>
 		<database-mapping-descriptor>Liquor-Mappings/Liquor.si.xml</database-mapping-descriptor>
@@ -33,6 +41,11 @@
 	</database-mapping-descriptors>
 
 </database-descriptor>
+
+
+
+
+
 
 
 

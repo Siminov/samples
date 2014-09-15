@@ -20,27 +20,27 @@
 
 <database-mapping-descriptor>
 
-	<table table_name="LIQUOR_BRAND" class_name="siminov.orm.template.model.LiquorBrand">
+	<entity table_name="LIQUOR_BRAND" class_name="siminov.orm.template.model.LiquorBrand">
 
-		<column variable_name="brandName" column_name="BRAND_NAME">
+		<attribute variable_name="brandName" column_name="BRAND_NAME">
 			<property name="type">java.lang.String</property>
 			<property name="primary_key">true</property>
 			<property name="not_null">true</property>
 			<property name="unique">true</property>
-		</column>		
+		</attribute>		
 
-		<column variable_name="description" column_name="DESCRIPTION">
+		<attribute variable_name="description" column_name="DESCRIPTION">
 			<property name="type">java.lang.String</property>
-		</column>
+		</attribute>
 
-		<column variable_name="link" column_name="LINK">
+		<attribute variable_name="link" column_name="LINK">
 			<property name="type">java.lang.String</property>
 			<property name="default">www.wikipedia.org</property>
-		</column>
+		</attribute>
 
-		<column variable_name="country" column_name="COUNTRY">
+		<attribute variable_name="country" column_name="COUNTRY">
 			<property name="type">java.lang.String</property>
-		</column>
+		</attribute>
 
 		<relationships>
 			
@@ -50,7 +50,7 @@
 		    		
 		</relationships>		
 
-	</table>
+	</entity>
 
 </database-mapping-descriptor>		
 		
