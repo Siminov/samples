@@ -20,31 +20,31 @@
 
 <database-mapping-descriptor>
 
-	<table table_name="LIQUOR" class_name="Liquor">
+	<entity table_name="LIQUOR" class_name="Liquor">
 		
-		<column variable_name="liquorType" column_name="LIQUOR_TYPE">
+		<attribute variable_name="liquorType" column_name="LIQUOR_TYPE">
 			<property name="type">String</property>
 			<property name="primary_key">true</property>
 			<property name="not_null">true</property>
 			<property name="unique">true</property>
-		</column>		
+		</attribute>		
 
-		<column variable_name="description" column_name="DESCRIPTION">
+		<attribute variable_name="description" column_name="DESCRIPTION">
 			<property name="type">String</property>
-		</column>
+		</attribute>
 
-		<column variable_name="history" column_name="HISTORY">
+		<attribute variable_name="history" column_name="HISTORY">
 			<property name="type">String</property>
-		</column>
+		</attribute>
 
-		<column variable_name="link" column_name="LINK">
+		<attribute variable_name="link" column_name="LINK">
 			<property name="type">String</property>
 			<property name="default">www.wikipedia.org</property>
-		</column>
+		</attribute>
 
-		<column variable_name="alcholContent" column_name="ALCHOL_CONTENT">
+		<attribute variable_name="alcholContent" column_name="ALCHOL_CONTENT">
 			<property name="type">String</property>
-		</column>
+		</attribute>
 
 		<index name="LIQUOR_INDEX_BASED_ON_LINK" unique="true">
 			<column>HISTORY</column>
@@ -58,7 +58,7 @@
 	
    		</relationships>
 											
-	</table>
+	</entity>
 
 </database-mapping-descriptor>		
 		

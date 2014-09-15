@@ -28,14 +28,14 @@
 	<property name="description">Siminov Hybrid Phonegap Template Application</property>
 	<property name="version">0.9</property>
 
-	<property name="load_initially">true</property>
 
-	<!-- DATABASE-DESCRIPTORS -->
+	<!-- Database Descriptors -->
 	<database-descriptors>
 		<database-descriptor>DatabaseDescriptor.si.xml</database-descriptor>
 	</database-descriptors>
 
 	
+	<!-- Service Descriptors -->
 	<service-descriptors>
 	    <service-descriptor>Liquor-Services/Liquors.si.xml</service-descriptor>
 	    <service-descriptor>Liquor-Services/LiquorBrands.si.xml</service-descriptor>
@@ -43,17 +43,20 @@
 	</service-descriptors>
 	
     
+	<!-- Sync Descriptors -->
 	<syn-descriptors>
 	    <sync-descriptor>Liquor-Sync/Liquors.si.xml</sync-descriptor>
 	    <sync-descriptor>Liquor-Sync/LiquorBrands.si.xml</sync-descriptor>
 	</syn-descriptors>
 	
 	
+	<!-- Notification Descriptor -->
 	<notification-descriptor>
         <property name="sender_id">853402201726</property>
     </notification-descriptor>
 	
 
+	<!-- Authorization Descriptor -->
     <authorization-descriptor>
         <property name="type">oauth</property>
         <property name="credential">siminov.hybrid.phonegap.library.template.model.Authentication</property>
@@ -66,7 +69,7 @@
     </authorization-descriptor> 
 	
     		
-	<!-- SIMINOV EVENTS -->
+	<!-- Event Handlers -->
  	<event-handlers>
 	    <event-handler>siminov.hybrid.phonegap.template.events.SiminovEventHandler</event-handler>
 	    <event-handler>siminov.hybrid.phonegap.template.events.DatabaseEventHandler</event-handler>
@@ -75,6 +78,8 @@
    	    <event-handler>siminov.hybrid.phonegap.template.events.SyncEventHandler</event-handler>
 	</event-handlers>
 
+ 	
+ 	<!-- Library Descriptors -->
  	<library-descriptors>
  	    <library-descriptor>siminov.hybrid.phonegap.library.template.resources</library-descriptor>
  	</library-descriptors> 
