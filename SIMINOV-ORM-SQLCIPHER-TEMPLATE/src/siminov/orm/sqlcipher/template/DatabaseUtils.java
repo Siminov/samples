@@ -32,9 +32,7 @@ public class DatabaseUtils {
 		try {
 			modelOne.saveOrUpdate();
 		} catch(DatabaseException databaseException) {
-			Log.loge(getClass().getName(), "prepareData", "DatabaseException caught while saving model one, " + databaseException.getMessage());
+			Log.error(getClass().getName(), "prepareData", "DatabaseException caught while saving model one, " + databaseException.getMessage());
 		}
-		
 	}
-	
 }
