@@ -5,19 +5,19 @@ import siminov.connect.sync.design.ISyncRequest;
 
 public class SyncEventHandler implements ISyncEvents {
 
-	public void onSyncStarted(ISyncRequest syncRequest) {
+	public void onStart(ISyncRequest syncRequest) {
 		
 	}
 
-	public void onSyncQueued(ISyncRequest syncRequest) {
+	public void onQueue(ISyncRequest syncRequest) {
 		
 	}
 
-	public void onSyncRemoved(ISyncRequest syncRequest) {
+	public void onFinish(ISyncRequest syncRequest) {
 		
 	}
 
-	public void onSyncTerminated(ISyncRequest syncRequest) {
+	public void onTerminate(ISyncRequest syncRequest) {
 		
 	}
 }
