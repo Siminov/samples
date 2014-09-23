@@ -17,8 +17,6 @@
 
 package siminov.connect.template.fragments;
 
-import siminov.connect.authorization.AuthorizationFactory;
-import siminov.connect.authorization.design.IAuthorization;
 import siminov.connect.exception.AuthorizationException;
 import siminov.connect.template.activities.About;
 import siminov.connect.template.model.Credential;
@@ -89,7 +87,7 @@ public class MenuSlider extends ListFragment implements OnItemClickListener {
 			switch(key) {
 			case DO_OAUTH_AUTHENTICATION_KEY:
 				
-				Credential credential = new Credential();
+				/*Credential credential = new Credential();
 				credential.setAccountId("siminov");
 				credential.setActive(true);
 				
@@ -100,7 +98,7 @@ public class MenuSlider extends ListFragment implements OnItemClickListener {
 					authorization.doAuthentication(credential);
 				} catch(AuthorizationException ae) {
 					Log.error(MenuSlider.class.getName(), "onClick", "AuthorizationException caught while authenticating the user, " + ae.getMessage());
-				}
+				}*/
 
 			case HOME_ABOUT_SIMINOV_FRAMEWORK_KEY:
 					Intent intent = new Intent(activity, About.class);

@@ -17,8 +17,7 @@
 
 package siminov.connect.template.fragments;
 
-import siminov.connect.authorization.CredentialManager;
-import siminov.connect.authorization.design.ICredential;
+import siminov.connect.template.CredentialManager;
 import siminov.connect.template.R;
 import siminov.connect.template.model.Credential;
 import siminov.orm.exception.DatabaseException;
@@ -100,7 +99,7 @@ public class Login extends Fragment implements OnClickListener {
 				
 				if(!isAccountPresent) {
 
-					ICredential credential = new Credential();
+					Credential credential = new Credential();
 					credential.setAccountId(accountId);
 					credential.setToken(token);
 					credential.setActive(true);
