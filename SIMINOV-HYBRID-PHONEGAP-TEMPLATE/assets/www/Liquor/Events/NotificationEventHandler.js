@@ -3,18 +3,18 @@
 function NotificationEventHandler() {
 	
 	this.onRegistration = function(registration) {
-		alert("onRegistration");
+		//alert("onRegistration");
 	}
 
 	this.onUnregistration = function(registration) {
-		alert("onUnregistration");
+		//alert("onUnregistration");
 	}
 
 	this.onNotification = function(message) {
-		alert("onNotification");
+		//alert("onNotification");
 	}
 	
 	this.onError = function(notificationException) {
-		alert("onError");
+		//alert("onError");
 	}
 }

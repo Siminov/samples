@@ -1,5 +1,4 @@
 
-
 function Credential() {
 
 	//Class Variables.
@@ -7,40 +6,44 @@ function Credential() {
 	var token = null;
 	var active;
 
-	getAccountId = function() {
+	this.getAccountId = function() {
 		return accountId;
 	}
 
-	setAccountId = function(val) {
+	this.setAccountId = function(val) {
 		accountId = val;
 	}
 
-	getToken = function() {
+	this.getToken = function() {
 		return token;
 	}
 
-	setToken = function(val) {
+	this.setToken = function(val) {
 		token = val;
 	}
 
-	getActive = function() {
+	this.getActive = function() {
 		return active;
 	}
 	
-	isActive = function() {
+	this.isActive = function() {
 		return active;
 	}
 
-	setActive = function(val) {
+	this.setActive = function(val) {
 		active = val;
 	}
 }
 
 
+//Table Name
+Credential.TABLE_NAME = "CREDENTIAL";
+
+
+//Column Names
 Credential.ACCOUNT_ID = "ACCOUNT_ID";
 Credential.TOKEN = "TOKEN";
 Credential.ACTIVE = "ACTIVE";
 
 
 FunctionUtils.extend(Database, Credential);
-

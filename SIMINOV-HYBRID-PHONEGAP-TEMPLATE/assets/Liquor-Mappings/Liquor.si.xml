@@ -47,7 +47,7 @@
 		</attribute>
 
 		<index name="LIQUOR_INDEX_BASED_ON_LINK" unique="true">
-			<column>HISTORY</column>
+			<attribute>HISTORY</attribute>
 		</index>
 
 		<relationships>

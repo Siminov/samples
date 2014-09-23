@@ -124,7 +124,6 @@ document.write('<script type="text/javascript" src="Siminov/Events/EventHandler.
  */
 document.write('<script type="text/javascript" src="Siminov/Exception/SiminovException.js"></script>');
 document.write('<script type="text/javascript" src="Siminov/Exception/NotificationException.js"></script>');
-document.write('<script type="text/javascript" src="Siminov/Exception/AuthenticationException.js"></script>');
 document.write('<script type="text/javascript" src="Siminov/Exception/ConnectionException.js"></script>');
 document.write('<script type="text/javascript" src="Siminov/Exception/DatabaseException.js"></script>');
 document.write('<script type="text/javascript" src="Siminov/Exception/ServiceException.js"></script>');

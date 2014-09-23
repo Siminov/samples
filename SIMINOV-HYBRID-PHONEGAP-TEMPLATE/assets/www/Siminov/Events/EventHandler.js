@@ -162,25 +162,7 @@ function EventHandler() {
 			var index = parameters[2];
 		
 			FunctionUtils.invokeAndInflate(eventHandler, apiName, databaseDescriptor, databaseMappingDescriptor, index);
-
 			
-		/*
-		 * Authentication Events
-		 */	
-        } else if(apiName === Constants.EVENT_HANDLER_IAUTHENTICATION_EVENT_ON_AUTHENTICATION_START) {
-
-			var credential = parameters[0];
-        	FunctionUtils.invokeAndInflate(eventHandler, apiName, credential)
-        } else if(apiName === Constants.EVEVT_HANDLER_IAUTHENTICATION_EVENT_ON_AUTHENTICATION_FINISH) {
-        	
-			var credential = parameters[0];
-        	FunctionUtils.invokeAndInflate(eventHandler, apiName, credential)
-        } else if(apiName === Constants.EVENT_HANDLER_IAUTHENTICATION_EVENT_ON_AUTHENTICATION_TERMINATE) {
-        	
-			var credential = parameters[0];
-        	FunctionUtils.invokeAndInflate(eventHandler, apiName, credential)
-        
-        
         /*
          * INotification Events
          */
