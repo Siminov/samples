@@ -1,47 +1,20 @@
-/**
-	Exposes methods to GET and SET Hybrid Descriptor Adapter information as per define in HybridDescriptor.si.xml file or standalone xml file in application.
-			
-	Example:
+/** 
+ * [SIMINOV FRAMEWORK]
+ * Copyright [2015] [Siminov Software Solution LLP|support@siminov.com]
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **/
 
-		<adapter>
-			<property name="name">name_of_adapter</property>
-			<property name="description">description_about_adapter</property>
-			<property name="type">type_of_adapter</property>
-			<property name="map_to">map_to_class_name</property>
-			<property name="cache">should_be_cached_or_not</property>
-			
-			<handlers>
-			
-				<handler>
-					<property name="name">name_of_handler</property>
-					<property name="description">description_about_handler</property>
-					<property name="map_to">map_to_function_name</property>
-					
-					<parameters>
-						
-						<parameter>
-							<property name="name"></property>
-							<property name="description"></property>
-							<property name="type"></property>
-						</parameter>
-					
-					</parameter>
-					
-					<return>
-							<property name="type">return_data_type</property>
-							<property name="description">description_about_return_data</property>
-					</return>
-					
-				</handler>
-			
-			</handlers>
-			
-		</adapter>
-
-	@class HybridDescriptor.Adapter
-	@constructor
-				
-*/
 function AdapterDescriptor() {
 
     var properties = new Dictionary();
