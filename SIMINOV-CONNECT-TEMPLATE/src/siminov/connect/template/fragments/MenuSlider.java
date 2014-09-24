@@ -1,6 +1,6 @@
 /** 
  * [SIMINOV FRAMEWORK]
- * Copyright [2013] [Siminov Software Solution LLP|support@siminov.com]
+ * Copyright [2015] [Siminov Software Solution LLP|support@siminov.com]
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,10 +17,7 @@
 
 package siminov.connect.template.fragments;
 
-import siminov.connect.exception.AuthorizationException;
 import siminov.connect.template.activities.About;
-import siminov.connect.template.model.Credential;
-import siminov.orm.log.Log;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
