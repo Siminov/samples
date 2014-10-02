@@ -21,7 +21,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
-import siminov.connect.resource.Resources;
 import siminov.connect.template.model.Credential;
 import siminov.orm.exception.SiminovCriticalException;
 import siminov.orm.exception.SiminovException;
@@ -34,7 +33,6 @@ public class CredentialManager {
 	private static CredentialManager credentialManager = null;
 	
 	private Credential activeCredential = null;
-	private Resources resources = Resources.getInstance();
 	
 	private CredentialManager() {
 		
