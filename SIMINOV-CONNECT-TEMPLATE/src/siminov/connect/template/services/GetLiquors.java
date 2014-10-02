@@ -33,13 +33,13 @@ import android.support.v4.app.Fragment;
 public class GetLiquors extends Service {
 
 	public static final String SERVICE_NAME = "SIMINOV-CONNECT-LIQUORS-SERVICE";
-	public static final String API_NAME = "GET-LIQUORS";
+	public static final String REQUEST_NAME = "GET-LIQUORS";
 	
 	public static final String UI_COMPONENT = "UI_COMPONENT";
 	
 	public GetLiquors() {
 		setService(SERVICE_NAME);
-		setApi(API_NAME);
+		setRequest(REQUEST_NAME);
 	}
 	
 	public void onStart() {
@@ -62,11 +62,11 @@ public class GetLiquors extends Service {
 		
 	}
 
-	public void onApiInvoke(IConnectionRequest connectionRequest) {
+	public void onRequestInvoke(IConnectionRequest connectionRequest) {
 		
 	}
 
-	public void onApiFinish(IConnectionResponse connectionResponse) {
+	public void onRequestFinish(IConnectionResponse connectionResponse) {
 		
 		Fragment uiComponent = (Fragment) getResource(UI_COMPONENT);
 		

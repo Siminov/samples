@@ -25,11 +25,11 @@ import siminov.connect.service.Service;
 public class UnregisterDevice extends Service {
 
 	private static final String SERVICE_NAME = "SIMINOV-CONNECT-NOTIFICATION-SERVICE";
-	private static final String API_NAME = "UNREGISTER-DEVICE";
+	private static final String REQUEST_NAME = "UNREGISTER-DEVICE";
 	
 	public UnregisterDevice() {
 		setService(SERVICE_NAME);
-		setApi(API_NAME);
+		setRequest(REQUEST_NAME);
 	}
 	
 	public void onStart() {
@@ -52,11 +52,11 @@ public class UnregisterDevice extends Service {
 		
 	}
 
-	public void onApiInvoke(IConnectionRequest connectionRequest) {
+	public void onRequestInvoke(IConnectionRequest connectionRequest) {
 		
 	}
 
-	public void onApiFinish(IConnectionResponse connectionResponse) {
+	public void onRequestFinish(IConnectionResponse connectionResponse) {
 		
 	}
 

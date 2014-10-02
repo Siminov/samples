@@ -25,13 +25,13 @@ import siminov.connect.service.Service;
 public class RegisterDevice extends Service {
 
 	private static final String SERVICE_NAME = "SIMINOV-CONNECT-NOTIFICATION-SERVICE";
-	private static final String API_NAME = "REGISTER-DEVICE";
+	private static final String REQUEST_NAME = "REGISTER-DEVICE";
 	
 	public static final String REGISTRATION_ID = "ID";
 	
 	public RegisterDevice() {
 		setService(SERVICE_NAME);
-		setApi(API_NAME);
+		setRequest(REQUEST_NAME);
 	}
 	
 	public void onStart() {
@@ -54,11 +54,11 @@ public class RegisterDevice extends Service {
 		
 	}
 
-	public void onApiInvoke(IConnectionRequest connectionRequest) {
+	public void onRequestInvoke(IConnectionRequest connectionRequest) {
 		
 	}
 
-	public void onApiFinish(IConnectionResponse connectionResponse) {
+	public void onRequestFinish(IConnectionResponse connectionResponse) {
 		
 	}
 

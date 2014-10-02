@@ -29,13 +29,13 @@ import siminov.orm.log.Log;
 public class AddLiquor extends Service {
 
 	private final String SERVICE_NAME = "SIMINOV-CONNECT-LIQUORS-SERVICE";
-	private final String API_NAME = "ADD-LIQUOR";
+	private final String REQUEST_NAME = "ADD-LIQUOR";
 
 	public static final String LIQUOR = "LIQUOR";
 	
 	public AddLiquor() {
 		setService(SERVICE_NAME);
-		setApi(API_NAME);
+		setRequest(REQUEST_NAME);
 	}
 	
 	public void onStart() {
@@ -58,7 +58,7 @@ public class AddLiquor extends Service {
 		
 	}
 
-	public void onApiInvoke(IConnectionRequest connectionRequest) {
+	public void onRequestInvoke(IConnectionRequest connectionRequest) {
 		
 		if(connectionRequest.getDataStream() == null) {
 			return;
@@ -85,7 +85,7 @@ public class AddLiquor extends Service {
 		connectionRequest.setDataStream(dataStream);
 	}
 
-	public void onApiFinish(IConnectionResponse connectionResponse) {
+	public void onRequestFinish(IConnectionResponse connectionResponse) {
 		
 	}
 

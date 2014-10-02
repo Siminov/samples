@@ -34,7 +34,7 @@ import android.support.v4.app.Fragment;
 public class GetLiquorBrands extends Service {
 
 	public static final String SERVICE_NAME = "SIMINOV-CONNECT-LIQUOR-BRANDS-SERVICE";
-	public static final String API_NAME = "GET-LIQUOR-BRANDS";
+	public static final String REQUEST_NAME = "GET-LIQUOR-BRANDS";
 	
 	public static final String LIQUOR_NAME = "LIQUOR-NAME";
 	public static final String LIQUOR = "LIQUOR";
@@ -42,7 +42,7 @@ public class GetLiquorBrands extends Service {
 	
 	public GetLiquorBrands() {
 		setService(SERVICE_NAME);
-		setApi(API_NAME);
+		setRequest(REQUEST_NAME);
 	}
 
 	public void onStart() {
@@ -65,11 +65,11 @@ public class GetLiquorBrands extends Service {
 		
 	}
 
-	public void onApiInvoke(IConnectionRequest connectionRequest) {
+	public void onRequestInvoke(IConnectionRequest connectionRequest) {
 		
 	}
 
-	public void onApiFinish(IConnectionResponse connectionResponse) {
+	public void onRequestFinish(IConnectionResponse connectionResponse) {
 	
 		if(connectionResponse.getResponse() == null) {
 			return;
