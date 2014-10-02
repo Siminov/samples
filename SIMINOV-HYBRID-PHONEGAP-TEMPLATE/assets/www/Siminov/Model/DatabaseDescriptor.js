@@ -99,6 +99,15 @@ function DatabaseDescriptor() {
     this.setDescription = function(description) {
     	properties.add(Constants.DATABASE_DESCRIPTOR_DESCRIPTION, description);
     }
+
+	this.getType = function() {
+    	return properties.get(Constants.DATABASE_DESCRIPTOR_TYPE);
+	}
+
+	this.setType = function() {
+    	properties.add(Constants.DATABASE_DESCRIPTOR_TYPE, description);
+	}
+
     
 	/**
 	 	Set database locking as per defined in DatabaseDescriptor.si.xml file.
@@ -106,8 +115,8 @@ function DatabaseDescriptor() {
 	 	@method setLockingRequired
 	 	@param isLockingRequired {Boolean} (true/false) database locking as per defined in DatabaseDescriptor.si.xml file.
 	 */
-    this.setLockingRequired = function(lockingRequired) {
-    	properties.add(Constants.DATABASE_DESCRIPTOR_IS_LOCKING_REQUIRED, lockingRequired);
+    this.setTransactionSafe = function(transactionSafe) {
+    	properties.add(Constants.DATABASE_DESCRIPTOR_TRANSACTION_SAFE, transactionSafe);
 	}
 	
 	/**
@@ -116,8 +125,8 @@ function DatabaseDescriptor() {
 	 	@method isLockingRequired
 	 	@return {Boolean} (true/false) TRUE: If locking is required as per defined in DatabaseDescriptor.si.xml file, FALSE: If locking is not required as per defined in DatabaseDescriptor.si.xml file.
 	 */
-    this.isLockingRequired = function() {
-    	properties.get(Constants.DATABASE_DESCRIPTOR_IS_LOCKING_REQUIRED);
+    this.isTransactionSafe = function() {
+    	properties.get(Constants.DATABASE_DESCRIPTOR_TRANSACTION_SAFE);
     }
     
 	/**

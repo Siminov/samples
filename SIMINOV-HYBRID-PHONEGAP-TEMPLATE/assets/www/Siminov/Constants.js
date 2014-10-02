@@ -64,17 +64,6 @@ Constants.APPLICATION_DESCRIPTOR_DESCRIPTION = "description";
 */
 Constants.APPLICATION_DESCRIPTOR_VERSION = "version";
 
-/**
-	Application Descriptor Load Initially
-
-	@property APPLICATION_DESCRIPTOR_LOAD_INITIALLY
-	@type String
-	@static
-	@final
-	@readOnly
-*/
-Constants.APPLICATION_DESCRIPTOR_LOAD_INITIALLY = "load_initially";
-
 
 //   DatabaseDescriptor.si.xml Constants.
 
@@ -122,7 +111,7 @@ Constants.DATABASE_DESCRIPTOR_TYPE = "type";
 	@final
 	@readOnly
 */
-Constants.DATABASE_DESCRIPTOR_IS_LOCKING_REQUIRED = "is_locking_required";
+Constants.DATABASE_DESCRIPTOR_TRANSACTION_SAFE = "is_locking_required";
 
 /**
 	Database Descriptor External Storage
@@ -259,7 +248,7 @@ Constants.DATABASE_MAPPING_DESCRIPTOR_RELATIONSHIPS_LOAD = "load";
 	@final
 	@readOnly
 */
-Constants.HYBRID_DESCRIPTOR_ADAPTER_NAME = "name";
+Constants.ADAPTER_DESCRIPTOR_NAME = "name";
 
 /**
 	Hybrid Descriptor Adapter Description
@@ -270,7 +259,7 @@ Constants.HYBRID_DESCRIPTOR_ADAPTER_NAME = "name";
 	@final
 	@readOnly
 */
-Constants.HYBRID_DESCRIPTOR_ADAPTER_DESCRIPTION = "description";
+Constants.ADAPTER_DESCRIPTOR_DESCRIPTION = "description";
 
 /**
 	Hybrid Descriptor Adapter Type
@@ -281,7 +270,7 @@ Constants.HYBRID_DESCRIPTOR_ADAPTER_DESCRIPTION = "description";
 	@final
 	@readOnly
 */
-Constants.HYBRID_DESCRIPTOR_ADAPTER_TYPE = "type";
+Constants.ADAPTER_DESCRIPTOR_TYPE = "type";
 
 /**
 	Hybrid Descriptor Adapter Map To
@@ -292,7 +281,7 @@ Constants.HYBRID_DESCRIPTOR_ADAPTER_TYPE = "type";
 	@final
 	@readOnly
 */
-Constants.HYBRID_DESCRIPTOR_ADAPTER_MAP_TO = "map_to";
+Constants.ADAPTER_DESCRIPTOR_MAP_TO = "map_to";
 
 /**
 	Hybrid Descriptor Adapter Cache
@@ -303,7 +292,7 @@ Constants.HYBRID_DESCRIPTOR_ADAPTER_MAP_TO = "map_to";
 	@final
 	@readOnly
 */
-Constants.HYBRID_DESCRIPTOR_ADAPTER_CACHE = "cache";
+Constants.ADAPTER_DESCRIPTOR_CACHE = "cache";
 
 
 
@@ -316,7 +305,7 @@ Constants.HYBRID_DESCRIPTOR_ADAPTER_CACHE = "cache";
 	@final
 	@readOnly
 */
-Constants.HYBRID_DESCRIPTOR_ADAPTER_HANDLER_NAME = "name";
+Constants.ADAPTER_DESCRIPTOR_HANDLER_NAME = "name";
 
 /**
 	Hybrid Descriptor Adapter Handler Map To
@@ -327,7 +316,7 @@ Constants.HYBRID_DESCRIPTOR_ADAPTER_HANDLER_NAME = "name";
 	@final
 	@readOnly
 */
-Constants.HYBRID_DESCRIPTOR_ADAPTER_HANDLER_MAP_TO = "map_to";
+Constants.ADAPTER_DESCRIPTOR_HANDLER_MAP_TO = "map_to";
 
 /**
 	Hybrid Descriptor Adapter Handler Description
@@ -338,7 +327,7 @@ Constants.HYBRID_DESCRIPTOR_ADAPTER_HANDLER_MAP_TO = "map_to";
 	@final
 	@readOnly
 */
-Constants.HYBRID_DESCRIPTOR_ADAPTER_HANDLER_DESCRIPTION = "description";
+Constants.ADAPTER_DESCRIPTOR_HANDLER_DESCRIPTION = "description";
 
 
 /**
@@ -350,7 +339,7 @@ Constants.HYBRID_DESCRIPTOR_ADAPTER_HANDLER_DESCRIPTION = "description";
 	@final
 	@readOnly
 */
-Constants.HYBRID_DESCRIPTOR_ADAPTER_PARAMETER_TYPE = "type";
+Constants.ADAPTER_DESCRIPTOR_PARAMETER_TYPE = "type";
 
 /**
 	Hybrid Descriptor Adapter Parameter Description
@@ -361,7 +350,7 @@ Constants.HYBRID_DESCRIPTOR_ADAPTER_PARAMETER_TYPE = "type";
 	@final
 	@readOnly
 */
-Constants.HYBRID_DESCRIPTOR_ADAPTER_PARAMETER_DESCRIPTION = "description";
+Constants.ADAPTER_DESCRIPTOR_PARAMETER_DESCRIPTION = "description";
 
 
 /**
@@ -373,7 +362,7 @@ Constants.HYBRID_DESCRIPTOR_ADAPTER_PARAMETER_DESCRIPTION = "description";
 	@final
 	@readOnly
 */
-Constants.HYBRID_DESCRIPTOR_ADAPTER_RETURN_TYPE = "type";
+Constants.ADAPTER_DESCRIPTOR_RETURN_TYPE = "type";
 
 /**
 	Hybrid Descriptor Adapter Return Description
@@ -384,7 +373,7 @@ Constants.HYBRID_DESCRIPTOR_ADAPTER_RETURN_TYPE = "type";
 	@final
 	@readOnly
 */
-Constants.HYBRID_DESCRIPTOR_ADAPTER_RETURN_DESCRIPTION = "description";
+Constants.ADAPTER_DESCRIPTOR_RETURN_DESCRIPTION = "description";
 
 
 //	ServiceDescriptor.si.xml
@@ -592,330 +581,7 @@ Constants.EVENT_HANDLER_EVENT_PARAMETERS = "EventParameters";
 	@final
 	@readOnly
 */
-Constants.SIMINOV_RESOURCES_ADAPTER = "RESOURCES";
-
-
-/**
-	Siminov Resources Get Application Descriptor Handler
-
-	@property SIMINOV_RESOURCES_GET_APPLICATION_DESCRIPTOR_HANDLER
-	@type String
-	@static
-	@final
-	@readOnly
-*/
-Constants.SIMINOV_RESOURCES_GET_APPLICATION_DESCRIPTOR_HANDLER = "GET-APPLICATION-DESCRIPTOR";
-
-/**
-	Siminov Resources Get Database Descriptor paths Handler
-
-	@property SIMINOV_RESOURCES_GET_DATABASE_DESCRIPTOR_PATHS_HANDLER
-	@type String
-	@static
-	@final
-	@readOnly
-*/
-Constants.SIMINOV_RESOURCES_GET_DATABASE_DESCRIPTOR_PATHS_HANDLER = "GET-DATABASE-DESCRIPTOR-PATHS";
-
-/**
-	Siminov Resources Get Database Descriptor Based On Path Handler
-
-	@property SIMINOV_RESOURCES_GET_DATABASE_DESCRIPTOR_BASED_ON_PATH_HANDLER
-	@type String
-	@static
-	@final
-	@readOnly
-*/
-Constants.SIMINOV_RESOURCES_GET_DATABASE_DESCRIPTOR_BASED_ON_PATH_HANDLER = "GET-DATABASE-DESCRIPTOR-BASED-ON-PATH";
-
-/**	
-	Siminov Resources Get Database Descriptor Based On Name Handler
-
-	@property SIMINOV_RESOURCES_GET_DATABASE_DESCRIPTOR_BASED_ON_NAME_HANDLER
-	@type String
-	@static
-	@final
-	@readOnly
-*/
-Constants.SIMINOV_RESOURCES_GET_DATABASE_DESCRIPTOR_BASED_ON_NAME_HANDLER = "GET-DATABASE-DESCRIPTOR-BASED-ON-NAME";
-
-/**
-	Siminov Resources Get Database Descriptors Handler
-
-	@property SIMINOV_RESOURCES_GET_DATABASE_DESCRIPTORS_HANDLER
-	@type String
-	@static
-	@final
-	@readOnly
-*/
-Constants.SIMINOV_RESOURCES_GET_DATABASE_DESCRIPTORS_HANDLER = "GET-DATABASE-DESCRIPTORS";
-
-/**
-	Siminov Resources Get Database Descriptor Based On Class Name Handler
-
-	@property SIMINOV_RESOURCES_GET_DATABASE_DESCRIPTOR_BASED_ON_CLASS_NAME_HANDLER
-	@type String
-	@static
-	@final
-	@readOnly
-*/
-Constants.SIMINOV_RESOURCES_GET_DATABASE_DESCRIPTOR_BASED_ON_CLASS_NAME_HANDLER = "GET-DATABASE-DESCRIPTOR-BASED-ON-CLASS-NAME";
-
-/**
-	Siminov Resources Get Database Descriptor Based On Table Name Handler
-
-	@property SIMINOV_RESOURCES_GET_DATABASE_DESCRIPTOR_BASED_ON_TABLE_NAME_HANDLER
-	@type String
-	@static
-	@final
-	@readOnly
-*/
-Constants.SIMINOV_RESOURCES_GET_DATABASE_DESCRIPTOR_BASED_ON_TABLE_NAME_HANDLER = "GET-DATABASE-DESCRIPTOR-BASED-ON-TABLE-NAME";
-
-/**
-	Siminov Resources Get Database Descriptor Name Based On Class Name Handler
-
-	@property SIMINOV_RESOURCES_GET_DATABASE_DESCRIPTOR_NAME_BASED_ON_CLASS_NAME_HANDLER
-	@type String
-	@static
-	@final
-	@readOnly
-*/
-Constants.SIMINOV_RESOURCES_GET_DATABASE_DESCRIPTOR_NAME_BASED_ON_CLASS_NAME_HANDLER = "GET-DATABASE-DESCRIPTOR-NAME-BASED-ON-CLASS-NAME";
-
-/**
-	Siminov Resources Get Database Descriptor Name Based On Table Name Handler
-
-	@property SIMINOV_RESOURCES_GET_DATABASE_DESCRIPTOR_NAME_BASED_ON_TABLE_NAME_HANDLER
-	@type String
-	@static
-	@final
-	@readOnly
-*/
-Constants.SIMINOV_RESOURCES_GET_DATABASE_DESCRIPTOR_NAME_BASED_ON_TABLE_NAME_HANDLER = "GET-DATABASE-DESCRIPTOR-NAME-BASED-ON-TABLE-NAME";
-
-/**
-	Siminov Resources Get Database Mapping Descriptor Based On Class Name Handler
-
-	@property SIMINOV_RESOURCES_GET_DATABASE_MAPPING_DESCRIPTOR_BASED_ON_CLASS_NAME_HANDLER
-	@type String
-	@static
-	@final
-	@readOnly
-*/
-Constants.SIMINOV_RESOURCES_GET_DATABASE_MAPPING_DESCRIPTOR_BASED_ON_CLASS_NAME_HANDLER = "GET-DATABASE-MAPPING-DESCRIPTOR-BASED-ON-CLASS-NAME";
-
-/**
-	Siminov Resources Get Database Mapping Descriptor Based On Table Name Handler
-
-	@property SIMINOV_RESOURCES_GET_DATABASE_MAPPING_DESCRIPTOR_BASED_ON_TABLE_NAME_HANDLER
-	@type String
-	@static
-	@final
-	@readOnly
-*/
-Constants.SIMINOV_RESOURCES_GET_DATABASE_MAPPING_DESCRIPTOR_BASED_ON_TABLE_NAME_HANDLER = "GET-DATABASE-MAPPING-DESCRIPTOR-BASED-ON-TABLE-NAME";
-
-/**
-	Siminov Resources Get Database Mapping Descriptors Handler
-
-	@property SIMINOV_RESOURCES_GET_DATABASE_MAPPING_DESCRIPTORS_HANDLER
-	@type String
-	@static
-	@final
-	@readOnly
-*/
-Constants.SIMINOV_RESOURCES_GET_DATABASE_MAPPING_DESCRIPTORS_HANDLER = "GET-DATABASE-MAPPING-DESCRIPTORS";
-
-/**
-	Siminov Resources Get Library Descriptor Paths Handler
-
-	@property SIMINOV_RESOURCES_GET_LIBRARY_DESCRIPTOR_PATHS_HANDLER
-	@type String
-	@static
-	@final
-	@readOnly
-*/
-Constants.SIMINOV_RESOURCES_GET_LIBRARY_DESCRIPTOR_PATHS_HANDLER = "GET-LIBRARY-DESCRIPTOR-PATHS";
-
-/**
-	Siminov Resources Get Library Paths Based On Database Descriptor Name Handler
-
-	@property SIMINOV_RESOURCES_GET_LIBRARY_PATHS_BASED_ON_DATABASE_DESCRIPTOR_NAME_HANDLER
-	@type String
-	@static
-	@final
-	@readOnly
-*/
-Constants.SIMINOV_RESOURCES_GET_LIBRARY_PATHS_BASED_ON_DATABASE_DESCRIPTOR_NAME_HANDLER = "GET-LIBRARY-PATHS-BASED-ON-DATABASE-DESCRIPTOR-NAME";
-
-/**
-	Siminov Resources Get Library Descriptor Handler
-
-	@property SIMINOV_RESOURCES_GET_LIBRARY_DESCRIPTORS_HANDLER
-	@type String
-	@static
-	@final
-	@readOnly
-*/
-Constants.SIMINOV_RESOURCES_GET_LIBRARY_DESCRIPTORS_HANDLER = "GET-LIBRARY-DESCRIPTORS";
-
-/**
-	Siminov Resources Get Libraries Based On Database Descriptor Name Handler
-
-	@property SIMINOV_RESOURCES_GET_LIBRARIES_BASED_ON_DATABASE_DESCRIPTOR_NAME_HANDLER
-	@type String
-	@static
-	@final
-	@readOnly
-*/
-Constants.SIMINOV_RESOURCES_GET_LIBRARIES_BASED_ON_DATABASE_DESCRIPTOR_NAME_HANDLER = "GET-LIBRARIES-BASED-ON-DATABASE-DESCRIPTOR-NAME";
-
-/**
-	Siminov Resources Get Library Database Mapping Descriptors Based On Library Descriptor Path Handler
-
-	@property SIMINOV_RESOURCES_GET_LIBRARY_DATABASE_MAPPING_DESCRIPTORS_BASED_ON_LIBRARY_DESCRIPTOR_PATH_HANDLER
-	@type String
-	@static
-	@final
-	@readOnly
-*/
-Constants.SIMINOV_RESOURCES_GET_LIBRARY_DATABASE_MAPPING_DESCRIPTORS_BASED_ON_LIBRARY_DESCRIPTOR_PATH_HANDLER = "GET-LIBRARY-DATABASE-MAPPING-DESCRIPTORS-BASED-ON-LIBRARY-DESCRIPTOR-PATH";
-
-
-
-/**
-	Siminov Resources Get Hybrid Descriptor Handler
-
-	@property SIMINOV_RESOURCES_GET_HYBRID_DESCRIPTOR_HANDLER
-	@type String
-	@static
-	@final
-	@readOnly
-*/
-Constants.SIMINOV_RESOURCES_GET_HYBRID_DESCRIPTOR_HANDLER = "GET-HYBRID-DESCRIPTOR";
-
-/**
-	Siminov Resources Get Adapters Handler
-
-	@property SIMINOV_RESOURCES_GET_ADAPTERS_HANDLER
-	@type String
-	@static
-	@final
-	@readOnly
-*/
-Constants.SIMINOV_RESOURCES_GET_ADAPTERS_HANDLER = "GET-ADAPTERS";
-
-/**
-	Siminov Resources Get Libraries Adapters Handler
-
-	@property SIMINOV_RESOURCES_GET_LIBRARIES_ADAPTERS_HANDLER
-	@type String
-	@static
-	@final
-	@readOnly
-*/
-Constants.SIMINOV_RESOURCES_GET_LIBRARIES_ADAPTERS_HANDLER = "GET-LIBRARIES-ADAPTERS";
-
-/**
-	Siminov Resources Get Adapters Based On Paths Handler
-
-	@property SIMINOV_RESOURCES_GET_ADAPTERS_BASED_ON_PATHS_HANDLER
-	@type String
-	@static
-	@final
-	@readOnly
-*/
-Constants.SIMINOV_RESOURCES_GET_ADAPTERS_BASED_ON_PATHS_HANDLER = "GET-ADAPTERS-BASED-ON-PATHS";
-
-/**
-	Siminov Resources Get Library Adapters Based On Name Handler
-	
-	@property SIMINOV_RESOURCES_GET_LIBRARY_ADAPTERS_BASED_ON_NAME_HANDLER
-	@type String
-	@static
-	@final
-	@readOnly
-*/
-Constants.SIMINOV_RESOURCES_GET_LIBRARY_ADAPTERS_BASED_ON_NAME_HANDLER = "GET-LIBRARY-ADAPTERS-BASED-ON-NAME";
-
-/**
-	Siminov Resources Get Library Adapters Based On Path Handler
-
-	@property SIMINOV_RESOURCES_GET_LIBRARY_ADAPTERS_BASED_ON_PATH_HANDLER
-	@type String
-	@static
-	@final
-	@readOnly
-*/
-Constants.SIMINOV_RESOURCES_GET_LIBRARY_ADAPTERS_BASED_ON_PATH_HANDLER = "GET-LIBRARY-ADAPTERS-BASED-ON-PATH";
-
-/**
-	Siminov Resources Get Adapter Handler
-
-	@property SIMINOV_RESOURCES_GET_ADAPTER_HANDLER
-	@type String
-	@static
-	@final
-	@readOnly
-*/
-Constants.SIMINOV_RESOURCES_GET_ADAPTER_HANDLER = "GET-ADAPTER";
-
-/**
-	Siminov Resources Get Adapter Based On Path Handler
-
-	@property SIMINOV_RESOURCES_GET_ADAPTER_BASED_ON_PATH_HANDLER
-	@type String
-	@static
-	@final
-	@readOnly
-*/
-Constants.SIMINOV_RESOURCES_GET_ADAPTER_BASED_ON_PATH_HANDLER = "GET-ADAPTER-BASED-ON-PATH";
-
-/**
-	Siminov Resources Get Library Adapter Based On Name Handler
-
-	@property SIMINOV_RESOURCES_GET_LIBRARY_ADAPTER_BASED_ON_NAME_HANDLER
-	@type String
-	@static
-	@final
-	@readOnly
-*/
-Constants.SIMINOV_RESOURCES_GET_LIBRARY_ADAPTER_BASED_ON_NAME_HANDLER = "GET-LIBRARY-ADAPTER-BASED-ON-NAME";
-
-/**
-	Siminon Resources Get Library Adapter Based On Path Handler
-
-	@property SIMINOV_RESOURCES_GET_LIBRARY_ADAPTER_BASED_ON_PATH_HANDLER
-	@type String
-	@static
-	@final
-	@readOnly
-*/
-Constants.SIMINOV_RESOURCES_GET_LIBRARY_ADAPTER_BASED_ON_PATH_HANDLER = "GET-LIBRARY-ADAPTER-BASED-ON-PATH";
-
-
-/**
-	Siminov Resources Get Handlers Handler
-
-	@property SIMINOV_RESOURCES_GET_HANDLERS_HANDLER
-	@type String
-	@static
-	@final
-	@readOnly
-*/
-Constants.SIMINOV_RESOURCES_GET_HANDLERS_HANDLER = "GET-HANDLERS";
-
-/**
-	Siminov Resources Get Handler Handler
-
-	@property SIMINOV_RESOURCES_GET_HANDLER_HANDLER
-	@type String
-	@static
-	@final
-	@readOnly
-*/
-Constants.SIMINOV_RESOURCES_GET_HANDLER_HANDLER = "GET-HANDLER";
+Constants.RESOURCE_MANAGER_ADAPTER = "RESOURCES";
 
 
 //    Siminov Database Adapter
@@ -931,7 +597,7 @@ Constants.SIMINOV_RESOURCES_GET_HANDLER_HANDLER = "GET-HANDLER";
 	@final
 	@readOnly
 */
-Constants.SIMINOV_DATABASE_ADAPTER = "DATABASE";
+Constants.DATABASE_ADAPTER = "DATABASE";
 
 
 /**
@@ -943,7 +609,7 @@ Constants.SIMINOV_DATABASE_ADAPTER = "DATABASE";
 	@final
 	@readOnly
 */
-Constants.SIMINOV_DATABASE_SAVE_HANDLER = "SAVE";
+Constants.DATABASE_SAVE_HANDLER = "SAVE";
 
 /**
 	Siminov Database Update Handler
@@ -954,7 +620,7 @@ Constants.SIMINOV_DATABASE_SAVE_HANDLER = "SAVE";
 	@final
 	@readOnly
 */
-Constants.SIMINOV_DATABASE_UPDATE_HANDLER = "UPDATE";
+Constants.DATABASE_UPDATE_HANDLER = "UPDATE";
 
 /**
 	Siminov Database Save Or Update Handler
@@ -965,7 +631,7 @@ Constants.SIMINOV_DATABASE_UPDATE_HANDLER = "UPDATE";
 	@final
 	@readOnly
 */
-Constants.SIMINOV_DATABASE_SAVE_OR_UPDATE_HANDLER = "SAVE-OR-UPDATE";
+Constants.DATABASE_SAVE_OR_UPDATE_HANDLER = "SAVE-OR-UPDATE";
 
 /**
 	Siminov Database Delete Handler
@@ -976,7 +642,7 @@ Constants.SIMINOV_DATABASE_SAVE_OR_UPDATE_HANDLER = "SAVE-OR-UPDATE";
 	@final
 	@readOnly
 */
-Constants.SIMINOV_DATABASE_DELETE_HANDLER = "DELETE";
+Constants.DATABASE_DELETE_HANDLER = "DELETE";
 
 /**
 	Siminov Database Select Handler
@@ -987,7 +653,7 @@ Constants.SIMINOV_DATABASE_DELETE_HANDLER = "DELETE";
 	@final
 	@readOnly
 */
-Constants.SIMINOV_DATABASE_SELECT_HANDLER = "SELECT";
+Constants.DATABASE_SELECT_HANDLER = "SELECT";
 
 
 /**
@@ -999,7 +665,7 @@ Constants.SIMINOV_DATABASE_SELECT_HANDLER = "SELECT";
 	@final
 	@readOnly
 */
-Constants.SIMINOV_DATABASE_SELECT_MANUAL_HANDLER = "SELECT-MANUAL";
+Constants.DATABASE_SELECT_MANUAL_HANDLER = "SELECT-MANUAL";
 
 
 /**	
@@ -1011,7 +677,7 @@ Constants.SIMINOV_DATABASE_SELECT_MANUAL_HANDLER = "SELECT-MANUAL";
 	@final
 	@readOnly
 */
-Constants.SIMINOV_DATABASE_COUNT_HANDLER = "COUNT";
+Constants.DATABASE_COUNT_HANDLER = "COUNT";
 
 /**
 	Siminov Database Average Handler
@@ -1022,7 +688,7 @@ Constants.SIMINOV_DATABASE_COUNT_HANDLER = "COUNT";
 	@final
 	@readOnly
 */
-Constants.SIMINOV_DATABASE_AVERAGE_HANDLER = "AVG";
+Constants.DATABASE_AVERAGE_HANDLER = "AVG";
 
 /**	
 	Siminov Database Max Handler
@@ -1033,7 +699,7 @@ Constants.SIMINOV_DATABASE_AVERAGE_HANDLER = "AVG";
 	@final
 	@readOnly
 */
-Constants.SIMINOV_DATABASE_MAX_HANDLER = "MAX";
+Constants.DATABASE_MAX_HANDLER = "MAX";
 
 /**
 	Siminov Database Min Handler
@@ -1044,7 +710,7 @@ Constants.SIMINOV_DATABASE_MAX_HANDLER = "MAX";
 	@final
 	@readOnly
 */
-Constants.SIMINOV_DATABASE_MIN_HANDLER = "MIN";
+Constants.DATABASE_MIN_HANDLER = "MIN";
 
 /**
 	Siminov Database Sum Handler
@@ -1055,7 +721,7 @@ Constants.SIMINOV_DATABASE_MIN_HANDLER = "MIN";
 	@final
 	@readOnly
 */
-Constants.SIMINOV_DATABASE_SUM_HANDLER = "SUM";
+Constants.DATABASE_SUM_HANDLER = "SUM";
 
 /**
 	Siminov Database Total Handler
@@ -1066,7 +732,7 @@ Constants.SIMINOV_DATABASE_SUM_HANDLER = "SUM";
 	@final
 	@readOnly
 */
-Constants.SIMINOV_DATABASE_TOTAL_HANDLER = "TOTAL";
+Constants.DATABASE_TOTAL_HANDLER = "TOTAL";
 
 /**
 	Siminov Database Group Concat Handler
@@ -1077,7 +743,7 @@ Constants.SIMINOV_DATABASE_TOTAL_HANDLER = "TOTAL";
 	@final
 	@readOnly
 */
-Constants.SIMINOV_DATABASE_GROUP_CONCAT_HANDLER = "GROUP-CONCAT";
+Constants.DATABASE_GROUP_CONCAT_HANDLER = "GROUP-CONCAT";
 
 
 /**
@@ -1089,7 +755,7 @@ Constants.SIMINOV_DATABASE_GROUP_CONCAT_HANDLER = "GROUP-CONCAT";
 	@final
 	@readOnly
 */
-Constants.SIMINOV_DATABASE_GET_TABLE_NAME_HANDLER = "GET-TABLE-NAME";
+Constants.DATABASE_GET_TABLE_NAME_HANDLER = "GET-TABLE-NAME";
 
 /**
 	Siminov Database Get Column Names Handler
@@ -1100,7 +766,7 @@ Constants.SIMINOV_DATABASE_GET_TABLE_NAME_HANDLER = "GET-TABLE-NAME";
 	@final
 	@readOnly
 */
-Constants.SIMINOV_DATABASE_GET_COLUMN_NAMES_HANDLER = "GET-COLUMN-NAMES";
+Constants.DATABASE_GET_COLUMN_NAMES_HANDLER = "GET-COLUMN-NAMES";
 
 /**
 	Siminov Database Get Column Types Handler
@@ -1111,7 +777,7 @@ Constants.SIMINOV_DATABASE_GET_COLUMN_NAMES_HANDLER = "GET-COLUMN-NAMES";
 	@final
 	@readOnly
 */
-Constants.SIMINOV_DATABASE_GET_COLUMN_TYPES_HANDLER = "GET-COLUMN-TYPES";
+Constants.DATABASE_GET_COLUMN_TYPES_HANDLER = "GET-COLUMN-TYPES";
 
 /**
 	Siminov Database Get Primary Keys Handler
@@ -1122,7 +788,7 @@ Constants.SIMINOV_DATABASE_GET_COLUMN_TYPES_HANDLER = "GET-COLUMN-TYPES";
 	@final
 	@readOnly
 */
-Constants.SIMINOV_DATABASE_GET_PRIMARY_KEYS_HANDLER = "GET-PRIMARY-KEYS";
+Constants.DATABASE_GET_PRIMARY_KEYS_HANDLER = "GET-PRIMARY-KEYS";
 
 /**
 	Siminov Database Get Mandatory Fields Handler
@@ -1133,7 +799,7 @@ Constants.SIMINOV_DATABASE_GET_PRIMARY_KEYS_HANDLER = "GET-PRIMARY-KEYS";
 	@final
 	@readOnly
 */
-Constants.SIMINOV_DATABASE_GET_MANDATORY_FIELDS_HANDLER = "GET-MANDATORY-FIELDS";
+Constants.DATABASE_GET_MANDATORY_FIELDS_HANDLER = "GET-MANDATORY-FIELDS";
 
 /**
 	Siminov Database Get Unique Fields Handler
@@ -1144,7 +810,7 @@ Constants.SIMINOV_DATABASE_GET_MANDATORY_FIELDS_HANDLER = "GET-MANDATORY-FIELDS"
 	@final
 	@readOnly
 */
-Constants.SIMINOV_DATABASE_GET_UNIQUE_FIELDS_HANDLER = "GET-UNIQUE-FIELDS";
+Constants.DATABASE_GET_UNIQUE_FIELDS_HANDLER = "GET-UNIQUE-FIELDS";
 
 /**
 	Siminov Database Get Foreign Keys Handler
@@ -1155,7 +821,7 @@ Constants.SIMINOV_DATABASE_GET_UNIQUE_FIELDS_HANDLER = "GET-UNIQUE-FIELDS";
 	@final
 	@readOnly
 */
-Constants.SIMINOV_DATABASE_GET_FOREIGN_KEYS_HANDLER = "GET-FOREIGN-KEYS";
+Constants.DATABASE_GET_FOREIGN_KEYS_HANDLER = "GET-FOREIGN-KEYS";
 
 
 
@@ -1168,7 +834,7 @@ Constants.SIMINOV_DATABASE_GET_FOREIGN_KEYS_HANDLER = "GET-FOREIGN-KEYS";
 	@final
 	@readOnly
 */
-Constants.SIMINOV_DATABASE_BEGIN_TRANSACTION_HANDLER = "BEGIN-TRANSACTION";
+Constants.DATABASE_BEGIN_TRANSACTION_HANDLER = "BEGIN-TRANSACTION";
 
 /**
 	Siminov Database Commit Transaction Handler
@@ -1179,7 +845,7 @@ Constants.SIMINOV_DATABASE_BEGIN_TRANSACTION_HANDLER = "BEGIN-TRANSACTION";
 	@final
 	@readOnly
 */
-Constants.SIMINOV_DATABASE_COMMIT_TRANSACTION_HANDLER = "COMMIT-TRANSACTION";
+Constants.DATABASE_COMMIT_TRANSACTION_HANDLER = "COMMIT-TRANSACTION";
 
 /**
 	Siminov Database End Transaction Handler
@@ -1190,7 +856,7 @@ Constants.SIMINOV_DATABASE_COMMIT_TRANSACTION_HANDLER = "COMMIT-TRANSACTION";
 	@final
 	@readOnly
 */
-Constants.SIMINOV_DATABASE_END_TRANSACTION_HANDLER = "END-TRANSACTION";
+Constants.DATABASE_END_TRANSACTION_HANDLER = "END-TRANSACTION";
 
 
 //	Siminov Adapter
@@ -1307,56 +973,48 @@ Constants.SIMINOV_HYBRID_DATA_TEXT = "#text";
 
 // Siminov Service 
 
-Constants.SIMINOV_SERVICE_ADAPTER = "SERVICE";
+Constants.SERVICE_ADAPTER = "SERVICE";
 
-Constants.SIMINOV_SERVICE_ADAPTER_INVOKE_HANDLER = "INVOKE";
+Constants.SERVICE_ADAPTER_INVOKE_HANDLER = "INVOKE";
 
-Constants.SIMINOV_SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE = "SERVICE";
+Constants.SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE = "SERVICE";
 
-Constants.SIMINOV_SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE_NAME = "SERVICE_NAME";
+Constants.SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE_NAME = "SERVICE_NAME";
 
-Constants.SIMINOV_SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE_API = "API_NAME";
+Constants.SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE_API = "API_NAME";
 
-Constants.SIMINOV_SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE_RESOURCES = "RESOURCES";
-
-Constants.SIMINOV_SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE_RESOURCE_NAME = "RESOURCE_NAME";
-
-Constants.SIMINOV_SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE_RESOURCE_VALUE = "RESOURCE_VALUE";
+Constants.SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE_RESOURCES = "RESOURCES";
 
 
 
 
-Constants.SIMINOV_ISERVICE_API_HANDLER = "ISERVICE_API_HANDLER";
-Constants.SIMINOV_ISERVICE_TRIGGERED_EVENT = "TRIGGERED_EVENT";
-Constants.SIMINOV_ISERVICE_ON_SERVICE_START = "onServiceStart";
-Constants.SIMINOV_ISERVICE_ON_SERVICE_QUEUE = "onServiceQueue";
-Constants.SIMINOV_ISERVICE_ON_SERVICE_PAUSE = "onServicePause";
-Constants.SIMINOV_ISERVICE_ON_SERVICE_RESUME = "onServiceResume";
-Constants.SIMINOV_ISERVICE_ON_SERVICE_FINISH = "onServiceFinish";
-Constants.SIMINOV_ISERVICE_ON_SERVICE_API_INVOKE = "onServiceApiInvoke";
-Constants.SIMINOV_ISERVICE_ON_SERVICE_API_FINISH = "onServiceApiFinish";
-Constants.SIMINOV_ISERVICE_ON_SERVICE_TERMINATE = "onServiceTerminate";
-Constants.SIMINOV_ISERVICE_RESOURCES = "RESOURCES";
-Constants.SIMINOV_ISERVICE_RESOURCE = "RESOURCE";
-Constants.SIMINOV_ISERVICE_ADD_RESOURCE = "addResource";
+Constants.ISERVICE_API_HANDLER = "ISERVICE_API_HANDLER";
+Constants.ISERVICE_TRIGGERED_EVENT = "TRIGGERED_EVENT";
+Constants.ISERVICE_ON_SERVICE_START = "onServiceStart";
+Constants.ISERVICE_ON_SERVICE_QUEUE = "onServiceQueue";
+Constants.ISERVICE_ON_SERVICE_PAUSE = "onServicePause";
+Constants.ISERVICE_ON_SERVICE_RESUME = "onServiceResume";
+Constants.ISERVICE_ON_SERVICE_FINISH = "onServiceFinish";
+Constants.ISERVICE_ON_SERVICE_API_INVOKE = "onServiceApiInvoke";
+Constants.ISERVICE_ON_SERVICE_API_FINISH = "onServiceApiFinish";
+Constants.ISERVICE_ON_SERVICE_TERMINATE = "onServiceTerminate";
+Constants.ISERVICE_RESOURCES = "RESOURCES";
+Constants.ISERVICE_RESOURCE = "RESOURCE";
+Constants.ISERVICE_ADD_RESOURCE = "addResource";
 
 
 
-Constants.SIMINOV_NOTIFICATION_ADAPTER = "NOTIFICATION";
+Constants.NOTIFICATION_ADAPTER = "NOTIFICATION";
 
-Constants.SIMINOV_NOTIFICATION_ADAPTER_DO_REGISTRATION_HANDLER = "DO-REGISTRATION";
-Constants.SIMINOV_NOTIFICATION_ADPATER_DO_UNREGISTRATION_HANDLER = "DO-UNREGISTRATION";
-
-
-Constants.SIMINOV_SYNC_ADAPTER = "SYNC";
-Constants.SIMINOV_SYNC_ADAPTER_HANDLE_HANDLER = "HANDLE";
-
-Constants.SIMINOV_SYNC_ADAPTER_HANDLE_HANDLER_SYNC_REQUEST = "SyncRequest";
-Constants.SIMINOV_SYNC_ADAPTER_HANDLE_HANDLER_SYNC_REQUEST_NAME = "name";
-Constants.SIMINOV_SYNC_ADAPTER_HANDLE_HANDLER_SYNC_REQUEST_RESOURCES = "RESOURCES";
+Constants.NOTIFICATION_ADAPTER_DO_REGISTRATION_HANDLER = "DO-REGISTRATION";
+Constants.NOTIFICATION_ADPATER_DO_UNREGISTRATION_HANDLER = "DO-UNREGISTRATION";
 
 
-Constants.SINGLE_QUOTE = "'";
-Constants.SINGLE_QUOTE_ESCAPE = "\'";
+Constants.SYNC_ADAPTER = "SYNC";
+Constants.SYNC_ADAPTER_HANDLE_HANDLER = "HANDLE";
+
+Constants.SYNC_ADAPTER_HANDLE_HANDLER_SYNC_REQUEST = "SyncRequest";
+Constants.SYNC_ADAPTER_HANDLE_HANDLER_SYNC_REQUEST_NAME = "name";
+Constants.SYNC_ADAPTER_HANDLE_HANDLER_SYNC_REQUEST_RESOURCES = "RESOURCES";
 
 

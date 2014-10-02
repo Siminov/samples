@@ -38,9 +38,9 @@ function ServiceEventHandler() {
                 var data = datas[i];
 
                 var dataType = data.getDataType();
-                if(dataType === Constants.SIMINOV_ISERVICE_API_HANDLER) {
+                if(dataType === Constants.ISERVICE_API_HANDLER) {
                     apiHandler = data.getDataValue();
-                } else if(dataType === Constants.SIMINOV_ISERVICE_TRIGGERED_EVENT) {
+                } else if(dataType === Constants.ISERVICE_TRIGGERED_EVENT) {
 					event = data.getDataValue();
                 } else if(dataType === ConnectionRequest.NAME) {
 					connectionRequest = SIDatasHelper.toModel(data);
@@ -52,7 +52,7 @@ function ServiceEventHandler() {
                 		response = decodeURIComponent(response);
                 		connectionResponse.setResponse(response);
                 	}
-                } else if(dataType === Constants.SIMINOV_ISERVICE_RESOURCES) {
+                } else if(dataType === Constants.ISERVICE_RESOURCES) {
                 	
                 	var hybridResources = data.getDatas();
                 	if(hybridResources != undefined && hybridResources != null && hybridResources.length > 0) {
@@ -80,33 +80,33 @@ function ServiceEventHandler() {
         	var resource = resources.get(resourceKeys[i]);
         	
         	var nameValuePair = new NameValuePair(resourceKeys[i], resource);
-        	FunctionUtils.invokeAndInflate(eventHandler, Constants.SIMINOV_ISERVICE_ADD_RESOURCE, nameValuePair);
+        	FunctionUtils.invokeAndInflate(eventHandler, Constants.ISERVICE_ADD_RESOURCE, nameValuePair);
         }
         
 
 		//Invoke Event API
-        if(event === Constants.SIMINOV_ISERVICE_ON_SERVICE_START) {
+        if(event === Constants.ISERVICE_ON_SERVICE_START) {
 					
             FunctionUtils.invokeAndInflate(eventHandler, event);
-        } else if(event === Constants.SIMINOV_ISERVICE_ON_SERVICE_QUEUE) {
+        } else if(event === Constants.ISERVICE_ON_SERVICE_QUEUE) {
 
             FunctionUtils.invokeAndInflate(eventHandler, event);
-        } else if(event === Constants.SIMINOV_ISERVICE_ON_SERVICE_PAUSE) {
+        } else if(event === Constants.ISERVICE_ON_SERVICE_PAUSE) {
 
             FunctionUtils.invokeAndInflate(eventHandler, event);
-        } else if(event === Constants.SIMINOV_ISERVICE_ON_SERVICE_RESUME) {
+        } else if(event === Constants.ISERVICE_ON_SERVICE_RESUME) {
             
             FunctionUtils.invokeAndInflate(eventHandler, event);
-        } else if(event === Constants.SIMINOV_ISERVICE_ON_SERVICE_FINISH) {
+        } else if(event === Constants.ISERVICE_ON_SERVICE_FINISH) {
 
             FunctionUtils.invokeAndInflate(eventHandler, event);
-        } else if(event === Constants.SIMINOV_ISERVICE_ON_SERVICE_API_INVOKE) {
+        } else if(event === Constants.ISERVICE_ON_SERVICE_API_INVOKE) {
 
 			FunctionUtils.invokeAndInflate(eventHandler, event, connectionRequest);
-        } else if(event === Constants.SIMINOV_ISERVICE_ON_SERVICE_API_FINISH) {
+        } else if(event === Constants.ISERVICE_ON_SERVICE_API_FINISH) {
 
 			FunctionUtils.invokeAndInflate(eventHandler, event, connectionResponse);
-        } else if(event === Constants.SIMINOV_ISERVICE_ON_SERVICE_TERMINATE) {
+        } else if(event === Constants.ISERVICE_ON_SERVICE_TERMINATE) {
 
             FunctionUtils.invokeAndInflate(eventHandler, event);
         }

@@ -31,26 +31,26 @@
 	@constructor
 	
 */
-var Resources = (function() {
+var ResourceManager = (function() {
 
-	var resources;
+	var resourceManager;
 	
 	return {
 	
 		getInstance : function() {
-			if(resources == null) {
-				resources = new Resources();
+			if(resourceManager == null) {
+				resourceManager = new ResourceManager();
 				
-				resources.constructor = null;
+				resourceManager.constructor = null;
 			}
 			
-			return resources;
+			return resourceManager;
 		}
 	
 	}
 	
 
-	function Resources() {
+	function ResourceManager() {
 		
 		/**
 	 		Get Application Descriptor object of application.
@@ -61,8 +61,8 @@ var Resources = (function() {
 	    this.getApplicationDescriptor = function() {
 
 	        var adapter = new Adapter();
-	        adapter.setAdapterName(Constants.SIMINOV_RESOURCES_ADAPTER);
-	        adapter.setHandlerName(Constants.SIMINOV_RESOURCES_GET_APPLICATION_DESCRIPTOR_HANDLER);
+	        adapter.setAdapterName(Constants.RESOURCE_MANAGER_ADAPTER);
+	        adapter.setHandlerName(Constants.RESOURCE_MANAGER_GET_APPLICATION_DESCRIPTOR_HANDLER);
 	
 	        var data = adapter.invoke();
 	
@@ -83,8 +83,8 @@ var Resources = (function() {
 	    this.getDatabaseDescriptors = function() {
 	
 	        var adapter = new Adapter();
-	        adapter.setAdapterName(Constants.SIMINOV_RESOURCES_ADAPTER);
-	        adapter.setHandlerName(Constants.SIMINOV_RESOURCES_GET_DATABASE_DESCRIPTORS_HANDLER);
+	        adapter.setAdapterName(Constants.RESOURCE_MANAGER_ADAPTER);
+	        adapter.setHandlerName(Constants.RESOURCE_MANAGER_GET_DATABASE_DESCRIPTORS_HANDLER);
 	
 	        var data = adapter.invoke();
 	
@@ -114,8 +114,8 @@ var Resources = (function() {
 	    this.getDatabaseDescriptor = function(databaseName) {
 	
 	        var adapter = new Adapter();
-	        adapter.setAdapterName(Constants.SIMINOV_RESOURCES_ADAPTER);
-	        adapter.setHandlerName(Constants.SIMINOV_RESOURCES_GET_DATABASE_DESCRIPTOR_BASED_ON_NAME_HANDLER);
+	        adapter.setAdapterName(Constants.RESOURCE_MANAGER_ADAPTER);
+	        adapter.setHandlerName(Constants.RESOURCE_MANAGER_GET_DATABASE_DESCRIPTOR_BASED_ON_NAME_HANDLER);
 	
 	        adapter.addParameter(databaseName);
 	
@@ -138,8 +138,8 @@ var Resources = (function() {
 		this.getDatabaseMappingDescriptors = function() {
 		
 			var adapter = new Adapter();
-	        adapter.setAdapterName(Constants.SIMINOV_RESOURCES_ADAPTER);
-	        adapter.setHandlerName(Constants.SIMINOV_RESOURCES_GET_DATABASE_MAPPING_DESCRIPTORS_HANDLER);
+	        adapter.setAdapterName(Constants.RESOURCE_MANAGER_ADAPTER);
+	        adapter.setHandlerName(Constants.RESOURCE_MANAGER_GET_DATABASE_MAPPING_DESCRIPTORS_HANDLER);
 	        
 	        var data = adapter.invoke();
 	        
@@ -161,8 +161,8 @@ var Resources = (function() {
 	    this.getDatabaseMappingDescriptorBasedOnClassName = function(className) {
 	
 	        var adapter = new Adapter();
-	        adapter.setAdapterName(Constants.SIMINOV_RESOURCES_ADAPTER);
-	        adapter.setHandlerName(Constants.SIMINOV_RESOURCES_GET_DATABASE_MAPPING_DESCRIPTOR_BASED_ON_CLASS_NAME_HANDLER);
+	        adapter.setAdapterName(Constants.RESOURCE_MANAGER_ADAPTER);
+	        adapter.setHandlerName(Constants.RESOURCE_MANAGER_GET_DATABASE_MAPPING_DESCRIPTOR_BASED_ON_CLASS_NAME_HANDLER);
 	
 	        adapter.addParameter(className);
 	
@@ -186,8 +186,8 @@ var Resources = (function() {
 	    this.getDatabaseMappingDescriptorBasedOnTableName = function(tableName) {
 	
 	        var adapter = new Adapter();
-	        adapter.setAdapterName(Constants.SIMINOV_RESOURCES_ADAPTER);
-	        adapter.setHandlerName(Constants.SIMINOV_RESOURCES_GET_DATABASE_MAPPING_DESCRIPTOR_BASED_ON_TABLE_NAME_HANDLER);
+	        adapter.setAdapterName(Constants.RESOURCE_MANAGER_ADAPTER);
+	        adapter.setHandlerName(Constants.RESOURCE_MANAGER_GET_DATABASE_MAPPING_DESCRIPTOR_BASED_ON_TABLE_NAME_HANDLER);
 	
 	        adapter.addParameter(tableName);
 	
@@ -211,8 +211,8 @@ var Resources = (function() {
 		this.getLibraryDescriptors = function() {
 		
 			var adapter = new Adapter();
-	        adapter.setAdapterName(Constants.SIMINOV_RESOURCES_ADAPTER);
-	        adapter.setHandlerName(Constants.SIMINOV_RESOURCES_GET_LIBRARY_DESCRIPTORS_HANDLER);
+	        adapter.setAdapterName(Constants.RESOURCE_MANAGER_ADAPTER);
+	        adapter.setHandlerName(Constants.RESOURCE_MANAGER_GET_LIBRARY_DESCRIPTORS_HANDLER);
 	        
 	        var data = adapter.invoke();
 	        
@@ -238,8 +238,8 @@ var Resources = (function() {
 		this.getHybridDescriptor = function() {
 		
 			var adapter = new Adapter();
-	        adapter.setAdapterName(Constants.SIMINOV_RESOURCES_ADAPTER);
-	        adapter.setHandlerName(Constants.SIMINOV_RESOURCES_GET_HYBRID_DESCRIPTOR_HANDLER);
+	        adapter.setAdapterName(Constants.RESOURCE_MANAGER_ADAPTER);
+	        adapter.setHandlerName(Constants.RESOURCE_MANAGER_GET_HYBRID_DESCRIPTOR_HANDLER);
 	        
 	        var data = adapter.invoke();
 	        
@@ -260,8 +260,8 @@ var Resources = (function() {
 		this.getAdapters = function() {
 		
 			var adapter = new Adapter();
-	        adapter.setAdapterName(Constants.SIMINOV_RESOURCES_ADAPTER);
-	        adapter.setHandlerName(Constants.SIMINOV_RESOURCES_GET_ADAPTERS_HANDLER);
+	        adapter.setAdapterName(Constants.RESOURCE_MANAGER_ADAPTER);
+	        adapter.setHandlerName(Constants.RESOURCE_MANAGER_GET_ADAPTERS_HANDLER);
 	        
 	        var data = adapter.invoke();
 	        
@@ -283,8 +283,8 @@ var Resources = (function() {
 		this.getAdapter = function(adapterName) {
 		
 			var adapter = new Adapter();
-	        adapter.setAdapterName(Constants.SIMINOV_RESOURCES_ADAPTER);
-	        adapter.setHandlerName(Constants.SIMINOV_RESOURCES_GET_ADAPTER_HANDLER);
+	        adapter.setAdapterName(Constants.RESOURCE_MANAGER_ADAPTER);
+	        adapter.setHandlerName(Constants.RESOURCE_MANAGER_GET_ADAPTER_HANDLER);
 	        
 	        adapter.addParameter(libraryPath);
 	        
@@ -307,8 +307,8 @@ var Resources = (function() {
 		this.getHandlers = function() {
 		
 			var adapter = new Adapter();
-	        adapter.setAdapterName(Constants.SIMINOV_RESOURCES_ADAPTER);
-	        adapter.setHandlerName(Constants.SIMINOV_RESOURCES_GET_HANDLERS_HANDLER);
+	        adapter.setAdapterName(Constants.RESOURCE_MANAGER_ADAPTER);
+	        adapter.setHandlerName(Constants.RESOURCE_MANAGER_GET_HANDLERS_HANDLER);
 	        
 	        var data = adapter.invoke();
 	        
@@ -331,8 +331,8 @@ var Resources = (function() {
 		this.getHandler = function(adapterName, handlerName) {
 		
 			var adapter = new Adapter();
-	        adapter.setAdapterName(Constants.SIMINOV_RESOURCES_ADAPTER);
-	        adapter.setHandlerName(Constants.SIMINOV_RESOURCES_GET_HANDLER_HANDLER);
+	        adapter.setAdapterName(Constants.RESOURCE_MANAGER_ADAPTER);
+	        adapter.setHandlerName(Constants.RESOURCE_MANAGER_GET_HANDLER_HANDLER);
 	        
 	        adapter.addParameter(adapterName);
 	        adapter.addParameter(handlerName);

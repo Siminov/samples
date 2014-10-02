@@ -68,8 +68,8 @@ function Database() {
         var json = SIJsonHelper.toJson(datas);
 
         var adapter = new Adapter();
-        adapter.setAdapterName(Constants.SIMINOV_DATABASE_ADAPTER);
-        adapter.setHandlerName(Constants.SIMINOV_DATABASE_SAVE_HANDLER);
+        adapter.setAdapterName(Constants.DATABASE_ADAPTER);
+        adapter.setHandlerName(Constants.DATABASE_SAVE_HANDLER);
 
         adapter.addParameter(encodeURI(json));
 
@@ -118,8 +118,8 @@ function Database() {
         var json = SIJsonHelper.toJson(datas);
 
         var adapter = new Adapter();
-        adapter.setAdapterName(Constants.SIMINOV_DATABASE_ADAPTER);
-        adapter.setHandlerName(Constants.SIMINOV_DATABASE_UPDATE_HANDLER);
+        adapter.setAdapterName(Constants.DATABASE_ADAPTER);
+        adapter.setHandlerName(Constants.DATABASE_UPDATE_HANDLER);
 
         adapter.addParameter(encodeURI(json));
 
@@ -172,8 +172,8 @@ function Database() {
         var json = SIJsonHelper.toJson(datas);
 
         var adapter = new Adapter();
-        adapter.setAdapterName(Constants.SIMINOV_DATABASE_ADAPTER);
-        adapter.setHandlerName(Constants.SIMINOV_DATABASE_SAVE_OR_UPDATE_HANDLER);
+        adapter.setAdapterName(Constants.DATABASE_ADAPTER);
+        adapter.setHandlerName(Constants.DATABASE_SAVE_OR_UPDATE_HANDLER);
 
         adapter.addParameter(encodeURI(json));
 
@@ -214,8 +214,8 @@ function Database() {
     	if(arguments.length > 0) {
     	
 		    var adapter = new Adapter();
-		    adapter.setAdapterName(Constants.SIMINOV_DATABASE_ADAPTER);
-		    adapter.setHandlerName(Constants.SIMINOV_DATABASE_SELECT_MANUAL_HANDLER);
+		    adapter.setAdapterName(Constants.DATABASE_ADAPTER);
+		    adapter.setHandlerName(Constants.DATABASE_SELECT_MANUAL_HANDLER);
 		
 		    adapter.addParameter(className);
 		    adapter.addParameter(arguments[0]);
@@ -476,8 +476,8 @@ function Database() {
     this.getTableName = function() {
 
         var adapter = new Adapter();
-        adapter.setAdapterName(Constants.SIMINOV_DATABASE_ADAPTER);
-        adapter.setHandlerName(Constants.SIMINOV_DATABASE_GET_TABLE_NAME_HANDLER);
+        adapter.setAdapterName(Constants.DATABASE_ADAPTER);
+        adapter.setHandlerName(Constants.DATABASE_GET_TABLE_NAME_HANDLER);
 
         adapter.addParameter(this.getObjectName());
 
@@ -529,8 +529,8 @@ function Database() {
     this.getColumnNames = function() {
 
         var adapter = new Adapter();
-        adapter.setAdapterName(Constants.SIMINOV_DATABASE_ADAPTER);
-        adapter.setHandlerName(Constants.SIMINOV_DATABASE_GET_COLUMN_NAMES_HANDLER);
+        adapter.setAdapterName(Constants.DATABASE_ADAPTER);
+        adapter.setHandlerName(Constants.DATABASE_GET_COLUMN_NAMES_HANDLER);
 
         adapter.addParameter(this.getObjectName());
 
@@ -583,8 +583,8 @@ function Database() {
     this.getColumnTypes = function() {
 
         var adapter = new Adapter();
-        adapter.setAdapterName(Constants.SIMINOV_DATABASE_ADAPTER);
-        adapter.setHandlerName(Constants.SIMINOV_DATABASE_GET_COLUMN_TYPES_HANDLER);
+        adapter.setAdapterName(Constants.DATABASE_ADAPTER);
+        adapter.setHandlerName(Constants.DATABASE_GET_COLUMN_TYPES_HANDLER);
 
         adapter.addParameter(this.getObjectName());
 
@@ -645,8 +645,8 @@ function Database() {
     this.getPrimaryKeys = function() {
 
         var adapter = new Adapter();
-        adapter.setAdapterName(Constants.SIMINOV_DATABASE_ADAPTER);
-        adapter.setHandlerName(Constants.SIMINOV_DATABASE_GET_PRIMARY_KEYS_HANDLER);
+        adapter.setAdapterName(Constants.DATABASE_ADAPTER);
+        adapter.setHandlerName(Constants.DATABASE_GET_PRIMARY_KEYS_HANDLER);
 
         adapter.addParameter(this.getObjectName());
 
@@ -699,8 +699,8 @@ function Database() {
     this.getMandatoryFields = function() {
 
         var adapter = new Adapter();
-        adapter.setAdapterName(Constants.SIMINOV_DATABASE_ADAPTER);
-        adapter.setHandlerName(Constants.SIMINOV_DATABASE_GET_MANDATORY_FIELDS_HANDLER);
+        adapter.setAdapterName(Constants.DATABASE_ADAPTER);
+        adapter.setHandlerName(Constants.DATABASE_GET_MANDATORY_FIELDS_HANDLER);
 
         adapter.addParameter(this.getObjectName());
 
@@ -753,8 +753,8 @@ function Database() {
     this.getUniqueFields = function() {
 
         var adapter = new Adapter();
-        adapter.setAdapterName(Constants.SIMINOV_DATABASE_ADAPTER);
-        adapter.setHandlerName(Constants.SIMINOV_DATABASE_GET_UNIQUE_FIELDS_HANDLER);
+        adapter.setAdapterName(Constants.DATABASE_ADAPTER);
+        adapter.setHandlerName(Constants.DATABASE_GET_UNIQUE_FIELDS_HANDLER);
 
         adapter.addParameter(this.getObjectName());
 
@@ -808,8 +808,8 @@ function Database() {
     this.getForeignKeys = function() {
 
         var adapter = new Adapter();
-        adapter.setAdapterName(Constants.SIMINOV_DATABASE_ADAPTER);
-        adapter.setHandlerName(Constants.SIMINOV_DATABASE_GET_FOREIGN_KEYS_HANDLER);
+        adapter.setAdapterName(Constants.DATABASE_ADAPTER);
+        adapter.setHandlerName(Constants.DATABASE_GET_FOREIGN_KEYS_HANDLER);
 
         adapter.addParameter(this.getObjectName());
 
@@ -898,8 +898,8 @@ function Database() {
 Database.select = function(className, distinct, whereClause, columnNames, groupBy, having, orderBy, whichOrderBy, limit) {
 
     var adapter = new Adapter();
-    adapter.setAdapterName(Constants.SIMINOV_DATABASE_ADAPTER);
-    adapter.setHandlerName(Constants.SIMINOV_DATABASE_SELECT_HANDLER);
+    adapter.setAdapterName(Constants.DATABASE_ADAPTER);
+    adapter.setHandlerName(Constants.DATABASE_SELECT_HANDLER);
 
     adapter.addParameter(className);
     adapter.addParameter(distinct);
@@ -935,8 +935,8 @@ Database.count = function(className, column, distinct, whereClause, groupBy, hav
 
     var adapter = new Adapter();
 
-    adapter.setAdapterName(Constants.SIMINOV_DATABASE_ADAPTER);
-    adapter.setHandlerName(Constants.SIMINOV_DATABASE_COUNT_HANDLER);
+    adapter.setAdapterName(Constants.DATABASE_ADAPTER);
+    adapter.setHandlerName(Constants.DATABASE_COUNT_HANDLER);
 
     adapter.addParameter(className);
     adapter.addParameter(column);
@@ -977,8 +977,8 @@ Database.avg = function(className, column, whereClause, groupBy, hanving) {
 
     var adapter = new Adapter();
 
-    adapter.setAdapterName(Constants.SIMINOV_DATABASE_ADAPTER);
-    adapter.setHandlerName(Constants.SIMINOV_DATABASE_AVERAGE_HANDLER);
+    adapter.setAdapterName(Constants.DATABASE_ADAPTER);
+    adapter.setHandlerName(Constants.DATABASE_AVERAGE_HANDLER);
 
     adapter.addParameter(className);
     adapter.addParameter(column);
@@ -1019,8 +1019,8 @@ Database.min = function(className, column, whereClause, groupBy, having) {
 
     var adapter = new Adapter();
 
-    adapter.setAdapterName(Constants.SIMINOV_DATABASE_ADAPTER);
-    adapter.setHandlerName(Constants.SIMINOV_DATABASE_MIN_HANDLER);
+    adapter.setAdapterName(Constants.DATABASE_ADAPTER);
+    adapter.setHandlerName(Constants.DATABASE_MIN_HANDLER);
 
     adapter.addParameter(className);
     adapter.addParameter(column);
@@ -1061,8 +1061,8 @@ Database.max = function(className, column, whereClause, groupBy, having) {
 
     var adapter = new Adapter();
 
-    adapter.setAdapterName(Constants.SIMINOV_DATABASE_ADAPTER);
-    adapter.setHandlerName(Constants.SIMINOV_DATABASE_MAX_HANDLER);
+    adapter.setAdapterName(Constants.DATABASE_ADAPTER);
+    adapter.setHandlerName(Constants.DATABASE_MAX_HANDLER);
 
     adapter.addParameter(className);
     adapter.addParameter(column);
@@ -1103,8 +1103,8 @@ Database.sum = function(className, column, whereClause, groupBy, having) {
 
     var adapter = new Adapter();
 
-    adapter.setAdapterName(Constants.SIMINOV_DATABASE_ADAPTER);
-    adapter.setHandlerName(Constants.SIMINOV_DATABASE_SUM_HANDLER);
+    adapter.setAdapterName(Constants.DATABASE_ADAPTER);
+    adapter.setHandlerName(Constants.DATABASE_SUM_HANDLER);
 
     adapter.addParameter(className);
     adapter.addParameter(column);
@@ -1145,8 +1145,8 @@ Database.total = function(className, column, whereClause, groupBy, having) {
 
     var adapter = new Adapter();
 
-    adapter.setAdapterName(Constants.SIMINOV_DATABASE_ADAPTER);
-    adapter.setHandlerName(Constants.SIMINOV_DATABASE_TOTAL_HANDLER);
+    adapter.setAdapterName(Constants.DATABASE_ADAPTER);
+    adapter.setHandlerName(Constants.DATABASE_TOTAL_HANDLER);
 
     adapter.addParameter(className);
     adapter.addParameter(column);
@@ -1187,8 +1187,8 @@ Database.groupConcat = function(className, column, delimiter, whereClause, group
 
     var adapter = new Adapter();
 
-    adapter.setAdapterName(Constants.SIMINOV_DATABASE_ADAPTER);
-    adapter.setHandlerName(Constants.SIMINOV_DATABASE_GROUP_CONCAT_HANDLER);
+    adapter.setAdapterName(Constants.DATABASE_ADAPTER);
+    adapter.setHandlerName(Constants.DATABASE_GROUP_CONCAT_HANDLER);
 
     adapter.addParameter(className);
     adapter.addParameter(delimiter);
@@ -1231,8 +1231,8 @@ Database['delete'] = function(className, whereClause, data) {
 
     var adapter = new Adapter();
 
-    adapter.setAdapterName(Constants.SIMINOV_DATABASE_ADAPTER);
-    adapter.setHandlerName(Constants.SIMINOV_DATABASE_DELETE_HANDLER);
+    adapter.setAdapterName(Constants.DATABASE_ADAPTER);
+    adapter.setHandlerName(Constants.DATABASE_DELETE_HANDLER);
 
 
     adapter.addParameter(className);
@@ -1260,8 +1260,8 @@ Database['delete'] = function(className, whereClause, data) {
 Database.beginTransaction = function(databaseDescriptor) {
 
     var adapter = new Adapter();
-    adapter.setAdapterName(Constants.SIMINOV_DATABASE_ADAPTER);
-    adapter.setHandlerName(Constants.SIMINOV_DATABASE_BEGIN_TRANSACTION_HANDLER);
+    adapter.setAdapterName(Constants.DATABASE_ADAPTER);
+    adapter.setHandlerName(Constants.DATABASE_BEGIN_TRANSACTION_HANDLER);
 
     adapter.addParameter(databaseDescriptor.getDatabaseName());
 
@@ -1285,8 +1285,8 @@ Database.beginTransaction = function(databaseDescriptor) {
 Database.commitTransaction = function(databaseDescriptor) {
 
     var adapter = new Adapter();
-    adapter.setAdapterName(Constants.SIMINOV_DATABASE_ADAPTER);
-    adapter.setHandlerName(Constants.SIMINOV_DATABASE_COMMIT_TRANSACTION_HANDLER);
+    adapter.setAdapterName(Constants.DATABASE_ADAPTER);
+    adapter.setHandlerName(Constants.DATABASE_COMMIT_TRANSACTION_HANDLER);
 
     adapter.addParameter(databaseDescriptor.getDatabaseName());
 
@@ -1310,8 +1310,8 @@ Database.commitTransaction = function(databaseDescriptor) {
 Database.endTransaction = function(databaseDescriptor) {
 
     var adapter = new Adapter();
-    adapter.setAdapterName(Constants.SIMINOV_DATABASE_ADAPTER);
-    adapter.setHandlerName(Constants.SIMINOV_DATABASE_END_TRANSACTION_HANDLER);
+    adapter.setAdapterName(Constants.DATABASE_ADAPTER);
+    adapter.setHandlerName(Constants.DATABASE_END_TRANSACTION_HANDLER);
 
     adapter.addParameter(databaseDescriptor.getDatabaseName());
 

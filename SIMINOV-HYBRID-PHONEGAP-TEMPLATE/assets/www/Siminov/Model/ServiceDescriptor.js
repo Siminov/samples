@@ -21,6 +21,8 @@ function ServiceDescriptor() {
 	var properties = new Dictionary();
 	var apis = new Array();
 	
+	var dataStream;
+	
 		
 	this.getName = function() {
 		return properties.get(Constants.SERVICE_DESCRIPTOR_NAME);
@@ -96,6 +98,14 @@ function ServiceDescriptor() {
 	
 	this.addApi = function(api) {
 		apis.push(api);
+	}
+	
+	this.getDataStream = function() {
+		return dataStream;
+	}
+	
+	this.setDataStream = function(val) {
+		dataStream = val
 	}
 }
 

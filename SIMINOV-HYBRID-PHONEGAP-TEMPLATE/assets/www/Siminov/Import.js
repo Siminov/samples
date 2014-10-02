@@ -61,7 +61,7 @@ document.write('<script type="text/javascript" src="Siminov/ReaderWriter/SIJsonH
 /*
     Resource Layer Import
  */
-document.write('<script type="text/javascript" src="Siminov/Resource/Resources.js"></script>');
+document.write('<script type="text/javascript" src="Siminov/Resource/ResourceManager.js"></script>');
 
 
 /*

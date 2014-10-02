@@ -27,7 +27,7 @@ function AdapterDescriptor() {
 	 * @return Name of Adapter.
 	 */
     this.getName = function() {
-    	return properties.get(Constants.HYBRID_DESCRIPTOR_ADAPTER_NAME);
+    	return properties.get(Constants.ADAPER_DESCRIPTOR_NAME);
 	}
 	
 	/**
@@ -35,7 +35,7 @@ function AdapterDescriptor() {
 	 * @param name Name of Adapter.
 	 */
     this.setName = function(name) {
-    	properties.add(Constants.HYBRID_DESCRIPTOR_ADAPTER_NAME, name);
+    	properties.add(Constants.ADAPTER_DESCRIPTOR_NAME, name);
 	}
 
 	/**
@@ -43,7 +43,7 @@ function AdapterDescriptor() {
 	 * @return Description of Adapter.
 	 */
     this.getDescription = function() {
-    	return properties.get(Constants.HYBRID_DESCRIPTOR_ADAPTER_DESCRIPTION);
+    	return properties.get(Constants.ADAPTER_DESCRIPTOR_DESCRIPTION);
 	}
 	
 	/**
@@ -51,7 +51,7 @@ function AdapterDescriptor() {
 	 * @param description Description of Adapter.
 	 */
     this.setDescription = function(description) {
-    	properties.add(Constants.HYBRID_DESCRIPTOR_ADAPTER_DESCRIPTION, description);
+    	properties.add(Constants.ADAPTER_DESCRIPTOR_DESCRIPTION, description);
 	}
 
 	/**
@@ -59,7 +59,7 @@ function AdapterDescriptor() {
 	 * @return Type of Adapter.
 	 */
     this.getType = function() {
-    	return properties.get(Constants.HYBRID_DESCRIPTOR_ADAPTER_TYPE);
+    	return properties.get(Constants.ADAPTER_DESCRIPTOR_TYPE);
 	}
 	
 	/**
@@ -67,7 +67,7 @@ function AdapterDescriptor() {
 	 * @param type Type of Adapter.
 	 */
     this.setType = function(type) {
-    	properties.add(Constants.HYBRID_DESCRIPTOR_ADAPTER_TYPE, type);
+    	properties.add(Constants.ADAPTER_DESCRIPTOR_TYPE, type);
 	}
 
 	/**
@@ -75,7 +75,7 @@ function AdapterDescriptor() {
 	 * @return Map To Name.
 	 */
     this.getMapTo = function() {
-    	return properties.get(Constants.HYBRID_DESCRIPTOR_ADAPTER_MAP_TO);
+    	return properties.get(Constants.ADAPTER_DESCRIPTOR_MAP_TO);
 	}
 	
 	/**
@@ -83,7 +83,7 @@ function AdapterDescriptor() {
 	 * @param mapTo Map To Name.
 	 */
     this.setMapTo = function(mapTo) {
-    	properties.add(Constants.HYBRID_DESCRIPTOR_ADAPTER_MAP_TO, mapTo);
+    	properties.add(Constants.ADAPTER_DESCRIPTOR_MAP_TO, mapTo);
 	}
 
 	/**
@@ -91,7 +91,7 @@ function AdapterDescriptor() {
 	 * @return true/false; TRUE if cache enabled, FALSE if cache disabled.
 	 */
     this.isCache = function() {
-        return properties.get(Constants.HYBRID_DESCRIPTOR_ADAPTER_CACHE);
+        return properties.get(Constants.ADAPTER_DESCRIPTOR_CACHE);
 	}
 
 	/**
@@ -99,7 +99,7 @@ function AdapterDescriptor() {
 	 * @param cache Cache Enabled or Disabled.
 	 */
     this.setCache = function(cache) {
-    	properties.add(Constants.HYBRID_DESCRIPTOR_ADAPTER_CACHE, cache);
+    	properties.add(Constants.ADAPTER_DESCRIPTOR_CACHE, cache);
 	}
 	
 
@@ -199,7 +199,7 @@ AdapterDescriptor.Handler = function() {
 	 	@return {String} Name of Handler. 
 	 */
     this.getName = function() {
-    	return properties.get(Constants.HYBRID_DESCRIPTOR_ADAPTER_HANDLER_NAME);
+    	return properties.get(Constants.ADAPTER_DESCRIPTOR_HANDLER_NAME);
 	}
 	
 	/**
@@ -209,7 +209,7 @@ AdapterDescriptor.Handler = function() {
 	 	@param name {String} Name of handler.
 	 */
     this.setName = function(name) {
-    	properties.add(Constants.HYBRID_DESCRIPTOR_ADAPTER_HANDLER_NAME, name);
+    	properties.add(Constants.ADAPTER_DESCRIPTOR_HANDLER_NAME, name);
 	}
 
 
@@ -220,7 +220,7 @@ AdapterDescriptor.Handler = function() {
 		@return {String} Description about Handler.
 	 */
     this.getDescription = function() {
-    	return properties.get(Constants.HYBRID_DESCRIPTOR_ADAPTER_HANDLER_DESCRIPTION);
+    	return properties.get(Constants.ADAPTER_DESCRIPTOR_HANDLER_DESCRIPTION);
 	}
 	
 	/**
@@ -230,7 +230,7 @@ AdapterDescriptor.Handler = function() {
 		@param description {String} Description about Handler.
 	 */
     this.setDescription = function(description) {
-    	properties.add(Constants.HYBRID_DESCRIPTOR_ADAPTER_HANDLER_DESCRIPTION, description);
+    	properties.add(Constants.ADAPTER_DESCRIPTOR_HANDLER_DESCRIPTION, description);
 	}
 
 	/**
@@ -240,7 +240,7 @@ AdapterDescriptor.Handler = function() {
 		@return {String} Map To Name.
 	 */
     this.getMapTo = function() {
-    	return properties.get(Constants.HYBRID_DESCRIPTOR_ADAPTER_HANDLER_MAP_TO);
+    	return properties.get(Constants.ADAPTER_DESCRIPTOR_HANDLER_MAP_TO);
 	}
 	
 	/**
@@ -250,7 +250,7 @@ AdapterDescriptor.Handler = function() {
 		@param mapTo {String} Map To Name.
 	 */
     this.setMapTo = function(mapTo) {
-    	properties.add(Constants.HYBRID_DESCRIPTOR_ADAPTER_HANDLER_MAP_TO, mapTo);
+    	properties.add(Constants.ADAPTER_DESCRIPTOR_HANDLER_MAP_TO, mapTo);
 	}
 
 
@@ -327,7 +327,7 @@ AdapterDescriptor.Handler.Parameter = function() {
 	 	@return {String} Name of Parameter.
 	 */
     this.getDescription = function() {
-    	return properties.get(Constants.HYBRID_DESCRIPTOR_ADAPTER_PARAMETER_DESCRIPTION);
+    	return properties.get(Constants.ADAPTER_DESCRIPTOR_PARAMETER_DESCRIPTION);
 	}
 	
 	/**
@@ -337,7 +337,7 @@ AdapterDescriptor.Handler.Parameter = function() {
 	 	@param name {String} Name of Parameter.
 	 */
     this.setDescription = function(description) {
-    	properties.add(Constants.HYBRID_DESCRIPTOR_ADAPTER_PARAMETER_DESCRIPTION, description);
+    	properties.add(Constants.ADAPTER_DESCRIPTOR_PARAMETER_DESCRIPTION, description);
 	}
 
 	/**
@@ -347,7 +347,7 @@ AdapterDescriptor.Handler.Parameter = function() {
 	 	@return {String} Type of Parameter.
 	 */
     this.getType = function() {
-    	return properties.get(Constants.HYBRID_DESCRIPTOR_ADAPTER_PARAMETER_TYPE);
+    	return properties.get(Constants.ADAPTER_DESCRIPTOR_PARAMETER_TYPE);
 	}
 	
 	/**
@@ -357,7 +357,7 @@ AdapterDescriptor.Handler.Parameter = function() {
 	 	@param type {String} Type of Parameter.
 	 */
     this.setType = function(type) {
-    	properties.add(Constants.HYBRID_DESCRIPTOR_ADAPTER_PARAMETER_TYPE, type);
+    	properties.add(Constants.ADAPTER_DESCRIPTOR_PARAMETER_TYPE, type);
 	}
 
 
@@ -432,7 +432,7 @@ AdapterDescriptor.Handler.Return = function() {
 	 	@return {String} Description about Return.
 	 */
     this.getDescription = function() {
-    	return properties.get(Constants.HYBRID_DESCRIPTOR_ADAPTER_RETURN_DESCRIPTION);
+    	return properties.get(Constants.ADAPTER_DESCRIPTOR_RETURN_DESCRIPTION);
 	}
 	
 	/**
@@ -442,7 +442,7 @@ AdapterDescriptor.Handler.Return = function() {
 	 	@param description {String} Description about Return.
 	 */
     this.setDescription = function(description) {
-    	properties.add(Constants.HYBRID_DESCRIPTOR_ADAPTER_RETURN_DESCRIPTION, description);
+    	properties.add(Constants.ADAPTER_DESCRIPTOR_RETURN_DESCRIPTION, description);
 	}
 
 	/**
@@ -452,7 +452,7 @@ AdapterDescriptor.Handler.Return = function() {
 	 	@return {String} Type of Return.
 	 */
     this.getType = function() {
-    	return properties.get(Constants.HYBRID_DESCRIPTOR_ADAPTER_RETURN_TYPE);
+    	return properties.get(Constants.ADAPTER_DESCRIPTOR_RETURN_TYPE);
 	}
 	
 	/**
@@ -462,7 +462,7 @@ AdapterDescriptor.Handler.Return = function() {
 	 	@param type {String} Type of Return.
 	 */
     this.setType = function(type) {
-    	properties.add(Constants.HYBRID_DESCRIPTOR_ADAPTER_RETURN_TYPE, type);
+    	properties.add(Constants.ADAPTER_DESCRIPTOR_RETURN_TYPE, type);
 	}
 
 	/**

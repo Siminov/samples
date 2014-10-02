@@ -123,27 +123,6 @@ function ApplicationDescriptor() {
     }
 
 	/**
-	 	Set load initially to true or false.
-	 
-	 	@method setLoadInitially
-		@param initialLoad {Boolean} (true/false) defined by ApplicationDescriptor.si.xml file.
-	 */
-    this.setLoadInitially = function(loadInitially){
-        properties.add(Constants.APPLICATION_DESCRIPTOR_LOAD_INITIALLY, loadInitially);
-    }
-
-	/**
-	 	It defines the behaviour of SIMINOV. (Should core load all database mapping at initialization or on demand).
-	 	
-	 	@method getLoadInitially
-	 	@return {Boolean} (true/false) TRUE: If load initially is set to true, FALSE: If load initially is set to false.
-	 */
-    this.getLoadInitially = function() {
-        return properties.get(Constants.APPLICATION_DESCRIPTOR_LOAD_INITIALLY);
-    }
-
-	
-	/**
 	 	Get all Properties defined in descriptor.
 	 
 	 	@method getProperties
