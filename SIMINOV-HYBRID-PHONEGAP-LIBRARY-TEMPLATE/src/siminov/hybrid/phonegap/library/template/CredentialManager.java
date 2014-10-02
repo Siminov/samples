@@ -21,11 +21,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
-import siminov.connect.resource.Resources;
 import siminov.hybrid.phonegap.library.template.model.Credential;
 import siminov.orm.exception.SiminovCriticalException;
 import siminov.orm.exception.SiminovException;
 import siminov.orm.log.Log;
+import siminov.orm.resource.ResourceManager;
 import siminov.orm.utils.ClassUtils;
 import siminov.orm.utils.EmptyIterator;
 
@@ -34,7 +34,6 @@ public class CredentialManager {
 	private static CredentialManager credentialManager = null;
 	
 	private Credential activeCredential = null;
-	private Resources resources = Resources.getInstance();
 	
 	private CredentialManager() {
 		
