@@ -20,7 +20,7 @@ package siminov.orm.template.database;
 
 import siminov.orm.exception.DatabaseException;
 import siminov.orm.log.Log;
-import siminov.orm.resource.Resources;
+import siminov.orm.resource.ResourceManager;
 import siminov.orm.template.R;
 import siminov.orm.template.model.Liquor;
 import siminov.orm.template.model.LiquorBrand;
@@ -33,7 +33,7 @@ public class DatabaseUtils {
 	}
 
 	private void createLiquors() {
-		Context applicationContext = Resources.getInstance().getApplicationContext();
+		Context applicationContext = ResourceManager.getInstance().getApplicationContext();
 		
 		//Make Gin Object
 		Liquor gin = new Liquor();
@@ -121,7 +121,7 @@ public class DatabaseUtils {
 	}
 
 	private void createGinBrands(Liquor liquor) {
-		Context applicationContext = Resources.getInstance().getApplicationContext();
+		Context applicationContext = ResourceManager.getInstance().getApplicationContext();
 
 		LiquorBrand theBotanist = new LiquorBrand();
 		theBotanist.setLiquor(liquor);
@@ -147,7 +147,7 @@ public class DatabaseUtils {
 
 	private void createRumBrands(Liquor liquor) {
 		
-		Context applicationContext = Resources.getInstance().getApplicationContext();
+		Context applicationContext = ResourceManager.getInstance().getApplicationContext();
 
 		LiquorBrand bacardi = new LiquorBrand();
 		bacardi.setLiquor(liquor);
@@ -172,7 +172,7 @@ public class DatabaseUtils {
 	}
 
 	private void createTequilaBrands(Liquor liquor) {
-		Context applicationContext = Resources.getInstance().getApplicationContext();
+		Context applicationContext = ResourceManager.getInstance().getApplicationContext();
 		
 		LiquorBrand patron = new LiquorBrand();
 		patron.setLiquor(liquor);
@@ -198,7 +198,7 @@ public class DatabaseUtils {
 	
 	
 	private void createVodkaBrands(Liquor liquor) {
-		Context applicationContext = Resources.getInstance().getApplicationContext();
+		Context applicationContext = ResourceManager.getInstance().getApplicationContext();
 
 		LiquorBrand absolut  = new LiquorBrand();
 		absolut.setLiquor(liquor);
@@ -224,7 +224,7 @@ public class DatabaseUtils {
 	
 	
 	private void createWhiskeyBrands(Liquor liquor) {
-		Context applicationContext = Resources.getInstance().getApplicationContext();
+		Context applicationContext = ResourceManager.getInstance().getApplicationContext();
 		
 		LiquorBrand jackDaniels = new LiquorBrand();
 		jackDaniels.setLiquor(liquor);
@@ -251,7 +251,7 @@ public class DatabaseUtils {
 	
 
 	private void createBeerBrands(Liquor liquor) {
-		Context applicationContext = Resources.getInstance().getApplicationContext();
+		Context applicationContext = ResourceManager.getInstance().getApplicationContext();
 		
 		LiquorBrand heineken = new LiquorBrand();
 		heineken.setLiquor(liquor);
@@ -278,7 +278,7 @@ public class DatabaseUtils {
 	
 	
 	private void createWineBrands(Liquor liquor) {
-		Context applicationContext = Resources.getInstance().getApplicationContext();
+		Context applicationContext = ResourceManager.getInstance().getApplicationContext();
 		
 		LiquorBrand gallo = new LiquorBrand();
 		gallo.setLiquor(liquor);
