@@ -31,9 +31,9 @@ function IServiceEvents(serviceEvents) {
 		
 		onServiceFinish: serviceEvents.onServiceFinish,
 		
-		onServiceApiInvoke: serviceEvents.onServiceApiInvoke,
+		onServiceRequestInvoke: serviceEvents.onServiceRequestInvoke,
 		
-		onServiceApiFinish: serviceEvents.onServiceApiFinish,
+		onServiceRequestFinish: serviceEvents.onServiceRequestFinish,
 		
 		onServiceTerminate: serviceEvents.onServiceTerminate		
 	}

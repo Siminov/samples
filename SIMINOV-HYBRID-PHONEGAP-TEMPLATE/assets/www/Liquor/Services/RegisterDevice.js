@@ -19,7 +19,7 @@
 function RegisterDevice() {
 
 	setService(RegisterDevice.SERVICE_NAME);
-	setApi(RegisterDevice.API_NAME);
+	setRequest(RegisterDevice.REQUEST_NAME);
 	
 	this.onServiceStart = function() {
 
@@ -41,11 +41,11 @@ function RegisterDevice() {
 		
 	}
 
-	this.onServiceApiInvoke = function(connectionRequest) {
+	this.onServiceRequestInvoke = function(connectionRequest) {
 		
 	}
 
-	this.onServiceApiFinish = function(connectionResponse) {
+	this.onServiceRequestFinish = function(connectionResponse) {
 		
 	}
 
@@ -57,9 +57,9 @@ function RegisterDevice() {
 
 
 RegisterDevice.SERVICE_NAME = "SIMINOV-HYBRID-NOTIFICATION-SERVICE";
-RegisterDevice.API_NAME = "REGISTER-DEVICE";
+RegisterDevice.REQUEST_NAME = "REGISTER-DEVICE";
 
 RegisterDevice.REGISTRATION_ID = "ID";
 
 
-FunctionUtils.extend(Service, RegisterDevice);
+Function.extend(Service, RegisterDevice);

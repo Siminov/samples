@@ -28,14 +28,16 @@ function IService(service) {
 		
 		setService: service.setService,
 		
-		getApi: service.getApi,
+		getRequest: service.getRequest,
 		
-		setApi: service.setApi,
+		setRequest: service.setRequest,
 
 		getServiceDescriptor: service.getServiceDescriptor,
 		
 		setServiceDescriptor: service.setServiceDesciptor,
 		
-		invoke: service.invoke
+		invoke: service.invoke,
+		
+		terminate: service.terminate
     }
 }

@@ -63,4 +63,4 @@ Credential.TOKEN = "TOKEN";
 Credential.ACTIVE = "ACTIVE";
 
 
-FunctionUtils.extend(Database, Credential);
+Function.extend(Database, Credential);

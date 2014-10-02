@@ -102,4 +102,4 @@ Liquor.LIQUOR_TYPE_WINE = "Wine";
 
 
 
-FunctionUtils.extend(Database, Liquor);
+Function.extend(Database, Liquor);

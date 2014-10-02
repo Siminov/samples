@@ -88,7 +88,7 @@ function EventHandler() {
 
             for(var i = 0;i < events.length;i++) {
 
-                var obj = FunctionUtils.createFunctionInstance(events[i]);
+                var obj = Function.createFunctionInstance(events[i]);
                 var containEvent = obj.containProperty(apiName);
                 
                 if(containEvent) {
@@ -105,20 +105,20 @@ function EventHandler() {
 		}
 
 
-        var eventHandler = FunctionUtils.createFunctionInstance(functionName);
+        var eventHandler = Function.createFunctionInstance(functionName);
         
         /*
          * ISiminov Events
          */
         if(apiName === Constants.EVENT_HANDLER_ISIMINOV_EVENT_ON_FIRST_TIME_SIMINOV_INITIALIZED) {
 
-            FunctionUtils.invokeAndInflate(eventHandler, apiName);
+            Function.invokeAndInflate(eventHandler, apiName);
         } else if(apiName === Constants.EVENT_HANDLER_ISIMINOV_EVENT_ON_SIMINOV_INITIALIZED) {
 
-            FunctionUtils.invokeAndInflate(eventHandler, apiName);
+            Function.invokeAndInflate(eventHandler, apiName);
         } else if(apiName === Constants.EVENT_HANDLER_ISIMINOV_EVENT_ON_SIMINOV_STOPPED) {
 
-            setTimeout(FunctionUtils.invokeAndInflate(eventHandler, apiName), 0);
+            setTimeout(Function.invokeAndInflate(eventHandler, apiName), 0);
             
         /*
          * IDatabase Events
@@ -126,26 +126,26 @@ function EventHandler() {
         } else if(apiName === Constants.EVENT_HANDLER_IDATABASE_EVENT_ON_DATABASE_CREATED) {
             
             var databaseDescriptor = parameters[0];
-            FunctionUtils.invokeAndInflate(eventHandler, apiName, databaseDescriptor);
+            Function.invokeAndInflate(eventHandler, apiName, databaseDescriptor);
             
         } else if(apiName === Constants.EVENT_HANDLER_IDATABASE_EVENT_ON_DATABASE_DROPPED) {
 
 			var databaseDescriptor = parameters[0];
-			FunctionUtils.invokeAndInflate(eventHandler, apiName, databaseDescriptor);
+			Function.invokeAndInflate(eventHandler, apiName, databaseDescriptor);
 
         } else if(apiName === Constants.EVENT_HANDLER_IDATABASE_EVENT_ON_TABLE_CREATED) {
 
 			var databaseDescriptor = parameters[0];
 			var databaseMappingDescriptor = parameters[1];
 		
-			FunctionUtils.invokeAndInflate(eventHandler, apiName, databaseDescriptor, databaseMappingDescriptor);
+			Function.invokeAndInflate(eventHandler, apiName, databaseDescriptor, databaseMappingDescriptor);
 
         } else if(apiName === Constants.EVENT_HANDLER_IDATABASE_EVENT_ON_TABLE_DROPPED) {
 
 			var databaseDescriptor = parameters[0];
 			var databaseMappingDescriptor = parameters[1];
 		
-			FunctionUtils.invokeAndInflate(eventHandler, apiName, databaseDescriptor, databaseMappingDescriptor);
+			Function.invokeAndInflate(eventHandler, apiName, databaseDescriptor, databaseMappingDescriptor);
 
         } else if(apiName === Constants.EVENT_HANDLER_IDATABASE_EVENT_ON_INDEX_CREATED) {
 
@@ -153,7 +153,7 @@ function EventHandler() {
 			var databaseMappingDescriptor = parameters[1];
 			var index = parameters[2];
 			
-			FunctionUtils.invokeAndInflate(eventHandler, apiName, databaseDescriptor, databaseMappingDescriptor, index);
+			Function.invokeAndInflate(eventHandler, apiName, databaseDescriptor, databaseMappingDescriptor, index);
 
         } else if(apiName === Constants.EVENT_HANDLER_IDATABASE_EVENT_ON_INDEX_DROPPED) {
 
@@ -161,7 +161,7 @@ function EventHandler() {
 			var databaseMappingDescriptor = parameters[1];
 			var index = parameters[2];
 		
-			FunctionUtils.invokeAndInflate(eventHandler, apiName, databaseDescriptor, databaseMappingDescriptor, index);
+			Function.invokeAndInflate(eventHandler, apiName, databaseDescriptor, databaseMappingDescriptor, index);
 			
         /*
          * INotification Events
@@ -169,19 +169,19 @@ function EventHandler() {
         } else if(apiName === Constants.EVENT_HANDLER_INOTIFICATION_EVENT_ON_REGISTRATION) {
 
         	var registration = parameters[0];
-			FunctionUtils.invokeAndInflate(eventHandler, apiName, registration);        	
+			Function.invokeAndInflate(eventHandler, apiName, registration);        	
         } else if(apiName === Constants.EVENT_HANDLER_INOTIFICATION_EVENT_ON_UNREGISTRATION) {
         	
         	var registration = parameters[0];
-			FunctionUtils.invokeAndInflate(eventHandler, apiName, registration);        	
+			Function.invokeAndInflate(eventHandler, apiName, registration);        	
         } else if(apiName === Constants.EVENT_HANDLER_INOTIFICATION_EVENT_ON_NOTIFICATION) {
         	
         	var message = parameters[0];
-			FunctionUtils.invokeAndInflate(eventHandler, apiName, message);        	
+			Function.invokeAndInflate(eventHandler, apiName, message);        	
         } else if(apiName === Constants.EVENT_HANDLER_INOTIFICATION_EVENT_ON_ERROR) {
         	
         	var notificationException = parameters[0];
-        	FunctionUtils.invokeAndInflate(eventHandler, apiName, notificationException);
+        	Function.invokeAndInflate(eventHandler, apiName, notificationException);
         
         
         /*
@@ -190,19 +190,19 @@ function EventHandler() {
     	} else if(apiName === Constants.EVENT_HANDLER_ISYNC_EVENT_ON_SYNC_STARTED) {
     		
     		var syncRequest = parameters[0];
-    		FunctionUtils.invokeAndInflate(eventHandler, apiName, syncRequest)
+    		Function.invokeAndInflate(eventHandler, apiName, syncRequest)
     	} else if(apiName === Constants.EVENT_HANDLER_ISYNC_EVENT_ON_SYNC_QUEUED) {
     		
     		var syncRequest = parameters[0];
-    		FunctionUtils.invokeAndInflate(eventHandler, apiName, syncRequest)
+    		Function.invokeAndInflate(eventHandler, apiName, syncRequest)
     	} else if(apiName === Constants.EVENT_HANDLER_ISYNC_EVENT_ON_SYNC_REMOVED) {
     		
     		var syncRequest = parameters[0];
-    		FunctionUtils.invokeAndInflate(eventHandler, apiName, syncRequest)
+    		Function.invokeAndInflate(eventHandler, apiName, syncRequest)
     	} else if(apiName === Constants.EVENT_HANDLER_ISYNC_EVENT_ON_SYNC_TERMINATED) {
     		
     		var syncRequest = parameters[0];
-    		FunctionUtils.invokeAndInflate(eventHandler, apiName, syncRequest)
+    		Function.invokeAndInflate(eventHandler, apiName, syncRequest)
     	}
     }
 }

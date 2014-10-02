@@ -139,7 +139,7 @@ function Adapter() {
         var functionName = action.substring(0, action.indexOf('.'));
         var apiName = action.substring(action.lastIndexOf('.') + 1, action.length);
 
-        var obj = FunctionUtils.createFunctionInstance(functionName);
-        FunctionUtils.invokeAndInflate(obj, apiName, data);
+        var obj = Function.createFunctionInstance(functionName);
+        Function.invokeAndInflate(obj, apiName, data);
     }
 }

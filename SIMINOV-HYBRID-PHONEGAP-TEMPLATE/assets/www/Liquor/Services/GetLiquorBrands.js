@@ -17,14 +17,11 @@
 
 
 
-GetLiquorBrands.SERVICE_NAME = "SIMINOV-HYBRID-LIQUOR-BRANDS-SERVICE";
-GetLiquorBrands.API_NAME = "GET-LIQUOR-BRANDS";
-
-GetLiquorBrands.LIQUOR_NAME = "LIQUOR-NAME";
-
-
 function GetLiquorBrands() {
 
+	setService(GetLiquorBrands.SERVICE_NAME);
+	setRequest(GetLiquorBrands.REQUEST_NAME);
+	
 	this.onServiceStart = function() {
 
 	}
@@ -45,12 +42,11 @@ function GetLiquorBrands() {
 		
 	}
 
-	this.onServiceApiInvoke = function(connectionRequest) {
+	this.onServiceRequestInvoke = function(connectionRequest) {
 	
 	}
 
-	this.onServiceApiFinish = function(connectionResponse) {
-		//alert("onServiceApiFinish");
+	this.onServiceRequestFinish = function(connectionResponse) {
 	
 		if(connectionResponse.getResponse() == null) {
 			return;
@@ -100,5 +96,10 @@ function GetLiquorBrands() {
 	}
 }
 
+GetLiquorBrands.SERVICE_NAME = "SIMINOV-HYBRID-LIQUOR-BRANDS-SERVICE";
+GetLiquorBrands.REQUEST_NAME = "GET-LIQUOR-BRANDS";
 
-FunctionUtils.extend(Service, GetLiquorBrands);
+GetLiquorBrands.LIQUOR_NAME = "LIQUOR-NAME";
+
+
+Function.extend(Service, GetLiquorBrands);

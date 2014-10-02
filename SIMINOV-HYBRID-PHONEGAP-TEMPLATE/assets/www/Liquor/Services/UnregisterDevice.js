@@ -19,7 +19,7 @@
 function UnregisterDevice() {
 
 	setService(UnregisterDevice.SERVICE_NAME);
-	setApi(UnregisterDevice.API_NAME);
+	setRequest(UnregisterDevice.REQUEST_NAME);
 	
 	this.onServiceStart = function() {
 
@@ -41,11 +41,11 @@ function UnregisterDevice() {
 		
 	}
 
-	this.onServiceApiInvoke = function(connectionRequest) {
+	this.onServiceRequestInvoke = function(connectionRequest) {
 		
 	}
 
-	this.onServiceApiFinish = function(connectionResponse) {
+	this.onServiceRequestFinish = function(connectionResponse) {
 		
 	}
 
@@ -57,7 +57,7 @@ function UnregisterDevice() {
 
 
 UnregisterDevice.SERVICE_NAME = "SIMINOV-HYBRID-NOTIFICATION-SERVICE";
-UnregisterDevice.API_NAME = "UNREGISTER-DEVICE";
+UnregisterDevice.REQUEST_NAME = "UNREGISTER-DEVICE";
 
 
-FunctionUtils.extend(Service, RegisterDevice);
+Function.extend(Service, RegisterDevice);

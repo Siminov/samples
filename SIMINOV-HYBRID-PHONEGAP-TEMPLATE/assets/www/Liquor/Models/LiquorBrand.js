@@ -110,4 +110,4 @@ LiquorBrand.WINE_BRAND_GALLO = "Gallo";
 
 
 
-FunctionUtils.extend(Database, LiquorBrand);
+Function.extend(Database, LiquorBrand);

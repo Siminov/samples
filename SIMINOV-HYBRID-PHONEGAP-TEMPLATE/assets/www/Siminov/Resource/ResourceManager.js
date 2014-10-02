@@ -61,8 +61,8 @@ var ResourceManager = (function() {
 	    this.getApplicationDescriptor = function() {
 
 	        var adapter = new Adapter();
-	        adapter.setAdapterName(Constants.RESOURCE_MANAGER_ADAPTER);
-	        adapter.setHandlerName(Constants.RESOURCE_MANAGER_GET_APPLICATION_DESCRIPTOR_HANDLER);
+	        adapter.setAdapterName(Constants.RESOURCE_ADAPTER);
+	        adapter.setHandlerName(Constants.RESOURCE_GET_APPLICATION_DESCRIPTOR_HANDLER);
 	
 	        var data = adapter.invoke();
 	
@@ -74,28 +74,6 @@ var ResourceManager = (function() {
 	
 	
 		
-		/**
-		 	Get all Database Descriptors object.
-		 	
-		 	@method getDatabaseDescriptors 
-		 	@return {Array} It which contains all Database Descriptors.
-		 */
-	    this.getDatabaseDescriptors = function() {
-	
-	        var adapter = new Adapter();
-	        adapter.setAdapterName(Constants.RESOURCE_MANAGER_ADAPTER);
-	        adapter.setHandlerName(Constants.RESOURCE_MANAGER_GET_DATABASE_DESCRIPTORS_HANDLER);
-	
-	        var data = adapter.invoke();
-	
-	        var datas = SIJsonHelper.toSI(data);
-	        var databaseDescriptors = SIDatasHelper.toModels(datas);
-	
-	        return databaseDescriptors;
-	
-	    }
-	
-
 		/**
 		 	Get Database Descriptor based on database descriptor name provided as per defined in Database Descriptor file.
 				
@@ -114,8 +92,8 @@ var ResourceManager = (function() {
 	    this.getDatabaseDescriptor = function(databaseName) {
 	
 	        var adapter = new Adapter();
-	        adapter.setAdapterName(Constants.RESOURCE_MANAGER_ADAPTER);
-	        adapter.setHandlerName(Constants.RESOURCE_MANAGER_GET_DATABASE_DESCRIPTOR_BASED_ON_NAME_HANDLER);
+	        adapter.setAdapterName(Constants.RESOURCE_ADAPTER);
+	        adapter.setHandlerName(Constants.RESOURCE_GET_DATABASE_DESCRIPTOR_BASED_ON_NAME_HANDLER);
 	
 	        adapter.addParameter(databaseName);
 	
@@ -130,28 +108,6 @@ var ResourceManager = (function() {
 	
 
 		/**
-		 	Get all database mapping descriptors
-		 	
-		 	@method getDatabaseMappingDescriptors
-		 	@return {Array} Database Mapping Descriptors
-		 */
-		this.getDatabaseMappingDescriptors = function() {
-		
-			var adapter = new Adapter();
-	        adapter.setAdapterName(Constants.RESOURCE_MANAGER_ADAPTER);
-	        adapter.setHandlerName(Constants.RESOURCE_MANAGER_GET_DATABASE_MAPPING_DESCRIPTORS_HANDLER);
-	        
-	        var data = adapter.invoke();
-	        
-	        var datas = SIJsonHelper.toSI(data);
-			var databaseMappingDescriptors = SIDatasHelper.toModels(datas);
-			
-			return databaseMappingDescriptors;
-		
-		}
-		
-
-		/**
 		 	Get Database Mapping based on POJO class name provided.
 
 			@method getDatabaseMappingDescriptorBasedOnClassName
@@ -161,8 +117,8 @@ var ResourceManager = (function() {
 	    this.getDatabaseMappingDescriptorBasedOnClassName = function(className) {
 	
 	        var adapter = new Adapter();
-	        adapter.setAdapterName(Constants.RESOURCE_MANAGER_ADAPTER);
-	        adapter.setHandlerName(Constants.RESOURCE_MANAGER_GET_DATABASE_MAPPING_DESCRIPTOR_BASED_ON_CLASS_NAME_HANDLER);
+	        adapter.setAdapterName(Constants.RESOURCE_ADAPTER);
+	        adapter.setHandlerName(Constants.RESOURCE_GET_DATABASE_MAPPING_DESCRIPTOR_BASED_ON_CLASS_NAME_HANDLER);
 	
 	        adapter.addParameter(className);
 	
@@ -186,8 +142,8 @@ var ResourceManager = (function() {
 	    this.getDatabaseMappingDescriptorBasedOnTableName = function(tableName) {
 	
 	        var adapter = new Adapter();
-	        adapter.setAdapterName(Constants.RESOURCE_MANAGER_ADAPTER);
-	        adapter.setHandlerName(Constants.RESOURCE_MANAGER_GET_DATABASE_MAPPING_DESCRIPTOR_BASED_ON_TABLE_NAME_HANDLER);
+	        adapter.setAdapterName(Constants.RESOURCE_ADAPTER);
+	        adapter.setHandlerName(Constants.RESOURCE_GET_DATABASE_MAPPING_DESCRIPTOR_BASED_ON_TABLE_NAME_HANDLER);
 	
 	        adapter.addParameter(tableName);
 	
@@ -199,152 +155,6 @@ var ResourceManager = (function() {
 	        return databaseMappingDescriptor[0];
 	
 	    }
-	
-		
-		
-		/**
-			Get all library descriptors
-			
-			@method getLibraryDescriptors
-			@return {Array} All Library Descriptors
-		*/
-		this.getLibraryDescriptors = function() {
-		
-			var adapter = new Adapter();
-	        adapter.setAdapterName(Constants.RESOURCE_MANAGER_ADAPTER);
-	        adapter.setHandlerName(Constants.RESOURCE_MANAGER_GET_LIBRARY_DESCRIPTORS_HANDLER);
-	        
-	        var data = adapter.invoke();
-	        
-	        var datas = SIJsonHelper.toSI(data);
-			var libraryDescriptors = SIDatasHelper.toModels(datas);
-			
-			return libraryDescriptors;
-			
-		}
-
-
-		this.getLibraryDescriptor = function(libraryName) {
-			
-		}
-				
-		
-		/**
-		 	Get Hybrid Descriptor.
-		 	
-		 	@method getHybridDescriptor 
-		 	@return {HybridDescriptor} Hybrid Descriptor.
-		 */
-		this.getHybridDescriptor = function() {
-		
-			var adapter = new Adapter();
-	        adapter.setAdapterName(Constants.RESOURCE_MANAGER_ADAPTER);
-	        adapter.setHandlerName(Constants.RESOURCE_MANAGER_GET_HYBRID_DESCRIPTOR_HANDLER);
-	        
-	        var data = adapter.invoke();
-	        
-	        var datas = SIJsonHelper.toSI(data);
-			var hybridDescriptor = SIDatasHelper.toModels(datas);
-			
-			return hybridDescriptor;
-			
-		}
-		
-		
-		/**
-		 	Get All Adapters defined by Application.
-		 	
-		 	@method getAdapters 
-		 	@return {Array} All Adapters.
-		 */
-		this.getAdapters = function() {
-		
-			var adapter = new Adapter();
-	        adapter.setAdapterName(Constants.RESOURCE_MANAGER_ADAPTER);
-	        adapter.setHandlerName(Constants.RESOURCE_MANAGER_GET_ADAPTERS_HANDLER);
-	        
-	        var data = adapter.invoke();
-	        
-	        var datas = SIJsonHelper.toSI(data);
-			var adapters = SIDatasHelper.toModels(datas);
-			
-			return adapters;
-			
-		}
-		
-		
-		/**
-		 	Get Adapter based on Adapter Name.
-		 	
-		 	@method getAdapter 
-		 	@param adapterName {String} Name of Adapter.
-		 	@return {Adapter} Adapter
-		 */
-		this.getAdapter = function(adapterName) {
-		
-			var adapter = new Adapter();
-	        adapter.setAdapterName(Constants.RESOURCE_MANAGER_ADAPTER);
-	        adapter.setHandlerName(Constants.RESOURCE_MANAGER_GET_ADAPTER_HANDLER);
-	        
-	        adapter.addParameter(libraryPath);
-	        
-	        var data = adapter.invoke();
-	        
-	        var datas = SIJsonHelper.toSI(data);
-			var adapter = SIDatasHelper.toModels(datas);
-			
-			return adapter[0];
-			
-		}	
-		
-		
-		/**
-		 	Get All Handlers defined by Application.
-		 	
-		 	@method getHandlers 
-		 	@return {Array} All Handlers.
-		 */
-		this.getHandlers = function() {
-		
-			var adapter = new Adapter();
-	        adapter.setAdapterName(Constants.RESOURCE_MANAGER_ADAPTER);
-	        adapter.setHandlerName(Constants.RESOURCE_MANAGER_GET_HANDLERS_HANDLER);
-	        
-	        var data = adapter.invoke();
-	        
-	        var datas = SIJsonHelper.toSI(data);
-			var handlers = SIDatasHelper.toModels(datas);
-			
-			return handlers;
-			
-		}
-			
-		
-		/**
-		 	Get Handler based on Adapter Name and Handler Name.
-		 	
-		 	@method getHandler 
-		 	@param adapterName {String} Name of Adapter.
-		 	@param handlerName {String} Name of Handler.
-		 	@return {Handler} Handler.
-		 */
-		this.getHandler = function(adapterName, handlerName) {
-		
-			var adapter = new Adapter();
-	        adapter.setAdapterName(Constants.RESOURCE_MANAGER_ADAPTER);
-	        adapter.setHandlerName(Constants.RESOURCE_MANAGER_GET_HANDLER_HANDLER);
-	        
-	        adapter.addParameter(adapterName);
-	        adapter.addParameter(handlerName);
-	        
-	        var data = adapter.invoke();
-	        
-	        var datas = SIJsonHelper.toSI(data);
-			var handler = SIDatasHelper.toModels(datas);
-			
-			return handler[0];
-			
-		}	
 	}
 
 		

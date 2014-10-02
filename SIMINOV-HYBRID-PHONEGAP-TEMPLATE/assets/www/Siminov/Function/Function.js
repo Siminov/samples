@@ -141,11 +141,11 @@ Object.defineProperty(
 	It provide APIs to deal with class.
 	
 	@module Utils
-	@class FunctionUtils
+	@class Function
 	@constructor
 	
 */
-function FunctionUtils() {
+function Function() {
 
 }
 
@@ -157,7 +157,7 @@ function FunctionUtils() {
 	@method extend
 	@static
 */
-FunctionUtils.extend = function (parent, child) {
+Function.extend = function (parent, child) {
     child.prototype = new parent();
     child.prototype.constructor = child;
 }
@@ -171,16 +171,16 @@ FunctionUtils.extend = function (parent, child) {
 	@static
 	@return {Object} Function Instance
 */
-FunctionUtils.createFunctionInstance = function(functionName) {
-	Log.debug("FunctionUtils", "createFunctionInstance", "FUNCTION: " + functionName);
+Function.createFunctionInstance = function(functionName) {
+	Log.debug("Function", "createFunctionInstance", "FUNCTION: " + functionName);
 	
-    var obj = FunctionUtils.createFunctionInstanceDescend(window, functionName);
+    var obj = Function.createFunctionInstanceDescend(window, functionName);
     return new obj();
 }
 
 
 
-FunctionUtils.createFunctionInstanceDescend = function(obj, path) {
+Function.createFunctionInstanceDescend = function(obj, path) {
     var parts = path.split('.');
 
     for(var i = 0; i < parts.length; i++) {
@@ -198,8 +198,8 @@ FunctionUtils.createFunctionInstanceDescend = function(obj, path) {
 	@method invokeAndInflate
 	@static
 */
-FunctionUtils.invokeAndInflate = function(object, apiName, parameterValues) {
-	Log.debug("FunctionUtils", "invokeAndInflate", "FUNCTION: " + object.getFunctionName() + ", API-NAME: " + apiName);
+Function.invokeAndInflate = function(object, apiName, parameterValues) {
+	Log.debug("Function", "invokeAndInflate", "FUNCTION: " + object.getFunctionName() + ", API-NAME: " + apiName);
 	object[apiName].apply(object, Array.prototype.slice.call(arguments, 2));
 }
 
@@ -212,7 +212,7 @@ FunctionUtils.invokeAndInflate = function(object, apiName, parameterValues) {
 	@static
 	@return {Object} Return object from invoked API
 */
-FunctionUtils.invokeAndFetch = function(object, apiName) {
-	Log.debug("FunctionUtils", "invokeAndFetch", "FUNCTION: " + object.getFunctionName() + ", API-NAME: " + apiName);
+Function.invokeAndFetch = function(object, apiName) {
+	Log.debug("Function", "invokeAndFetch", "FUNCTION: " + object.getFunctionName() + ", API-NAME: " + apiName);
     return object[apiName] ();
 }

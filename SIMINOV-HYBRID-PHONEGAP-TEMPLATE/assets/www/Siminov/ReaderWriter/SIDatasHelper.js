@@ -68,7 +68,7 @@ SIDatasHelper.toModels = function(siDatas) {
 */
 SIDatasHelper.toModel = function(data) {
 
-    var model = FunctionUtils.createFunctionInstance(data.getDataType());
+    var model = Function.createFunctionInstance(data.getDataType());
     var values = data.getValues();
 
     if(values != undefined) {
@@ -87,7 +87,7 @@ SIDatasHelper.toModel = function(data) {
                     model.push(val);
                 }
             } else {
-                FunctionUtils.invokeAndInflate(model, "set" + type.charAt(0).toUpperCase() + type.substring(1, type.length), val);
+                Function.invokeAndInflate(model, "set" + type.charAt(0).toUpperCase() + type.substring(1, type.length), val);
             }
         }
     }
@@ -117,7 +117,7 @@ SIDatasHelper.toModel = function(data) {
 					}
 					
                     var apiName = "add" + type.charAt(0).toUpperCase() + type.substring(1, type.length);
-                    FunctionUtils.invokeAndInflate(model, apiName, value);
+                    Function.invokeAndInflate(model, apiName, value);
                 }
             } else {
 
@@ -129,7 +129,7 @@ SIDatasHelper.toModel = function(data) {
                     } else {
 
                         var apiName = "add" + innerDataType.charAt(0).toUpperCase() + innerDataType.substring(1, innerDataType.length);
-                        FunctionUtils.invokeAndInflate(model, apiName, innerModel);
+                        Function.invokeAndInflate(model, apiName, innerModel);
                     }
 
                 } else {
@@ -139,7 +139,7 @@ SIDatasHelper.toModel = function(data) {
                     } else {
 
                         var apiName = "add" + innerDataType.charAt(0).toUpperCase() + innerDataType.substring(1, innerDataType.length);
-                        FunctionUtils.invokeAndInflate(model, apiName, innerModel);
+                        Function.invokeAndInflate(model, apiName, innerModel);
                     }
                 }
             }
@@ -180,7 +180,7 @@ SIDatasHelper.parseSI = function(object) {
 
         if(getterProperties[i].indexOf("get") === 0) {
             var type = getterProperties[i].substring(3, getterProperties[i].length);
-            var val = FunctionUtils.invokeAndFetch(object, getterProperties[i]);
+            var val = Function.invokeAndFetch(object, getterProperties[i]);
 
             value.setType(type.charAt(0).toLowerCase() + type.substring(1, type.length));
 
@@ -205,7 +205,7 @@ SIDatasHelper.parseSI = function(object) {
             var type = getterProperties[i].substring(2, getterProperties[i].length);
 
             value.setType(type.charAt(0).toLowerCase() + type.substring(1, type.length));
-            value.setValue(FunctionUtils.invokeAndFetch(object, getterProperties[i]));
+            value.setValue(Function.invokeAndFetch(object, getterProperties[i]));
         }
 
 

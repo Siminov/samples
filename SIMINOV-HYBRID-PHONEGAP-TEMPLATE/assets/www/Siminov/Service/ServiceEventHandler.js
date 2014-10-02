@@ -72,7 +72,7 @@ function ServiceEventHandler() {
         }
 
 
-        var eventHandler = FunctionUtils.createFunctionInstance(apiHandler);
+        var eventHandler = Function.createFunctionInstance(apiHandler);
         
         //Inflate Resources
         var resourceKeys = resources.keys();
@@ -80,35 +80,35 @@ function ServiceEventHandler() {
         	var resource = resources.get(resourceKeys[i]);
         	
         	var nameValuePair = new NameValuePair(resourceKeys[i], resource);
-        	FunctionUtils.invokeAndInflate(eventHandler, Constants.ISERVICE_ADD_RESOURCE, nameValuePair);
+        	Function.invokeAndInflate(eventHandler, Constants.ISERVICE_ADD_RESOURCE, nameValuePair);
         }
         
 
 		//Invoke Event API
         if(event === Constants.ISERVICE_ON_SERVICE_START) {
 					
-            FunctionUtils.invokeAndInflate(eventHandler, event);
+            Function.invokeAndInflate(eventHandler, event);
         } else if(event === Constants.ISERVICE_ON_SERVICE_QUEUE) {
 
-            FunctionUtils.invokeAndInflate(eventHandler, event);
+            Function.invokeAndInflate(eventHandler, event);
         } else if(event === Constants.ISERVICE_ON_SERVICE_PAUSE) {
 
-            FunctionUtils.invokeAndInflate(eventHandler, event);
+            Function.invokeAndInflate(eventHandler, event);
         } else if(event === Constants.ISERVICE_ON_SERVICE_RESUME) {
             
-            FunctionUtils.invokeAndInflate(eventHandler, event);
+            Function.invokeAndInflate(eventHandler, event);
         } else if(event === Constants.ISERVICE_ON_SERVICE_FINISH) {
 
-            FunctionUtils.invokeAndInflate(eventHandler, event);
-        } else if(event === Constants.ISERVICE_ON_SERVICE_API_INVOKE) {
+            Function.invokeAndInflate(eventHandler, event);
+        } else if(event === Constants.ISERVICE_ON_SERVICE_REQUEST_INVOKE) {
 
-			FunctionUtils.invokeAndInflate(eventHandler, event, connectionRequest);
-        } else if(event === Constants.ISERVICE_ON_SERVICE_API_FINISH) {
+			Function.invokeAndInflate(eventHandler, event, connectionRequest);
+        } else if(event === Constants.ISERVICE_ON_SERVICE_REQUEST_FINISH) {
 
-			FunctionUtils.invokeAndInflate(eventHandler, event, connectionResponse);
+			Function.invokeAndInflate(eventHandler, event, connectionResponse);
         } else if(event === Constants.ISERVICE_ON_SERVICE_TERMINATE) {
 
-            FunctionUtils.invokeAndInflate(eventHandler, event);
+            Function.invokeAndInflate(eventHandler, event);
         }
     }
 }

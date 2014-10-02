@@ -48,7 +48,7 @@ document.write('<script type="text/javascript" src="Siminov/Model/HybridSiminovD
 /*
     Utils Layer Import
  */
-document.write('<script type="text/javascript" src="Siminov/Utils/FunctionUtils.js"></script>');
+document.write('<script type="text/javascript" src="Siminov/Function/Function.js"></script>');
 
 
 /*

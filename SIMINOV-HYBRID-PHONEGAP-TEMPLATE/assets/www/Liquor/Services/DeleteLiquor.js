@@ -19,7 +19,7 @@
 function DeleteLiquor() {
 
 	setService(DeleteLiquor.SERVICE_NAME);
-	setApi(DeleteLiquor.API_NAME);
+	setRequest(DeleteLiquor.REQUEST_NAME);
 	
 	this.onServiceStart = function() {
 		
@@ -41,11 +41,11 @@ function DeleteLiquor() {
 		
 	}
 
-	this.onServiceApiInvoke = function(connectionRequest) {
+	this.onServiceRequestInvoke = function(connectionRequest) {
 		
 	}
 
-	this.onServiceApiFinish = function(connectionResponse) {
+	this.onServiceRequestFinish = function(connectionResponse) {
 		
 	}
 
@@ -56,9 +56,9 @@ function DeleteLiquor() {
 
 
 DeleteLiquor.SERVICE_NAME = "SIMINOV-HYBRID-LIQUORS-SERVICE";
-DeleteLiquor.API_NAME = "DELETE-LIQUOR";
+DeleteLiquor.REQUEST_NAME = "DELETE-LIQUOR";
 
 DeleteLiquor.LIQUOR_NAME = "LIQUOR_NAME";
 
 
-FunctionUtils.extend(Service, DeleteLiquor);
+Function.extend(Service, DeleteLiquor);

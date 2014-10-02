@@ -21,7 +21,7 @@
 function AddLiquor() {
 
 	setService(AddLiquor.SERVICE_NAME);
-	setApi(AddLiquor.API_NAME);
+	setRequest(AddLiquor.REQUEST_NAME);
 	
 	this.onServiceStart = function() {
 		
@@ -43,7 +43,7 @@ function AddLiquor() {
 		
 	}
 
-	this.onServiceApiInvoke = function(connectionRequest) {
+	this.onServiceRequestInvoke = function(connectionRequest) {
 		
 		if(connectionRequest.getDataStream() == null) {
 			return;
@@ -70,7 +70,7 @@ function AddLiquor() {
 		connectionRequest.setDataStream(dataStream);
 	}
 
-	this.onServiceApiFinish = function(connectionResponse) {
+	this.onServiceRequestFinish = function(connectionResponse) {
 		
 	}
 
@@ -82,9 +82,9 @@ function AddLiquor() {
 
 
 AddLiquor.SERVICE_NAME = "SIMINOV-HYBRID-LIQUORS-SERVICE";
-AddLiquor.API_NAME = "ADD-LIQUOR";
+AddLiquor.REQUEST_NAME = "ADD-LIQUOR";
 
 AddLiquor.LIQUOR = "LIQUOR";
 
 
-FunctionUtils.extend(Service, AddLiquor);
+Function.extend(Service, AddLiquor);
