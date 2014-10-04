@@ -65,8 +65,4 @@ public class RegisterDevice extends Service {
 	public void onTerminate(ServiceException serviceException) {
 		
 	}
-
-	public void onRestart() {
-
-	}
 }

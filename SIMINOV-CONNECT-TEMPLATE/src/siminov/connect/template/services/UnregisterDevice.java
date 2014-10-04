@@ -63,8 +63,4 @@ public class UnregisterDevice extends Service {
 	public void onTerminate(ServiceException serviceException) {
 		
 	}
-
-	public void onRestart() {
-		
-	}
 }

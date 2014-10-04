@@ -17,7 +17,6 @@
 
 package siminov.connect.template.activities;
 
-import siminov.connect.service.NameValuePair;
 import siminov.connect.template.R;
 import siminov.connect.template.StateManager;
 import siminov.connect.template.model.Liquor;
@@ -128,7 +127,7 @@ public class AddLiquor extends FragmentActivity {
 	        	 * Submit Liquor
 	        	 */
 	        	siminov.connect.template.services.AddLiquor addLiquor = new siminov.connect.template.services.AddLiquor();
-	        	addLiquor.addResource(new NameValuePair(siminov.connect.template.services.AddLiquor.LIQUOR, liquor.getLiquorType()));
+	        	addLiquor.addResource(siminov.connect.template.services.AddLiquor.LIQUOR, liquor.getLiquorType());
 	        	addLiquor.invoke();
 
 	        	siminov.connect.template.fragments.Home home = (siminov.connect.template.fragments.Home) StateManager.getInstance().getState(StateManager.ACTIVE_FRAGMENT);

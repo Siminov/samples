@@ -99,8 +99,4 @@ public class GetLiquorBrands extends Service {
 	public void onTerminate(ServiceException serviceException) {
 		
 	}
-
-	public void onRestart() {
-		
-	}
 }

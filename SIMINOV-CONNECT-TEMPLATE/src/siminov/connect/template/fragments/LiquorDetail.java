@@ -20,7 +20,6 @@ package siminov.connect.template.fragments;
 import java.util.Collection;
 import java.util.LinkedList;
 
-import siminov.connect.service.NameValuePair;
 import siminov.connect.sync.SyncHandler;
 import siminov.connect.sync.SyncRequest;
 import siminov.connect.sync.design.ISyncRequest;
@@ -108,9 +107,9 @@ public class LiquorDetail extends ListFragment {
 
 		ISyncRequest syncRequest = new SyncRequest();
 		syncRequest.setName(Constants.SYNC_LIQUOR_BRANDS);
-		syncRequest.addResource(new NameValuePair(GetLiquorBrands.LIQUOR_NAME, liquor.getLiquorType()));
-		syncRequest.addResource(new NameValuePair(GetLiquorBrands.LIQUOR, liquor));
-		syncRequest.addResource(new NameValuePair(GetLiquorBrands.UI_COMPONENT, this));
+		syncRequest.addResource(GetLiquorBrands.LIQUOR_NAME, liquor.getLiquorType());
+		syncRequest.addResource(GetLiquorBrands.LIQUOR, liquor);
+		syncRequest.addResource(GetLiquorBrands.UI_COMPONENT, this);
 		
 		SyncHandler syncHandler = SyncHandler.getInstance();
 		syncHandler.handle(syncRequest);
