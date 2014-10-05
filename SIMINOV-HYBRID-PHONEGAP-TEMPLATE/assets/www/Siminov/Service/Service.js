@@ -21,7 +21,7 @@ function Service() {
 	var requestId;
 	
 	var service;
-	var api;
+	var request;
 	
 	var resources = new Dictionary();
 
@@ -48,12 +48,12 @@ function Service() {
 		service = val;
 	}
 	
-	this.getApi = function() {
-		return api;
+	this.getRequest = function() {
+		return request;
 	}
 	
-	this.setApi = function(val) {
-		api = val;
+	this.setRequest = function(val) {
+		request = val;
 	}
 	
 	this.getServiceDescriptor = function() {
@@ -81,28 +81,18 @@ function Service() {
 	 */
 	
 	this.getResources = function() {
-		return resources.values();
+		return resources.keys();
 	} 
 	
-	this.getResource = function(name) {
-		
-		var resource = resources.get(name);
-		if(resource == undefined || resource == null) {
-			return null;
-		}
-		
-		return resource.getValue();
+	this.getResource = function(val) {
+		return resources.get(val);
 	}
 	
-	this.addResource = function(nameValuePair) {
-		resources.add(nameValuePair.getName(), nameValuePair);
+	this.addResource = function(name, value) {
+		resources.add(name, value);
 	}
 
-	this.addNameValuePair = function(nameValuePair) {
-		resources.add(nameValuePair.getName(), nameValuePair);
-	}
-
-	this.containResource = function(nameValuePair) {
-		return resources.exists(nameValuePair.getName());
+	this.containResource = function(val) {
+		return resources.exists(val);
 	}
 }

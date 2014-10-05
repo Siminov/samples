@@ -16,10 +16,11 @@
  **/
 
 
+
 function RegisterDevice() {
 
-	setService(RegisterDevice.SERVICE_NAME);
-	setRequest(RegisterDevice.REQUEST_NAME);
+	this.setService(RegisterDevice.SERVICE_NAME);
+	this.setRequest(RegisterDevice.REQUEST_NAME);
 	
 	this.onServiceStart = function() {
 

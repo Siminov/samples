@@ -16,10 +16,11 @@
  **/
 
 
+
 function UnregisterDevice() {
 
-	setService(UnregisterDevice.SERVICE_NAME);
-	setRequest(UnregisterDevice.REQUEST_NAME);
+	this.setService(UnregisterDevice.SERVICE_NAME);
+	this.setRequest(UnregisterDevice.REQUEST_NAME);
 	
 	this.onServiceStart = function() {
 

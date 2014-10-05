@@ -77,10 +77,10 @@ function ServiceEventHandler() {
         //Inflate Resources
         var resourceKeys = resources.keys();
         for(var i = 0;i < resourceKeys.length;i++) {
-        	var resource = resources.get(resourceKeys[i]);
+        	var resourceName = resourceKeys[i];
+        	var resourceValue = resources.get(resourceName);
         	
-        	var nameValuePair = new NameValuePair(resourceKeys[i], resource);
-        	Function.invokeAndInflate(eventHandler, Constants.ISERVICE_ADD_RESOURCE, nameValuePair);
+        	Function.invokeAndInflate(eventHandler, Constants.ISERVICE_ADD_RESOURCE, resourceName, resourceValue);
         }
         
 

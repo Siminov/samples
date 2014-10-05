@@ -32,28 +32,18 @@ function SyncRequest() {
 	}
 	
 	this.getResources = function() {
-		return resources.values();
+		return resources.keys();
 	}
 
 	this.getResource = function(val) {
-		
-		var resource = resources.get(name);
-		if(resource == undefined || resource == null) {
-			return null;
-		}
-
-		return resource.getValue();
+		return resources.get(val);
 	}
 
-	this.addResource = function(nameValuePair) {
-		resources.add(nameValuePair.getName(), nameValuePair);
+	this.addResource = function(name, value) {
+		resources.add(name, value);
 	}
 
-	this.addNameValuePair = function(nameValuePair) {
-		resources.add(nameValuePair.getName(), nameValuePair);
-	}
-
-	this.containResource = function(nameValuePair) {
-		return resources.exists(nameValuePair.getName());
+	this.containResource = function(val) {
+		return resources.exists(val);
 	}
 }

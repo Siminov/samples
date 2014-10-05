@@ -139,7 +139,6 @@ document.write('<script type="text/javascript" src="Siminov/Exception/SiminovExc
 document.write('<script type="text/javascript" src="Siminov/Service/Service.js"></script>');
 document.write('<script type="text/javascript" src="Siminov/Service/ServiceHandler.js"></script>');
 document.write('<script type="text/javascript" src="Siminov/Service/ServiceEventHandler.js"></script>');
-document.write('<script type="text/javascript" src="Siminov/Service/NameValuePair.js"></script>');
  
 document.write('<script type="text/javascript" src="Siminov/Service/Design/IResource.js"></script>');
 document.write('<script type="text/javascript" src="Siminov/Service/Design/IService.js"></script>');
@@ -172,14 +171,3 @@ document.write('<script type="text/javascript" src="Siminov/Sync/SyncRequest.js"
 document.write('<script type="text/javascript" src="Siminov/Sync/SyncHandler.js"></script>');
  
  
-
-/*
-	Authorization Import
- */
-document.write('<script type="text/javascript" src="Siminov/Authorization/AuthorizationFactory.js"></script>');
-document.write('<script type="text/javascript" src="Siminov/Authorization/Authorization.js"></script>');
-document.write('<script type="text/javascript" src="Siminov/Authorization/Credential.js"></script>');
-document.write('<script type="text/javascript" src="Siminov/Authorization/CredentialManager.js"></script>');
-
-document.write('<script type="text/javascript" src="Siminov/Authorization/Design/ICredential.js"></script>');
-document.write('<script type="text/javascript" src="Siminov/Authorization/Design/ICredentialManager.js"></script>');

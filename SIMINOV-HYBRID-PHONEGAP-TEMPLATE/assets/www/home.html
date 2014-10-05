@@ -236,7 +236,7 @@
 				var syncRequest = new SyncRequest();
 				syncRequest.setName(SYNC_LIQUOR_BRANDS);
 				
-				syncRequest.addResource(new NameValuePair(GetLiquorBrands.LIQUOR_NAME, liquor.getLiquorType()));
+				syncRequest.addResource(GetLiquorBrands.LIQUOR_NAME, liquor.getLiquorType());
 				
 				
 				var syncHandler = SyncHandler.getInstance();
@@ -247,7 +247,7 @@
 				getLiquorBrands.setService(GetLiquorBrands.SERVICE_NAME);
 				getLiquorBrands.setApi(GetLiquorBrands.API_NAME);
 				
-				getLiquorBrands.addResource(new NameValuePair(GetLiquorBrands.LIQUOR_NAME, liquor.getLiquorType()));
+				getLiquorBrands.addResource(GetLiquorBrands.LIQUOR_NAME, liquor.getLiquorType());
 
 				getLiquorBrands.invoke();*/
 				

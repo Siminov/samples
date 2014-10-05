@@ -16,10 +16,11 @@
  **/
 
 
+
 function DeleteLiquor() {
 
-	setService(DeleteLiquor.SERVICE_NAME);
-	setRequest(DeleteLiquor.REQUEST_NAME);
+	this.setService(DeleteLiquor.SERVICE_NAME);
+	this.setRequest(DeleteLiquor.REQUEST_NAME);
 	
 	this.onServiceStart = function() {
 		

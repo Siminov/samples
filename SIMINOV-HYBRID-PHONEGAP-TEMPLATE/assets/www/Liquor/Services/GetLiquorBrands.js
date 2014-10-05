@@ -19,8 +19,8 @@
 
 function GetLiquorBrands() {
 
-	setService(GetLiquorBrands.SERVICE_NAME);
-	setRequest(GetLiquorBrands.REQUEST_NAME);
+	this.setService(GetLiquorBrands.SERVICE_NAME);
+	this.setRequest(GetLiquorBrands.REQUEST_NAME);
 	
 	this.onServiceStart = function() {
 

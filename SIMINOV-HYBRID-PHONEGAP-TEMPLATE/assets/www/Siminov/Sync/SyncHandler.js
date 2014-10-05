@@ -57,17 +57,15 @@ var SyncHandler = (function() {
 					
 					var hybridResources = new HybridSiminovDatas.HybridSiminovData();
 					hybridResources.setDataType(Constants.SYNC_ADAPTER_HANDLE_HANDLER_SYNC_REQUEST_RESOURCES);
-	
+
 					for(var i = 0;i < resources.length;i++) {
 						
-						var nameValuePair = resources[i];
-						
-						var resourceKey = nameValuePair.getName();
-						var resourceValue = nameValuePair.getValue();
+						var resourceName = resources[i];
+						var resourceValue = syncRequest.getResource(resourceName);
 						resourceValue = '' + resourceValue;
 						
 						var hybridResource = new HybridSiminovDatas.HybridSiminovData.HybridSiminovValue();
-						hybridResource.setType(resourceKey);
+						hybridResource.setType(resourceName);
 						hybridResource.setValue('' + resourceValue);
 	
 						hybridResources.addValue(hybridResource);

@@ -72,10 +72,9 @@ var ServiceHandler = (function() {
 						hybridResources.setDataType(Constants.SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE_RESOURCES);
 					
 					for(var i = 0;i < resources.length;i++) {
-						var resource = resources[i];
+						var resourceName = resources[i];
+						var resourceValue = iService.getResource(resourceName);
 						
-						var resourceName = resource.getName();
-						var resourceValue = resource.getValue();
 						resourceValue = '' + resourceValue;
 						
 						var hybridResource = new HybridSiminovDatas.HybridSiminovData.HybridSiminovValue();

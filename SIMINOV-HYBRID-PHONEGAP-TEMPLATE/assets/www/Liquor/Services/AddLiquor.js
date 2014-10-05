@@ -20,8 +20,8 @@
 
 function AddLiquor() {
 
-	setService(AddLiquor.SERVICE_NAME);
-	setRequest(AddLiquor.REQUEST_NAME);
+	this.setService(AddLiquor.SERVICE_NAME);
+	this.setRequest(AddLiquor.REQUEST_NAME);
 	
 	this.onServiceStart = function() {
 		

@@ -20,8 +20,8 @@
 
 function GetLiquors() {
 
-	setService(GetLiquors.SERVICE_NAME);
-	setRequest(GetLiquors.REQUEST_NAME);
+	this.setService(GetLiquors.SERVICE_NAME);
+	this.setRequest(GetLiquors.REQUEST_NAME);
 	
 	this.onServiceStart = function() {
 		//alert("onServiceStart");		
