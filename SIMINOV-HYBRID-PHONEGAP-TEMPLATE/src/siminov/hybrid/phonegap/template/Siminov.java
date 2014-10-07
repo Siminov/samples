@@ -22,6 +22,7 @@ import org.apache.cordova.DroidGap;
 import siminov.orm.IInitializer;
 import android.app.Activity;
 import android.os.Bundle;
+import android.webkit.WebView;
 
 public class Siminov extends DroidGap {
 
@@ -33,6 +34,8 @@ public class Siminov extends DroidGap {
 
 		initializeSiminov();
 
+		//WebView.setWebContentsDebuggingEnabled(true);
+		
 		super.loadUrl("file:///android_asset/www/home.html");
 	}
 
