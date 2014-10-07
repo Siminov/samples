@@ -16,10 +16,34 @@
  **/
 
 
+
+/**
+	Exposes classes which deal with services.
+	Service is a client-side communication component that process and handles any web service request. It performs long running operations in the background.
+	A Service is a group of APIs which deals on one particular web service.
+	
+	@module Service
+*/
+
+
+
+/**
+	Any service event triggered by Siminov is first handled by this function later it will deliver to appropriate Service Event APIs. 
+
+	@module Service
+	@class ServiceEventHandler
+	@constructor
+*/
 function ServiceEventHandler() {
 
-
-    this.triggerEvent = function(data) {
+	
+	/**
+		Handle service event triggered by Siminov.
+		
+		@method triggerEvent
+		@param data {String} Hybrid Data From Native
+	*/
+	this.triggerEvent = function(data) {
 
         var hybridSiminovDatas = SIJsonHelper.toSI(data);
         var datas = hybridSiminovDatas.getHybridSiminovDatas();
@@ -85,28 +109,28 @@ function ServiceEventHandler() {
         
 
 		//Invoke Event API
-        if(event === Constants.ISERVICE_ON_SERVICE_START) {
+        if(event === Constants.ISERVICE_ON_START_EVENT) {
 					
             Function.invokeAndInflate(eventHandler, event);
-        } else if(event === Constants.ISERVICE_ON_SERVICE_QUEUE) {
+        } else if(event === Constants.ISERVICE_ON_QUEUE_EVENT) {
 
             Function.invokeAndInflate(eventHandler, event);
-        } else if(event === Constants.ISERVICE_ON_SERVICE_PAUSE) {
+        } else if(event === Constants.ISERVICE_ON_PAUSE_EVENT) {
 
             Function.invokeAndInflate(eventHandler, event);
-        } else if(event === Constants.ISERVICE_ON_SERVICE_RESUME) {
+        } else if(event === Constants.ISERVICE_ON_RESUME_EVENT) {
             
             Function.invokeAndInflate(eventHandler, event);
-        } else if(event === Constants.ISERVICE_ON_SERVICE_FINISH) {
+        } else if(event === Constants.ISERVICE_ON_FINISH_EVENT) {
 
             Function.invokeAndInflate(eventHandler, event);
-        } else if(event === Constants.ISERVICE_ON_SERVICE_REQUEST_INVOKE) {
+        } else if(event === Constants.ISERVICE_ON_REQUEST_INVOKE_EVENT) {
 
 			Function.invokeAndInflate(eventHandler, event, connectionRequest);
-        } else if(event === Constants.ISERVICE_ON_SERVICE_REQUEST_FINISH) {
+        } else if(event === Constants.ISERVICE_ON_REQUEST_FINISH_EVENT) {
 
 			Function.invokeAndInflate(eventHandler, event, connectionResponse);
-        } else if(event === Constants.ISERVICE_ON_SERVICE_TERMINATE) {
+        } else if(event === Constants.ISERVICE_ON_TERMINATE_EVENT) {
 
             Function.invokeAndInflate(eventHandler, event);
         }

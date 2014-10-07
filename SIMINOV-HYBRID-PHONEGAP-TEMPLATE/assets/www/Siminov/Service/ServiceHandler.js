@@ -17,13 +17,36 @@
 
 
 
+/**
+	Exposes classes which deal with services.
+	Service is a client-side communication component that process and handles any web service request. It performs long running operations in the background.
+	A Service is a group of APIs which deals on one particular web service.
+	
+	@module Service
+*/
+
+
+
+/**
+	It exposes APIs to process service request
+
+	@module Service
+	@class ServiceHandler
+	@constructor
+*/
 var ServiceHandler = (function() {
 
 	var serviceHandler;
 	
 	return {
 	
-		getInstance : function() {
+		/**
+		 * Get singleton instance of Service Handler class
+		 * 
+		 * @method getInstance
+		 * @return {ServiceHandler} Singleton instance of Service Handler
+		 */
+		getInstance: function() {
 			if(serviceHandler == null) {
 				serviceHandler = new ServiceHandler();
 				
@@ -32,13 +55,17 @@ var ServiceHandler = (function() {
 			
 			return serviceHandler;
 		}
-	
 	}
 	
 
 	function ServiceHandler() {
 		
-		
+		/**
+		 * It handles the service request 
+		 * 
+		 * @method handler
+		 * @param iService {Service} Service instance
+		 */
 		this.handle = function(iService) {
 
 	        var adapter = new Adapter();

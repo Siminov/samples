@@ -16,13 +16,37 @@
  **/
 
 
+/**
+	Exposes classes which deal with services.
+	It allows app to automatically checks for updates in the background, using battery and your data plan. 
+	
+	You can customise how often it does these checks by adjusting the Refresh Interval. If you don't framework to update regularly, you should set this value to zero to
+	conserve both your battery and your data use.
+	
+	@module Sync
+*/
 
+
+
+/**
+	It exposes APIs to process sync request
+
+	@module Sync
+	@class SyncHandler
+	@constructor
+*/
 var SyncHandler = (function() {
 
 	var syncHandler;
 	
 	return {
-	
+		
+		/**
+		 * Get singleton instance of Sync Handler class
+		 * 
+		 * @method getInstance
+		 * @return {SyncHandler} Singleton instance of Sync Handler 
+		 */
 		getInstance : function() {
 			
 			if(syncHandler == null) {
@@ -38,7 +62,10 @@ var SyncHandler = (function() {
 
 	function SyncHandler() {
 
-
+		/**
+		 * It handles and processes the sync request
+		 * 
+		 */
 		this.handle = function(syncRequest) {
 			
 			var hybridSiminovDatas = new HybridSiminovDatas();

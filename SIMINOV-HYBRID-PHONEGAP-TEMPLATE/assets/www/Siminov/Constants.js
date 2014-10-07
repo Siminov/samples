@@ -982,50 +982,330 @@ Constants.SIMINOV_HYBRID_DATA_TEXT = "#text";
 
 // Siminov Service 
 
+/**
+	Service Adapter
+
+	@property SERVICE_ADAPTER
+	@type String
+	@static
+	@final
+	@readOnly
+*/
 Constants.SERVICE_ADAPTER = "SERVICE";
 
+/**
+	Service Adapter Invoke Handler
+
+	@property SERVICE_ADAPTER_INVOKE_HANDLER
+	@type String
+	@static
+	@final
+	@readOnly
+*/
 Constants.SERVICE_ADAPTER_INVOKE_HANDLER = "INVOKE";
 
+/**
+	Service Adapter Invoke Handler Service
+
+	@property SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE
+	@type String
+	@static
+	@final
+	@readOnly
+*/
 Constants.SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE = "SERVICE";
 
+/**
+	Service Adapter Invoke Handler Service Name
+
+	@property SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE_NAME
+	@type String
+	@static
+	@final
+	@readOnly
+*/
 Constants.SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE_NAME = "SERVICE_NAME";
 
+/**
+	Service Adapter Invoke Handler Service API
+
+	@property SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE_API
+	@type String
+	@static
+	@final
+	@readOnly
+*/
 Constants.SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE_API = "API_NAME";
 
+/**
+	Service Adapter Invoke Handler Service Resources
+
+	@property SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE_RESOURCES
+	@type String
+	@static
+	@final
+	@readOnly
+*/
 Constants.SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE_RESOURCES = "RESOURCES";
 
 
+/**
+	IService API Handler
 
-
+	@property ISERVICE_API_HANDLER
+	@type String
+	@static
+	@final
+	@readOnly
+*/
 Constants.ISERVICE_API_HANDLER = "ISERVICE_API_HANDLER";
+
+/**
+	IService Triggered Event
+
+	@property ISERVICE_TRIGGERED_EVENT
+	@type String
+	@static
+	@final
+	@readOnly
+*/
 Constants.ISERVICE_TRIGGERED_EVENT = "TRIGGERED_EVENT";
+
+/**
+	IService Connection Request
+
+	@property ISERVICE_CONNECTION_REQUEST
+	@type String
+	@static
+	@final
+	@readOnly
+*/
 Constants.ISERVICE_CONNECTION_REQUEST = "ConnectionRequest";
+
+/**
+	IService Connection Response
+
+	@property ISERVICE_CONNECTION_RESPONSE
+	@type String
+	@static
+	@final
+	@readOnly
+*/
 Constants.ISERVICE_CONNECTION_RESPONSE = "ConnectionResponse";
-Constants.ISERVICE_ON_SERVICE_START = "onServiceStart";
-Constants.ISERVICE_ON_SERVICE_QUEUE = "onServiceQueue";
-Constants.ISERVICE_ON_SERVICE_PAUSE = "onServicePause";
-Constants.ISERVICE_ON_SERVICE_RESUME = "onServiceResume";
-Constants.ISERVICE_ON_SERVICE_FINISH = "onServiceFinish";
-Constants.ISERVICE_ON_SERVICE_REQUEST_INVOKE = "onServiceRequestInvoke";
-Constants.ISERVICE_ON_SERVICE_REQUEST_FINISH = "onServiceRequestFinish";
-Constants.ISERVICE_ON_SERVICE_TERMINATE = "onServiceTerminate";
+
+/**
+	IService On Start Event
+
+	@property ISERVICE_ON_START_EVENT
+	@type String
+	@static
+	@final
+	@readOnly
+*/
+Constants.ISERVICE_ON_START_EVENT = "onStart";
+
+/**
+	IService On Queue Event
+
+	@property ISERVICE_ON_QUEUE_EVENT
+	@type String
+	@static
+	@final
+	@readOnly
+*/
+Constants.ISERVICE_ON_QUEUE_EVENT = "onQueue";
+
+/**
+	IService On Pause Event
+
+	@property ISERVICE_ON_PAUSE_EVENT
+	@type String
+	@static
+	@final
+	@readOnly
+*/
+Constants.ISERVICE_ON_PAUSE_EVENT = "onPause";
+
+/**
+	IService On Resume Event
+
+	@property ISERVICE_ON_RESUME_EVENT
+	@type String
+	@static
+	@final
+	@readOnly
+*/
+Constants.ISERVICE_ON_RESUME_EVENT = "onResume";
+
+/**
+	IService On Finish Event
+
+	@property ISERVICE_ON_FINISH_EVENT
+	@type String
+	@static
+	@final
+	@readOnly
+*/
+Constants.ISERVICE_ON_FINISH_EVENT = "onFinish";
+
+/**
+	IService On Request Invoke Event
+
+	@property ISERVICE_ON_REQUEST_INVOKE_EVENT
+	@type String
+	@static
+	@final
+	@readOnly
+*/
+Constants.ISERVICE_ON_REQUEST_INVOKE_EVENT = "onRequestInvoke";
+
+/**
+	IService On Request Finish Event
+
+	@property ISERVICE_ON_REQUEST_FINISH_EVENT
+	@type String
+	@static
+	@final
+	@readOnly
+*/
+Constants.ISERVICE_ON_REQUEST_FINISH_EVENT = "onRequestFinish";
+
+/**
+	IService On Terminate Event
+
+	@property ISERVICE_ON_TERMINATE_EVENT
+	@type String
+	@static
+	@final
+	@readOnly
+*/
+Constants.ISERVICE_ON_TERMINATE_EVENT = "onTerminate";
+
+/**
+	IService Resources	
+
+	@property ISERVICE_RESOURCES
+	@type String
+	@static
+	@final
+	@readOnly
+*/
 Constants.ISERVICE_RESOURCES = "RESOURCES";
+
+/**
+	IService Resource
+
+	@property ISERVICE_RESOURCE
+	@type String
+	@static
+	@final
+	@readOnly
+*/
 Constants.ISERVICE_RESOURCE = "RESOURCE";
+
+/**
+	IService Add Resource
+
+	@property ISERVICE_ADD_RESOURCE
+	@type String
+	@static
+	@final
+	@readOnly
+*/
 Constants.ISERVICE_ADD_RESOURCE = "addResource";
 
 
+//Notification Adapter Constants
 
+/**
+	Notification Adapter
+
+	@property NOTIFICATION_ADAPTER
+	@type String
+	@static
+	@final
+	@readOnly
+*/
 Constants.NOTIFICATION_ADAPTER = "NOTIFICATION";
 
+/**
+	Notification Adater Do Registration Handler
+
+	@property NOTIFICATION_ADAPTER_DO_REGISTRATION_HANDLER
+	@type String
+	@static
+	@final
+	@readOnly
+*/
 Constants.NOTIFICATION_ADAPTER_DO_REGISTRATION_HANDLER = "DO-REGISTRATION";
+
+/**
+	Notification Adapter Do Unregistration handler
+
+	@property NOTIFICATION_ADPATER_DO_UNREGISTRATION_HANDLER
+	@type String
+	@static
+	@final
+	@readOnly
+*/
 Constants.NOTIFICATION_ADPATER_DO_UNREGISTRATION_HANDLER = "DO-UNREGISTRATION";
 
 
+//Sync Adapter Constants
+
+/**
+	Sync Adapter
+
+	@property SYNC_ADAPTER
+	@type String
+	@static
+	@final
+	@readOnly
+*/
 Constants.SYNC_ADAPTER = "SYNC";
+
+/**
+	Sync Adapter Handler Handler
+
+	@property SYNC_ADAPTER_HANDLE_HANDLER
+	@type String
+	@static
+	@final
+	@readOnly
+*/
 Constants.SYNC_ADAPTER_HANDLE_HANDLER = "HANDLE";
 
+/**
+	Sync Adapter Handler Handler Sync Request
+
+	@property SYNC_ADAPTER_HANDLE_HANDLER_SYNC_REQUEST
+	@type String
+	@static
+	@final
+	@readOnly
+*/
 Constants.SYNC_ADAPTER_HANDLE_HANDLER_SYNC_REQUEST = "SyncRequest";
+
+/**
+	Sync Adapter Handler Handler Sync Request Name
+
+	@property SYNC_ADAPTER_HANDLE_HANDLER_SYNC_REQUEST_NAME
+	@type String
+	@static
+	@final
+	@readOnly
+*/
 Constants.SYNC_ADAPTER_HANDLE_HANDLER_SYNC_REQUEST_NAME = "name";
+
+/**
+	Sync Adapter Handler Handler Sync Request Resources
+
+	@property SYNC_ADAPTER_HANDLE_HANDLER_SYNC_REQUEST_RESOURCES
+	@type String
+	@static
+	@final
+	@readOnly
+*/
 Constants.SYNC_ADAPTER_HANDLE_HANDLER_SYNC_REQUEST_RESOURCES = "RESOURCES";
 
 

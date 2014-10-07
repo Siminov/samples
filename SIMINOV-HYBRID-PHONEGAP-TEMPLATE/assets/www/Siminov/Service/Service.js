@@ -105,14 +105,31 @@ function Service() {
 		request = val;
 	}
 	
+	/**
+	 * Get service descriptor
+	 * 
+	 * @method getServiceDescriptor
+	 * @return {ServiceDescriptor} Service Descriptor
+	 */
 	this.getServiceDescriptor = function() {
 		return serviceDescriptor;
 	}
 	
+	/**
+	 * Set service descriptor
+	 * 
+	 * @method setServiceDescriptor
+	 * @param val {ServiceDescriptor} Service Descriptor
+	 */
 	this.setServiceDescriptor = function(val) {
 		serviceDescriptor = val;
 	}
 	
+	/**
+	 * It invokes the respective service request
+	 * 
+	 * @method invoke
+	 */
 	this.invoke = function() {
 
 		var serviceHandler = ServiceHandler.getInstance();
@@ -128,19 +145,47 @@ function Service() {
 	/*
 	 * IResource APIs
 	 */
-	
+	 
+	/**
+	 * Get all resources
+	 * 
+	 * @method getResources
+	 * @return {Array} Resources
+	 */ 
 	this.getResources = function() {
 		return resources.keys();
 	} 
 	
+	/**
+	 * Get resource based on name
+	 * 
+	 * @method getResource
+	 * @param val {String} Name of resource
+	 * @return {String} Resource
+	 */
 	this.getResource = function(val) {
 		return resources.get(val);
 	}
 	
+	/**
+	 * Add resource
+	 * 
+	 * @method addResource 
+	 * @param name {String} Name of resource
+	 * @param value {String} Value of resource
+	 */
 	this.addResource = function(name, value) {
 		resources.add(name, value);
 	}
 
+
+	/**
+	 * Check whether it contain resource or not
+	 * 
+	 * @method containResource
+	 * @param val {String} Name of resource
+	 * @return {boolean} (true/false) TRUE: If resource exists | FALSE: If resource does not exists
+	 */
 	this.containResource = function(val) {
 		return resources.exists(val);
 	}
