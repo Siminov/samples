@@ -42,9 +42,9 @@ function ServiceEventHandler() {
                     apiHandler = data.getDataValue();
                 } else if(dataType === Constants.ISERVICE_TRIGGERED_EVENT) {
 					event = data.getDataValue();
-                } else if(dataType === ConnectionRequest.NAME) {
+                } else if(dataType === Constants.ISERVICE_CONNECTION_REQUEST) {
 					connectionRequest = SIDatasHelper.toModel(data);
-                } else if(dataType === ConnectionResponse.NAME) {
+                } else if(dataType === Constants.ISERVICE_CONNECTION_RESPONSE) {
                 	connectionResponse = SIDatasHelper.toModel(data);
                 	
                 	var response = connectionResponse.getResponse();

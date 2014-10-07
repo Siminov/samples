@@ -28,24 +28,40 @@
 	
 		
 	Example:
+				
 		<database-descriptor>
 		
-			<property name="database_name">SIMINOV-HYBRID-TEMPLATE</property>
-			<property name="description">Siminov Hybrid Template Database Config</property>
-			<property name="is_locking_required">true</property>
-			<property name="external_storage">false</property>
+		    <!-- General Database Descriptor Properties -->
+		    
+			    <!-- Mandatory Field -->
+			<property name="database_name">name_of_database_file</property>
 		
-			<database-mappings>
-				<database-mapping path="Liquor-Mappings/Liquor.si.xml" />
-				<database-mapping path="Liquor-Mappings/LiquorBrand.si.xml" />
-			</database-mappings>
+				<!-- Optional Field (Default is sqlite)-->
+			<property name="type">type_of_database</property>
+		
+				<!-- Mandatory Field -->
+			<property name="version">database_version</property>
+					
+				<!-- Optional Field -->
+			<property name="description">database_description</property>
+		
+				<!-- Optional Field (Default is false) -->
+			<property name="transaction_safe">true/false</property>
+			
+				<!-- Optional Field (Default is false) -->
+			<property name="external_storage">true/false</property>
+				
 		
 		
-			<libraries>
-				<library>siminov.orm.library.template.resources</library>
-			</libraries>
-		
-		</database-descriptor>	
+			<!-- Database Mapping Descriptor Paths Needed Under This Database Descriptor -->
+			
+				<!-- Optional Field -->
+			<database-mapping-descriptors>
+				<database-mapping-descriptor>full_path_of_database_mapping_descriptor_file</database-mapping-descriptor>
+			</database-mapping-descriptors>
+			
+		</database-descriptor>
+
 
 	@module Model
 	@class DatabaseDescriptor
@@ -235,24 +251,4 @@ function DatabaseDescriptor() {
     this.addDatabaseMappingDescriptorPath = function(databaseMappingPath) {
     	databaseMappingPaths.push(databaseMappingPath);
 	}
-	
-	/**
-	 	Get all library paths as per defined in DatabaseDescriptor.si.xml file.
-	 
-	 	@method getLibraryPaths
-	 	@return {Array} It contains all library paths.
-	 */
-    this.getLibraryPaths = function() {
-    	return libraries;
-	}
-	
-	/**
-	 	Add library path as per defined in DatabaseDescriptor.si.xml file.
-	 
-	 	@method addLibraryPath
-	 	@param libraryPath {String} Library path defined in DatabaseDescriptor.si.xml file.
-	 */
-    this.addLibraryPath = function(libraryPath) {
-    	libraries.push(libraryPath);
-    }
 } 

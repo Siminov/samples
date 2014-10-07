@@ -15,7 +15,93 @@
  * limitations under the License.
  **/
 
-function AdapterDescriptor() {
+
+/**
+	It contain all Models as per required by Siminov Framework.
+
+	@module Model
+*/
+
+/**
+ 	Exposes methods to GET and SET Adapter Descriptor information as per define in AdapterDescriptor.si.xml file by application.
+		
+	Example:
+		<adapter-descriptor>
+    
+		    <!-- General Adapter Properties -->
+		    	<!-- Mandatory Field -->
+		    <property name="name">adapter_name</property>
+		    	
+		    	<!-- Optional Field -->
+		    <property name="description">adapter_description</property>
+		    
+		    	<!-- Mandatory Field -->
+		    <property name="type">WEB-TO-NATIVE|NATIVE-TO-WEB</property>
+		    
+		    	<!-- Optional Field -->
+		    <property name="map_to">name_of_adapter_class</property>
+		
+		    	<!-- Optional Field (DEFAULT: FALSE)-->
+		    <property name="cache">true/false</property>
+		    
+		    <!-- Handlers -->
+		    	<!-- Handler -->
+		    <handlers>
+		        
+		     <handler>
+		         
+		         <!-- General Handler Properties -->
+		         	<!-- Mandatory Field -->
+		         <property name="name">handler_name</property>
+		         
+		         	<!-- Optional Field -->
+		         <property name="description">handler_description</property>	            
+		          	            
+		         	<!-- Mandatory Field -->
+		         <property name="map_to">name_of_handler_method</property>	            
+		         
+		         		            	            	           
+		         <!-- Parameters -->
+		         <parameters>
+		             
+		             <!-- Parameter -->
+		             <parameter>
+		                 
+		                 	<!-- Mandatory Field -->
+		                 <property name="name">name_of_parameter</property>
+		                 
+		                 	<!-- Mandatory Field -->
+		                 <property name="type">parameter_type</property>
+		                 
+		                 	<!-- Optional Field -->
+		                 <property name="description">description_of_parameter</property>
+		                 
+		             </parameter>
+		             
+		         </parameters>
+		         
+		         <return>
+		             
+		             	<!-- Mandatory Field -->
+		             <property name="type">return_type</property>
+		             
+		             	<!-- Optional Field -->
+		             <property name="description">return_data_description</property>
+		             
+		         </return>
+		         
+		     </handler>
+		         
+		    </handlers>
+	
+		</adapter-descriptor>
+
+	@module Model	
+	@class ApplicationDescriptor
+	@constructor
+
+ */
+ function AdapterDescriptor() {
 
     var properties = new Dictionary();
 
@@ -181,9 +267,9 @@ function AdapterDescriptor() {
 
 
 /**
- 	Exposes methods to GET and SET Hybrid Descriptor Adapter Handler information as per define in HybridDescriptor.si.xml file or in standalone adapter xml file in application.
+ 	Exposes methods to GET and SET Adapter Descriptor Handler information as per define in AdapterDescriptor.si.xml file or in standalone adapter xml file in application.
 
-	@class HybridDescriptor.Adapter.Handler
+	@class AdapterDescriptor.Handler
  */
 AdapterDescriptor.Handler = function() {
 
@@ -312,9 +398,9 @@ AdapterDescriptor.Handler = function() {
 
 
 /**
- 	Exposes methods to GET and SET Parameter information as per define in HybridDescriptor.si.xml file or in standalone adapter xml file in application.
+ 	Exposes methods to GET and SET Parameter information as per define in AdapterDescriptor.si.xml file or in standalone adapter xml file in application.
  	
- 	@class HybridDescription.Adapter.Handler.Parameter
+ 	@class AdapterDescriptor.Handler.Parameter
  */
 AdapterDescriptor.Handler.Parameter = function() {
 
@@ -418,7 +504,7 @@ AdapterDescriptor.Handler.Parameter = function() {
 
 
 /**
- 	Exposes methods to GET and SET Return information as per define in HybridDescriptor.si.xml file or in standalone adapter xml file in application.
+ 	Exposes methods to GET and SET Return information as per define in AdapterDescriptor.si.xml file or in standalone adapter xml file in application.
  */
 AdapterDescriptor.Handler.Return = function() {
 

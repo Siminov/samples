@@ -30,35 +30,52 @@
 		
 	Example:
 
-		<library>
+		<library-descriptor>
 		
-			<property name="name">SIMINOV LIBRARY TEMPLATE</property>
-			<property name="description">Siminov Library Template</property>
+		    <!-- General Properties Of Library -->
+		    
+		    <!-- Mandatory Field -->
+			<property name="name">name_of_library</property>
+			
+			<!-- Optional Field -->
+			<property name="description">description_of_library</property>
 		
-			<!-- Database Mappings -->
-				<database-mappings>
-					<database-mapping path="Credential.si.xml" />
-				</database-mappings>
-		
-				 	<!-- OR -->
-				 
-				<database-mappings>
-					<database-mapping path="siminov.orm.library.template.model.Credential" />
-				</database-mappings>
+			
+			
+			<!-- Database Mappings Needed Under This Library Descriptor -->
+			
+			<!-- Optional Field -->
+				<!-- Database Mappings -->
+			<database-mappings>
+				<database-mapping>name_of_database_descriptor.full_path_of_database_mapping_descriptor_file</database-mapping>
+			</database-mappings>
 			 
-		</library>
-		
+			
+			<!-- Hybrid Adapters Needed Under This Library Descriptor -->
+				
+			<!-- Optional Field -->
+				<!-- Hybrid Adapters -->
+			<adapters>
+			    <adapter>full_path_of_hybrid_adapter_file</adapter>
+			</adapters>
+			
+			
+		</library-descriptor>
+
 	
 	@module Model		
 	@class LibraryDescriptor
 	@constructor
  */
-
 function LibraryDescriptor() {
 
     var properties = new Dictionary();
 
     var databaseMappingDescriptorPaths = new Array();
+	var serviceDescriptorPaths = new Array();
+	var adapterDescriptorPaths = new Array();
+	
+
 
 	/**
 	 	Get library name.
@@ -187,5 +204,46 @@ function LibraryDescriptor() {
     this.addDatabaseMappingDescriptorPath = function(databaseMappingDescriptorPath) {
     	databaseMappingDescriptorPaths.push(databaseMappingDescriptorPaths);
 	}
+    
+    
+    /**
+     * Get all service descriptor paths
+     * 
+     * @method getServiceDescriptorPaths
+     * @return {Array} Service Descriptor Paths
+     */
+    this.getServiceDescriptorPaths = function() {
+    	return serviceDescriptorPaths;
+    }
+    
+    /**
+     * Add service descriptor path
+     * 
+     * @method addServiceDescriptorPath
+     * @param serviceDescriptorPath {String} Service descriptor path
+     */
+    this.addServiceDescriptorPath = function(serviceDescriptorPath) {
+    	serviceDescriptorPaths.push(serviceDescriptorPath);
+    }
+    
+    /**
+     * Get all adapter descriptor paths
+     * 
+     * @method getAdapterDescriptorPaths
+     * @param {Array} Adapter Descriptor Paths
+     */
+    this.getAdapterDescriptorPaths = function() {
+    	return adapterDescriptorPaths;
+    }
+    
+    /**
+     * Get adapter descriptor path
+     * 
+     * @method getAdapterDescriptorPath
+     * @param adapterDescriptorPath {String} Adapter Descriptor Path
+     */
+    this.getAdapterDescriptorPath = function(adapterDescriptorPath) {
+    	adapterDescriptorPaths.push(adapterDescriptorPath);
+    }
     
 }

@@ -27,10 +27,10 @@
 
 
 /**
-	Impl contain all interfaces required by database layer to deal with database.
+	Design contain all interfaces required by database layer to deal with database.
 
 	@module Database
-	@submodule Impl
+	@submodule Design
 */
 
 

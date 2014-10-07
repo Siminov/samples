@@ -16,8 +16,21 @@
  **/
 
 
-ConnectionRequest.NAME = "ConnectionRequest";
+/**
+	It is one which describes properties required to describe connection information.
 
+	@module Connection
+*/
+
+
+/**
+	It contains connection request information.
+	Exposes method to GET and SET connection request details.
+
+	@module Connection
+	@class ConnectionRequest
+	@constructor
+ */
 function ConnectionRequest() {
 
 	var url;
@@ -30,59 +43,148 @@ function ConnectionRequest() {
 	
 	var dataStream;
 	
-	
+
+	/**
+		Get Instance Url.
+		
+		@method getUrl
+		@return {String} Url of instance.	
+	*/
 	this.getUrl = function() {
 		return url;
 	}
 	
+	/**
+		Set Instance Url.
+		
+		@method setUrl
+		@param value {String} Instance Url.
+	*/
 	this.setUrl = function(value) {
 		url = value;
 	}
 
+	/**
+		Get Protocol.
+		
+		@method getProtocol
+		@return {String} Protocol of request.	
+	*/
 	this.getProtocol = function() {
 		return protocol;
 	}
 	
+	/**
+		Set Request Protocol.
+		
+		@method setProtocol
+		@param value {String} Request Protocol.
+	*/
 	this.setProtocol = function(value) {
 		protocol = value;
 	}
 	
+	/**
+		Get Type.
+		
+		@method getType
+		@return {String} Type of request.	
+	*/
 	this.getType = function() {
 		return type;
 	}
 	
+	/**
+		Set Request Type.
+		
+		@method setType
+		@param value {String} Reequest Type.
+	*/
 	this.setType = function(value) {
 		type = value;
 	}
 	
+	/**
+		Get all query parameters.
+		
+		@method getQueryParameters
+		@return {Array} Query Parameters.	
+	*/
 	this.getQueryParameters = function() {
 		return queryParameters.keys();
 	}
 	
+	/**
+		Get query parameter.
+		
+		@method getQueryParameter
+		@param value {String} Name of query parameter
+		@return {String} Query Parameter.	
+	*/
 	this.getQueryParameter = function(value) {
 		return queryParameters.get(value);
 	}
 	
-	this.addQueryParameter = function(queryParameter) {
-		queryParameters.add(queryParameter.getName(), queryParameter.getValue());
+	/**
+	 * Add query parameter
+	 * 
+	 * @method addQueryParameter
+	 * @param queryParameterName {String} Name of query parameter
+	 * @param queryParameterValue {String} Value of query parameter
+	 * 
+	 */
+	this.addQueryParameter = function(queryParameterName, queryParameterValue) {
+		queryParameters.add(queryParameterName, queryParameterValue);
 	}
 	
+	/**
+	 * Get all header parameters
+	 * 
+	 * @method getHeaderParameters
+	 * @return {Array} Query Parameters
+	 */
 	this.getHeaderParameters = function() {
 		return headerParameters.keys();
 	}
 	
-	this.getHeaderParameter = function(key) {
-		return headerParameters.get(key);
+	/**
+	 * Get header parameter
+	 * 
+	 * @method getHeaderParameter
+	 * @param name {String} Name of header parameter
+	 * @return {String} Header Parameter
+	 */
+	this.getHeaderParameter = function(name) {
+		return headerParameters.get(name);
 	}
 
-	this.addHeaderParameter = function(headerParameter) {
-		headerParameters.add(headerParameter.getName(), headerParameter.getValue());
+	/**
+	 * Add header parameter
+	 * 
+	 * @method addHeaderParameter
+	 * @param headerParameterName {String} Name of header parameter
+	 * @param headerParameterValue {String} Value of header parameter
+	 */
+	this.addHeaderParameter = function(headerParameterName, headerParameterValue) {
+		headerParameters.add(headerParameterName, headerParameterValue);
 	}
 
+	/**
+	 * Get data stream
+	 * 
+	 * @method getDataStream
+	 * @return {String} Data Stream
+	 */
 	this.getDataStream = function() {
 		return dataStream;
 	}
 	
+	/**
+	 * Set data stream
+	 * 
+	 * @method setDataStream
+	 * @return {String}
+	 */
 	this.setDataStream = function(value) {
 		dataStream = value;
 	}

@@ -24,12 +24,12 @@
     <property name="name">SIMINOV-HYBRID-NOTIFICATION-SERVICE</property>
     <property name="description">Siminov Hybrid Notification Service</property>
     <property name="protocol">HTTP</property>
-    <property name="instance">10.0.2.2</property>
+    <property name="instance">192.168.1.8<!--10.0.2.2--></property>
     <property name="port">8080</property>
 	<property name="context">CONNECT-ENTERPRISE</property>    
 
-    <apis>
-     	<api>
+    <requests>
+     	<request>
 
         	<property name="name">REGISTER-DEVICE</property>
          	<property name="type">POST</property>
@@ -41,8 +41,8 @@
 	     	    <header-parameter name="id">{@resource ID}</header-parameter>
 	      	</header-parameters>
      	
-		</api>
-     	<api>
+		</request>
+     	<request>
 
         	<property name="name">UNREGISTER-DEVICE</property>
          	<property name="type">POST</property>
@@ -54,7 +54,7 @@
 	     	    <header-parameter name="id">{@resource ID}</header-parameter>
 	      	</header-parameters>
      	
-		</api>
-    </apis>
+		</request>
+    </requests>
     
 </service-descriptor>

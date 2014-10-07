@@ -164,7 +164,9 @@ SIDatasHelper.toSI = function(object) {
     return datas;
 }
 
-
+/**
+ * Convert Model to SI Data
+ */
 SIDatasHelper.parseSI = function(object) {
 
     var data = new HybridSiminovDatas.HybridSiminovData();

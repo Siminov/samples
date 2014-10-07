@@ -16,16 +16,69 @@
  **/
 
 
+
+/**
+	Exposes classes which deal with services.
+	Service is a client-side communication component that process and handles any web service request. It performs long running operations in the background.
+	A Service is a group of APIs which deals on one particular web service.
+	
+	@module Service
+*/
+
+
+/**
+	Design contain all interfaces required by service layer to deal with service request.
+
+	@module Service
+	@submodule Design
+*/
+
+
+/**
+	It exposes APIs to Get and Set service resources
+
+	@module Service
+	@submodule Design
+	@class IResource
+	@constructor
+	@param resource {Resource} Resource class object.
+*/
 function IResource(resource) {
 	
 	return {
-	
+		
+		/**
+		 * Get all service request resources
+		 * 
+		 * @method getResources
+		 * @return Service Request Resources
+		 */
 		getResources: resource.getResources,
 		
+		/**
+		 * Get service request resource
+		 * 
+		 * @method getResource
+		 * @return Service Request Resource
+		 */
 		getResource: resource.getResource,
 		
+		/**
+		 * Add resources
+		 * 
+		 * @method addResources
+		 * @param name {String} Name of resource
+		 * @param value {String} Value of resource
+		 */
 		addResource: resource.addResource,
 		
+		/**
+		 * Check whether it contains resource or not based on its name
+		 * 
+		 * @method containResource
+		 * @param name {String} Name of resource
+		 * @return {boolean} (true/false) TRUE: If it contains resource | FALSE: If it does not contain resource
+		 */
 		containResource: resource.containResource		
 	}
 }

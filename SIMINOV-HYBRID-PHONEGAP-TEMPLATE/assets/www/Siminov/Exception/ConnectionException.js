@@ -16,35 +16,27 @@
  **/
 
 
+/**
+	It contain Siminov defined exceptions.
+	
+	@module Exception
+*/
+
+
+/**
+	This is general exception, which is thrown through Connection APIs, if any exception occur while performing any connection service request.
+
+	@module Exception
+	@class ConnectionException
+	@constructor 
+	@param className {String} Name of Class
+	@param methodName {String} Name of Method
+	@param message {String} Message
+
+*/
 function ConnectionException(className, methodName, message) {
 
-    var className = className;
-    var methodName = methodName;
-    var message = message;
-
-
-    this.getClassName = function() {
-        return className;
-    }
-
-    this.setClassName = function(val) {
-        className = val;
-    }
-
-    this.getMethodName = function() {
-        return methodName;
-    }
-
-    this.setMethodName = function(val) {
-        methodName = val;
-    }
-
-    this.getMessage = function() {
-        return message;
-    }
-
-    this.setMessage = function(val) {
-        message = val;
-    }
 }
 
+
+Function.extend(SiminovException, ConnectionException);

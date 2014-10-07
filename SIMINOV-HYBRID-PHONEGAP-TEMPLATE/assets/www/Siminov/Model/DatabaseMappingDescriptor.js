@@ -25,65 +25,111 @@
 
 
 /**
- 	Exposes methods to GET and SET Library Descriptor information as per define in DatabaseDescriptor.si.xml or LibraryDescriptor.si.xml  file by application.
+ 	Exposes methods to GET and SET Database Mapping Descriptor information as per define in DatabaseMappingDescriptor.si.xml file by application.
 		
 	Example:
 
-		<database-mapping>
+		<database-mapping-descriptor>
 		
-			<table table_name="LIQUOR" class_name="Liquor">
+		    <!-- General Properties Of Table And Class -->
+		    
+			    <!-- TABLE_NAME: Mandatory Field -->
+			    <!-- CLASS_NAME: Mandatory Field -->
+			<entity table_name="name_of_table" class_name="mapped_pojo_class_name">
+				
+			    <!-- Column Properties Required Under This Table -->
+			    
+				<!-- Optional Field -->
+				
+					<!-- VARIABLE_NAME: Mandatory Field -->
+					<!-- COLUMN_NAME: Mandatory Field -->
+				<attribute column_name="column_name_of_table" variable_name="class_variable_name">
+				    
+					    <!-- Mandatory Field -->
+					<property name="type">java_variable_data_type</property>
+					
+						<!-- Optional Field (Default is false) -->
+					<property name="primary_key">true/false</property>
+					
+						<!-- Optional Field (Default is false) -->
+					<property name="not_null">true/false</property>
+					
+						<!-- Optional Field (Default is false) -->
+					<property name="unique">true/false</property>
+					
+						<!-- Optional Field -->
+					<property name="check">condition_to_be_checked (Eg: variable_name 'condition' value; variable_name > 0)</property>
+					
+						<!-- Optional Field -->
+					<property name="default">default_value_of_column (Eg: 0.1)</property>
+				
+				</attribute>		
 		
-				<column variable_name="liquorType" column_name="LIQUOR_TYPE">
-					<property name="type">String</property>
-					<property name="primary_key">true</property>
-					<property name="not_null">true</property>
-					<property name="unique">true</property>
-				</column>		
-		
-				<column variable_name="description" column_name="DESCRIPTION">
-					<property name="type">String</property>
-				</column>
-		
-				<column variable_name="history" column_name="HISTORY">
-					<property name="type">String</property>
-				</column>
-		
-				<column variable_name="link" column_name="LINK">
-					<property name="type">String</property>
-					<property name="default">www.wikipedia.org</property>
-				</column>
-		
-				<column variable_name="alcholContent" column_name="ALCHOL_CONTENT">
-					<property name="type">String</property>
-				</column>
-		
-				<index name="LIQUOR_INDEX_BASED_ON_LINK" unique="true">
-					<column>HISTORY</column>
+				
+				
+				<!-- Index Properties -->
+						
+				<!-- Optional Field -->
+					<!-- NAME: Mandatory Field -->
+					<!-- UNIQUE: Optional Field (Default is false) -->
+				<index name="name_of_index" unique="true/false">
+					<column>column_name_needs_to_add</column>
 				</index>
-		
+				
+				
+				
+				<!-- Map Relationship Properties -->
+						
+				<!-- Optional Field's -->	
 				<relationships>
-		
-				    <one-to-many refer="liquorBrands" refer_to="LiquorBrand" on_update="cascade" on_delete="cascade">
-						<property name="load">true</property>
+				    
+					    <!-- REFER: Mandatory Field -->
+					    <!-- REFER_TO: Mandatory Field -->
+					<one-to-one refer="class_variable_name" refer_to="map_to_pojo_class_name" on_update="cascade/restrict/no_action/set_null/set_default" on_delete="cascade/restrict/no_action/set_null/set_default">
+							
+							<!-- Optional Field (Default is false) -->
+						<property name="load">true/false</property>
+					</one-to-one>		
+					
+						<!-- REFER: Mandatory Field -->
+					    <!-- REFER_TO: Mandatory Field -->
+					<one-to-many refer="class_variable_name" refer_to="map_to_pojo_class_name" on_update="cascade/restrict/no_action/set_null/set_default" on_delete="cascade/restrict/no_action/set_null/set_default">
+							
+							<!-- Optional Field (Default is false) -->
+						<property name="load">true/false</property>
 					</one-to-many>		
 		
+						<!-- REFER: Mandatory Field -->
+					    <!-- REFER_TO: Mandatory Field -->
+					<many-to-one refer="class_variable_name" refer_to="map_to_pojo_class_name" on_update="cascade/restrict/no_action/set_null/set_default" on_delete="cascade/restrict/no_action/set_null/set_default">
+							
+							<!-- Optional Field (Default is false) -->
+						<property name="load">true/false</property>
+					</many-to-one>		
+		
+						<!-- REFER: Mandatory Field -->
+					    <!-- REFER_TO: Mandatory Field -->
+					<many-to-many refer="class_variable_name" refer_to="map_to_pojo_class_name" on_update="cascade/restrict/no_action/set_null/set_default" on_delete="cascade/restrict/no_action/set_null/set_default">
+							
+							<!-- Optional Field (Default is false) -->
+						<property name="load">true/false</property>
+					</many-to-many>		
+											
 				</relationships>
 		
-			</table>
+			</entity>
 		
-		</database-mapping>				
+		</database-mapping-descriptor>
 
 	@module Model	
 	@class DatabaseMappingDescriptor
 	@constructor
  */
-
-
 function DatabaseMappingDescriptor() {
 
     var tableName, className;
 
-    var columns = new Array();
+    var attributes = new Array();
     var indexes = new Array();
     var relationships = new Array();
 
@@ -133,8 +179,8 @@ function DatabaseMappingDescriptor() {
 	 	@method getColumns
 	 	@return {Array} All columns.
 	 */
-    this.getColumns = function() {
-        return columns;
+    this.getAttributes = function() {
+        return attributes;
 	}
 
 	/**
@@ -143,8 +189,8 @@ function DatabaseMappingDescriptor() {
 	 	@method addColumn
 	 	@param column {Column} Column object.
 	 */
-    this.addColumn = function(column) {
-        columns.push(column);
+    this.addAttribute = function(attribute) {
+        attributes.push(attribute);
 	}
 
 	/**
@@ -207,7 +253,7 @@ function DatabaseMappingDescriptor() {
 	@class DatabaseMappingDescriptor.Column
 	
  */
-DatabaseMappingDescriptor.Column = function() {
+DatabaseMappingDescriptor.Attribute = function() {
 
     var variableName;
     var columnName;
@@ -439,7 +485,7 @@ DatabaseMappingDescriptor.Column = function() {
 
 
 /**
- 	Exposes methods to GET and SET Reference Map information as per define in DatabaseMappingDescriptor.si.xml file by application.
+ 	Exposes methods to GET and SET Index information as per define in DatabaseMappingDescriptor.si.xml file by application.
 
 	Example:
 		<index name="LIQUOR_INDEX_BASED_ON_LINK" unique="true">

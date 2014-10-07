@@ -23,31 +23,31 @@ function GetLiquors() {
 	this.setService(GetLiquors.SERVICE_NAME);
 	this.setRequest(GetLiquors.REQUEST_NAME);
 	
-	this.onServiceStart = function() {
+	this.onStart = function() {
 		//alert("onServiceStart");		
 	}
 
-	this.onServiceQueue = function() {
+	this.onQueue = function() {
 		//alert("onServiceQueue");
 	}
 
-	this.onServicePause = function() {
+	this.onPause = function() {
 		//alert("onServicePause");
 	}
 
-	this.onServiceResume = function() {
+	this.onResume = function() {
 		//alert("onServiceResume");
 	}
 
-	this.onServiceFinish = function() {
+	this.onFinish = function() {
 		//alert("onServiceFinish");
 	}
 
-	this.onServiceRequestInvoke = function(connectionRequest) {
+	this.onRequestInvoke = function(connectionRequest) {
 		//alert("onServiceApiInvoke");
 	}
 
-	this.onServiceRequestFinish = function(connectionResponse) {
+	this.onRequestFinish = function(connectionResponse) {
 		//alert("onServiceApiFinish");
 
 		var liquorsReader = new LiquorsReader();
@@ -72,7 +72,7 @@ function GetLiquors() {
 		populateHome();
 	}
 
-	this.onServiceTerminate = function(serviceException) {
+	this.onTerminate = function(serviceException) {
 		//alert("onServiceTerminate");
 	}
 }

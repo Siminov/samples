@@ -16,35 +16,27 @@
  **/
 
 
-function ServiceException(className, methodName, message) {
 
-    var className = className;
-    var methodName = methodName;
-    var message = message;
+/**
+	It contain Siminov defined exceptions.
+	
+	@module Exception
+*/
 
 
-    this.getClassName = function() {
-        return className;
-    }
+/**
+	This is general exception, which is thrown through Service APIs, if any exception occur while processing service request.
 
-    this.setClassName = function(val) {
-        className = val;
-    }
+	@module Exception
+	@class ServiceException
+	@constructor 
+	@param className {String} Name of Class
+	@param methodName {String} Name of Method
+	@param message {String} Message
 
-    this.getMethodName = function() {
-        return methodName;
-    }
+*/function ServiceException(className, methodName, message) {
 
-    this.setMethodName = function(val) {
-        methodName = val;
-    }
-
-    this.getMessage = function() {
-        return message;
-    }
-
-    this.setMessage = function(val) {
-        message = val;
-    }
 }
 
+
+Function.extend(SiminovException, ServiceException);

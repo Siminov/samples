@@ -23,12 +23,12 @@
     <property name="name">SIMINOV-HYBRID-LIQUORS-SERVICE</property>
     <property name="description">Siminov Hybrid Liquors Service</property>
     <property name="protocol">HTTP</property>
-    <property name="instance">10.0.2.2</property>
+    <property name="instance">192.168.1.8<!--10.0.2.2--></property>
     <property name="port">8080</property>
 	<property name="context">CONNECT-ENTERPRISE</property>    
 
-    <apis>
-     	<api>
+    <requests>
+     	<request>
 
         	<property name="name">GET-LIQUORS</property>
          	<property name="type">GET</property>
@@ -41,8 +41,8 @@
 	          	<header-parameter name="Content-Type">application/xml</header-parameter>
 	      	</header-parameters>
      	
-		</api>
-     	<api>
+		</request>
+     	<request>
 
         	<property name="name">ADD-LIQUOR</property>
          	<property name="type">POST</property>
@@ -55,8 +55,8 @@
 	          	<header-parameter name="Content-Type">application/xml</header-parameter>
 	      	</header-parameters>
      	
-		</api>
-     	<api>
+		</request>
+     	<request>
 
         	<property name="name">MODIFY-LIQUOR</property>
          	<property name="type">PUT</property>
@@ -69,8 +69,8 @@
 	          	<header-parameter name="Content-Type">application/xml</header-parameter>
 	      	</header-parameters>
      	
-		</api>
-     	<api>
+		</request>
+     	<request>
 
         	<property name="name">DELETE-LIQUOR</property>
          	<property name="type">DELETE</property>
@@ -84,7 +84,7 @@
 	          	<header-parameter name="name">{@resource LIQUOR_NAME}</header-parameter>
 	      	</header-parameters>
      	
-		</api>
-    </apis>
+		</request>
+    </requests>
     
 </service-descriptor>

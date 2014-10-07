@@ -43,10 +43,10 @@ function SiminovException(className, methodName, message) {
 
 
 	/**
-	 	Get POJO class name.
+	 	Get exception class name.
 	 	
 	 	@method getClassName
-	 	@return POJO Class Name.
+	 	@return Exception Class Name.
 	 */
     this.getClassName = function() {
         return className;
@@ -54,10 +54,10 @@ function SiminovException(className, methodName, message) {
 
 
 	/**
-	 	Set POJO class name.
+	 	Set exception class name.
 	 	
 	 	@method setClassName
-	 	@param className POJO Class Name.
+	 	@param className Exception Class Name.
 	 */
     this.setClassName = function(val) {
         className = val;

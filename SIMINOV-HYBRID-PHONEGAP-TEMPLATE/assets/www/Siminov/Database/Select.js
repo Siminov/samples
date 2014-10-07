@@ -244,7 +244,14 @@ function Select(object) {
         return this;
     }
 
-
+	
+	/**
+	 * Used to provide delimiter 
+	 * 
+	 * @method delimiter 
+	 * @param val {String} Value of delimiter
+	 * @return {Object} Select Interface Implementation
+	 */
     this.delimiter = function(val) {
         delimiter = val;
         return this;

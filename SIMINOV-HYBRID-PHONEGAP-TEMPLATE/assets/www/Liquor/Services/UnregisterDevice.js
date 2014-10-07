@@ -22,35 +22,35 @@ function UnregisterDevice() {
 	this.setService(UnregisterDevice.SERVICE_NAME);
 	this.setRequest(UnregisterDevice.REQUEST_NAME);
 	
-	this.onServiceStart = function() {
+	this.onStart = function() {
 
 	}
 
-	this.onServiceQueue = function() {
+	this.onQueue = function() {
 		
 	}
 
-	this.onServicePause = function() {
+	this.onPause = function() {
 		
 	}
 
-	this.onServiceResume = function() {
+	this.onResume = function() {
 		
 	}
 
-	this.onServiceFinish = function() {
+	this.onFinish = function() {
 		
 	}
 
-	this.onServiceRequestInvoke = function(connectionRequest) {
+	this.onRequestInvoke = function(connectionRequest) {
 		
 	}
 
-	this.onServiceRequestFinish = function(connectionResponse) {
+	this.onRequestFinish = function(connectionResponse) {
 		
 	}
 
-	this.onServiceTerminate = function(serviceException) {
+	this.onTerminate = function(serviceException) {
 		
 	}
 }

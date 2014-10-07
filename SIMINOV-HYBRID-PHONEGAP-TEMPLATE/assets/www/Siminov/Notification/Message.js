@@ -16,17 +16,39 @@
  **/
 
 
+/**
+	It contain all Classes related to push notification.
 
-Message.NAME = "Message";
+	@module Notification
+*/
 
+/**
+	It exposes APIs to Get and Set push notification 
+	
+	@module Notification
+	@class Message
+	@constructor
+*/
 function Message() {
 
 	var message;
 	
+	/**
+	 * Get notification message 
+	 * 
+	 * @method getMessage
+	 * @return {String} Notification Message
+	 */
 	this.getMessage = function() {
 		return message;
 	}
 
+	/**
+	 * Set notification message
+	 * 
+	 * @method setMessage
+	 * @param value {String} Notification Message
+	 */
 	this.setMessage = function(value) {
 		message = value;
 	}

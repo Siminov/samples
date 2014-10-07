@@ -203,7 +203,7 @@ function Database() {
 		var liquors =  new Liquor().select()
 						.where(Liquor.LIQUOR_TYPE).equalTo("RUM")
 						.and(Liquor.ALCHOL_CONTENT).equalTo("90%")
-						.fetch();
+						.execute();
 		
 		@method select
 	 	@return {ISelect} ISelect to provide extra information based on which tuples will be fetched from table.
@@ -263,7 +263,7 @@ function Database() {
 			OR
 					
 			try {
-				new Liquor().delete();
+				new Liquor().delete().execute();
 			} catch(DatabaseException de) {
 				//Log It.
 			}

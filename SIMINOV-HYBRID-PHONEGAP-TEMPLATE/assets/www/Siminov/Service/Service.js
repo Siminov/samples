@@ -15,7 +15,23 @@
  * limitations under the License.
  **/
 
+/**
+	Exposes classes which deal with services.
+	Service is a client-side communication component that process and handles any web service request. It performs long running operations in the background.
+	A Service is a group of APIs which deals on one particular web service.
+	
+	@module Service
+*/
 
+
+
+/**
+	It exposes APIs to Get and Set service information by extending IService
+
+	@module Service
+	@class Service
+	@constructor
+*/
 function Service() {
 	
 	var requestId;
@@ -32,26 +48,59 @@ function Service() {
 	 * IService APIs
 	 */
 	 
+	/**
+	 * Get request id
+	 * 
+	 * @method getRequestId
+	 * @return Request Id
+	 */ 
 	this.getRequestId = function() {
 		return requestId;
 	}
 	
+	/**
+	 * Set request id
+	 * 
+	 * @method setRequestId
+	 * @param val {String} Request Id
+	 */
 	this.setRequestId = function(val) {
 		requestId = val;
 	}
 	
+	/**
+	 * Get service name
+	 * 
+	 * @method getService
+	 * @return {String} Name of service
+	 */
 	this.getService = function() {
 		return service;
 	}
 	
+	/**
+	 * Set service name
+	 * 
+	 * @method setService
+	 * @param val {String} Name of service
+	 */
 	this.setService = function(val) {
 		service = val;
 	}
 	
+	/**
+	 * Get service request name
+	 * 
+	 * @method getRequest
+	 * @return {String} Name of Service Request
+	 */
 	this.getRequest = function() {
 		return request;
 	}
 	
+	/**
+	 * Set 
+	 */
 	this.setRequest = function(val) {
 		request = val;
 	}

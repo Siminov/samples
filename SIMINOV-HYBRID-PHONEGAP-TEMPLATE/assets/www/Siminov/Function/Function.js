@@ -179,7 +179,13 @@ Function.createFunctionInstance = function(functionName) {
 }
 
 
-
+/**
+ * Create the inner function instances
+ * 
+ * @method createFunctionInstanceDescend
+ * @static
+ * @return {Object} Function Instance
+ */
 Function.createFunctionInstanceDescend = function(obj, path) {
     var parts = path.split('.');
 

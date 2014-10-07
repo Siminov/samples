@@ -15,9 +15,21 @@
  * limitations under the License.
  **/
 
+/**
+	It is one which describes properties required to describe connection information.
 
-ConnectionResponse.NAME = "ConnectionResponse";
+	@module Connection
+*/
 
+
+/**
+	It contains connection response information.
+	Exposes method to GET and SET connection response details.
+
+	@module Connection
+	@class ConnectionResponse
+	@constructor
+ */
 function ConnectionResponse() {
 
 	var statusCode;
@@ -25,26 +37,62 @@ function ConnectionResponse() {
 
 	var response;
 	
+	/**
+	 * Get status code of response
+	 * 
+	 * @method getStatusCode
+	 * @return {String} Status Code
+	 */
 	this.getStatusCode = function() {
 		return statusCode;
 	}
 	
+	/**
+	 * Set status code of response
+	 * 
+	 * @method setStatusCode
+	 * @param value {String} Status Code
+	 */
 	this.setStatusCode = function(value) {
 		statusCode = value;
 	}
 	
+	/**
+	 * Get status message of response
+	 * 
+	 * @method getStatusMessage
+	 * @return {String} Status Message
+	 */
 	this.getStatusMessage = function() {
 		return statusMessage;
 	}
 	
+	/**
+	 * Set status message of response
+	 * 
+	 * @method setStatusMessage
+	 * @param value {String} Status Message
+	 */
 	this.setStatusMessage = function(value) {
 		statusMessage = value;
 	}
-	
+
+	/**
+	 * Get response content
+	 * 
+	 * @method getResponse
+	 * @return {String} Response content
+	 */	
 	this.getResponse = function() {
 		return response;
 	}
 	
+	/**
+	 * Set response content
+	 * 
+	 * @method setResponse
+	 * @param value {String} Response Content
+	 */
 	this.setResponse = function(value) {
 		response = value;
 	}

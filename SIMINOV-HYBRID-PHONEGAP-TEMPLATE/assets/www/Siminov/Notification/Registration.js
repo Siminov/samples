@@ -16,16 +16,39 @@
  **/
 
 
-Registration.NAME = "Registration";
+/**
+	It contain all Classes related to push notification.
 
+	@module Notification
+*/
+
+/**
+	It exposes APIs to Get and Set push notification registration information
+	
+	@module Notification
+	@class Registration
+	@constructor
+*/
 function Registration() {
 
 	var registrationId;
 	
+	/**
+	 * Get registration id 
+	 * 
+	 * @method getRegistrationId
+	 * @return {String} Registration id
+	 */
 	this.getRegistrationId = function() {
 		return registrationId;
 	}
 	
+	/**
+	 * Set registration id
+	 * 
+	 * @method setRegistrationId
+	 * @param val {String} Registration Id
+	 */
 	this.setRegistrationId = function(val) {
 		registrationId = val;		
 	}

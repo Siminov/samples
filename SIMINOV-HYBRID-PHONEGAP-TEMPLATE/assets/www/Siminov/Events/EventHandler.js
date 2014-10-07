@@ -37,6 +37,7 @@ function EventHandler() {
 		Handle event triggered by Siminov.
 		
 		@method triggerEvent
+		@param data {String} Hybrid Data From Native
 	*/
     this.triggerEvent = function(data) {
 

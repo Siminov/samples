@@ -17,12 +17,29 @@
 
 
 
+/**
+	It contain all Classes related to push notification.
+
+	@module Notification
+*/
+
+/**
+	It exposes APIs to Get and Set push notification 
+	
+	@module Notification
+	@class NotificationManager
+	@constructor
+*/
 var NotificationManager = (function() {
 
 	var notificationManager;
 	
 	return {
-	
+		
+		/**
+		 * It provides singleton instance of Notification Manager
+		 * @return NotificationManager singleton instance
+		 */
 		getInstance : function() {
 			if(notificationManager == null) {
 				notificationManager = new NotificationManager();
@@ -35,9 +52,14 @@ var NotificationManager = (function() {
 	
 	}
 	
-
+	
 	function NotificationManager() {
 		
+		/**
+		 * It executes the registration process of push notification
+		 * 
+		 * @method doRegistration
+		 */
 		this.doRegistration = function() {
 
 		    var adapter = new Adapter();
@@ -47,6 +69,12 @@ var NotificationManager = (function() {
 			adapter.invoke();				
 		}
 			
+			
+		/**
+		 * It executes the unregistration process of push notification
+		 * 
+		 * @method doUnregistration
+		 */	
 		this.doUnregistration = function() {
 
 		    var adapter = new Adapter();
