@@ -23,7 +23,7 @@
     <property name="name">SIMINOV-HYBRID-LIQUOR-BRANDS-SERVICE</property>
     <property name="description">Siminov Hybrid Liquor Brands Service</property>
     <property name="protocol">HTTP</property>
-    <property name="instance">192.168.1.8<!--10.0.2.2--></property>
+    <property name="instance">10.0.2.2<!--10.0.2.2--></property>
     <property name="port">8080</property>
 	<property name="context">CONNECT-ENTERPRISE</property>    
 

@@ -44,11 +44,11 @@ function GetLiquors() {
 	}
 
 	this.onRequestInvoke = function(connectionRequest) {
-		//alert("onServiceApiInvoke");
+		//alert("onServiceRequestInvoke");
 	}
 
 	this.onRequestFinish = function(connectionResponse) {
-		//alert("onServiceApiFinish");
+		//alert("onServiceRequestFinish");
 
 		var liquorsReader = new LiquorsReader();
 		liquorsReader.parse(connectionResponse.getResponse());
@@ -63,7 +63,7 @@ function GetLiquors() {
 				try {
 					liquor.saveOrUpdate();
 				} catch(de) {
-					Log.error("GetLiquors", "onServiceApiFinish", "Database Exception caught while saving liquors in database, " + de.getMessage());
+					Log.error("GetLiquors", "onServiceRequestFinish", "Database Exception caught while saving liquors in database, " + de.getMessage());
 				}
 			}
 		}		

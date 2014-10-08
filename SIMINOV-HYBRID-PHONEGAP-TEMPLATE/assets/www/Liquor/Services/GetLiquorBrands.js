@@ -78,7 +78,7 @@ function GetLiquorBrands() {
 			try {
 				liquorBrand.saveOrUpdate();
 			} catch(de) {
-				Log.error("GetLiquors", "onServiceApiFinish", "Database Exception caught while saving liquor brands in database, " + de.getMessage());
+				Log.error("GetLiquors", "onServiceRequestFinish", "Database Exception caught while saving liquor brands in database, " + de.getMessage());
 			}
 		}
 		

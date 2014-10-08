@@ -250,7 +250,7 @@ function DatabaseMappingDescriptor() {
 			 <property name="unique">true</property>
 		 </column>
 	
-	@class DatabaseMappingDescriptor.Column
+	@class DatabaseMappingDescriptor.Attribute
 	
  */
 DatabaseMappingDescriptor.Attribute = function() {
