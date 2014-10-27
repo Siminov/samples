@@ -16,6 +16,7 @@
  **/
 
 
+
 /**
 	It contain Siminov defined exceptions.
 	
@@ -24,19 +25,19 @@
 
 
 /**
-	This is general exception, which is thrown through Connection APIs, if any exception occur while performing any connection service request.
+	This is general exception, which is thrown through Sync APIs, if any exception occur while processing sync request.
 
 	@module Exception
-	@class ConnectionException
+	@class SyncException
 	@constructor 
 	@param className {String} Name of Class
 	@param methodName {String} Name of Method
 	@param message {String} Message
 
 */
-function ConnectionException(className, methodName, message) {
+function SyncException(className, methodName, message) {
 
 }
 
 
-Function.extend(SiminovException, ConnectionException);
+Function.extend(SiminovException, SyncException);
