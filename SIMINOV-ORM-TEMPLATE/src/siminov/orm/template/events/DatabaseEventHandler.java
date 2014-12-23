@@ -26,27 +26,27 @@ import siminov.orm.model.DatabaseMappingDescriptor.Index;
 public class DatabaseEventHandler implements IDatabaseEvents {
 
 	public void onDatabaseCreated(DatabaseDescriptor databaseDescriptor) {
-		System.out.print("");
+
 	}
 
 	public void onTableCreated(DatabaseDescriptor databaseDescriptor, DatabaseMappingDescriptor databaseMapping) {
-		System.out.print("");
+
 	}
 
 	public void onIndexCreated(DatabaseDescriptor databaseDescriptor, DatabaseMappingDescriptor databaseMapping, Index index) {
-		System.out.print("");
+
 	}
 
 	public void onDatabaseDropped(DatabaseDescriptor databaseDescriptor) {
-		// TODO Auto-generated method stub
+
 	}
 
 	public void onTableDropped(DatabaseDescriptor databaseDescriptor, DatabaseMappingDescriptor databaseMapping) {
-		// TODO Auto-generated method stub
+
 	}
 
 	public void onIndexDropped(DatabaseDescriptor databaseDescriptor, DatabaseMappingDescriptor databaseMapping, Index index) {
-		// TODO Auto-generated method stub
+
 	}
 
 }
