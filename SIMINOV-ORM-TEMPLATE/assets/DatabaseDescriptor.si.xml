@@ -19,16 +19,6 @@
 
  -->
 
-
-
-
-
-
-
-
-
-
-
 <database-descriptor>
 
 	<property name="database_name">SIMINOV-ORM-TEMPLATE</property>
