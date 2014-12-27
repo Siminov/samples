@@ -1,1 +1,0 @@
-Siminov Connect Template
