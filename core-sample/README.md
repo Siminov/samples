@@ -1,17 +1,17 @@
-Siminov ORM (Object Relationship Mapping) - Template Application
+Siminov Core (Object Relationship Mapping) - Template Application
 ===================================================
 
-Siminov ORM Framework
+Siminov Core Framework
 ------------
 
-Siminov ORM is an Object/Relational Mapping solution for Android environments. It maps data from an object model representation to a relational data model representation (and visa versa). 
+Siminov Core is an Object/Relational Mapping solution for Android environments. It maps data from an object model representation to a relational data model representation (and visa versa). 
 
-Siminov ORM not only takes care of the mapping from Java classes to database tables (and from Java data types to SQL data types), but also provides data query and retrieval facilities. 
+Siminov Core not only takes care of the mapping from Java classes to database tables (and from Java data types to SQL data types), but also provides data query and retrieval facilities. 
 
 
 About Application
 -----------------
-This template application provides a basic idea about using Siminov ORM Framework.
+This template application provides a basic idea about using Siminov Core Framework.
 
 This application shows different type of Liquor's available in market and their basic information. (Eg: Wine, Beer, Whiskey, Votka, etc).
 
@@ -19,12 +19,12 @@ This application shows different type of Liquor's available in market and their 
 Setting Up Application 
 ----------------------
 
-- Download Siminov jar from http://siminov.github.com/android-orm/builds.html
+- Download Siminov jar from http://siminov.github.com/android-core/builds.html
 - Add Siminov jar into your application libs folder.
 
 ***
 
-![Siminov Template Application] (https://raw.github.com/Siminov/android-orm/doc-resources/github-wiki-resources/siminov_template_application_add_siminov_jar.png "Siminov Template Application")
+![Siminov Template Application] (https://raw.github.com/Siminov/android-core/doc-resources/github-wiki-resources/siminov_template_application_add_siminov_jar.png "Siminov Template Application")
 
 ***
 
@@ -50,8 +50,8 @@ Application Configuration
 	
 	<!-- SIMINOV EVENTS -->
 	<event-handlers>
-	    <event-handler>siminov.orm.template.events.SiminovEventHandler</event-handler>
-	    <event-handler>siminov.orm.template.events.DatabaseEventHandler</event-handler>
+	    <event-handler>siminov.core.template.events.SiminovEventHandler</event-handler>
+	    <event-handler>siminov.core.template.events.DatabaseEventHandler</event-handler>
 	</event-handlers>
 		
 </siminov>
@@ -90,7 +90,7 @@ Application Configuration
 ```xml
 <database-mapping>
 
- <table table_name="LIQUOR" class_name="siminov.orm.template.model.Liquor">
+ <table table_name="LIQUOR" class_name="siminov.core.template.model.Liquor">
 		
 		<column variable_name="liquorType" column_name="LIQUOR_TYPE">
 			<property name="type">java.lang.String</property>
@@ -122,7 +122,7 @@ Application Configuration
 
 		<relationships>
 
-		    <one-to-many refer="liquorBrands" refer_to="siminov.orm.template.model.LiquorBrand" on_update="cascade" on_delete="cascade">
+		    <one-to-many refer="liquorBrands" refer_to="siminov.core.template.model.LiquorBrand" on_update="cascade" on_delete="cascade">
 				<property name="load">true</property>
 			</one-to-many>		
 		    

@@ -146,7 +146,7 @@
 	
 	<string name="source_code"><u>Source Code</u></string>
 	
-	<string name="source_code_package_name">siminov/orm/template/sourcecode/</string>
+	<string name="source_code_package_name">siminov/core/template/sourcecode/</string>
 	<string name="home_source_code_file_name">home_source_code.txt</string>
 	
 	<string name="welcome_note">Welcome</string>
@@ -165,8 +165,8 @@
 	
 	<string name="account_id_and_token_mandatory">Both Account Id And Token Are Mandatory.</string>
 	
-	<string name="about_siminov">Siminov ORM is a open source Object/Relational Mapping solution for Android environments. It maps data from an object model representation to a relational data model representation (and visa versa).
+	<string name="about_siminov">Siminov Core is a open source Object/Relational Mapping solution for Android environments. It maps data from an object model representation to a relational data model representation (and visa versa).
 
-Siminov ORM not only takes care of the mapping from Java classes to database tables (and from Java data types to SQL data types), but also provides data query and retrieval facilities.</string>
+Siminov Core not only takes care of the mapping from Java classes to database tables (and from Java data types to SQL data types), but also provides data query and retrieval facilities.</string>
 	
 </resources>
