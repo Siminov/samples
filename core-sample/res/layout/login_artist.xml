@@ -1,7 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent" android:layout_height="fill_parent"
     android:orientation="vertical"
-    xmlns:app="http://schemas.android.com/apk/res/siminov.orm.template">
+    xmlns:app="http://schemas.android.com/apk/res/siminov.core.sample">
 
     <LinearLayout 
         android:layout_width="fill_parent" android:layout_height="wrap_content"
