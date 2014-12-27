@@ -1,12 +1,12 @@
-Siminov ORM (Object Relationship Mapping) - Library Template Application
+Siminov Core (Object Relationship Mapping) - Library Template Application
 ===================================================
 
-Siminov ORM Framework
+Siminov Core Framework
 ------------
 
-Siminov ORM is a open source Object/Relational Mapping solution for Android environments. It maps data from an object model representation to a relational data model representation (and visa versa). 
+Siminov Core is a open source Object/Relational Mapping solution for Android environments. It maps data from an object model representation to a relational data model representation (and visa versa). 
 
-Siminov ORM not only takes care of the mapping from Java classes to database tables (and from Java data types to SQL data types), but also provides data query and retrieval facilities. 
+Siminov Core not only takes care of the mapping from Java classes to database tables (and from Java data types to SQL data types), but also provides data query and retrieval facilities. 
 
 
 About Siminov Library Design
