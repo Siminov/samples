@@ -21,7 +21,7 @@
 
 <database-mapping-descriptor>
 
-	<entity table_name="LIQUOR_BRAND" class_name="siminov.orm.template.model.LiquorBrand">
+	<entity table_name="LIQUOR_BRAND" class_name="siminov.core.sample.model.LiquorBrand">
 
 		<attribute variable_name="brandName" column_name="BRAND_NAME">
 			<property name="type">java.lang.String</property>
@@ -45,7 +45,7 @@
 
 		<relationships>
 			
-			<many-to-one refer="liquor" refer_to="siminov.orm.template.model.Liquor" on_update="cascade" on_delete="cascade">
+			<many-to-one refer="liquor" refer_to="siminov.core.sample.model.Liquor" on_update="cascade" on_delete="cascade">
 				<property name="load">true</property>
 			</many-to-one>		
 		    		

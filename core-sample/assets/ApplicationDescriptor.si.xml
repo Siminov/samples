@@ -22,8 +22,8 @@
 
 <siminov>
 
-	<property name="name">SIMINOV ORM TEMPLATE</property>	
-	<property name="description">Siminov ORM Template Application</property>
+	<property name="name">SIMINOV CORE SAMPLE</property>	
+	<property name="description">Siminov Core Sample Application</property>
 	<property name="version">1.0</property>
 
 	
@@ -35,14 +35,14 @@
 	
 	<!-- Event Handlers -->
 	<event-handlers>
-	    <event-handler>siminov.orm.template.events.SiminovEventHandler</event-handler>
-	    <event-handler>siminov.orm.template.events.DatabaseEventHandler</event-handler>
+	    <event-handler>siminov.core.sample.events.SiminovEventHandler</event-handler>
+	    <event-handler>siminov.core.sample.events.DatabaseEventHandler</event-handler>
 	</event-handlers>
 
 	
 	<!-- Library Descriptors -->
 	<library-descriptors>
-	 	<library-descriptor>siminov.orm.library.template.resources</library-descriptor>   
+	 	<library-descriptor>siminov.core.library.sample.resources</library-descriptor>   
 	</library-descriptors>
 			
 </siminov>

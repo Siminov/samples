@@ -21,8 +21,8 @@
 
 <database-descriptor>
 
-	<property name="database_name">SIMINOV-ORM-TEMPLATE</property>
-	<property name="description">Siminov ORM Template Database Config</property>
+	<property name="database_name">SIMINOV-CORE-SAMPLE</property>
+	<property name="description">Siminov Core Sample Database Config</property>
 	<property name="version">1</property>
 	<property name="transaction_safe">true</property>
 
