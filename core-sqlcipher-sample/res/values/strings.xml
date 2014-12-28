@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">Siminov ORM SQLCipher Template</string>
-    	<string name="about_siminov">Siminov ORM is a open source Object/Relational Mapping solution for Android environments. It maps data from an object model representation to a relational data model representation (and visa versa).
+    <string name="app_name">Siminov Core SQLCipher Sample</string>
+    	<string name="about_siminov">Siminov Core is a open source Object/Relational Mapping solution for Android environments. It maps data from an object model representation to a relational data model representation (and visa versa).
 
-Siminov ORM not only takes care of the mapping from Java classes to database tables (and from Java data types to SQL data types), but also provides data query and retrieval facilities.</string>
+Siminov Core not only takes care of the mapping from Java classes to database tables (and from Java data types to SQL data types), but also provides data query and retrieval facilities.</string>
     
 </resources>
