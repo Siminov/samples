@@ -24,6 +24,6 @@
 	<property name="interval">5000</property>
 	
 	<service-descriptors>
-	    <service-descriptor>SIMINOV-HYBRID-LIQUOR-BRANDS-SERVICE.GET-LIQUOR-BRANDS</service-descriptor>
+	    <service-descriptor>SIMINOV-WEB-LIQUOR-BRANDS-SERVICE.GET-LIQUOR-BRANDS</service-descriptor>
 	</service-descriptors>
 </sync-descriptor>

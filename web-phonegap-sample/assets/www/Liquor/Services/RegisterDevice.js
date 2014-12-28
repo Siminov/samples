@@ -57,7 +57,7 @@ function RegisterDevice() {
 
 
 
-RegisterDevice.SERVICE_NAME = "SIMINOV-HYBRID-NOTIFICATION-SERVICE";
+RegisterDevice.SERVICE_NAME = "SIMINOV-WEB-NOTIFICATION-SERVICE";
 RegisterDevice.REQUEST_NAME = "REGISTER-DEVICE";
 
 RegisterDevice.REGISTRATION_ID = "ID";

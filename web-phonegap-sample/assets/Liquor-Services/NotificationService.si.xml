@@ -21,8 +21,8 @@
 
 <service-descriptor>
     
-    <property name="name">SIMINOV-HYBRID-NOTIFICATION-SERVICE</property>
-    <property name="description">Siminov Hybrid Notification Service</property>
+    <property name="name">SIMINOV-WEB-NOTIFICATION-SERVICE</property>
+    <property name="description">Siminov Web Notification Service</property>
     <property name="protocol">HTTP</property>
     <property name="instance">10.0.2.2<!--10.0.2.2--></property>
     <property name="port">8080</property>

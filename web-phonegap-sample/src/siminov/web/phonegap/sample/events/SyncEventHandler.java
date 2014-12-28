@@ -15,28 +15,26 @@
  * limitations under the License.
  **/
 
-package siminov.hybrid.phonegap.template.events;
+package siminov.web.phonegap.sample.events;
 
-import siminov.connect.events.INotificationEvents;
-import siminov.connect.exception.NotificationException;
-import siminov.connect.notification.design.IMessage;
-import siminov.connect.notification.design.IRegistration;
+import siminov.connect.events.ISyncEvents;
+import siminov.connect.sync.design.ISyncRequest;
 
-public class NotificationEventHandler implements INotificationEvents {
+public class SyncEventHandler implements ISyncEvents {
 
-	public void onRegistration(IRegistration registration) {
-		System.out.print("");
+	public void onStart(ISyncRequest syncRequest) {
+		
 	}
 
-	public void onUnregistration(IRegistration registration) {
-		System.out.print("");
+	public void onQueue(ISyncRequest syncRequest) {
+		
 	}
 
-	public void onNotification(IMessage message) {
-		System.out.print("");
+	public void onFinish(ISyncRequest syncRequest) {
+		
 	}
 
-	public void onError(NotificationException notificationException) {
-		System.out.print("");
+	public void onTerminate(ISyncRequest syncRequest) {
+		
 	}
 }

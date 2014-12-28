@@ -41,12 +41,12 @@ function ServiceEventHandler() {
 		Handle service event triggered by Siminov.
 		
 		@method triggerEvent
-		@param data {String} Hybrid Data From Native
+		@param data {String} Web Data From Native
 	*/
 	this.triggerEvent = function(data) {
 
-        var hybridSiminovDatas = SIJsonHelper.toSI(data);
-        var datas = hybridSiminovDatas.getHybridSiminovDatas();
+        var webSiminovDatas = SIJsonHelper.toSI(data);
+        var datas = webSiminovDatas.getWebSiminovDatas();
 
         var apiHandler;
         var event;
@@ -78,15 +78,15 @@ function ServiceEventHandler() {
                 	}
                 } else if(dataType === Constants.ISERVICE_RESOURCES) {
                 	
-                	var hybridResources = data.getDatas();
-                	if(hybridResources != undefined && hybridResources != null && hybridResources.length > 0) {
+                	var webResources = data.getDatas();
+                	if(webResources != undefined && webResources != null && webResources.length > 0) {
                 		
-                		for(var j = 0;j < hybridResources.length;j++) {
+                		for(var j = 0;j < webResources.length;j++) {
                 			
-                			var hybridResource = hybridResources[j];
+                			var webResource = webResources[j];
                 			
-                			var key = hybridResource.getDataType();
-                			var value = hybridResource.getDataValue();
+                			var key = webResource.getDataType();
+                			var value = webResource.getDataValue();
                 			
                 			resources.add(key, value);
                 		}

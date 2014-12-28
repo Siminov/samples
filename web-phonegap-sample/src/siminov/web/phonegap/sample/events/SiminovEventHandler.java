@@ -15,9 +15,9 @@
  * limitations under the License.
  **/
 
-package siminov.hybrid.phonegap.template.events;
+package siminov.web.phonegap.sample.events;
 
-import siminov.orm.events.ISiminovEvents;
+import siminov.core.events.ISiminovEvents;
 
 
 public class SiminovEventHandler implements ISiminovEvents {

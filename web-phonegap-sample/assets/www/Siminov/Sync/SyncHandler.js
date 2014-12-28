@@ -68,22 +68,22 @@ var SyncHandler = (function() {
 		 */
 		this.handle = function(syncRequest) {
 			
-			var hybridSiminovDatas = new HybridSiminovDatas();
+			var webSiminovDatas = new WebSiminovDatas();
 				
-			var hybridSyncRequest = new HybridSiminovDatas.HybridSiminovData();
-			hybridSyncRequest.setDataType(Constants.SYNC_ADAPTER_HANDLE_HANDLER_SYNC_REQUEST);
+			var webSyncRequest = new WebSiminovDatas.WebSiminovData();
+			webSyncRequest.setDataType(Constants.SYNC_ADAPTER_HANDLE_HANDLER_SYNC_REQUEST);
 
-				var hybridSyncRequestName = new HybridSiminovDatas.HybridSiminovData.HybridSiminovValue();
-				hybridSyncRequestName.setType(Constants.SYNC_ADAPTER_HANDLE_HANDLER_SYNC_REQUEST_NAME);
-				hybridSyncRequestName.setValue(syncRequest.getName());
+				var webSyncRequestName = new WebSiminovDatas.WebSiminovData.WebSiminovValue();
+				webSyncRequestName.setType(Constants.SYNC_ADAPTER_HANDLE_HANDLER_SYNC_REQUEST_NAME);
+				webSyncRequestName.setValue(syncRequest.getName());
 			
-			hybridSyncRequest.addValue(hybridSyncRequestName);
+			webSyncRequest.addValue(webSyncRequestName);
 			
 				var resources = syncRequest.getResources();
 				if(resources != undefined && resources != null && resources.length > 0) {
 					
-					var hybridResources = new HybridSiminovDatas.HybridSiminovData();
-					hybridResources.setDataType(Constants.SYNC_ADAPTER_HANDLE_HANDLER_SYNC_REQUEST_RESOURCES);
+					var webResources = new WebSiminovDatas.WebSiminovData();
+					webResources.setDataType(Constants.SYNC_ADAPTER_HANDLE_HANDLER_SYNC_REQUEST_RESOURCES);
 
 					for(var i = 0;i < resources.length;i++) {
 						
@@ -91,21 +91,21 @@ var SyncHandler = (function() {
 						var resourceValue = syncRequest.getResource(resourceName);
 						resourceValue = '' + resourceValue;
 						
-						var hybridResource = new HybridSiminovDatas.HybridSiminovData.HybridSiminovValue();
-						hybridResource.setType(resourceName);
-						hybridResource.setValue('' + resourceValue);
+						var webResource = new WebSiminovDatas.WebSiminovData.WebSiminovValue();
+						webResource.setType(resourceName);
+						webResource.setValue('' + resourceValue);
 	
-						hybridResources.addValue(hybridResource);
+						webResources.addValue(webResource);
 					}
 	
-					hybridSyncRequest.addData(hybridResources);
+					webSyncRequest.addData(webResources);
 				}
 
 
-			hybridSiminovDatas.addHybridSiminovData(hybridSyncRequest);
+			webSiminovDatas.addWebSiminovData(webSyncRequest);
 									
 									
-			var data = encodeURI(SIJsonHelper.toJson(hybridSiminovDatas));
+			var data = encodeURI(SIJsonHelper.toJson(webSiminovDatas));
 
 	        var adapter = new Adapter();
 	        adapter.setAdapterName(Constants.SYNC_ADAPTER);

@@ -24,7 +24,7 @@
 */
 
 /**
-	It handles and provides all resources needed by SIMINOV HYBRID.
+	It handles and provides all resources needed by SIMINOV WEB.
 	
 	@module Resource
 	@class Resources
@@ -81,7 +81,7 @@ var ResourceManager = (function() {
 				
 				<database-descriptor>
 				
-					<property name="database_name">SIMINOV-HYBRID-TEMPLATE</property>
+					<property name="database_name">SIMINOV-WEB-SAMPLE</property>
 					
 				</database-descriptor>
 		 

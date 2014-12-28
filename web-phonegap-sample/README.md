@@ -1,9 +1,9 @@
-Siminov Hybrid ORM (Object Relationship Mapping) - Android + PhoneGap
+Siminov Web ORM (Object Relationship Mapping) - Android + PhoneGap
 ===================================================
 
-A Hybrid Application, by definition is derived from a combination of technologies, approaches or elements of different kinds. With respect to mobile applications, a hybrid application leverages best of both native and mobile web technologies.
+A Web Application, by definition is derived from a combination of technologies, approaches or elements of different kinds. With respect to mobile applications, a Web application leverages best of both native and mobile web technologies.
 
-In Hybrid Environment, it is very difficult to map JavaScript/Java objects to relational database, but Siminov makes application developer life easy and simple by mapping JavaScript/Java objects to relational database.
+In Web Environment, it is very difficult to map JavaScript/Java objects to relational database, but Siminov makes application developer life easy and simple by mapping JavaScript/Java objects to relational database.
 
 Siminov can be used with PhoneGap. It enables application developers to build applications for mobile devices using JavaScript, HTML5 and CSS3, instead of device-specific languages such as Java.
 
@@ -12,7 +12,7 @@ Siminov not only takes care of the mapping from JavsScript/Java classes to datab
 
 About Application
 -----------------
-This template application provides a basic idea about using Siminov Hybrid Framework.
+This sample application provides a basic idea about using Siminov Web Framework.
 
 This application shows different type of Liquor's available in market and their basic information. (Eg: Wine, Beer, Whiskey, Votka, etc).
 
@@ -20,27 +20,27 @@ This application shows different type of Liquor's available in market and their 
 Setting Up Application 
 ----------------------
 
-- Download Siminov Android ORM jar from http://siminov.github.io/android-hybrid/builds.html
-- Download Siminov Hybrid build from http://siminov.github.io/android-hybrid/builds.html
-- Extract Siminov Hybrid build into folder.
+- Download Siminov Android ORM jar from http://siminov.github.io/android-web/builds.html
+- Download Siminov Web build from http://siminov.github.io/android-web/builds.html
+- Extract Siminov Web build into folder.
 
 ***
 
-![Siminov Hybrid Template Application] (https://raw.github.com/Siminov/android-hybrid/doc-resources/github-wiki-resources/siminov_hybrid_build_extract.png "Siminov Hybrid Template Application")
+![Siminov Web Sample Application] (https://raw.github.com/Siminov/android-web/doc-resources/github-wiki-resources/siminov_web_build_extract.png "Siminov Web Sample Application")
 
 ***
 
 ***
 
-![Siminov Hybrid Template Application] (https://raw.github.com/Siminov/android-hybrid/doc-resources/github-wiki-resources/siminov_hybrid_build_extracted.png "Siminov Hybrid Template Application")
+![Siminov Web Sample Application] (https://raw.github.com/Siminov/android-web/doc-resources/github-wiki-resources/siminov_web_build_extracted.png "Siminov Web Sample Application")
 
 ***
 
-- Add both Native and Hybrid jar's into your application libs folder.
+- Add both Native and Web jar's into your application libs folder.
 
 ***
 
-![Siminov Hybrid Template Application] (https://raw.github.com/Siminov/android-hybrid/doc-resources/github-wiki-resources/siminov_hybrid_template_application_add_siminov_jars.png "Siminov Hybrid Template Application")
+![Siminov Web Sample Application] (https://raw.github.com/Siminov/android-web/doc-resources/github-wiki-resources/siminov_web_sample_application_add_siminov_jars.png "Siminov Web Sample Application")
 
 ***
 
@@ -48,7 +48,7 @@ Setting Up Application
 
 ***
 
-![Siminov Hybrid Template Application] (https://raw.github.com/Siminov/android-hybrid/doc-resources/github-wiki-resources/siminov_hybrid_template_application_add_siminov_js_to_application_assets.png "Siminov Hybrid Template Application")
+![Siminov Web Sample Application] (https://raw.github.com/Siminov/android-web/doc-resources/github-wiki-resources/siminov_web_sample_application_add_siminov_js_to_application_assets.png "Siminov Web Sample Application")
 
 ***
 
@@ -56,7 +56,7 @@ Setting Up Application
 
 ***
 
-![Siminov Hybrid Template Application] (https://raw.github.com/Siminov/android-hybrid/doc-resources/github-wiki-resources/siminov_hybrid_template_application_include_siminov_js_to_application_view.png "Siminov Hybrid Template Application")
+![Siminov Web Sample Application] (https://raw.github.com/Siminov/android-web/doc-resources/github-wiki-resources/siminov_web_sample_application_include_siminov_js_to_application_view.png "Siminov Web Sample Application")
 
 ***
 
@@ -72,7 +72,7 @@ Setting Up Application
 
 ***
 
-![Siminov Hybrid Template Application] (https://raw.github.com/Siminov/android-hybrid/doc-resources/github-wiki-resources/siminov_hybrid_template_application_add_cordova_jar.png "Siminov Hybrid Template Application")
+![Siminov Web Sample Application] (https://raw.github.com/Siminov/android-web/doc-resources/github-wiki-resources/siminov_web_sample_application_add_cordova_jar.png "Siminov Web Sample Application")
 
 ***
 
@@ -80,7 +80,7 @@ Setting Up Application
 
 ***
 
-![Siminov Hybrid Template Application] (https://raw.github.com/Siminov/android-hybrid/doc-resources/github-wiki-resources/siminov_hybrid_template_application_include_cordova_into_project.png "Siminov Hybrid Template Application")
+![Siminov Web Sample Application] (https://raw.github.com/Siminov/android-web/doc-resources/github-wiki-resources/siminov_web_sample_application_include_cordova_into_project.png "Siminov Web Sample Application")
 
 ***
 
@@ -93,8 +93,8 @@ Application Configuration
 ```xml
 <siminov>
 
-	<property name="name">SIMINOV HYBRID TEMPLATE</property>	
-	<property name="description">Siminov Hybrid Template Application</property>
+	<property name="name">SIMINOV WEB SAMPLE</property>	
+	<property name="description">Siminov Web Sample Application</property>
 	<property name="version">0.9</property>
 
 	<property name="load_initially">false</property>
@@ -106,8 +106,8 @@ Application Configuration
 
 	<!-- SIMINOV EVENTS -->
  	<event-handlers>
-	    <event-handler>siminov.hybrid.phonegap.template.events.SiminovEventHandler</event-handler>
-	    <event-handler>siminov.hybrid.phonegap.template.events.DatabaseEventHandler</event-handler>
+	    <event-handler>siminov.web.phonegap.sample.events.SiminovEventHandler</event-handler>
+	    <event-handler>siminov.web.phonegap.sample.events.DatabaseEventHandler</event-handler>
 	</event-handlers>
 		
 </siminov>
@@ -120,8 +120,8 @@ Application Configuration
 
 <database-descriptor>
 
-	<property name="database_name">SIMINOV-HYBRID-TEMPLATE</property>
-	<property name="description">Siminov Hybrid Template Database Config</property>
+	<property name="database_name">SIMINOV-WEB-SAMPLE</property>
+	<property name="description">Siminov Web Sample Database Config</property>
 	<property name="is_locking_required">true</property>
 	<property name="external_storage">false</property>
 
@@ -132,7 +132,7 @@ Application Configuration
 
 	
 	<libraries>
-		<library>siminov.orm.library.template.resources</library>
+		<library>siminov.orm.library.sample.resources</library>
 	</libraries>
 	
 </database-descriptor>
@@ -286,5 +286,5 @@ LICENSE
  limitations under the License.
 
 
-[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/f423e443f4fc035eeb0ccf84cb7abdbe "githalytics.com")](http://githalytics.com/Siminov/android-templates)
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/f423e443f4fc035eeb0ccf84cb7abdbe "githalytics.com")](http://githalytics.com/Siminov/android-samples)
 

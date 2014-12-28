@@ -57,7 +57,7 @@ function UnregisterDevice() {
 
 
 
-UnregisterDevice.SERVICE_NAME = "SIMINOV-HYBRID-NOTIFICATION-SERVICE";
+UnregisterDevice.SERVICE_NAME = "SIMINOV-WEB-NOTIFICATION-SERVICE";
 UnregisterDevice.REQUEST_NAME = "UNREGISTER-DEVICE";
 
 

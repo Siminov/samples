@@ -42,7 +42,7 @@ document.write('<script type="text/javascript" src="Siminov/Model/AdapterDescrip
 document.write('<script type="text/javascript" src="Siminov/Model/NotificationDescriptor.js"></script>');
 document.write('<script type="text/javascript" src="Siminov/Model/SyncDescriptor.js"></script>');
 
-document.write('<script type="text/javascript" src="Siminov/Model/HybridSiminovDatas.js"></script>');
+document.write('<script type="text/javascript" src="Siminov/Model/WebSiminovDatas.js"></script>');
 
 
 /*

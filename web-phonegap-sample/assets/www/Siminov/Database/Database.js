@@ -483,9 +483,9 @@ function Database() {
 
         var data = adapter.invoke();
 
-        var hybridData = SIJsonHelper.toSI(data);
-        if(hybridData != undefined) {
-            var datas = hybridData.getHybridSiminovDatas();
+        var webData = SIJsonHelper.toSI(data);
+        if(webData != undefined) {
+            var datas = webData.getWebSiminovDatas();
             if(datas != undefined) {
                 for(var i = 0;i < datas.length;i++) {
                     if(datas[i] != undefined) {
@@ -536,11 +536,11 @@ function Database() {
 
         var data = adapter.invoke();
 
-        var hybridData = SIJsonHelper.toSI(data);
+        var webData = SIJsonHelper.toSI(data);
         var columnNames = [];
 
-        if(hybridData != undefined) {
-            var datas = hybridData.getHybridSiminovDatas();
+        if(webData != undefined) {
+            var datas = webData.getWebSiminovDatas();
             if(datas != undefined) {
                 for(var i = 0;i < datas.length;i++) {
                     if(datas[i] != undefined) {
@@ -590,11 +590,11 @@ function Database() {
 
         var data = adapter.invoke();
 
-        var hybridData = SIJsonHelper.toSI(data);
+        var webData = SIJsonHelper.toSI(data);
         var columnTypes = new Dictionary();
 
-        if(hybridData != undefined) {
-            var datas = hybridData.getHybridSiminovDatas();
+        if(webData != undefined) {
+            var datas = webData.getWebSiminovDatas();
             if(datas != undefined) {
 
                 for(var i = 0;i < datas.length;i++) {
@@ -652,11 +652,11 @@ function Database() {
 
         var data = adapter.invoke();
 
-        var hybridData = SIJsonHelper.toSI(data);
+        var webData = SIJsonHelper.toSI(data);
         var primaryKeys = [];
 
-        if(hybridData != undefined) {
-            var datas = hybridData.getHybridSiminovDatas();
+        if(webData != undefined) {
+            var datas = webData.getWebSiminovDatas();
             if(datas != undefined) {
 
                 for(var i = 0;i < datas.length;i++) {
@@ -706,11 +706,11 @@ function Database() {
 
         var data = adapter.invoke();
 
-        var hybridData = SIJsonHelper.toSI(data);
+        var webData = SIJsonHelper.toSI(data);
         var mandatoryFields = [];
 
-        if(hybridData != undefined) {
-            var datas = hybridData.getHybridSiminovDatas();
+        if(webData != undefined) {
+            var datas = webData.getWebSiminovDatas();
             if(datas != undefined) {
 
                 for(var i = 0;i < datas.length;i++) {
@@ -760,11 +760,11 @@ function Database() {
 
         var data = adapter.invoke();
 
-        var hybridData = SIJsonHelper.toSI(data);
+        var webData = SIJsonHelper.toSI(data);
         var uniqueFields = [];
 
-        if(hybridData != undefined) {
-            var datas = hybridData.getHybridSiminovDatas();
+        if(webData != undefined) {
+            var datas = webData.getWebSiminovDatas();
             if(datas != undefined) {
 
                 for(var i = 0;i < datas.length;i++) {
@@ -815,11 +815,11 @@ function Database() {
 
         var data = adapter.invoke();
 
-        var hybridData = SIJsonHelper.toSI(data);
+        var webData = SIJsonHelper.toSI(data);
         var foreignKeys = [];
 
-        if(hybridData != undefined) {
-            var datas = hybridData.getHybridSiminovDatas();
+        if(webData != undefined) {
+            var datas = webData.getWebSiminovDatas();
             if(datas != undefined) {
 
                 for(var i = 0;i < datas.length;i++) {
@@ -948,9 +948,9 @@ Database.count = function(className, column, distinct, whereClause, groupBy, hav
 
     var data = adapter.invoke();
 
-    var hybridData = SIJsonHelper.toSI(data);
-    if(hybridData != undefined) {
-        var datas = hybridData.getHybridSiminovDatas();
+    var webData = SIJsonHelper.toSI(data);
+    if(webData != undefined) {
+        var datas = webData.getWebSiminovDatas();
         if(datas != undefined) {
             for(var i = 0;i < datas.length;i++) {
                 if(datas[i] != undefined) {
@@ -989,9 +989,9 @@ Database.avg = function(className, column, whereClause, groupBy, hanving) {
 
     var data = adapter.invoke();
 
-    var hybridData = SIJsonHelper.toSI(data);
-    if(hybridData != undefined) {
-        var datas = hybridData.getHybridSiminovDatas();
+    var webData = SIJsonHelper.toSI(data);
+    if(webData != undefined) {
+        var datas = webData.getWebSiminovDatas();
         if(datas != undefined) {
             for(var i = 0;i < datas.length;i++) {
                 if(datas[i] != undefined) {
@@ -1031,9 +1031,9 @@ Database.min = function(className, column, whereClause, groupBy, having) {
 
     var data = adapter.invoke();
 
-    var hybridData = SIJsonHelper.toSI(data);
-    if(hybridData != undefined) {
-        var datas = hybridData.getHybridSiminovDatas();
+    var webData = SIJsonHelper.toSI(data);
+    if(webData != undefined) {
+        var datas = webData.getWebSiminovDatas();
         if(datas != undefined) {
             for(var i = 0;i < datas.length;i++) {
                 if(datas[i] != undefined) {
@@ -1073,9 +1073,9 @@ Database.max = function(className, column, whereClause, groupBy, having) {
 
     var data = adapter.invoke();
 
-    var hybridData = SIJsonHelper.toSI(data);
-    if(hybridData != undefined) {
-        var datas = hybridData.getHybridSiminovDatas();
+    var webData = SIJsonHelper.toSI(data);
+    if(webData != undefined) {
+        var datas = webData.getWebSiminovDatas();
         if(datas != undefined) {
             for(var i = 0;i < datas.length;i++) {
                 if(datas[i] != undefined) {
@@ -1115,9 +1115,9 @@ Database.sum = function(className, column, whereClause, groupBy, having) {
 
     var data = adapter.invoke();
 
-    var hybridData = SIJsonHelper.toSI(data);
-    if(hybridData != undefined) {
-        var datas = hybridData.getHybridSiminovDatas();
+    var webData = SIJsonHelper.toSI(data);
+    if(webData != undefined) {
+        var datas = webData.getWebSiminovDatas();
         if(datas != undefined) {
             for(var i = 0;i < datas.length;i++) {
                 if(datas[i] != undefined) {
@@ -1157,9 +1157,9 @@ Database.total = function(className, column, whereClause, groupBy, having) {
 
     var data = adapter.invoke();
 
-    var hybridData = SIJsonHelper.toSI(data);
-    if(hybridData != undefined) {
-        var datas = hybridData.getHybridSiminovDatas();
+    var webData = SIJsonHelper.toSI(data);
+    if(webData != undefined) {
+        var datas = webData.getWebSiminovDatas();
         if(datas != undefined) {
             for(var i = 0;i < datas.length;i++) {
                 if(datas[i] != undefined) {
@@ -1200,9 +1200,9 @@ Database.groupConcat = function(className, column, delimiter, whereClause, group
 
     var data = adapter.invoke();
 
-    var hybridData = SIJsonHelper.toSI(data);
-    if(hybridData != undefined) {
-        var datas = hybridData.getHybridSiminovDatas();
+    var webData = SIJsonHelper.toSI(data);
+    if(webData != undefined) {
+        var datas = webData.getWebSiminovDatas();
         if(datas != undefined) {
             for(var i = 0;i < datas.length;i++) {
                 if(datas[i] != undefined) {

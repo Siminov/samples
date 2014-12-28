@@ -51,12 +51,12 @@
 			</database-mappings>
 			 
 			
-			<!-- Hybrid Adapters Needed Under This Library Descriptor -->
+			<!-- Web Adapters Needed Under This Library Descriptor -->
 				
 			<!-- Optional Field -->
-				<!-- Hybrid Adapters -->
+				<!-- Web Adapters -->
 			<adapters>
-			    <adapter>full_path_of_hybrid_adapter_file</adapter>
+			    <adapter>full_path_of_web_adapter_file</adapter>
 			</adapters>
 			
 			

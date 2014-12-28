@@ -25,10 +25,10 @@
 
 
 /**
-	Exposes methods to GET and SET Siminov Hybrid Datas structure.
+	Exposes methods to GET and SET Siminov Web Datas structure.
 		
 	Example:
-		<siminov-hybrid-data>
+		<siminov-web-data>
 		
 		    <data type="data_type">
 		        <value type="value_type">value</value>
@@ -37,55 +37,55 @@
 		
 		    <data type="data_type" />
 		    
-		</siminov-hybrid-data>
+		</siminov-web-data>
 
 	@module Model	
-	@class HybridSiminovDatas
+	@class WebSiminovDatas
  	@constructor
  	
  */
-function HybridSiminovDatas() {
+function WebSiminovDatas() {
 
-    var hybridSiminovDatas = new Array();
+    var webSiminovDatas = new Array();
 
 	
 	/**
-	 	Get Hybrid Siminov Datas.
+	 	Get Web Siminov Datas.
 	 	
-	 	@method getHybridSiminovDatas
-	 	@return Hybrid Siminov Datas.
+	 	@method getWebSiminovDatas
+	 	@return Web Siminov Datas.
 	 */
-    this.getHybridSiminovDatas = function() {
-        return hybridSiminovDatas;
+    this.getWebSiminovDatas = function() {
+        return webSiminovDatas;
     }
 
 	/**
-	 	Get Hybrid Siminov Data based on Data Type provided.
+	 	Get Web Siminov Data based on Data Type provided.
  	 	
- 	 	@method addHybridSiminovData
+ 	 	@method addWebSiminovData
  	 	@param dataType {String} Data Type.
-	 	@return {String} Hybrid Siminov Datas.
+	 	@return {String} Web Siminov Datas.
 	 */
-    this.addHybridSiminovData = function(hybridSiminovData) {
-        hybridSiminovDatas.push(hybridSiminovData);
+    this.addWebSiminovData = function(webSiminovData) {
+        webSiminovDatas.push(webSiminovData);
     }
 
 }
 
 
 /**
- 	Exposes methods to GET and SET Siminov Hybrid Data structure.
+ 	Exposes methods to GET and SET Siminov Web Data structure.
  
     <data type="data_type">
         <value type="value_type">value</value>
         <data type="data_type"/>
     </data>
  
- 	@class HybridSiminovDatas.HybridSiminovData
+ 	@class WebSiminovDatas.WebSiminovData
  	@constructor
  	
  */
-HybridSiminovDatas.HybridSiminovData = function() {
+WebSiminovDatas.WebSiminovData = function() {
 
     var dataType;
     var dataValue;
@@ -148,17 +148,17 @@ HybridSiminovDatas.HybridSiminovData = function() {
 	 	Add Value.
 	 	
 	 	@method addValue
-	 	@param hybridSiminovValue {HybridSiminovDatas.HybridSiminovData.HybridSiminovValue} Hybrid Siminov Value.
+	 	@param webSiminovValue {WebSiminovDatas.WebSiminovData.WebSiminovValue} Web Siminov Value.
 	 */
     this.addValue = function(val) {
         values.push(val);
     }
 
 	/**
-	 	Remove Hybrid Siminov Value.
+	 	Remove Web Siminov Value.
 	 	
 	 	@method removeValue
-	 	@param hybridSiminovValue {HybridSiminovDatas.HybridSiminovData.HybridSiminovValue} Hybrid Siminov Value.
+	 	@param webSiminovValue {WebSiminovDatas.WebSiminovData.WebSiminovValue} Web Siminov Value.
 	 */
     this.removeValue = function(val) {
         var indexVal = values.indexOf(val);
@@ -169,41 +169,41 @@ HybridSiminovDatas.HybridSiminovData = function() {
     }
 
 	/**
-	 	Check whether Hybrid Siminov Value exist or not.
+	 	Check whether Web Siminov Value exist or not.
 	 	
 	 	@method containValue
-	 	@param hybridSiminovValue {HybridSiminovDatas.HybridSiminovData.HybridSiminovValue} Hybrid Siminov Value.
-	 	@return {Boolean} true/false; TRUE if Hybrid Siminov Value exist, FALSE if Hybrid Siminov Value does not exist.
+	 	@param webSiminovValue {WebSiminovDatas.WebSiminovData.WebSiminovValue} Web Siminov Value.
+	 	@return {Boolean} true/false; TRUE if Web Siminov Value exist, FALSE if Web Siminov Value does not exist.
 	 */
     this.containValue = function(val) {
         return values.isAvailable(val);
     }
 
 	/**
-	 	Get All Hybrid Siminov Data.
+	 	Get All Web Siminov Data.
 	 	
 	 	@method getDatas
-	 	@return {Array} All Hybrid Siminov Data.
+	 	@return {Array} All Web Siminov Data.
 	 */
     this.getDatas = function() {
         return datas;
     }
 
 	/**
-	 	Add Hybrid Siminon Data.
+	 	Add Web Siminon Data.
 	 
 	 	@method addData
-		@param hybridSiminovData {HybridSiminovDatas.HybridSiminovData.HybridSiminovValue} Hybrid Siminov Data.
+		@param webSiminovData {WebSiminovDatas.WebSiminovData.WebSiminovValue} Web Siminov Data.
 	 */
     this.addData = function(data) {
         datas.push(data);
     }
 
 	/**
-	 	Remove Hybrid Siminov Data.
+	 	Remove Web Siminov Data.
 	 	
 	 	@method removeData
-	 	@param hybridSiminovData {HybridSiminovDatas.HybridSiminovData} Hybrid Siminov Data.
+	 	@param webSiminovData {WebSiminovDatas.WebSiminovData} Web Siminov Data.
 	 */
     this.removeData = function(data) {
         var indexVal = values.indexOf(data);
@@ -212,11 +212,11 @@ HybridSiminovDatas.HybridSiminovData = function() {
     }
 
 	/**
-	 	Check whether Hybrid Siminov Data exist or not.
+	 	Check whether Web Siminov Data exist or not.
 	 	
 	 	@method containData
-	 	@param hybridSiminovData {HybridSiminovDatas.HybridSiminovData} Hybrid Siminov Data.
-	 * @return {boolean} true/false; TRUE if Hybrid Siminov Data exist, FALSE if Hybrid Siminov Data does not exist. 
+	 	@param webSiminovData {WebSiminovDatas.WebSiminovData} Web Siminov Data.
+	 * @return {boolean} true/false; TRUE if Web Siminov Data exist, FALSE if Web Siminov Data does not exist. 
 	 */
     this.containData = function(data) {
         return datas.isAvailable(data);
@@ -228,18 +228,18 @@ HybridSiminovDatas.HybridSiminovData = function() {
 
 
 /**
- 	Exposes methods to GET and SET Siminov Hybrid Value structure.
+ 	Exposes methods to GET and SET Siminov Web Value structure.
  */
-HybridSiminovDatas.HybridSiminovData.HybridSiminovValue = function() {
+WebSiminovDatas.WebSiminovData.WebSiminovValue = function() {
     var type;
     var value;
 
 
 	/**
-	 	Get Type of Hybrid Siminov Value.
+	 	Get Type of Web Siminov Value.
 	 	
 	 	@method getType
-	 	@return {String} Type of Hybrid Siminov Value.
+	 	@return {String} Type of Web Siminov Value.
 	 */
     this.getType = function() {
         return type;
@@ -247,10 +247,10 @@ HybridSiminovDatas.HybridSiminovData.HybridSiminovValue = function() {
 
 
 	/**
-	 	Set Type of Hybrid Siminov Value.
+	 	Set Type of Web Siminov Value.
 	 	
 	 	@method setType
-	 	@param type {String} Type of Hybrid Siminov Value.
+	 	@param type {String} Type of Web Siminov Value.
 	 */
     this.setType = function(val) {
         type = val;
@@ -258,10 +258,10 @@ HybridSiminovDatas.HybridSiminovData.HybridSiminovValue = function() {
 
 
 	/**
-	 	Get Value of Hybrid Siminov Value.
+	 	Get Value of Web Siminov Value.
 	 
 	 	@method getValue
-		@return {String} Value of Hybrid Siminov Value.
+		@return {String} Value of Web Siminov Value.
 	 */
     this.getValue = function() {
         return value;
@@ -269,10 +269,10 @@ HybridSiminovDatas.HybridSiminovData.HybridSiminovValue = function() {
 
 
 	/**
-	 	Set Value of Hybrid Siminov Value.
+	 	Set Value of Web Siminov Value.
 	 
 	 	@method setValue
-		@param value {String} Value of Hybrid Siminov Value.
+		@param value {String} Value of Web Siminov Value.
 	 */
     this.setValue = function(val) {
         value = val;

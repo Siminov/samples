@@ -15,12 +15,12 @@
  * limitations under the License.
  **/
 
-package siminov.hybrid.phonegap.template.events;
+package siminov.web.phonegap.sample.events;
 
-import siminov.orm.events.IDatabaseEvents;
-import siminov.orm.model.DatabaseDescriptor;
-import siminov.orm.model.DatabaseMappingDescriptor;
-import siminov.orm.model.DatabaseMappingDescriptor.Index;
+import siminov.core.events.IDatabaseEvents;
+import siminov.core.model.DatabaseDescriptor;
+import siminov.core.model.DatabaseMappingDescriptor;
+import siminov.core.model.DatabaseMappingDescriptor.Index;
 
 public class DatabaseEventHandler implements IDatabaseEvents {
 

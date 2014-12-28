@@ -111,12 +111,12 @@ function Adapter() {
 	*/
     this.invoke = function() {
 
-        var siminovDatas = new HybridSiminovDatas();
+        var siminovDatas = new WebSiminovDatas();
         for(var i = 0;i < parameters.length;i++) {
-            var siminovData = new HybridSiminovDatas.HybridSiminovData();
+            var siminovData = new WebSiminovDatas.WebSiminovData();
 
             siminovData.setDataValue(parameters[i]);
-            siminovDatas.addHybridSiminovData(siminovData);
+            siminovDatas.addWebSiminovData(siminovData);
         }
 
         var json = SIJsonHelper.toJson(siminovDatas);

@@ -25,8 +25,8 @@
 
 <siminov>
 
-	<property name="name">SIMINOV HYBRID PHONEGAP TEMPLATE</property>	
-	<property name="description">Siminov Hybrid Phonegap Template Application</property>
+	<property name="name">SIMINOV WEB PHONEGAP SAMPLE</property>	
+	<property name="description">Siminov Web Phonegap Sample Application</property>
 	<property name="version">0.9</property>
 
 
@@ -59,16 +59,16 @@
 
 	<!-- Event Handlers -->
  	<event-handlers>
-	    <event-handler>siminov.hybrid.phonegap.template.events.SiminovEventHandler</event-handler>
-	    <event-handler>siminov.hybrid.phonegap.template.events.DatabaseEventHandler</event-handler>
-	    <event-handler>siminov.hybrid.phonegap.template.events.NotificationEventHandler</event-handler>
-   	    <event-handler>siminov.hybrid.phonegap.template.events.SyncEventHandler</event-handler>
+	    <event-handler>siminov.web.phonegap.sample.events.SiminovEventHandler</event-handler>
+	    <event-handler>siminov.web.phonegap.sample.events.DatabaseEventHandler</event-handler>
+	    <event-handler>siminov.web.phonegap.sample.events.NotificationEventHandler</event-handler>
+   	    <event-handler>siminov.web.phonegap.sample.events.SyncEventHandler</event-handler>
 	</event-handlers>
 
  	
  	<!-- Library Descriptors -->
  	<library-descriptors>
- 	    <library-descriptor>siminov.hybrid.phonegap.library.template.resources</library-descriptor>
+ 	    <library-descriptor>siminov.web.phonegap.library.sample.resources</library-descriptor>
  	</library-descriptors> 
  			
 </siminov>

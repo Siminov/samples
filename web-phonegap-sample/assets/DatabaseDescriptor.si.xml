@@ -39,8 +39,8 @@
 
 <database-descriptor>
 
-	<property name="database_name">SIMINOV-HYBRID-PHONEGAP-TEMPLATE</property>
-	<property name="description">Siminov Hybrid Phonegap Template Database Config</property>
+	<property name="database_name">SIMINOV-WEB-PHONEGAP-SAMPLE</property>
+	<property name="description">Siminov Web Phonegap Sample Database Config</property>
 	<property name="version">1</property>
 	<property name="transaction_safe">true</property>
 	<property name="external_storage">false</property>

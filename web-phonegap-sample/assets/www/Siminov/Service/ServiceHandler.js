@@ -73,30 +73,30 @@ var ServiceHandler = (function() {
 	        adapter.setHandlerName(Constants.SERVICE_ADAPTER_INVOKE_HANDLER);
 			
 
-			var hybridServiceDatas = new HybridSiminovDatas();
+			var webServiceDatas = new WebSiminovDatas();
 
-			var hybridService = new HybridSiminovDatas.HybridSiminovData();
-				hybridService.setDataType(Constants.SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE);
+			var webService = new WebSiminovDatas.WebSiminovData();
+				webService.setDataType(Constants.SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE);
 
 				
-				var hybridServiceName = new HybridSiminovDatas.HybridSiminovData.HybridSiminovValue();
-				hybridServiceName.setType(Constants.SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE_NAME);
-				hybridServiceName.setValue(iService.getService());
+				var webServiceName = new WebSiminovDatas.WebSiminovData.WebSiminovValue();
+				webServiceName.setType(Constants.SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE_NAME);
+				webServiceName.setValue(iService.getService());
 			
-			hybridService.addValue(hybridServiceName)
+			webService.addValue(webServiceName)
 			
-				var hybridServiceValue = new HybridSiminovDatas.HybridSiminovData.HybridSiminovValue();
-				hybridServiceValue.setType(Constants.SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE_API);	
-				hybridServiceValue.setValue(iService.getApi());
+				var webServiceValue = new WebSiminovDatas.WebSiminovData.WebSiminovValue();
+				webServiceValue.setType(Constants.SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE_API);	
+				webServiceValue.setValue(iService.getApi());
 
-			hybridService.addValue(hybridServiceValue);
+			webService.addValue(webServiceValue);
 
 
 				var resources = iService.getResources();
 				if(resources != undefined && resources != null && resources.length > 0) {
 					
-					var hybridResources = new HybridSiminovDatas.HybridSiminovData();
-						hybridResources.setDataType(Constants.SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE_RESOURCES);
+					var webResources = new WebSiminovDatas.WebSiminovData();
+						webResources.setDataType(Constants.SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE_RESOURCES);
 					
 					for(var i = 0;i < resources.length;i++) {
 						var resourceName = resources[i];
@@ -104,20 +104,20 @@ var ServiceHandler = (function() {
 						
 						resourceValue = '' + resourceValue;
 						
-						var hybridResource = new HybridSiminovDatas.HybridSiminovData.HybridSiminovValue();
-						hybridResource.setType(resourceName);
-						hybridResource.setValue(resourceValue);
+						var webResource = new WebSiminovDatas.WebSiminovData.WebSiminovValue();
+						webResource.setType(resourceName);
+						webResource.setValue(resourceValue);
 						
-						hybridResources.addValue(hybridResource);
+						webResources.addValue(webResource);
 					}				
 		
-					hybridService.addData(hybridResources);	
+					webService.addData(webResources);	
 				}
 
 
-			hybridServiceDatas.addHybridSiminovData(hybridService)
+			webServiceDatas.addWebSiminovData(webService)
 			
-			var data = encodeURI(SIJsonHelper.toJson(hybridServiceDatas));
+			var data = encodeURI(SIJsonHelper.toJson(webServiceDatas));
 			adapter.addParameter(data);
 
 			adapter.invoke();

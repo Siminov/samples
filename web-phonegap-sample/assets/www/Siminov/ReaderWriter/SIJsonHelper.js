@@ -47,17 +47,17 @@ SIJsonHelper.toSI = function(datas) {
     Log.debug("SIJsonHelper", "toSI", datas);
 
     var obj = eval("(" + datas + ")");
-    var datas = new HybridSiminovDatas();
+    var datas = new WebSiminovDatas();
 
-    var datasProperties = obj[Constants.SIMINOV_HYBRID_DATA];
-    var dataProperties = datasProperties[Constants.SIMINOV_HYBRID_DATA_DATA];
+    var datasProperties = obj[Constants.SIMINOV_WEB_DATA];
+    var dataProperties = datasProperties[Constants.SIMINOV_WEB_DATA_DATA];
 
     if(dataProperties != undefined && dataProperties != null && dataProperties.length > 0) {
 
         for(var i = 0;i < dataProperties.length;i++) {
             var dataProperty = dataProperties[i];
             var data = SIJsonHelper.parseJson(dataProperty);
-            datas.addHybridSiminovData(data);
+            datas.addWebSiminovData(data);
         }
     }
     
@@ -68,25 +68,25 @@ SIJsonHelper.toSI = function(datas) {
 
 SIJsonHelper.parseJson = function(dataProperty) {
 
-    var data = new HybridSiminovDatas.HybridSiminovData();
+    var data = new WebSiminovDatas.WebSiminovData();
 
-    if(dataProperty[Constants.SIMINOV_HYBRID_DATA_DATA_TYPE] != undefined) {
-        data.setDataType(dataProperty[Constants.SIMINOV_HYBRID_DATA_DATA_TYPE]);
+    if(dataProperty[Constants.SIMINOV_WEB_DATA_DATA_TYPE] != undefined) {
+        data.setDataType(dataProperty[Constants.SIMINOV_WEB_DATA_DATA_TYPE]);
     }
 
-    if(dataProperty[Constants.SIMINOV_HYBRID_DATA_DATA_TEXT] != undefined) {
-        data.setDataValue(dataProperty[Constants.SIMINOV_HYBRID_DATA_DATA_TEXT]);
+    if(dataProperty[Constants.SIMINOV_WEB_DATA_DATA_TEXT] != undefined) {
+        data.setDataValue(dataProperty[Constants.SIMINOV_WEB_DATA_DATA_TEXT]);
     }
 
-    var values = dataProperty[Constants.SIMINOV_HYBRID_DATA_VALUE];
+    var values = dataProperty[Constants.SIMINOV_WEB_DATA_VALUE];
     if(values != undefined) {
         for(var j = 0;j < values.length;j++) {
             var value = values[j];
 
-            var type = value[Constants.SIMINOV_HYBRID_DATA_DATA_TYPE];
-            var val = value[Constants.SIMINOV_HYBRID_DATA_TEXT];
+            var type = value[Constants.SIMINOV_WEB_DATA_DATA_TYPE];
+            var val = value[Constants.SIMINOV_WEB_DATA_TEXT];
 
-            var dataValue = new HybridSiminovDatas.HybridSiminovData.HybridSiminovValue();
+            var dataValue = new WebSiminovDatas.WebSiminovData.WebSiminovValue();
             dataValue.setType(type);
             dataValue.setValue(val);
 
@@ -94,12 +94,12 @@ SIJsonHelper.parseJson = function(dataProperty) {
         }
     }
 
-    var innerDatas =  dataProperty[Constants.SIMINOV_HYBRID_DATA_DATA];
+    var innerDatas =  dataProperty[Constants.SIMINOV_WEB_DATA_DATA];
     if(innerDatas != undefined) {
         for(var j = 0;j < innerDatas.length;j++) {
             var innerData = innerDatas[j];
 
-            var innerDataProperty = new HybridSiminovDatas.HybridSiminovData();
+            var innerDataProperty = new WebSiminovDatas.WebSiminovData();
             var innerSIData = SIJsonHelper.parseJson(innerData);
 
             data.addData(innerSIData);
@@ -119,13 +119,13 @@ SIJsonHelper.parseJson = function(dataProperty) {
 */
 SIJsonHelper.toJson = function(datas) {
 
-    var siDatas = datas.getHybridSiminovDatas();
+    var siDatas = datas.getWebSiminovDatas();
 
         var json = new StringBuilder();
 
         json.append('{');
-            json.append('"' + Constants.SIMINOV_HYBRID_DATA + '":{');
-            json.append('"' + Constants.SIMINOV_HYBRID_DATA_DATA + '":[');
+            json.append('"' + Constants.SIMINOV_WEB_DATA + '":{');
+            json.append('"' + Constants.SIMINOV_WEB_DATA_DATA + '":[');
 
             for(var i = 0;i < siDatas.length;i++) {
             	
@@ -156,7 +156,7 @@ SIJsonHelper.parseSI = function(data) {
     json.append('{');
 
     if(type != undefined && type != null && type.length > 0) {
-        json.append('"' + Constants.SIMINOV_HYBRID_DATA_DATA_TYPE + '":"' + type + '",');
+        json.append('"' + Constants.SIMINOV_WEB_DATA_DATA_TYPE + '":"' + type + '",');
     }
 
     var datas = data.getDatas();
@@ -169,7 +169,7 @@ SIJsonHelper.parseSI = function(data) {
         var values = data.getValues();
         if(values != undefined && values.length > 0) {
 
-            json.append('"' + Constants.SIMINOV_HYBRID_DATA_VALUE + '":[');
+            json.append('"' + Constants.SIMINOV_WEB_DATA_VALUE + '":[');
 
             for(var j = 0;j < values.length;j++) {
 
@@ -183,8 +183,8 @@ SIJsonHelper.parseSI = function(data) {
 				}
 
                 json.append('{');
-                    json.append('"' + Constants.SIMINOV_HYBRID_DATA_DATA_TYPE + '":"' + valueType + '",');
-                    json.append('"' + Constants.SIMINOV_HYBRID_DATA_DATA_TEXT + '":"' + valueVal + '"');
+                    json.append('"' + Constants.SIMINOV_WEB_DATA_DATA_TYPE + '":"' + valueType + '",');
+                    json.append('"' + Constants.SIMINOV_WEB_DATA_DATA_TEXT + '":"' + valueVal + '"');
                 json.append('}');
             }
 
@@ -193,7 +193,7 @@ SIJsonHelper.parseSI = function(data) {
 
     } else {
         if(val != undefined && val != null && val.length > 0) {
-            json.append('"' + Constants.SIMINOV_HYBRID_DATA_DATA_TEXT + '":"' + val + '"');
+            json.append('"' + Constants.SIMINOV_WEB_DATA_DATA_TEXT + '":"' + val + '"');
         }
     }
 
@@ -206,7 +206,7 @@ SIJsonHelper.parseSI = function(data) {
 SIJsonHelper.parseInnerSI = function(datas) {
 
     var json = new StringBuilder();
-    json.append('"' + Constants.SIMINOV_HYBRID_DATA_DATA + '":[');
+    json.append('"' + Constants.SIMINOV_WEB_DATA_DATA + '":[');
 
     for(var i = 0;i < datas.length;i++) {
         json.append(SIJsonHelper.parseSI(datas[i]));

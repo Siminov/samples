@@ -235,14 +235,14 @@ Constants.DATABASE_MAPPING_DESCRIPTOR_TYPE = "type";
 Constants.DATABASE_MAPPING_DESCRIPTOR_RELATIONSHIPS_LOAD = "load";
 
 
-//    HybridDescriptor.si.xml Constants.
+//    WebDescriptor.si.xml Constants.
 
 
 
 /**
-	Hybrid Descriptor Adapter Name
+	Web Descriptor Adapter Name
 
-	@property HYBRID_DESCRIPTOR_ADAPTER_NAME
+	@property WEB_DESCRIPTOR_ADAPTER_NAME
 	@type String
 	@static
 	@final
@@ -251,9 +251,9 @@ Constants.DATABASE_MAPPING_DESCRIPTOR_RELATIONSHIPS_LOAD = "load";
 Constants.ADAPTER_DESCRIPTOR_NAME = "name";
 
 /**
-	Hybrid Descriptor Adapter Description
+	Web Descriptor Adapter Description
 
-	@property HYBRID_DESCRIPTOR_ADAPTER_DESCRIPTION
+	@property WEB_DESCRIPTOR_ADAPTER_DESCRIPTION
 	@type String
 	@static
 	@final
@@ -262,9 +262,9 @@ Constants.ADAPTER_DESCRIPTOR_NAME = "name";
 Constants.ADAPTER_DESCRIPTOR_DESCRIPTION = "description";
 
 /**
-	Hybrid Descriptor Adapter Type
+	Web Descriptor Adapter Type
 
-	@property HYBRID_DESCRIPTOR_ADAPTER_TYPE
+	@property WEB_DESCRIPTOR_ADAPTER_TYPE
 	@type String
 	@static
 	@final
@@ -273,9 +273,9 @@ Constants.ADAPTER_DESCRIPTOR_DESCRIPTION = "description";
 Constants.ADAPTER_DESCRIPTOR_TYPE = "type";
 
 /**
-	Hybrid Descriptor Adapter Map To
+	Web Descriptor Adapter Map To
 
-	@property HYBRID_DESCRIPTOR_ADAPTER_MAP_TO
+	@property WEB_DESCRIPTOR_ADAPTER_MAP_TO
 	@type String
 	@static
 	@final
@@ -284,9 +284,9 @@ Constants.ADAPTER_DESCRIPTOR_TYPE = "type";
 Constants.ADAPTER_DESCRIPTOR_MAP_TO = "map_to";
 
 /**
-	Hybrid Descriptor Adapter Cache
+	Web Descriptor Adapter Cache
 
-	@property HYBRID_DESCRIPTOR_ADAPTER_CACHE
+	@property WEB_DESCRIPTOR_ADAPTER_CACHE
 	@type String
 	@static
 	@final
@@ -297,9 +297,9 @@ Constants.ADAPTER_DESCRIPTOR_CACHE = "cache";
 
 
 /**
-	Hybrid Descriptor Adapter Handler Name
+	Web Descriptor Adapter Handler Name
 
-	@property HYBRID_DESCRIPTOR_ADAPTER_HANDLER_NAME
+	@property WEB_DESCRIPTOR_ADAPTER_HANDLER_NAME
 	@type String
 	@static
 	@final
@@ -308,9 +308,9 @@ Constants.ADAPTER_DESCRIPTOR_CACHE = "cache";
 Constants.ADAPTER_DESCRIPTOR_HANDLER_NAME = "name";
 
 /**
-	Hybrid Descriptor Adapter Handler Map To
+	Web Descriptor Adapter Handler Map To
 
-	@property HYBRID_DESCRIPTOR_ADAPTER_HANDLER_MAP_TO
+	@property WEB_DESCRIPTOR_ADAPTER_HANDLER_MAP_TO
 	@type String
 	@static
 	@final
@@ -319,9 +319,9 @@ Constants.ADAPTER_DESCRIPTOR_HANDLER_NAME = "name";
 Constants.ADAPTER_DESCRIPTOR_HANDLER_MAP_TO = "map_to";
 
 /**
-	Hybrid Descriptor Adapter Handler Description
+	Web Descriptor Adapter Handler Description
 
-	@property HYBRID_DESCRIPTOR_ADAPTER_HANDLER_DESCRIPTION
+	@property WEB_DESCRIPTOR_ADAPTER_HANDLER_DESCRIPTION
 	@type String
 	@static
 	@final
@@ -331,9 +331,9 @@ Constants.ADAPTER_DESCRIPTOR_HANDLER_DESCRIPTION = "description";
 
 
 /**
-	Hybrid Descriptor Adapter Parameter Type
+	Web Descriptor Adapter Parameter Type
 
-	@property HYBRID_DESCRIPTOR_ADAPTER_PARAMETER_TYPE
+	@property WEB_DESCRIPTOR_ADAPTER_PARAMETER_TYPE
 	@type String
 	@static
 	@final
@@ -342,9 +342,9 @@ Constants.ADAPTER_DESCRIPTOR_HANDLER_DESCRIPTION = "description";
 Constants.ADAPTER_DESCRIPTOR_PARAMETER_TYPE = "type";
 
 /**
-	Hybrid Descriptor Adapter Parameter Description
+	Web Descriptor Adapter Parameter Description
 
-	@property HYBRID_DESCRIPTOR_ADAPTER_PARAMETER_DESCRIPTION
+	@property WEB_DESCRIPTOR_ADAPTER_PARAMETER_DESCRIPTION
 	@type String
 	@static
 	@final
@@ -354,9 +354,9 @@ Constants.ADAPTER_DESCRIPTOR_PARAMETER_DESCRIPTION = "description";
 
 
 /**
-	Hybrid Descriptor Adapter Return Type
+	Wen Descriptor Adapter Return Type
 
-	@property HYBRID_DESCRIPTOR_ADAPTER_RETURN_TYPE
+	@property WEB_DESCRIPTOR_ADAPTER_RETURN_TYPE
 	@type String
 	@static
 	@final
@@ -365,9 +365,9 @@ Constants.ADAPTER_DESCRIPTOR_PARAMETER_DESCRIPTION = "description";
 Constants.ADAPTER_DESCRIPTOR_RETURN_TYPE = "type";
 
 /**
-	Hybrid Descriptor Adapter Return Description
+	Web Descriptor Adapter Return Description
 
-	@property HYBRID_DESCRIPTOR_ADAPTER_RETURN_DESCRIPTION
+	@property WEB_DESCRIPTOR_ADAPTER_RETURN_DESCRIPTION
 	@type String
 	@static
 	@final
@@ -913,70 +913,70 @@ Constants.SIMINOV_ADAPTER_SHUTDOWN_SIMINOV_HANDLER = "SHUTDOWN-SIMINOV";
 
 
 /**
-	Siminov Hybrid Data
+	Siminov Web Data
 
-	@property SIMINOV_HYBRID_DATA
+	@property SIMINOV_WEB_DATA
 	@type String
 	@static
 	@final
 	@readOnly
 */
-Constants.SIMINOV_HYBRID_DATA = "siminov-hybrid-data";
+Constants.SIMINOV_WEB_DATA = "siminov-web-data";
 
 /**
-	Siminov Hybrid Data Data
+	Siminov Web Data Data
 
-	@property SIMINOV_HYBRID_DATA_DATA
+	@property SIMINOV_WEB_DATA_DATA
 	@type String
 	@static
 	@final
 	@readOnly
 */
-Constants.SIMINOV_HYBRID_DATA_DATA = "data";
+Constants.SIMINOV_WEB_DATA_DATA = "data";
 
 /**
-	Siminov Hybrid Data Data Type
+	Siminov Web Data Data Type
 
-	@property SIMINOV_HYBRID_DATA_DATA_TYPE
+	@property SIMINOV_WEB_DATA_DATA_TYPE
 	@type String
 	@static
 	@final
 	@readOnly
 */
-Constants.SIMINOV_HYBRID_DATA_DATA_TYPE = "-type";
+Constants.SIMINOV_WEB_DATA_DATA_TYPE = "-type";
 
 /**
-	Siminov Hybrid Data Data Text
+	Siminov Web Data Data Text
 
-	@property SIMINOV_HYBRID_DATA_DATA_TEXT
+	@property SIMINOV_WEB_DATA_DATA_TEXT
 	@type String
 	@static
 	@final
 	@readOnly
 */
-Constants.SIMINOV_HYBRID_DATA_DATA_TEXT = "#text";
+Constants.SIMINOV_WEB_DATA_DATA_TEXT = "#text";
 
 /**
-	Siminov Hybrid Data Value
+	Siminov Web Data Value
 
-	@property SIMINOV_HYBRID_DATA_VALUE
+	@property SIMINOV_WEB_DATA_VALUE
 	@type String
 	@static
 	@final
 	@readOnly
 */
-Constants.SIMINOV_HYBRID_DATA_VALUE = "value";
+Constants.SIMINOV_WEB_DATA_VALUE = "value";
 
 /**
 	Siminov Hyrbid Data Text
 
-	@property SIMINOV_HYBRID_DATA_TEXT
+	@property SIMINOV_WEB_DATA_TEXT
 	@type String
 	@static
 	@final
 	@readOnly
 */
-Constants.SIMINOV_HYBRID_DATA_TEXT = "#text";
+Constants.SIMINOV_WEB_DATA_TEXT = "#text";
 
 
 

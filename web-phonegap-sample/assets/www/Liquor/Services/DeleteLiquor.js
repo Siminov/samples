@@ -56,7 +56,7 @@ function DeleteLiquor() {
 }
 
 
-DeleteLiquor.SERVICE_NAME = "SIMINOV-HYBRID-LIQUORS-SERVICE";
+DeleteLiquor.SERVICE_NAME = "SIMINOV-WEB-LIQUORS-SERVICE";
 DeleteLiquor.REQUEST_NAME = "DELETE-LIQUOR";
 
 DeleteLiquor.LIQUOR_NAME = "LIQUOR_NAME";
