@@ -15,9 +15,9 @@
  * limitations under the License.
  **/
 
-package siminov.hybrid.phonegap.library.template.model;
+package siminov.web.phonegap.library.sample.model;
 
-import siminov.orm.database.Database;
+import siminov.core.database.Database;
 
 
 public class Credential extends Database {

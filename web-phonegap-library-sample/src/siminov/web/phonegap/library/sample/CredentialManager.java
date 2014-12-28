@@ -15,19 +15,18 @@
  * limitations under the License.
  **/
 
-package siminov.hybrid.phonegap.library.template;
+package siminov.web.phonegap.library.sample;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
-import siminov.hybrid.phonegap.library.template.model.Credential;
-import siminov.orm.exception.SiminovCriticalException;
-import siminov.orm.exception.SiminovException;
-import siminov.orm.log.Log;
-import siminov.orm.resource.ResourceManager;
-import siminov.orm.utils.ClassUtils;
-import siminov.orm.utils.EmptyIterator;
+import siminov.core.exception.SiminovCriticalException;
+import siminov.core.exception.SiminovException;
+import siminov.core.log.Log;
+import siminov.core.utils.ClassUtils;
+import siminov.core.utils.EmptyIterator;
+import siminov.web.phonegap.library.sample.model.Credential;
 
 public class CredentialManager {
 
