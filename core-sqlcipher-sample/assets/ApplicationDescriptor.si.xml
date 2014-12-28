@@ -22,8 +22,8 @@
 
 <siminov>
 
-	<property name="name">SIMINOV SQLCIPHER TEMPLATE</property>	
-	<property name="description">Siminov SqlCipher Template Application</property>
+	<property name="name">SIMINOV SQLCIPHER SAMPLE</property>	
+	<property name="description">Siminov SQLCipher Sample Application</property>
 	<property name="version">0.9</property>
 
 	<!-- DATABASE-DESCRIPTORS -->
@@ -33,8 +33,8 @@
 
 	<!-- SIMINOV EVENTS -->
 	<event-handlers>
-	    <event-handler>siminov.orm.sqlcipher.template.events.SiminovEventHandler</event-handler>
-	    <event-handler>siminov.orm.sqlcipher.template.events.DatabaseEventHandler</event-handler>
+	    <event-handler>siminov.core.sqlcipher.sample.events.SiminovEventHandler</event-handler>
+	    <event-handler>siminov.core.sqlcipher.sample.events.DatabaseEventHandler</event-handler>
 	</event-handlers>
 			
 </siminov>

@@ -21,7 +21,7 @@
 
 <database-mapping-descriptor>
 
-	<entity table_name="MODEL" class_name="siminov.orm.sqlcipher.template.model.Model">
+	<entity table_name="MODEL" class_name="siminov.core.sqlcipher.sample.model.Model">
 		
 		<attribute variable_name="columnOne" column_name="COLUMN_ONE">
 			<property name="type">java.lang.String</property>

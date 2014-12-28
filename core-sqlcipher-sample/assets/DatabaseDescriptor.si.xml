@@ -24,8 +24,8 @@
 
 <database-descriptor>
 
-	<property name="database_name">SIMINOV-SQLCIPHER-TEMPLATE</property>
-	<property name="description">Siminov Sqlcipher Template Database Config</property>
+	<property name="database_name">SIMINOV-SQLCIPHER-SAMPLE</property>
+	<property name="description">Siminov Sqlcipher Sample Database Config</property>
 	<property name="type">sqlcipher</property>
 	<property name="version">1</property>
 	<property name="transaction_safe">true</property>
