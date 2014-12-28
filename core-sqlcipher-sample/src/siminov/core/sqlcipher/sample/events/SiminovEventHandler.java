@@ -16,10 +16,10 @@
  **/
 
 
-package siminov.orm.sqlcipher.template.events;
+package siminov.core.sqlcipher.sample.events;
 
-import siminov.orm.events.ISiminovEvents;
-import siminov.orm.sqlcipher.template.DatabaseUtils;
+import siminov.core.events.ISiminovEvents;
+import siminov.core.sqlcipher.sample.DatabaseUtils;
 
 public class SiminovEventHandler implements ISiminovEvents {
 

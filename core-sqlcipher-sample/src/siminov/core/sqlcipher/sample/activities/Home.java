@@ -16,9 +16,9 @@
  **/
 
 
-package siminov.orm.sqlcipher.template.activities;
+package siminov.core.sqlcipher.sample.activities;
 
-import siminov.orm.sqlcipher.template.R;
+import siminov.core.sqlcipher.sample.R;
 import android.app.Activity;
 import android.os.Bundle;
 

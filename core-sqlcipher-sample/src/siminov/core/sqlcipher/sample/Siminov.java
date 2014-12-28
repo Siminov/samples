@@ -16,24 +16,24 @@
  **/
 
 
-package siminov.orm.sqlcipher.template;
+package siminov.core.sqlcipher.sample;
 
-import siminov.orm.exception.DatabaseException;
-import siminov.orm.log.Log;
-import siminov.orm.sqlcipher.template.model.Model;
+import siminov.core.IInitializer;
+import android.app.Application;
 
-public class DatabaseUtils {
+public class Siminov extends Application {
 
-	public void prepareData() {
+	public void onCreate() { 
+		super.onCreate();
+
+		initializeSiminov();
+	}
+	
+	private void initializeSiminov() {
 		
-		Model modelOne = new Model();
-		modelOne.setColumnOne("COLUMN ONE");
-		modelOne.setColumnTwo("COLUMN TWO");
+		IInitializer initializer = siminov.core.Siminov.initializer();
+		initializer.addParameter(this);
 		
-		try {
-			modelOne.saveOrUpdate();
-		} catch(DatabaseException databaseException) {
-			Log.error(getClass().getName(), "prepareData", "DatabaseException caught while saving model one, " + databaseException.getMessage());
-		}
+		initializer.initialize();
 	}
 }

@@ -16,9 +16,9 @@
  **/
 
 
-package siminov.orm.sqlcipher.template.model;
+package siminov.core.sqlcipher.sample.model;
 
-import siminov.orm.database.Database;
+import siminov.core.database.Database;
 
 public class Model extends Database {
 
