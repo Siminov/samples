@@ -3,11 +3,11 @@
     android:orientation="vertical" android:background="@drawable/background_theme"
     >
 
-    <fragment android:name="siminov.connect.template.fragments.TitleBar" android:id="@+id/title_bar"
+    <fragment android:name="siminov.connect.sample.fragments.TitleBar" android:id="@+id/title_bar"
 		android:layout_width="fill_parent" android:layout_height="wrap_content"        
         />
 
-    <fragment android:name="siminov.connect.template.fragments.Login" android:id="@+id/liquor_detail"
+    <fragment android:name="siminov.connect.sample.fragments.Login" android:id="@+id/liquor_detail"
         android:layout_width="fill_parent" android:layout_height="fill_parent"
         />
 

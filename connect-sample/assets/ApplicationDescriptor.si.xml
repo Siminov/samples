@@ -22,8 +22,8 @@
 
 <siminov>
 
-	<property name="name">SIMINOV CONNECT TEMPLATE</property>	
-	<property name="description">Siminov Connect Template Application</property>
+	<property name="name">SIMINOV CONNECT SAMPLE</property>	
+	<property name="description">Siminov Connect Sample Application</property>
 	<property name="version">0.9</property>
 
 	<!-- Database Descriptors -->
@@ -56,9 +56,9 @@
 		
 	<!-- Event Handlers -->
 	<event-handlers>
-	    <event-handler>siminov.connect.template.events.SiminovEventHandler</event-handler>
-	    <event-handler>siminov.connect.template.events.DatabaseEventHandler</event-handler>
-   	    <event-handler>siminov.connect.template.events.NotificationEventHandler</event-handler>
+	    <event-handler>siminov.connect.sample.events.SiminovEventHandler</event-handler>
+	    <event-handler>siminov.connect.sample.events.DatabaseEventHandler</event-handler>
+   	    <event-handler>siminov.connect.sample.events.NotificationEventHandler</event-handler>
 	</event-handlers>
 
 </siminov>

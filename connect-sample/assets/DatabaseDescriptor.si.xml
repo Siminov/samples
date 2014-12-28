@@ -23,8 +23,8 @@
 
 <database-descriptor>
 
-	<property name="database_name">SIMINOV-CONNECT-TEMPLATE</property>
-	<property name="description">Siminov Connect Template Database Config</property>
+	<property name="database_name">SIMINOV-CONNECT-SAMPLE</property>
+	<property name="description">Siminov Connect Sample Database Config</property>
 	<property name="version">1</property>
 	<property name="is_locking_required">true</property>
 

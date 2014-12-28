@@ -27,33 +27,33 @@
     <property name="port">8080</property>
 	<property name="context">CONNECT-ENTERPRISE</property>    
 
-    <apis>
-     	<api>
+    <requests>
+     	<request>
 
         	<property name="name">REGISTER-DEVICE</property>
          	<property name="type">POST</property>
          	<property name="api">register-device</property>
-         	<property name="handler">siminov.connect.template.services.RegisterDevice</property>
+         	<property name="handler">siminov.connect.sample.services.RegisterDevice</property>
 	     	<property name="mode">SYNC</property>
 
 	      	<header-parameters>
 	     	    <header-parameter name="id">{@resource ID}</header-parameter>
 	      	</header-parameters>
      	
-		</api>
-     	<api>
+		</request>
+     	<request>
 
         	<property name="name">UNREGISTER-DEVICE</property>
          	<property name="type">POST</property>
          	<property name="api">register-device</property>
-         	<property name="handler">siminov.connect.template.services.UnregisterDevice</property>
+         	<property name="handler">siminov.connect.sample.services.UnregisterDevice</property>
 	     	<property name="mode">SYNC</property>
 
 	      	<header-parameters>
 	     	    <header-parameter name="id">{@resource ID}</header-parameter>
 	      	</header-parameters>
      	
-		</api>
-    </apis>
+		</request>
+    </requests>
     
 </service-descriptor>

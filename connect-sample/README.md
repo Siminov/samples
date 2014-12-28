@@ -1,1 +1,1 @@
-Siminov Connect Template
+Siminov Connect Sample

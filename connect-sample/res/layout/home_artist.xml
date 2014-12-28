@@ -3,7 +3,7 @@
     android:orientation="vertical" android:background="@drawable/background_theme"
     >
 
-    <fragment android:name="siminov.connect.template.fragments.TitleBar" android:id="@+id/title_bar"
+    <fragment android:name="siminov.connect.sample.fragments.TitleBar" android:id="@+id/title_bar"
 		android:layout_width="fill_parent" android:layout_height="wrap_content"        
         />
 
@@ -26,7 +26,7 @@
         
     </LinearLayout>
     
-    <fragment android:name="siminov.connect.template.fragments.Home" android:id="@+id/status_gadget"
+    <fragment android:name="siminov.connect.sample.fragments.Home" android:id="@+id/status_gadget"
         android:layout_width="fill_parent" android:layout_height="fill_parent"
         />
 
