@@ -313,7 +313,7 @@ DatabaseMappingDescriptor.Attribute = function() {
     /**
      	Set type of column as per defined in DatabaseMapping.core.xml file.
      	
-     	@methof setType
+     	@method setType
      	@param type {String} Type of column.
      */
     this.setType = function(type) {

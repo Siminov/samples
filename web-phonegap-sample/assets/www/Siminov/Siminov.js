@@ -50,7 +50,7 @@ function Siminov() {
 	EXAMPLE: 
           document.addEventListener("deviceready", Siminov.initialize, false);
 	
-	@Siminov
+	@class Siminov
 	@method initialize
 	@static
 	@constructor
@@ -68,6 +68,7 @@ Siminov.initialize = function() {
 /**
 	It shudown's Siminov Framework, and releases all resources acquired by Siminov.
 
+	@class Siminov
 	@method shutdown
 	@static
 	@constructor

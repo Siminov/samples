@@ -17,12 +17,13 @@
 
 
 
+
 /**
- 	Exposes methods to deal with SIMINOV HYBRID FRAMEWORK.
+ 	Exposes methods to deal with SIMINOV WEB FRAMEWORK.
 
  		Such As
 
- 			1. Initialize: Entry point to the SIMINOV HYBRID.
+ 			1. Initialize: Entry point to the SIMINOV WEB.
 
 	@class Siminov
 	@constructor
@@ -34,18 +35,17 @@ function Siminov() {
 
 
 
-
 /**
- 	It is the entry point to the SIMINOV HYBRID FRAMEWORK.
+ 	It is the entry point to the SIMINOV WEB FRAMEWORK.
 
- 	When application starts it should call this method to activate SIMINOV HYBRID FRAMEWORK.
+ 	When application starts it should call this method to activate SIMINOV WEB FRAMEWORK.
 
 	Siminov will initialize all databases, and do necessary processing.
 
 	EXAMPLE: 
           document.addEventListener("deviceready", Siminov.initialize, false);
-
-	@Siminov
+	
+	@class Siminov
 	@method initialize
 	@static
 	@constructor
@@ -60,10 +60,10 @@ Siminov.initialize = function() {
 }
 
 
-
 /**
 	It shudown's Siminov Framework, and releases all resources acquired by Siminov.
 
+	@class Siminov
 	@method shutdown
 	@static
 	@constructor
