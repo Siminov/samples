@@ -146,7 +146,7 @@
 	
 	<string name="source_code"><u>Source Code</u></string>
 	
-	<string name="source_code_package_name">siminov/core/template/sourcecode/</string>
+	<string name="source_code_package_name">siminov/core/sample/sourcecode/</string>
 	<string name="home_source_code_file_name">home_source_code.txt</string>
 	
 	<string name="welcome_note">Welcome</string>

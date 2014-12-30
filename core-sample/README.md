@@ -1,4 +1,4 @@
-Siminov Core (Object Relationship Mapping) - Template Application
+Siminov Core (Object Relationship Mapping) - Sample Application
 ===================================================
 
 Siminov Core Framework
@@ -11,7 +11,7 @@ Siminov Core not only takes care of the mapping from Java classes to database ta
 
 About Application
 -----------------
-This template application provides a basic idea about using Siminov Core Framework.
+This sample application provides a basic idea about using Siminov Core Framework.
 
 This application shows different type of Liquor's available in market and their basic information. (Eg: Wine, Beer, Whiskey, Votka, etc).
 
@@ -24,7 +24,7 @@ Setting Up Application
 
 ***
 
-![Siminov Template Application] (https://raw.github.com/Siminov/android-core/doc-resources/github-wiki-resources/siminov_template_application_add_siminov_jar.png "Siminov Template Application")
+![Siminov Sample Application] (https://raw.github.com/Siminov/android-core/doc-resources/github-wiki-resources/siminov_sample_application_add_siminov_jar.png "Siminov Core Sample Application")
 
 ***
 
@@ -36,8 +36,8 @@ Application Configuration
 ```xml
 <siminov>
 
- <property name="name">SIMINOV TEMPLATE</property>	
-	<property name="description">Siminov Template Application</property>
+ <property name="name">SIMINOV CORE SAMPLE</property>	
+	<property name="description">Siminov Core Sample Application</property>
 	<property name="version">0.9</property>
 
 	<property name="load_initially">true</property>
@@ -50,8 +50,8 @@ Application Configuration
 	
 	<!-- SIMINOV EVENTS -->
 	<event-handlers>
-	    <event-handler>siminov.core.template.events.SiminovEventHandler</event-handler>
-	    <event-handler>siminov.core.template.events.DatabaseEventHandler</event-handler>
+	    <event-handler>siminov.core.sample.events.SiminovEventHandler</event-handler>
+	    <event-handler>siminov.core.sample.events.DatabaseEventHandler</event-handler>
 	</event-handlers>
 		
 </siminov>
@@ -64,8 +64,8 @@ Application Configuration
 
 <database-descriptor>
 
- <property name="database_name">SIMINOV-TEMPLATE</property>
-	<property name="description">Siminov Template Database Config</property>
+ <property name="database_name">SIMINOV-CORE-SAMPLE</property>
+	<property name="description">Siminov Core Sample Database Config</property>
 	<property name="is_locking_required">true</property>
 	<property name="external_storage">false</property>
 	<property name="database_implementer"></property>
@@ -77,7 +77,7 @@ Application Configuration
 	</database-mappings>
 
 	<libraries>
-		<library>siminov.library.template.resources</library>
+		<library>siminov.library.sample.resources</library>
 	</libraries>
 
 </database-descriptor>
@@ -90,7 +90,7 @@ Application Configuration
 ```xml
 <database-mapping>
 
- <table table_name="LIQUOR" class_name="siminov.core.template.model.Liquor">
+ <table table_name="LIQUOR" class_name="siminov.core.sample.model.Liquor">
 		
 		<column variable_name="liquorType" column_name="LIQUOR_TYPE">
 			<property name="type">java.lang.String</property>
@@ -122,7 +122,7 @@ Application Configuration
 
 		<relationships>
 
-		    <one-to-many refer="liquorBrands" refer_to="siminov.core.template.model.LiquorBrand" on_update="cascade" on_delete="cascade">
+		    <one-to-many refer="liquorBrands" refer_to="siminov.core.sample.model.LiquorBrand" on_update="cascade" on_delete="cascade">
 				<property name="load">true</property>
 			</one-to-many>		
 		    
@@ -232,5 +232,5 @@ LICENSE
  limitations under the License.
 
 
-[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/f423e443f4fc035eeb0ccf84cb7abdbe "githalytics.com")](http://githalytics.com/Siminov/android-templates)
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/f423e443f4fc035eeb0ccf84cb7abdbe "githalytics.com")](http://githalytics.com/Siminov/android-samples)
 
