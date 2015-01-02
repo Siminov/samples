@@ -1,4 +1,4 @@
-Siminov Core (Object Relationship Mapping) - Library Template Application
+Siminov Core (Object Relationship Mapping) - Library Sample Application
 ===================================================
 
 Siminov Core Framework
@@ -13,13 +13,13 @@ About Siminov Library Design
 ----------------------------
 An Android library project is a development project that holds shared Android source code and resources. Other Andriod application projects can reference the library project and, at build time, include its compiled sources in their .apk files. Multiple application projects can reference the same library project and any single application project can reference multiple library projects.
 
-Siminov provides mechanism to configure ORM for your library projects.
+Siminov Core provides mechanism to configure ORM for your library projects.
 
 
 
 About This
 -------------
-It is a library template based on Siminov Framework, using this application app developer can get an idea how to use Siminov Framework for library.
+It is a library sample based on Siminov Framework, using this application app developer can get an idea how to use Siminov Framework for library.
 
 This library stores application credentials.
 
@@ -46,5 +46,5 @@ LICENSE
  limitations under the License.
 
 
-[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/f423e443f4fc035eeb0ccf84cb7abdbe "githalytics.com")](http://githalytics.com/Siminov/android-templates)
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/f423e443f4fc035eeb0ccf84cb7abdbe "githalytics.com")](http://githalytics.com/Siminov/android-samples)
 
