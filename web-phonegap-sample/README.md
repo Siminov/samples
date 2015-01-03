@@ -1,4 +1,4 @@
-Siminov Web ORM (Object Relationship Mapping) - Android + PhoneGap
+Siminov Web (Object Relationship Mapping) & (RESTful) - Android + PhoneGap
 ===================================================
 
 A Web Application, by definition is derived from a combination of technologies, approaches or elements of different kinds. With respect to mobile applications, a Web application leverages best of both native and mobile web technologies.
@@ -20,7 +20,7 @@ This application shows different type of Liquor's available in market and their 
 Setting Up Application 
 ----------------------
 
-- Download Siminov Android ORM jar from http://siminov.github.io/android-web/builds.html
+- Download Siminov Core jar from http://siminov.github.io/android-web/builds.html
 - Download Siminov Web build from http://siminov.github.io/android-web/builds.html
 - Extract Siminov Web build into folder.
 
@@ -132,7 +132,7 @@ Application Configuration
 
 	
 	<libraries>
-		<library>siminov.orm.library.sample.resources</library>
+		<library>siminov.core.library.sample.resources</library>
 	</libraries>
 	
 </database-descriptor>
