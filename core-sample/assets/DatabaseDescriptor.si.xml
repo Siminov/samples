@@ -29,6 +29,9 @@
 	<database-mapping-descriptors>
 		<database-mapping-descriptor>Liquor-Mappings/Liquor.si.xml</database-mapping-descriptor>
 		<database-mapping-descriptor>Liquor-Mappings/LiquorBrand.si.xml</database-mapping-descriptor>
+		<database-mapping-descriptor>Liquor-Mappings/Shop.si.xml</database-mapping-descriptor>
+		<database-mapping-descriptor>Liquor-Mappings/LiquorShopMapping.si.xml</database-mapping-descriptor>
+		<database-mapping-descriptor>Liquor-Mappings/Pricing.si.xml</database-mapping-descriptor>
 	</database-mapping-descriptors>
 
 </database-descriptor>

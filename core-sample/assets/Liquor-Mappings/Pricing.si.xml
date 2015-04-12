@@ -21,40 +21,35 @@
 
 <database-mapping-descriptor>
 
-	<entity table_name="LIQUOR_BRAND" class_name="siminov.core.sample.model.LiquorBrand">
+	<entity table_name="PRICING" class_name="siminov.core.sample.model.Pricing">
 
-		<attribute variable_name="brandName" column_name="BRAND_NAME">
-			<property name="type">java.lang.String</property>
+		<attribute variable_name="priceId" column_name="PRICE_ID">
+			<property name="type">long</property>
 			<property name="primary_key">true</property>
 			<property name="not_null">true</property>
 			<property name="unique">true</property>
 		</attribute>		
 
-		<attribute variable_name="description" column_name="DESCRIPTION">
-			<property name="type">java.lang.String</property>
+		<attribute variable_name="price" column_name="PRICE">
+			<property name="type">double</property>
 		</attribute>
 
-		<attribute variable_name="link" column_name="LINK">
-			<property name="type">java.lang.String</property>
-			<property name="default">www.wikipedia.org</property>
+		<attribute variable_name="tax" column_name="TAX">
+			<property name="type">double</property>
 		</attribute>
 
-		<attribute variable_name="country" column_name="COUNTRY">
-			<property name="type">java.lang.String</property>
+		<attribute variable_name="discount" column_name="DISCOUNT">
+			<property name="type">double</property>
 		</attribute>
 
 		<relationships>
 			
-			<many-to-one refer="liquor" refer_to="siminov.core.sample.model.Liquor" on_update="cascade" on_delete="cascade">
-				<property name="load">true</property>
-			</many-to-one>		
-			
-			<one-to-one refer="pricing" refer_to="siminov.core.sample.model.Pricing" on_update="cascade" on_delete="cascade">
+			<one-to-one refer="liquorBrand" refer_to="siminov.core.sample.model.LiquorBrand" on_update="cascade" on_delete="cascade">
 				<property name="load">true</property>
 			</one-to-one>		
 								    		
-		</relationships>		
-
+		</relationships>				
+		
 	</entity>
 
 </database-mapping-descriptor>		

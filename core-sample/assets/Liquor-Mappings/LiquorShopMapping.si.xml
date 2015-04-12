@@ -1,3 +1,4 @@
+<!-- 
 /** 
  * [SIMINOV FRAMEWORK]
  * Copyright [2015] [Siminov Software Solution LLP|support@siminov.com]
@@ -16,22 +17,25 @@
  **/
 
 
-package siminov.core.sample.events;
+ -->
 
-import siminov.core.events.ISiminovEvents;
-import siminov.core.sample.database.DatabaseUtils;
+<database-mapping-descriptor>
 
-public class SiminovEventHandler implements ISiminovEvents {
+	<entity table_name="LIQUOR_SHOP_MAPPING" class_name="siminov.core.sample.model.LiquorShopMapping">
+		
+		<relationships>
 
-	public void onSiminovInitialized() {
-		new DatabaseUtils().prepareData();
-	}
+		    <many-to-many refer="liquor" refer_to="siminov.core.sample.model.Liquor" on_update="cascade" on_delete="cascade">
+				<property name="load">true</property>
+			</many-to-many>		
+			
+		    <many-to-many refer="shop" refer_to="siminov.core.sample.model.Shop" on_update="cascade" on_delete="cascade">
+				<property name="load">true</property>
+			</many-to-many>		
+		    		    
+		</relationships>
+		
+	</entity>
 
-	public void onFirstTimeSiminovInitialized() {
-		new DatabaseUtils().prepareData();
-	}
-
-	public void onSiminovStopped() {
-	}
-
-}
+</database-mapping-descriptor>		
+		

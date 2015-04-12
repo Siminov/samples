@@ -97,6 +97,10 @@ public class Liquor extends Database implements Serializable {
 		this.alcholContent = alcholContent;
 	}
 
+	public void addLiquorBrand(LiquorBrand liquorBrand) {
+		this.liquorBrands.add(liquorBrand);
+	}
+	
 	public Iterator<LiquorBrand> getLiquorBrands() {
 		return this.liquorBrands.iterator();
 	}

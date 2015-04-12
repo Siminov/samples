@@ -86,6 +86,8 @@ public class LiquorBrand extends Database implements Serializable {
 	private String link = null;
 	private String country = null;
 
+	private Pricing pricing = null;
+	
 	//Methods 
 	
 	public Liquor getLiquor() {
@@ -126,5 +128,13 @@ public class LiquorBrand extends Database implements Serializable {
 	
 	public void setCountry(String country) {
 		this.country = country;
+	}
+	
+	public Pricing getPricing() {
+		return this.pricing;
+	}
+	
+	public void setPricing(Pricing pricing) {
+		this.pricing = pricing;
 	}
 }
