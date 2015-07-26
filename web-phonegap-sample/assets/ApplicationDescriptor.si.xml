@@ -59,10 +59,10 @@
 
 	<!-- Event Handlers -->
  	<event-handlers>
-	    <event-handler>siminov.web.phonegap.sample.events.SiminovEventHandler</event-handler>
-	    <event-handler>siminov.web.phonegap.sample.events.DatabaseEventHandler</event-handler>
-	    <event-handler>siminov.web.phonegap.sample.events.NotificationEventHandler</event-handler>
-   	    <event-handler>siminov.web.phonegap.sample.events.SyncEventHandler</event-handler>
+	    <event-handler>SiminovEventHandler</event-handler>
+	    <event-handler>DatabaseEventHandler</event-handler>
+	    <event-handler>NotificationEventHandler</event-handler>
+   	    <event-handler>SyncEventHandler</event-handler>
 	</event-handlers>
 
  	

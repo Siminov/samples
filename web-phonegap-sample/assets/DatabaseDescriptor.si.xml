@@ -21,22 +21,6 @@
  -->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <database-descriptor>
 
 	<property name="database_name">SIMINOV-WEB-PHONEGAP-SAMPLE</property>
@@ -45,10 +29,10 @@
 	<property name="transaction_safe">true</property>
 	<property name="external_storage">false</property>
 
-	<database-mapping-descriptors>
-		<database-mapping-descriptor>Liquor-Mappings/Liquor.si.xml</database-mapping-descriptor>
-		<database-mapping-descriptor>Liquor-Mappings/LiquorBrand.si.xml</database-mapping-descriptor>
-	</database-mapping-descriptors>
+	<entity-descriptors>
+		<entity-descriptor>Liquor-Mappings/Liquor.si.xml</entity-descriptor>
+		<entity-descriptor>Liquor-Mappings/LiquorBrand.si.xml</entity-descriptor>
+	</entity-descriptors>
 
 </database-descriptor>
 

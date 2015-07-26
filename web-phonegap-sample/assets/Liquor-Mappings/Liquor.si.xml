@@ -19,47 +19,72 @@
 
  -->
 
-<database-mapping-descriptor>
+<entity-descriptor>
 
-	<entity table_name="LIQUOR" class_name="Liquor">
+    <property name="table_name">LIQUOR</property>
+    <property name="class_name">Liquor</property>
+    
+	<attributes>
 		
-		<attribute variable_name="liquorType" column_name="LIQUOR_TYPE">
+		<attribute>
+		    <property name="variable_name">liquorType</property>
+		    <property name="column_name">LIQUOR_TYPE</property>
 			<property name="type">String</property>
 			<property name="primary_key">true</property>
 			<property name="not_null">true</property>
 			<property name="unique">true</property>
 		</attribute>		
 
-		<attribute variable_name="description" column_name="DESCRIPTION">
+		<attribute>
+		    <property name="variable_name">description</property>
+		    <property name="column_name">DESCRIPTION</property>
 			<property name="type">String</property>
 		</attribute>
 
-		<attribute variable_name="history" column_name="HISTORY">
+		<attribute>
+		    <property name="variable_name">history</property>
+		    <property name="column_name">HISTORY</property>
 			<property name="type">String</property>
 		</attribute>
 
-		<attribute variable_name="link" column_name="LINK">
+		<attribute>
+		    <property name="variable_name">link</property>
+		    <property name="column_name">LINK</property>
 			<property name="type">String</property>
 			<property name="default">www.wikipedia.org</property>
 		</attribute>
 
-		<attribute variable_name="alcholContent" column_name="ALCHOL_CONTENT">
+		<attribute>
+		    <property name="variable_name">alcholContent</property>
+		    <property name="column_name">ALCHOL_CONTENT</property>
 			<property name="type">String</property>
 		</attribute>
 
-		<index name="LIQUOR_INDEX_BASED_ON_LINK" unique="true">
-			<attribute>HISTORY</attribute>
-		</index>
-
-		<relationships>
-
-		    <one-to-many refer="liquorBrands" refer_to="LiquorBrand" on_update="cascade" on_delete="cascade">
-				<property name="load">true</property>
-			</one-to-many>		
+	</attributes>
 	
-   		</relationships>
-											
-	</entity>
+	<indexes>
+	    
+		<index>
+		    <property name="name">LIQUOR_INDEX_BASED_ON_LINK</property>
+		    <property name="unique">true</property>
+		    <property name="column">HISTORY</property>
+		</index>
+	    	    
+	</indexes>
+		
 
-</database-mapping-descriptor>		
+	<relationships>
+
+	    <relationship>
+	        <property name="type">one-to-many</property>
+	        <property name="refer">liquorBrands</property>
+	        <property name="refer_to">LiquorBrand</property>
+	        <property name="on_update">cascade</property>
+	        <property name="on_delete">cascade</property>
+			<property name="load">true</property>
+		</relationship>		
+
+ 	</relationships>
+											
+</entity-descriptor>		
 		

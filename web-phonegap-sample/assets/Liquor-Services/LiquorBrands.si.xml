@@ -38,12 +38,21 @@
 	     	<property name="mode">SYNC</property>
 
 	     	<query-parameters>
-	     	    <query-parameter name="name">{@resource LIQUOR-NAME}</query-parameter>
+	     	    <query-parameter>
+	     	        <property name="name">name</property>
+	     	        <property name="value">{@resource LIQUOR-NAME}</property>
+	     	    </query-parameter>
 	     	</query-parameters>
 	     	
 	      	<header-parameters>
-	        	<header-parameter name="Accept">application/xml</header-parameter>
-	          	<header-parameter name="Content-Type">application/xml</header-parameter>
+	        	<header-parameter>
+	        	    <property name="name">Accept</property>
+	        	    <property name="value">application/xml</property>
+	        	</header-parameter>
+	          	<header-parameter>
+	          	    <property name="name">Content-Type</property>
+	          	    <property name="value">application/xml</property>
+	          	</header-parameter>
 	      	</header-parameters>
      	
 		</request>
