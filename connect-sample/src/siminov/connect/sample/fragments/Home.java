@@ -84,18 +84,18 @@ public class Home extends ListFragment {
 	
 	private void getLiquors() {
 		
-		ISyncRequest syncRequest = new SyncRequest();
+		/*ISyncRequest syncRequest = new SyncRequest();
 		syncRequest.setName(Constants.SYNC_LIQUORS);
 		syncRequest.addResource(GetLiquors.UI_COMPONENT, this);
 	
 		
 		SyncHandler syncHandler = SyncHandler.getInstance();
-		syncHandler.handle(syncRequest);
+		syncHandler.handle(syncRequest);*/
 		
-		/*GetLiquors getLiquors = new GetLiquors();
+		GetLiquors getLiquors = new GetLiquors();
 		getLiquors.addResource(GetLiquors.UI_COMPONENT, this);
 		
-		getLiquors.invoke();*/
+		getLiquors.invoke();
 		
 	}
 }

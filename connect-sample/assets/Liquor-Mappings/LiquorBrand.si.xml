@@ -19,39 +19,55 @@
 
  -->
 
-<database-mapping-descriptor>
+<entity-descriptor>
 
-	<entity table_name="LIQUOR_BRAND" class_name="siminov.connect.sample.model.LiquorBrand">
+    <property name="table_name">LIQUOR_BRAND</property>
+    <property name="class_name">siminov.connect.sample.model.LiquorBrand</property>
+    
+	<attributes>
 
-		<attribute variable_name="brandName" column_name="BRAND_NAME">
-			<property name="type">java.lang.String</property>
+		<attribute>
+		    <property name="variable_name">brandName</property>
+		    <property name="column_name">BRAND_NAME</property>
+			<property name="type">String</property>
 			<property name="primary_key">true</property>
 			<property name="not_null">true</property>
 			<property name="unique">true</property>
 		</attribute>		
 
-		<attribute variable_name="description" column_name="DESCRIPTION">
-			<property name="type">java.lang.String</property>
+		<attribute>
+		    <property name="variable_name">description</property>
+		    <property name="column_name">DESCRIPTION</property>
+			<property name="type">String</property>
 		</attribute>
 
-		<attribute variable_name="link" column_name="LINK">
-			<property name="type">java.lang.String</property>
+		<attribute>
+		    <property name="variable_name">link</property>
+		    <property name="column_name">LINK</property>
+			<property name="type">String</property>
 			<property name="default">www.wikipedia.org</property>
 		</attribute>
 
-		<attribute variable_name="country" column_name="COUNTRY">
-			<property name="type">java.lang.String</property>
+		<attribute>
+		    <property name="variable_name">country</property>
+		    <property name="column_name">COUNTRY</property>
+			<property name="type">String</property>
 		</attribute>
 
 		<relationships>
 			
-			<many-to-one refer="liquor" refer_to="siminov.connect.sample.model.Liquor" on_update="cascade" on_delete="cascade">
+			<relationship>
+			    <property name="type">many-to-one</property>
+			    <property name="refer">liquor</property>
+			    <property name="refer_to">siminov.connect.sample.model.Liquor</property>
+			    <property name="on_update">cascade</property>
+			    <property name="on_delete">cascade</property>
 				<property name="load">true</property>
-			</many-to-one>		
+			</relationship>		
 		    		
 		</relationships>		
 
-	</entity>
+	</attributes>
 
-</database-mapping-descriptor>		
+</entity-descriptor>		
 		

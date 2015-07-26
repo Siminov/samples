@@ -37,7 +37,10 @@
 	     	<property name="mode">SYNC</property>
 
 	      	<header-parameters>
-	     	    <header-parameter name="id">{@resource ID}</header-parameter>
+	     	    <header-parameter>
+	     	        <property name="name">id</property>
+	     	        <property name="value">{@resource ID}</property>
+	     	    </header-parameter>
 	      	</header-parameters>
      	
 		</request>
@@ -50,7 +53,10 @@
 	     	<property name="mode">SYNC</property>
 
 	      	<header-parameters>
-	     	    <header-parameter name="id">{@resource ID}</header-parameter>
+	     	    <header-parameter>
+	     	       	<property name="name">id</property>
+	     	       	<property name="value">{@resource ID}</property>
+	     	    </header-parameter>
 	      	</header-parameters>
      	
 		</request>

@@ -37,8 +37,14 @@
 	     	<property name="mode">SYNC</property>
 
 	      	<header-parameters>
-	        	<header-parameter name="Accept">application/xml</header-parameter>
-	          	<header-parameter name="Content-Type">application/xml</header-parameter>
+	        	<header-parameter>
+	        	    <property name="name">Accept</property>
+	        	    <property name="value">application/xml</property>
+	        	</header-parameter>
+	          	<header-parameter>
+	          	    <property name="name">Content-Type</property>
+	          	    <property name="value">application/xml</property>
+	          	</header-parameter>
 	      	</header-parameters>
      	
 		</request>
@@ -51,8 +57,14 @@
 	     	<property name="mode">ASYNC</property>
 
 	      	<header-parameters>
-	        	<header-parameter name="Accept">application/xml</header-parameter>
-	          	<header-parameter name="Content-Type">application/xml</header-parameter>
+	        	<header-parameter>
+	        	    <property name="name">Accept</property>
+	        	    <property name="value">application/xml</property>
+	        	</header-parameter>
+	          	<header-parameter>
+	          	    <property name="name">Content-Type</property>
+	          	    <property name="value">application/xml</property>
+	          	</header-parameter>
 	      	</header-parameters>
      	
 		</request>
@@ -65,8 +77,14 @@
 	     	<property name="mode">ASYNC</property>
 
 	      	<header-parameters>
-	        	<header-parameter name="Accept">application/xml</header-parameter>
-	          	<header-parameter name="Content-Type">application/xml</header-parameter>
+	        	<header-parameter>
+	        	    <property name="name">Accept</property>
+	        	    <property name="value">application/xml</property>
+	        	</header-parameter>
+	          	<header-parameter>
+	          	    <property name="name">Content-Type</property>
+	          	    <property name="value">application/xml</property>
+	          	</header-parameter>
 	      	</header-parameters>
      	
 		</request>
@@ -79,9 +97,18 @@
 	     	<property name="mode">ASYNC</property>
 
 	      	<header-parameters>
-	        	<header-parameter name="Accept">application/xml</header-parameter>
-	          	<header-parameter name="Content-Type">application/xml</header-parameter>
-	          	<header-parameter name="name">{@resource LIQUOR_NAME}</header-parameter>
+	        	<header-parameter>
+	        	    <property name="name">Accept</property>
+	        	    <property name="value">application/xml</property>
+	        	</header-parameter>
+	          	<header-parameter>
+	          	    <property name="name">Content-Type</property>
+	          	    <property name="value">application/xml</property>
+	          	</header-parameter>
+	          	<header-parameter>
+	          	    <property name="name">name</property>
+	          	    <property name="value">{@resource LIQUOR_NAME}</property>
+	          	</header-parameter>
 	      	</header-parameters>
      	
 		</request>

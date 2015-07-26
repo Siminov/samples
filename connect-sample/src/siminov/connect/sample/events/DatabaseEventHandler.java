@@ -19,8 +19,8 @@ package siminov.connect.sample.events;
 
 import siminov.core.events.IDatabaseEvents;
 import siminov.core.model.DatabaseDescriptor;
-import siminov.core.model.DatabaseMappingDescriptor;
-import siminov.core.model.DatabaseMappingDescriptor.Index;
+import siminov.core.model.EntityDescriptor;
+import siminov.core.model.EntityDescriptor.Index;
 
 public class DatabaseEventHandler implements IDatabaseEvents {
 
@@ -28,11 +28,11 @@ public class DatabaseEventHandler implements IDatabaseEvents {
 		System.out.print("");
 	}
 
-	public void onTableCreated(DatabaseDescriptor databaseDescriptor, DatabaseMappingDescriptor databaseMapping) {
+	public void onTableCreated(DatabaseDescriptor databaseDescriptor, EntityDescriptor entityDescriptor) {
 		System.out.print("");
 	}
 
-	public void onIndexCreated(DatabaseDescriptor databaseDescriptor, DatabaseMappingDescriptor databaseMapping, Index index) {
+	public void onIndexCreated(DatabaseDescriptor databaseDescriptor, EntityDescriptor entityDescriptor, Index index) {
 		System.out.print("");
 	}
 
@@ -40,11 +40,11 @@ public class DatabaseEventHandler implements IDatabaseEvents {
 		// TODO Auto-generated method stub
 	}
 
-	public void onTableDropped(DatabaseDescriptor databaseDescriptor, DatabaseMappingDescriptor databaseMapping) {
+	public void onTableDropped(DatabaseDescriptor databaseDescriptor, EntityDescriptor entityDescriptor) {
 		// TODO Auto-generated method stub
 	}
 
-	public void onIndexDropped(DatabaseDescriptor databaseDescriptor, DatabaseMappingDescriptor databaseMapping, Index index) {
+	public void onIndexDropped(DatabaseDescriptor databaseDescriptor, EntityDescriptor entityDescriptor, Index index) {
 		// TODO Auto-generated method stub
 	}
 
