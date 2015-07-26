@@ -14,9 +14,9 @@ public class Pricing {
 	
 	//Variables
 	private long priceId;
-	private double price;
-	private double tax;
-	private double discount;
+	private float price;
+	private float tax;
+	private float discount;
 	
 	private LiquorBrand liquorBrand = null;
 	
@@ -30,27 +30,27 @@ public class Pricing {
 		this.priceId = priceId;
 	}
 	
-	public double getPrice() {
+	public float getPrice() {
 		return this.price;
 	}
 	
-	public void setPrice(double price) {
+	public void setPrice(float price) {
 		this.price = price;
 	}
 	
-	public double getTax() {
+	public float getTax() {
 		return this.tax;
 	}
 	
-	public void setTax(double tax) {
+	public void setTax(float tax) {
 		this.tax = tax;
 	}
 	
-	public double getDiscount() {
+	public float getDiscount() {
 		return this.discount;
 	}
 	
-	public void setDiscount(double discount) {
+	public void setDiscount(float discount) {
 		this.discount = discount;
 	}
 	

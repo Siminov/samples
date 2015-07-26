@@ -19,38 +19,54 @@
 
  -->
 
-<database-mapping-descriptor>
+<entity-descriptor>
 
-	<entity table_name="PRICING" class_name="siminov.core.sample.model.Pricing">
+    <property name="table_name">PRICING</property>
+    <property name="class_name">siminov.core.sample.model.Pricing</property>
+    
+	<attributes>
 
-		<attribute variable_name="priceId" column_name="PRICE_ID">
-			<property name="type">long</property>
+		<attribute>
+		    <property name="variable_name">priceId</property>
+		    <property name="column_name">PRICE_ID</property>
+			<property name="type">primitive-long</property>
 			<property name="primary_key">true</property>
 			<property name="not_null">true</property>
 			<property name="unique">true</property>
 		</attribute>		
 
-		<attribute variable_name="price" column_name="PRICE">
-			<property name="type">double</property>
+		<attribute>
+		    <property name="variable_name">price</property>
+		    <property name="column_name">PRICE</property>
+			<property name="type">primitive-float</property>
 		</attribute>
 
-		<attribute variable_name="tax" column_name="TAX">
-			<property name="type">double</property>
+		<attribute>
+		    <property name="variable_name">tax</property>
+		    <property name="column_name">TAX</property>
+			<property name="type">primitive-float</property>
 		</attribute>
 
-		<attribute variable_name="discount" column_name="DISCOUNT">
-			<property name="type">double</property>
+		<attribute>
+		    <property name="variable_name">discount</property>
+		    <property name="column_name">DISCOUNT</property>
+			<property name="type">primitive-float</property>
 		</attribute>
-
-		<relationships>
-			
-			<one-to-one refer="liquorBrand" refer_to="siminov.core.sample.model.LiquorBrand" on_update="cascade" on_delete="cascade">
-				<property name="load">true</property>
-			</one-to-one>		
-								    		
-		</relationships>				
 		
-	</entity>
+	</attributes>
 
-</database-mapping-descriptor>		
+	<relationships>
+		
+		<relationship>
+		    <property name="type">one-to-one</property>
+		    <property name="refer">liquorBrand</property>
+		    <property name="refer_to">siminov.core.sample.model.LiquorBrand</property>
+		    <property name="on_update">cascade</property>
+		    <property name="on_delete">cascade</property>
+			<property name="load">true</property>
+		</relationship>		
+							    		
+	</relationships>				
+		
+</entity-descriptor>		
 		

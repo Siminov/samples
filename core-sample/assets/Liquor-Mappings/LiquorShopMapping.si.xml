@@ -19,23 +19,32 @@
 
  -->
 
-<database-mapping-descriptor>
+<entity-descriptor>
 
-	<entity table_name="LIQUOR_SHOP_MAPPING" class_name="siminov.core.sample.model.LiquorShopMapping">
+    <property name="table_name">LIQUOR_SHOP_MAPPING</property>
+    <property name="class_name">siminov.core.sample.model.LiquorShopMapping</property>
+    
+	<relationships>
+
+	    <relationship>
+			<property name="type">many-to-many</property>
+			<property name="refer">liquor</property>
+			<property name="refer_to">siminov.core.sample.model.Liquor</property>
+			<property name="on_update">cascade</property>
+			<property name="on_delete">cascade</property>
+			<property name="load">true</property>
+		</relationship>		
 		
-		<relationships>
-
-		    <many-to-many refer="liquor" refer_to="siminov.core.sample.model.Liquor" on_update="cascade" on_delete="cascade">
-				<property name="load">true</property>
-			</many-to-many>		
-			
-		    <many-to-many refer="shop" refer_to="siminov.core.sample.model.Shop" on_update="cascade" on_delete="cascade">
-				<property name="load">true</property>
-			</many-to-many>		
-		    		    
-		</relationships>
+	    <relationship>
+	        <property name="type">many-to-many</property>
+	        <property name="refer">shop</property>
+	        <property name="refer_to">siminov.core.sample.model.Shop</property>
+	        <property name="on_update">cascade</property>
+	        <property name="on_delete">cascade</property>
+			<property name="load">true</property>
+		</relationship>		
+	    		    
+	</relationships>
 		
-	</entity>
-
-</database-mapping-descriptor>		
+</entity-descriptor>		
 		

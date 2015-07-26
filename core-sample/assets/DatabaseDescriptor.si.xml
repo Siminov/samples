@@ -26,13 +26,13 @@
 	<property name="version">1</property>
 	<property name="transaction_safe">true</property>
 
-	<database-mapping-descriptors>
-		<database-mapping-descriptor>Liquor-Mappings/Liquor.si.xml</database-mapping-descriptor>
-		<database-mapping-descriptor>Liquor-Mappings/LiquorBrand.si.xml</database-mapping-descriptor>
-		<database-mapping-descriptor>Liquor-Mappings/Shop.si.xml</database-mapping-descriptor>
-		<database-mapping-descriptor>Liquor-Mappings/LiquorShopMapping.si.xml</database-mapping-descriptor>
-		<database-mapping-descriptor>Liquor-Mappings/Pricing.si.xml</database-mapping-descriptor>
-	</database-mapping-descriptors>
+	<entity-descriptors>
+		<entity-descriptor>Liquor-Mappings/Liquor.si.xml</entity-descriptor>
+		<entity-descriptor>Liquor-Mappings/LiquorBrand.si.xml</entity-descriptor>
+		<entity-descriptor>Liquor-Mappings/Shop.si.xml</entity-descriptor>
+		<entity-descriptor>Liquor-Mappings/LiquorShopMapping.si.xml</entity-descriptor>
+		<entity-descriptor>Liquor-Mappings/Pricing.si.xml</entity-descriptor>
+	</entity-descriptors>
 
 </database-descriptor>
 

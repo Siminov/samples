@@ -24,7 +24,7 @@ import siminov.core.sample.database.DatabaseUtils;
 public class SiminovEventHandler implements ISiminovEvents {
 
 	public void onSiminovInitialized() {
-		new DatabaseUtils().prepareData();
+		//new DatabaseUtils().prepareData();
 	}
 
 	public void onFirstTimeSiminovInitialized() {

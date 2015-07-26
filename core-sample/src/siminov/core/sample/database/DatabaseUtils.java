@@ -23,6 +23,7 @@ import siminov.core.log.Log;
 import siminov.core.resource.ResourceManager;
 import siminov.core.sample.R;
 import siminov.core.sample.model.Liquor;
+import siminov.core.sample.model.LiquorAndLiquorBrandJoin;
 import siminov.core.sample.model.LiquorBrand;
 import siminov.core.sample.model.LiquorShopMapping;
 import siminov.core.sample.model.Pricing;
@@ -177,6 +178,11 @@ public class DatabaseUtils {
 		liquorShopMapping7.setShop(shop7);
 		
 		try {
+
+			String rawQuery = "SELECT ALCHOL_CONTENT, LIQUOR_BRAND.DESCRIPTION FROM LIQUOR CROSS JOIN LIQUOR_BRAND ON LIQUOR.LIQUOR_TYPE = LIQUOR_BRAND.LIQUOR_TYPE";
+			LiquorAndLiquorBrandJoin[] liquorAndLiquorBrandJoin = (LiquorAndLiquorBrandJoin[]) new LiquorAndLiquorBrandJoin().select(rawQuery);
+			
+			
 			liquor1.saveOrUpdate();
 			liquor2.saveOrUpdate();
 			liquor3.saveOrUpdate();
@@ -210,6 +216,8 @@ public class DatabaseUtils {
 			createWhiskeyBrands(liquor5);
 			createBeerBrands(liquor6);
 			createWineBrands(liquor7);
+			
+			
 		} catch(DatabaseException databaseException) {
 			Log.error(DatabaseUtils.class.getName(), "createLiquors", "DatabaseException caught while creating liquors, " + databaseException.getMessage());
 		}
@@ -225,7 +233,7 @@ public class DatabaseUtils {
 		theBotanist.setDescription(applicationContext.getString(R.string.gin_brand_the_botanist_description));
 		theBotanist.setLink(applicationContext.getString(R.string.gin_brand_the_botanist_link));
 		theBotanist.setPricing(generatePricing(theBotanist));
-		liquor.addLiquorBrand(theBotanist);
+		//liquor.addLiquorBrand(theBotanist);
 		
 		LiquorBrand tanqueray = new LiquorBrand();
 		tanqueray.setLiquor(liquor);
@@ -234,7 +242,7 @@ public class DatabaseUtils {
 		tanqueray.setDescription(applicationContext.getString(R.string.gin_brand_tanqueray_description));
 		tanqueray.setLink(applicationContext.getString(R.string.gin_brand_tanqueray_link));
 		tanqueray.setPricing(generatePricing(tanqueray));
-		liquor.addLiquorBrand(tanqueray);
+		//liquor.addLiquorBrand(tanqueray);
 		
 		
 		try {
@@ -256,7 +264,7 @@ public class DatabaseUtils {
 		bacardi.setDescription(applicationContext.getString(R.string.rum_brand_bacardi_description));
 		bacardi.setLink(applicationContext.getString(R.string.rum_brand_bacardi_link));
 		bacardi.setPricing(generatePricing(bacardi));
-		liquor.addLiquorBrand(bacardi);
+		//liquor.addLiquorBrand(bacardi);
 		
 		LiquorBrand oldMonk = new LiquorBrand();
 		oldMonk.setLiquor(liquor);
@@ -265,7 +273,7 @@ public class DatabaseUtils {
 		oldMonk.setDescription(applicationContext.getString(R.string.rum_brand_old_monk_description));
 		oldMonk.setLink(applicationContext.getString(R.string.rum_brand_old_monk_link));
 		oldMonk.setPricing(generatePricing(oldMonk));
-		liquor.addLiquorBrand(oldMonk);
+		//liquor.addLiquorBrand(oldMonk);
 		
 		try {
 			bacardi.saveOrUpdate();
@@ -285,7 +293,7 @@ public class DatabaseUtils {
 		patron.setDescription(applicationContext.getString(R.string.tequila_brand_patron_description));
 		patron.setLink(applicationContext.getString(R.string.tequila_brand_patron_link));
 		patron.setPricing(generatePricing(patron));
-		liquor.addLiquorBrand(patron);
+		//liquor.addLiquorBrand(patron);
 		
 		LiquorBrand sauzate = new LiquorBrand();
 		sauzate.setLiquor(liquor);
@@ -294,7 +302,7 @@ public class DatabaseUtils {
 		sauzate.setDescription(applicationContext.getString(R.string.tequila_brand_sauzate_description));
 		sauzate.setLink(applicationContext.getString(R.string.tequila_brand_sauzate_link));
 		sauzate.setPricing(generatePricing(sauzate));
-		liquor.addLiquorBrand(sauzate);
+		//liquor.addLiquorBrand(sauzate);
 		
 		try {
 			patron.saveOrUpdate();
@@ -315,7 +323,7 @@ public class DatabaseUtils {
 		absolut.setDescription(applicationContext.getString(R.string.vodka_brand_absolut_description));
 		absolut.setLink(applicationContext.getString(R.string.vodka_brand_absolut_link));
 		absolut.setPricing(generatePricing(absolut));
-		liquor.addLiquorBrand(absolut);
+		//liquor.addLiquorBrand(absolut);
 		
 		LiquorBrand smirnoff = new LiquorBrand();
 		smirnoff.setLiquor(liquor);
@@ -324,7 +332,7 @@ public class DatabaseUtils {
 		smirnoff.setDescription(applicationContext.getString(R.string.vodka_brand_smirnoff_description));
 		smirnoff.setLink(applicationContext.getString(R.string.vodka_brand_smirnoff_link));
 		smirnoff.setPricing(generatePricing(smirnoff));
-		liquor.addLiquorBrand(smirnoff);
+		//liquor.addLiquorBrand(smirnoff);
 		
 		try {
 			absolut.saveOrUpdate();
@@ -345,7 +353,7 @@ public class DatabaseUtils {
 		jackDaniels.setDescription(applicationContext.getString(R.string.whiskey_brand_jack_daniels_description));
 		jackDaniels.setLink(applicationContext.getString(R.string.whiskey_brand_jack_daniels_link));
 		jackDaniels.setPricing(generatePricing(jackDaniels));
-		liquor.addLiquorBrand(jackDaniels);
+		//liquor.addLiquorBrand(jackDaniels);
 		
 		LiquorBrand johnnieWalker = new LiquorBrand();
 		johnnieWalker.setLiquor(liquor);
@@ -354,7 +362,7 @@ public class DatabaseUtils {
 		johnnieWalker.setDescription(applicationContext.getString(R.string.whiskey_brand_johnnie_walker_description));
 		johnnieWalker.setLink(applicationContext.getString(R.string.whiskey_brand_johnnie_walker_link));
 		johnnieWalker.setPricing(generatePricing(johnnieWalker));
-		liquor.addLiquorBrand(johnnieWalker);
+		//liquor.addLiquorBrand(johnnieWalker);
 		
 		
 		try {
@@ -377,7 +385,7 @@ public class DatabaseUtils {
 		heineken.setDescription(applicationContext.getString(R.string.beer_brand_heineken_description));
 		heineken.setLink(applicationContext.getString(R.string.beer_brand_heineken_link));
 		heineken.setPricing(generatePricing(heineken));
-		liquor.addLiquorBrand(heineken);
+		//liquor.addLiquorBrand(heineken);
 		
 		
 		LiquorBrand kingfisher = new LiquorBrand();
@@ -387,7 +395,7 @@ public class DatabaseUtils {
 		kingfisher.setDescription(applicationContext.getString(R.string.beer_brand_kingfisher_description));
 		kingfisher.setLink(applicationContext.getString(R.string.beer_brand_kingfisher_link));
 		kingfisher.setPricing(generatePricing(kingfisher));
-		liquor.addLiquorBrand(kingfisher);
+		//liquor.addLiquorBrand(kingfisher);
 		
 		try {
 		 	heineken.saveOrUpdate();
@@ -408,7 +416,7 @@ public class DatabaseUtils {
 		gallo.setDescription(applicationContext.getString(R.string.wine_brand_gallo_description));
 		gallo.setLink(applicationContext.getString(R.string.wine_brand_gallo_link));
 		gallo.setPricing(generatePricing(gallo));
-		liquor.addLiquorBrand(gallo);
+		//liquor.addLiquorBrand(gallo);
 	
 		LiquorBrand yellowTail = new LiquorBrand();
 		yellowTail.setLiquor(liquor);
@@ -417,7 +425,7 @@ public class DatabaseUtils {
 		yellowTail.setDescription(applicationContext.getString(R.string.wine_brand_yellow_tail_description));
 		yellowTail.setLink(applicationContext.getString(R.string.wine_brand_yellow_tail_link));
 		yellowTail.setPricing(generatePricing(yellowTail));
-		liquor.addLiquorBrand(yellowTail);
+		//liquor.addLiquorBrand(yellowTail);
 		
 		try {
 			gallo.saveOrUpdate();

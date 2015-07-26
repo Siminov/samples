@@ -19,26 +19,35 @@
 
  -->
 
-<database-mapping-descriptor>
+<entity-descriptor>
 
-	<entity table_name="SHOP" class_name="siminov.core.sample.model.Shop">
+    <property name="table_name">SHOP</property>
+    <property name="class_name">siminov.core.sample.model.Shop</property>
+    
+	<attributes>
 		
-		<attribute variable_name="shopId" column_name="SHOP_ID">
-			<property name="type">long</property>
+		<attribute>
+		    <property name="variable_name">shopId</property>
+		    <property name="column_name">SHOP_ID</property>
+			<property name="type">primitive-long</property>
 			<property name="primary_key">true</property>
 			<property name="not_null">true</property>
 			<property name="unique">true</property>
 		</attribute>		
 
-		<attribute variable_name="name" column_name="NAME">
-			<property name="type">java.lang.String</property>
+		<attribute>
+		    <property name="variable_name">name</property>
+		    <property name="column_name">NAME</property>
+			<property name="type">String</property>
 		</attribute>
 
-		<attribute variable_name="address" column_name="ADDRESS">
-			<property name="type">java.lang.String</property>
+		<attribute>
+		    <property name="variable_name">address</property>
+		    <property name="column_name">ADDRESS</property>
+			<property name="type">String</property>
 		</attribute>
 
-	</entity>
+	</attributes>
 
-</database-mapping-descriptor>		
+</entity-descriptor>		
 		
