@@ -33,7 +33,7 @@
         <script src="Jquery/js/jquery-mobile.js"></script>
 
 
-		<script src="Siminov/siminov-min-v1.0.js"></script>
+		<script src="Siminov/Siminov.js"></script>
 
 		<script src="Liquor/Models/Liquor.js"></script>
 		<script src="Liquor/Models/LiquorBrand.js"></script>
@@ -173,18 +173,18 @@
 
 			function navHome() {
 
-				var syncRequest = new SyncRequest();
+				/*var syncRequest = new SyncRequest();
 				syncRequest.setName(SYNC_LIQUORS);
 				
 				var syncHandler = SyncHandler.getInstance();
-				syncHandler.handle(syncRequest);
+				syncHandler.handle(syncRequest);*/
 
 				
-				/*var getLiquors = new GetLiquors();
+				var getLiquors = new GetLiquors();
 				getLiquors.setService(GetLiquors.SERVICE_NAME);
-				getLiquors.setApi(GetLiquors.API_NAME);
+				getLiquors.setRequest(GetLiquors.REQUEST_NAME);
 				
-				getLiquors.invoke();*/
+				getLiquors.invoke();
 				
 				populateHome();
 			}			
@@ -233,23 +233,23 @@
 
 				var liquor = liquors[id];
 				
-				var syncRequest = new SyncRequest();
+				/*var syncRequest = new SyncRequest();
 				syncRequest.setName(SYNC_LIQUOR_BRANDS);
 				
 				syncRequest.addResource(GetLiquorBrands.LIQUOR_NAME, liquor.getLiquorType());
 				
 				
 				var syncHandler = SyncHandler.getInstance();
-				syncHandler.handle(syncRequest);
+				syncHandler.handle(syncRequest);*/
 
 
-				/*var getLiquorBrands = new GetLiquorBrands();
+				var getLiquorBrands = new GetLiquorBrands();
 				getLiquorBrands.setService(GetLiquorBrands.SERVICE_NAME);
-				getLiquorBrands.setApi(GetLiquorBrands.API_NAME);
+				getLiquorBrands.setRequest(GetLiquorBrands.REQUEST_NAME);
 				
 				getLiquorBrands.addResource(GetLiquorBrands.LIQUOR_NAME, liquor.getLiquorType());
 
-				getLiquorBrands.invoke();*/
+				getLiquorBrands.invoke();
 				
 				populateDetail(liquor.getLiquorType());
 			}
