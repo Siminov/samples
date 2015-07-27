@@ -29,7 +29,7 @@
 		<attribute>
 		    <property name="variable_name">liquorType</property>
 		    <property name="column_name">LIQUOR_TYPE</property>
-			<property name="type">String</property>
+			<property name="type">string</property>
 			<property name="primary_key">true</property>
 			<property name="not_null">true</property>
 			<property name="unique">true</property>
@@ -38,26 +38,26 @@
 		<attribute>
 		    <property name="variable_name">description</property>
 		    <property name="column_name">DESCRIPTION</property>
-			<property name="type">String</property>
+			<property name="type">string</property>
 		</attribute>
 
 		<attribute>
 		    <property name="variable_name">history</property>
 		    <property name="column_name">HISTORY</property>
-			<property name="type">String</property>
+			<property name="type">string</property>
 		</attribute>
 
 		<attribute>
 		    <property name="variable_name">link</property>
 		    <property name="column_name">LINK</property>
-			<property name="type">String</property>
+			<property name="type">string</property>
 			<property name="default">www.wikipedia.org</property>
 		</attribute>
 
 		<attribute>
 		    <property name="variable_name">alcholContent</property>
 		    <property name="column_name">ALCHOL_CONTENT</property>
-			<property name="type">String</property>
+			<property name="type">string</property>
 		</attribute>
 
 	</attributes>
