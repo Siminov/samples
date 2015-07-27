@@ -38,13 +38,13 @@
 		<attribute>
 		    <property name="variable_name">name</property>
 		    <property name="column_name">NAME</property>
-			<property name="type">String</property>
+			<property name="type">string</property>
 		</attribute>
 
 		<attribute>
 		    <property name="variable_name">address</property>
 		    <property name="column_name">ADDRESS</property>
-			<property name="type">String</property>
+			<property name="type">string</property>
 		</attribute>
 
 	</attributes>

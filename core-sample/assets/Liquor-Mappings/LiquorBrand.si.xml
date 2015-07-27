@@ -29,7 +29,7 @@
 		<attribute>
 		    <property name="variable_name">brandName</property>
 		    <property name="column_name">BRAND_NAME</property>
-			<property name="type">String</property>
+			<property name="type">string</property>
 			<property name="primary_key">true</property>
 			<property name="not_null">true</property>
 			<property name="unique">true</property>
@@ -38,20 +38,20 @@
 		<attribute>
 		    <property name="variable_name">description</property>
 		    <property name="column_name">DESCRIPTION</property>
-			<property name="type">String</property>
+			<property name="type">string</property>
 		</attribute>
 
 		<attribute>
 		    <property name="variable_name">link</property>
 		    <property name="column_name">LINK</property>
-			<property name="type">String</property>
+			<property name="type">string</property>
 			<property name="default">www.wikipedia.org</property>
 		</attribute>
 
 		<attribute>
 		    <property name="variable_name">country</property>
 		    <property name="column_name">COUNTRY</property>
-			<property name="type">String</property>
+			<property name="type">string</property>
 		</attribute>
 
 	</attributes>	
