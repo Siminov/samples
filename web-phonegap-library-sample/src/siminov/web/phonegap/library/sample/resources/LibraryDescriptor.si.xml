@@ -26,9 +26,9 @@
 	<property name="name">SIMINOV-WEB-PHONEGAP-LIBRARY-SAMPLE</property>
 	<property name="description">Siminov Web Phonegap Library Sample</property>
 
-	<database-mapping-descriptors>
-		<database-mapping-descriptor>SIMINOV-WEB-PHONEGAP-SAMPLE.Credential.si.xml</database-mapping-descriptor>
-	</database-mapping-descriptors>
+	<entity-descriptors>
+		<entity-descriptor>SIMINOV-WEB-PHONEGAP-SAMPLE.Credential.si.xml</entity-descriptor>
+	</entity-descriptors>
 	 
 </library-descriptor>
 
