@@ -15,12 +15,12 @@
  * limitations under the License.
  **/
 
-package siminov.web.phonegap.sample.services;
+package siminov.hybrid.phonegap.sample.services;
 
 import siminov.core.exception.SiminovException;
 import siminov.core.log.Log;
-import siminov.web.phonegap.library.sample.CredentialManager;
-import siminov.web.phonegap.library.sample.model.Credential;
+import siminov.hybrid.phonegap.library.sample.CredentialManager;
+import siminov.hybrid.phonegap.library.sample.model.Credential;
 
 public class ServiceUtils {
 

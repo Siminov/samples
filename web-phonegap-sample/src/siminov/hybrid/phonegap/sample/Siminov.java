@@ -15,7 +15,7 @@
  * limitations under the License.
  **/
 
-package siminov.web.phonegap.sample;
+package siminov.hybrid.phonegap.sample;
 
 import org.apache.cordova.DroidGap;
 

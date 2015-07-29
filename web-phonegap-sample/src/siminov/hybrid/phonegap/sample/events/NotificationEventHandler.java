@@ -15,7 +15,7 @@
  * limitations under the License.
  **/
 
-package siminov.web.phonegap.sample.events;
+package siminov.hybrid.phonegap.sample.events;
 
 import siminov.connect.events.INotificationEvents;
 import siminov.connect.exception.NotificationException;
