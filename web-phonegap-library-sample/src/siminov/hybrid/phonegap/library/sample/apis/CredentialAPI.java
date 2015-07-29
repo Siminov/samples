@@ -15,11 +15,11 @@
  * limitations under the License.
  **/
 
-package siminov.web.phonegap.library.sample.apis;
+package siminov.hybrid.phonegap.library.sample.apis;
 
 import siminov.core.exception.DatabaseException;
 import siminov.core.log.Log;
-import siminov.web.phonegap.library.sample.model.Credential;
+import siminov.hybrid.phonegap.library.sample.model.Credential;
 
 public class CredentialAPI {
 

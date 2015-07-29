@@ -15,7 +15,7 @@
  * limitations under the License.
  **/
 
-package siminov.web.phonegap.library.sample.model;
+package siminov.hybrid.phonegap.library.sample.model;
 
 import siminov.core.database.Database;
 

@@ -23,11 +23,11 @@
  
 <library-descriptor>
 
-	<property name="name">SIMINOV-WEB-PHONEGAP-LIBRARY-SAMPLE</property>
-	<property name="description">Siminov Web Phonegap Library Sample</property>
+	<property name="name">SIMINOV-HYBRID-PHONEGAP-LIBRARY-SAMPLE</property>
+	<property name="description">Siminov Hybrid Phonegap Library Sample</property>
 
 	<entity-descriptors>
-		<entity-descriptor>SIMINOV-WEB-PHONEGAP-SAMPLE.Credential.si.xml</entity-descriptor>
+		<entity-descriptor>SIMINOV-HYBRID-PHONEGAP-SAMPLE.Credential.si.xml</entity-descriptor>
 	</entity-descriptors>
 	 
 </library-descriptor>
