@@ -19,8 +19,8 @@
 
 /**
 	Exposes classes which deal with services.
-	Service is a client-side communication component that process and handles any web service request. It performs long running operations in the background.
-	A Service is a group of APIs which deals on one particular web service.
+	Service is a client-side communication component that process and handles any hybrid service request. It performs long running operations in the background.
+	A Service is a group of APIs which deals on one particular hybrid service.
 	
 	@module Service
 */

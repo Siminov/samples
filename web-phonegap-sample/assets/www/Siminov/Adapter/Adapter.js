@@ -18,14 +18,14 @@
 
 
 /**
-	It is one which describes properties required to map Web TO Native and vice-versa.
+	It is one which describes properties required to map Hybrid TO Native and vice-versa.
 
 	@module Adapter
 */
 
 
 /**
-	Handle Request between NATIVE-TO-WEB and WEB-TO-NATIVE.
+	Handle Request between NATIVE-TO-HYBRID and HYBRID-TO-NATIVE.
 	Exposes method to GET and SET information about request.
  
 	@module Adapter
@@ -112,9 +112,9 @@ function Adapter() {
 	*/
     this.invoke = function() {
 
-        var siminovDatas = new WebSiminovDatas();
+        var siminovDatas = new HybridSiminovDatas();
         for(var i = 0;i < parameters.length;i++) {
-            var siminovData = new WebSiminovDatas.WebSiminovData();
+            var siminovData = new HybridSiminovDatas.HybridSiminovData();
 
 			var parameter = parameters[i];
 			if(parameter != undefined) {
@@ -124,19 +124,19 @@ function Adapter() {
 			}
 
             siminovData.setDataValue(parameter);
-            siminovDatas.addWebSiminovData(siminovData);
+            siminovDatas.addHybridSiminovData(siminovData);
         }
 
         var json = SIJsonHelper.toJson(siminovDatas);
         
-        Log.debug("Adapter", "invoke", "SIMINOV WEB TO NATIVE - ADAPTER: " + adapterName + ", HANDLER: " + handlerName + ", DATA: " + json);
+        Log.debug("Adapter", "invoke", "SIMINOV HYBRID TO NATIVE - ADAPTER: " + adapterName + ", HANDLER: " + handlerName + ", DATA: " + json);
         
         
         /**
          * Android Native Bridge
          */
         if(window.SIMINOV != undefined) {
-            return window.SIMINOV.handleWebToNative(adapterName + "." + handlerName, json);
+            return window.SIMINOV.handleHybridToNative(adapterName + "." + handlerName, json);
         }
 
         
@@ -179,14 +179,14 @@ function Adapter() {
 
 
 	/**
-		Any request from NATIVE-TO-WEB is first handled by this API.
+		Any request from NATIVE-TO-HYBRID is first handled by this API.
 		
 		@method handle
-		@param action {String} Name of Action. Action Represent WEB API Needs To Be Invoke.
-		@param data {String} Data Is Basically Parameter To WEB API.
+		@param action {String} Name of Action. Action Represent HYBRID API Needs To Be Invoke.
+		@param data {String} Data Is Basically Parameter To HYBRID API.
 	*/
     this.handle = function(action, data) {
-		Log.debug("Adapter", "invoke", "SIMINOV NATIVE TO WEB - ACTION: " + action + ", DATA: " + data);
+		Log.debug("Adapter", "invoke", "SIMINOV NATIVE TO HYBRID - ACTION: " + action + ", DATA: " + data);
 
         var functionName = action.substring(0, action.indexOf('.'));
         var apiName = action.substring(action.lastIndexOf('.') + 1, action.length);

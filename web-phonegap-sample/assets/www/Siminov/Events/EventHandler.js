@@ -37,12 +37,12 @@ function EventHandler() {
 		Handle event triggered by Siminov.
 		
 		@method triggerEvent
-		@param data {String} Web Data From Native
+		@param data {String} Hybrid Data From Native
 	*/
     this.triggerEvent = function(data) {
 
-        var webSiminovDatas = SIJsonHelper.toSI(data);
-        var datas = webSiminovDatas.getWebSiminovDatas();
+        var hybridSiminovDatas = SIJsonHelper.toSI(data);
+        var datas = hybridSiminovDatas.getHybridSiminovDatas();
 
         var functionName;
         var apiName;

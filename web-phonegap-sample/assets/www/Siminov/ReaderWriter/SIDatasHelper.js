@@ -45,7 +45,7 @@ function SIDatasHelper() {
 SIDatasHelper.toModels = function(siDatas) {
 
     var models = [];
-    var datas = siDatas.getWebSiminovDatas();
+    var datas = siDatas.getHybridSiminovDatas();
 
     for(var i = 0;i < datas.length;i++) {
 
@@ -156,10 +156,10 @@ SIDatasHelper.toModel = function(data) {
 */
 SIDatasHelper.toSI = function(object) {
 
-    var datas = new WebSiminovDatas();
+    var datas = new HybridSiminovDatas();
     var data = SIDatasHelper.parseSI(object);
 
-    datas.addWebSiminovData(data);
+    datas.addHybridSiminovData(data);
 
     return datas;
 }
@@ -169,7 +169,7 @@ SIDatasHelper.toSI = function(object) {
  */
 SIDatasHelper.parseSI = function(object) {
 
-    var data = new WebSiminovDatas.WebSiminovData();
+    var data = new HybridSiminovDatas.HybridSiminovData();
 
     var modelName = object.getFunctionName();
     data.setDataType(modelName);
@@ -178,7 +178,7 @@ SIDatasHelper.parseSI = function(object) {
 
     for(var i = 0;i < getterProperties.length;i++) {
 
-        var value = new WebSiminovDatas.WebSiminovData.WebSiminovValue();
+        var value = new HybridSiminovDatas.HybridSiminovData.HybridSiminovValue();
 
         if(getterProperties[i].indexOf("get") === 0) {
             var type = getterProperties[i].substring(3, getterProperties[i].length);

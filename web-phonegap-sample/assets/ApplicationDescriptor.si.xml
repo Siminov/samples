@@ -25,8 +25,8 @@
 
 <siminov>
 
-	<property name="name">SIMINOV WEB PHONEGAP SAMPLE</property>	
-	<property name="description">Siminov Web Phonegap Sample Application</property>
+	<property name="name">SIMINOV HYBRID PHONEGAP SAMPLE</property>	
+	<property name="description">Siminov Hybrid Phonegap Sample Application</property>
 	<property name="version">0.9</property>
 
 
@@ -38,16 +38,16 @@
 	
 	<!-- Service Descriptors -->
 	<service-descriptors>
-	    <service-descriptor>Liquor-Services/Liquors.si.xml</service-descriptor>
-	    <service-descriptor>Liquor-Services/LiquorBrands.si.xml</service-descriptor>
-	    <service-descriptor>Liquor-Services/NotificationService.si.xml</service-descriptor>
+	    <service-descriptor>Service-Descriptors/Liquors.si.xml</service-descriptor>
+	    <service-descriptor>Service-Descriptors/LiquorBrands.si.xml</service-descriptor>
+	    <service-descriptor>Service-Descriptors/NotificationService.si.xml</service-descriptor>
 	</service-descriptors>
 	
     
 	<!-- Sync Descriptors -->
 	<syn-descriptors>
-	    <sync-descriptor>Liquor-Sync/Liquors.si.xml</sync-descriptor>
-	    <sync-descriptor>Liquor-Sync/LiquorBrands.si.xml</sync-descriptor>
+	    <sync-descriptor>Sync-Descriptors/Liquors.si.xml</sync-descriptor>
+	    <sync-descriptor>Sync-Descriptors/LiquorBrands.si.xml</sync-descriptor>
 	</syn-descriptors>
 	
 	
@@ -68,7 +68,7 @@
  	
  	<!-- Library Descriptors -->
  	<library-descriptors>
- 	    <library-descriptor>siminov.web.phonegap.library.sample.resources</library-descriptor>
+ 	    <library-descriptor>siminov.hybrid.phonegap.library.sample.resources</library-descriptor>
  	</library-descriptors> 
  			
 </siminov>

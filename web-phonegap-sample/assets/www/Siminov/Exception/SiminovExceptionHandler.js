@@ -24,7 +24,7 @@
 
 
 /**
-	Any exception thrown from NATIVE-TO-WEB is handled and show to user. 
+	Any exception thrown from NATIVE-TO-HYBRID is handled and show to user. 
 	
 	@module Exception
 	@class SiminovExceptionHandler

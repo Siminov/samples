@@ -291,7 +291,7 @@ EntityDescriptor.Attribute = function() {
     }
 
     /**
-     	Set variable name as per defined in DatabaseMapping.core.xml file.
+     	Set variable name as per defined in EntityDescriptor.core.xml file.
      
      	@method setVariableName
      	@param variableName {String} Name of variable.
@@ -311,7 +311,7 @@ EntityDescriptor.Attribute = function() {
     }
 
     /**
-     	Set column name as per defined in DatabaseMapping.core.xml file.
+     	Set column name as per defined in EntityDescriptor.core.xml file.
      
      	@method setColumnName
      	@param columnName {String} Name of column name.
@@ -331,7 +331,7 @@ EntityDescriptor.Attribute = function() {
     }
 
     /**
-     	Set type of column as per defined in DatabaseMapping.core.xml file.
+     	Set type of column as per defined in EntityDescriptor.core.xml file.
      	
      	@method setType
      	@param type {String} Type of column.
@@ -351,7 +351,7 @@ EntityDescriptor.Attribute = function() {
     }
 
     /**
-     	Set check constraint of column as per defined in DatabaseMapping.core.xml file.
+     	Set check constraint of column as per defined in EntityDescriptor.core.xml file.
      
      	@method setCheck
      	@param check {String} Check constraint.
@@ -371,7 +371,7 @@ EntityDescriptor.Attribute = function() {
     }
 
     /**
-     	Set default value of column as per defined in DatabaseMapping.core.xml file.
+     	Set default value of column as per defined in EntityDescriptor.core.xml file.
      
      	@method setDefaultValue
      	@param defaultValue {String} Default value of column.
@@ -534,7 +534,7 @@ EntityDescriptor.Index = function() {
     }
 
     /**
-     	Set index name as per defined in DatabaseMapping.core.xml file.
+     	Set index name as per defined in EntityDescriptor.core.xml file.
      	
      	@method setName
      	@param name {String} Index Name.

@@ -24,7 +24,7 @@
 */
 
 /**
-	It handles and provides all resources needed by SIMINOV WEB.
+	It handles and provides all resources needed by SIMINOV HYBRID.
 	
 	@module Resource
 	@class Resources
@@ -81,7 +81,7 @@ var ResourceManager = (function() {
 				
 				<database-descriptor>
 				
-					<property name="database_name">SIMINOV-WEB-SAMPLE</property>
+					<property name="database_name">SIMINOV-HYBRID-SAMPLE</property>
 					
 				</database-descriptor>
 		 
@@ -108,51 +108,51 @@ var ResourceManager = (function() {
 	
 
 		/**
-		 	Get Database Mapping based on POJO class name provided.
+		 	Get Entity Descriptor based on mapped class name provided.
 
-			@method getDatabaseMappingDescriptorBasedOnClassName
+			@method getEntityDescriptorBasedOnClassName
 		 	@param className {String} POJO class name.
-		 	@return {DatabaseMappingDescriptor} Database Mapping object in respect to POJO class name.
+		 	@return {EntityDescriptor} Entity Descriptor object in respect to mapped class name.
 		 */	
-	    this.getDatabaseMappingDescriptorBasedOnClassName = function(className) {
+	    this.getEntityDescriptorBasedOnClassName = function(className) {
 	
 	        var adapter = new Adapter();
 	        adapter.setAdapterName(Constants.RESOURCE_ADAPTER);
-	        adapter.setHandlerName(Constants.RESOURCE_GET_DATABASE_MAPPING_DESCRIPTOR_BASED_ON_CLASS_NAME_HANDLER);
+	        adapter.setHandlerName(Constants.RESOURCE_GET_ENTITY_DESCRIPTOR_BASED_ON_CLASS_NAME_HANDLER);
 	
 	        adapter.addParameter(className);
 	
 	        var data = adapter.invoke();
 	
 	        var datas = SIJsonHelper.toSI(data);
-	        var databaseMappingDescriptor = SIDatasHelper.toModels(datas);
+	        var entityDescriptor = SIDatasHelper.toModels(datas);
 	
-	        return databaseMappingDescriptor[0];
+	        return entityDescriptor[0];
 	
 	    }
 	
 		
 		/**
-		 	Get Database Mapping Descriptor based on table name provided.
+		 	Get Entity Descriptor based on table name provided.
 
-			@method getDatabaseMappingDescriptorBasedOnTableName
+			@method getEntityDescriptorBasedOnTableName
 		 	@param tableName {String} Name of table.
-		 	@return {DatabaseMappingDescriptor} Database Mapping Descriptor object in respect to table name.
+		 	@return {EntityDescriptor} Entity Descriptor object in respect to table name.
 		 */
-	    this.getDatabaseMappingDescriptorBasedOnTableName = function(tableName) {
+	    this.getEntityDescriptorBasedOnTableName = function(tableName) {
 	
 	        var adapter = new Adapter();
 	        adapter.setAdapterName(Constants.RESOURCE_ADAPTER);
-	        adapter.setHandlerName(Constants.RESOURCE_GET_DATABASE_MAPPING_DESCRIPTOR_BASED_ON_TABLE_NAME_HANDLER);
+	        adapter.setHandlerName(Constants.RESOURCE_GET_ENTITY_DESCRIPTOR_BASED_ON_TABLE_NAME_HANDLER);
 	
 	        adapter.addParameter(tableName);
 	
 	        var data = adapter.invoke();
 	
 	        var datas = SIJsonHelper.toSI(data);
-	        var databaseMappingDescriptor = SIDatasHelper.toModels(datas);
+	        var entityDescriptor = SIDatasHelper.toModels(datas);
 	
-	        return databaseMappingDescriptor[0];
+	        return entityDescriptor[0];
 	
 	    }
 	}

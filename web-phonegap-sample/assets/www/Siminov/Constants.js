@@ -279,14 +279,14 @@ Constants.ENTITY_DESCRIPTOR_ATTRIBUTE_TYPE = "type";
 Constants.ENTITY_DESCRIPTOR_RELATIONSHIP_ATTRIBUTE_LOAD = "load";
 
 
-//    WebDescriptor.si.xml Constants.
+//    AdapterDescriptor.si.xml Constants.
 
 
 
 /**
-	Web Descriptor Adapter Name
+	Adapter Descriptor Name
 
-	@property WEB_DESCRIPTOR_ADAPTER_NAME
+	@property ADAPTER_DESCRIPTOR_NAME
 	@type String
 	@static
 	@final
@@ -295,9 +295,9 @@ Constants.ENTITY_DESCRIPTOR_RELATIONSHIP_ATTRIBUTE_LOAD = "load";
 Constants.ADAPTER_DESCRIPTOR_NAME = "name";
 
 /**
-	Web Descriptor Adapter Description
+	Adapter Descriptor Description
 
-	@property WEB_DESCRIPTOR_ADAPTER_DESCRIPTION
+	@property ADAPTER_DESCRIPTOR_DESCRIPTION
 	@type String
 	@static
 	@final
@@ -306,9 +306,9 @@ Constants.ADAPTER_DESCRIPTOR_NAME = "name";
 Constants.ADAPTER_DESCRIPTOR_DESCRIPTION = "description";
 
 /**
-	Web Descriptor Adapter Type
+	Adapter Descriptor Type
 
-	@property WEB_DESCRIPTOR_ADAPTER_TYPE
+	@property ADAPTER_DESCRIPTOR_TYPE
 	@type String
 	@static
 	@final
@@ -317,9 +317,9 @@ Constants.ADAPTER_DESCRIPTOR_DESCRIPTION = "description";
 Constants.ADAPTER_DESCRIPTOR_TYPE = "type";
 
 /**
-	Web Descriptor Adapter Map To
+	Adapter Descriptor Map To
 
-	@property WEB_DESCRIPTOR_ADAPTER_MAP_TO
+	@property ADAPTER_DESCRIPTOR_MAP_TO
 	@type String
 	@static
 	@final
@@ -328,9 +328,9 @@ Constants.ADAPTER_DESCRIPTOR_TYPE = "type";
 Constants.ADAPTER_DESCRIPTOR_MAP_TO = "map_to";
 
 /**
-	Web Descriptor Adapter Cache
+	Adapter Descriptor Cache
 
-	@property WEB_DESCRIPTOR_ADAPTER_CACHE
+	@property ADAPTER_DESCRIPTOR_CACHE
 	@type String
 	@static
 	@final
@@ -341,9 +341,9 @@ Constants.ADAPTER_DESCRIPTOR_CACHE = "cache";
 
 
 /**
-	Web Descriptor Adapter Handler Name
+	Adapter Descriptor Handler Name
 
-	@property WEB_DESCRIPTOR_ADAPTER_HANDLER_NAME
+	@property ADAPTER_DESCRIPTOR_HANDLER_NAME
 	@type String
 	@static
 	@final
@@ -352,9 +352,9 @@ Constants.ADAPTER_DESCRIPTOR_CACHE = "cache";
 Constants.ADAPTER_DESCRIPTOR_HANDLER_NAME = "name";
 
 /**
-	Web Descriptor Adapter Handler Map To
+	Adapter Descriptor Handler Map To
 
-	@property WEB_DESCRIPTOR_ADAPTER_HANDLER_MAP_TO
+	@property ADAPTER_DESCRIPTOR_HANDLER_MAP_TO
 	@type String
 	@static
 	@final
@@ -363,9 +363,9 @@ Constants.ADAPTER_DESCRIPTOR_HANDLER_NAME = "name";
 Constants.ADAPTER_DESCRIPTOR_HANDLER_MAP_TO = "map_to";
 
 /**
-	Web Descriptor Adapter Handler Description
+	Adapter Descriptor Handler Description
 
-	@property WEB_DESCRIPTOR_ADAPTER_HANDLER_DESCRIPTION
+	@property ADAPTER_DESCRIPTOR_HANDLER_DESCRIPTION
 	@type String
 	@static
 	@final
@@ -375,9 +375,9 @@ Constants.ADAPTER_DESCRIPTOR_HANDLER_DESCRIPTION = "description";
 
 
 /**
-	Web Descriptor Adapter Parameter Type
+	Adapter Descriptor Parameter Type
 
-	@property WEB_DESCRIPTOR_ADAPTER_PARAMETER_TYPE
+	@property ADAPTER_DESCRIPTOR_PARAMETER_TYPE
 	@type String
 	@static
 	@final
@@ -386,9 +386,9 @@ Constants.ADAPTER_DESCRIPTOR_HANDLER_DESCRIPTION = "description";
 Constants.ADAPTER_DESCRIPTOR_PARAMETER_TYPE = "type";
 
 /**
-	Web Descriptor Adapter Parameter Description
+	Adapter Descriptor Parameter Description
 
-	@property WEB_DESCRIPTOR_ADAPTER_PARAMETER_DESCRIPTION
+	@property ADAPTER_DESCRIPTOR_PARAMETER_DESCRIPTION
 	@type String
 	@static
 	@final
@@ -398,9 +398,9 @@ Constants.ADAPTER_DESCRIPTOR_PARAMETER_DESCRIPTION = "description";
 
 
 /**
-	Wen Descriptor Adapter Return Type
+	Adapter Descriptor Return Type
 
-	@property WEB_DESCRIPTOR_ADAPTER_RETURN_TYPE
+	@property ADAPTER_DESCRIPTOR_RETURN_TYPE
 	@type String
 	@static
 	@final
@@ -409,9 +409,9 @@ Constants.ADAPTER_DESCRIPTOR_PARAMETER_DESCRIPTION = "description";
 Constants.ADAPTER_DESCRIPTOR_RETURN_TYPE = "type";
 
 /**
-	Web Descriptor Adapter Return Description
+	Adapter Descriptor Return Description
 
-	@property WEB_DESCRIPTOR_ADAPTER_RETURN_DESCRIPTION
+	@property ADAPTER_DESCRIPTOR_RETURN_DESCRIPTION
 	@type String
 	@static
 	@final
@@ -631,9 +631,9 @@ Constants.RESOURCE_GET_APPLICATION_DESCRIPTOR_HANDLER = "GET-APPLICATION-DESCRIP
 
 Constants.RESOURCE_GET_DATABASE_DESCRIPTOR_BASED_ON_NAME_HANDLER = "GET-DATABASE-DESCRIPTOR";
 
-Constants.RESOURCE_GET_DATABASE_MAPPING_DESCRIPTOR_BASED_ON_CLASS_NAME_HANDLER = "GET-DATABASE-MAPPING-DESCRIPTOR-BASED-ON-CLASS-NAME";
+Constants.RESOURCE_GET_ENTITY_DESCRIPTOR_BASED_ON_CLASS_NAME_HANDLER = "GET-ENTITY-DESCRIPTOR-BASED-ON-CLASS-NAME";
 
-Constants.RESOURCE_GET_DATABASE_MAPPING_DESCRIPTOR_BASED_ON_TABLE_NAME_HANDLER = "GET-DATABASE-MAPPING-DESCRIPTOR-BASED-ON-TABLE-NAME";
+Constants.RESOURCE_GET_ENTITY_DESCRIPTOR_BASED_ON_TABLE_NAME_HANDLER = "GET-ENTITY-DESCRIPTOR-BASED-ON-TABLE-NAME";
 
 
 
@@ -957,70 +957,70 @@ Constants.SIMINOV_ADAPTER_SHUTDOWN_SIMINOV_HANDLER = "SHUTDOWN-SIMINOV";
 
 
 /**
-	Siminov Web Data
+	Siminov Hybrid Data
 
-	@property SIMINOV_WEB_DATA
+	@property SIMINOV_HYBRID_DATA
 	@type String
 	@static
 	@final
 	@readOnly
 */
-Constants.SIMINOV_WEB_DATA = "siminov-web-data";
+Constants.SIMINOV_HYBRID_DATA = "siminov-hybrid-data";
 
 /**
-	Siminov Web Data Data
+	Siminov Hybrid Data Data
 
-	@property SIMINOV_WEB_DATA_DATA
+	@property SIMINOV_HYBRID_DATA_DATA
 	@type String
 	@static
 	@final
 	@readOnly
 */
-Constants.SIMINOV_WEB_DATA_DATA = "data";
+Constants.SIMINOV_HYBRID_DATA_DATA = "data";
 
 /**
-	Siminov Web Data Data Type
+	Siminov Hybrid Data Data Type
 
-	@property SIMINOV_WEB_DATA_DATA_TYPE
+	@property SIMINOV_HYBRID_DATA_DATA_TYPE
 	@type String
 	@static
 	@final
 	@readOnly
 */
-Constants.SIMINOV_WEB_DATA_DATA_TYPE = "-type";
+Constants.SIMINOV_HYBRID_DATA_DATA_TYPE = "-type";
 
 /**
-	Siminov Web Data Data Text
+	Siminov Hybrid Data Data Text
 
-	@property SIMINOV_WEB_DATA_DATA_TEXT
+	@property SIMINOV_HYBRID_DATA_DATA_TEXT
 	@type String
 	@static
 	@final
 	@readOnly
 */
-Constants.SIMINOV_WEB_DATA_DATA_TEXT = "#text";
+Constants.SIMINOV_HYBRID_DATA_DATA_TEXT = "#text";
 
 /**
-	Siminov Web Data Value
+	Siminov Hybrid Data Value
 
-	@property SIMINOV_WEB_DATA_VALUE
+	@property SIMINOV_HYBRID_DATA_VALUE
 	@type String
 	@static
 	@final
 	@readOnly
 */
-Constants.SIMINOV_WEB_DATA_VALUE = "value";
+Constants.SIMINOV_HYBRID_DATA_VALUE = "value";
 
 /**
 	Siminov Hyrbid Data Text
 
-	@property SIMINOV_WEB_DATA_TEXT
+	@property SIMINOV_HYBRID_DATA_TEXT
 	@type String
 	@static
 	@final
 	@readOnly
 */
-Constants.SIMINOV_WEB_DATA_TEXT = "#text";
+Constants.SIMINOV_HYBRID_DATA_TEXT = "#text";
 
 
 

@@ -19,8 +19,8 @@
 
 /**
 	Exposes classes which deal with services.
-	Service is a client-side communication component that process and handles any web service request. It performs long running operations in the background.
-	A Service is a group of APIs which deals on one particular web service.
+	Service is a client-side communication component that process and handles any hybrid service request. It performs long running operations in the background.
+	A Service is a group of APIs which deals on one particular hybrid service.
 	
 	@module Service
 */
@@ -41,12 +41,12 @@ function ServiceEventHandler() {
 		Handle service event triggered by Siminov.
 		
 		@method triggerEvent
-		@param data {String} Web Data From Native
+		@param data {String} Hybrid Data From Native
 	*/
 	this.triggerEvent = function(data) {
 
-        var webSiminovDatas = SIJsonHelper.toSI(data);
-        var datas = webSiminovDatas.getWebSiminovDatas();
+        var hybridSiminovDatas = SIJsonHelper.toSI(data);
+        var datas = hybridSiminovDatas.getHybridSiminovDatas();
 
         var apiHandler;
         var event;
@@ -78,15 +78,15 @@ function ServiceEventHandler() {
                 	}
                 } else if(dataType === Constants.ISERVICE_RESOURCES) {
                 	
-                	var webResources = data.getDatas();
-                	if(webResources != undefined && webResources != null && webResources.length > 0) {
+                	var hybridResources = data.getDatas();
+                	if(hybridResources != undefined && hybridResources != null && hybridResources.length > 0) {
                 		
-                		for(var j = 0;j < webResources.length;j++) {
+                		for(var j = 0;j < hybridResources.length;j++) {
                 			
-                			var webResource = webResources[j];
+                			var hybridResource = hybridResources[j];
                 			
-                			var key = webResource.getDataType();
-                			var value = webResource.getDataValue();
+                			var key = hybridResource.getDataType();
+                			var value = hybridResource.getDataValue();
                 			
                 			resources.add(key, value);
                 		}

@@ -1,4 +1,5 @@
 
+
 <!-- 
 /** 
  * [SIMINOV FRAMEWORK]
@@ -20,10 +21,10 @@
  -->
 
 <sync-descriptor>
-	<property name="name">SYNC-LIQUOR-BRANDS</property>
+	<property name="name">SYNC-LIQUORS</property>
 	<property name="interval">5000</property>
 	
 	<service-descriptors>
-	    <service-descriptor>SIMINOV-WEB-LIQUOR-BRANDS-SERVICE.GET-LIQUOR-BRANDS</service-descriptor>
+	    <service-descriptor>SIMINOV-HYBRID-LIQUORS-SERVICE.GET-LIQUORS</service-descriptor>
 	</service-descriptors>
 </sync-descriptor>

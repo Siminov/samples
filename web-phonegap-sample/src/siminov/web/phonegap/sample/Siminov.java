@@ -41,7 +41,7 @@ public class Siminov extends DroidGap {
 
 	private void initializeSiminov() {
 
-		IInitializer initializer = siminov.web.Siminov.initializer();
+		IInitializer initializer = siminov.hybrid.Siminov.initializer();
 		
 		initializer.addParameter(getApplicationContext());
 		initializer.addParameter(super.appView);

@@ -30,8 +30,8 @@
 	Example:
 		<siminov>
 		
-			<property name="name">SIMINOV WEB SAMPLE</property>	
-			<property name="description">Siminov Web Sample Application</property>
+			<property name="name">SIMINOV HYBRID SAMPLE</property>	
+			<property name="description">Siminov Hybrid Sample Application</property>
 			<property name="version">0.9</property>
 		
 			<property name="load_initially">true</property>
@@ -43,8 +43,8 @@
 		
 			<!-- SIMINOV EVENTS -->
 		 	<event-handlers>
-			    <event-handler>siminov.web.sample.events.SiminovEventHandler</event-handler>
-			    <event-handler>siminov.web.sample.events.DatabaseEventHandler</event-handler>
+			    <event-handler>siminov.hybrid.sample.events.SiminovEventHandler</event-handler>
+			    <event-handler>siminov.hybrid.sample.events.DatabaseEventHandler</event-handler>
 			</event-handlers>
 				
 		</siminov>

@@ -24,11 +24,11 @@ document.write('<script type="text/javascript" src="Siminov/Import.js"></script>
 
 
 /**
- 	Exposes methods to deal with SIMINOV WEB FRAMEWORK.
+ 	Exposes methods to deal with SIMINOV HYBRDI FRAMEWORK.
 
  		Such As
 
- 			1. Initialize: Entry point to the SIMINOV WEB.
+ 			1. Initialize: Entry point to the SIMINOV HYBRID.
 
 	@class Siminov
 	@constructor
@@ -41,9 +41,9 @@ function Siminov() {
 
 
 /**
- 	It is the entry point to the SIMINOV WEB FRAMEWORK.
+ 	It is the entry point to the SIMINOV HYBRID FRAMEWORK.
 
- 	When application starts it should call this method to activate SIMINOV WEB FRAMEWORK.
+ 	When application starts it should call this method to activate SIMINOV HYBRID FRAMEWORK.
 
 	Siminov will initialize all databases, and do necessary processing.
 

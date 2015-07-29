@@ -19,8 +19,8 @@
 
 /**
 	Exposes classes which deal with services.
-	Service is a client-side communication component that process and handles any web service request. It performs long running operations in the background.
-	A Service is a group of APIs which deals on one particular web service.
+	Service is a client-side communication component that process and handles any hybrid service request. It performs long running operations in the background.
+	A Service is a group of APIs which deals on one particular hybrid service.
 	
 	@module Service
 */
@@ -73,30 +73,30 @@ var ServiceHandler = (function() {
 	        adapter.setHandlerName(Constants.SERVICE_ADAPTER_INVOKE_HANDLER);
 			
 
-			var webServiceDatas = new WebSiminovDatas();
+			var hybridServiceDatas = new HybridSiminovDatas();
 
-			var webService = new WebSiminovDatas.WebSiminovData();
-				webService.setDataType(Constants.SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE);
+			var hybridService = new HybridSiminovDatas.HybridSiminovData();
+				hybridService.setDataType(Constants.SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE);
 
 				
-				var webServiceName = new WebSiminovDatas.WebSiminovData.WebSiminovValue();
-				webServiceName.setType(Constants.SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE_NAME);
-				webServiceName.setValue(iService.getService());
+				var hybridServiceName = new HybridSiminovDatas.HybridSiminovData.HybridSiminovValue();
+				hybridServiceName.setType(Constants.SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE_NAME);
+				hybridServiceName.setValue(iService.getService());
 			
-			webService.addValue(webServiceName)
+			hybridService.addValue(hybridServiceName)
 			
-				var webServiceValue = new WebSiminovDatas.WebSiminovData.WebSiminovValue();
-				webServiceValue.setType(Constants.SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE_REQUEST);	
-				webServiceValue.setValue(iService.getRequest());
+				var hybridServiceValue = new HybridSiminovDatas.HybridSiminovData.HybridSiminovValue();
+				hybridServiceValue.setType(Constants.SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE_REQUEST);	
+				hybridServiceValue.setValue(iService.getRequest());
 
-			webService.addValue(webServiceValue);
+			hybridService.addValue(hybridServiceValue);
 
 
 				var resources = iService.getResources();
 				if(resources != undefined && resources != null && resources.length > 0) {
 					
-					var webResources = new WebSiminovDatas.WebSiminovData();
-						webResources.setDataType(Constants.SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE_RESOURCES);
+					var hybridResources = new HybridSiminovDatas.HybridSiminovData();
+						hybridResources.setDataType(Constants.SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE_RESOURCES);
 					
 					for(var i = 0;i < resources.length;i++) {
 						var resourceName = resources[i];
@@ -104,20 +104,20 @@ var ServiceHandler = (function() {
 						
 						resourceValue = '' + resourceValue;
 						
-						var webResource = new WebSiminovDatas.WebSiminovData.WebSiminovValue();
-						webResource.setType(resourceName);
-						webResource.setValue(resourceValue);
+						var hybridResource = new HybridSiminovDatas.HybridSiminovData.HybridSiminovValue();
+						hybridResource.setType(resourceName);
+						hybridResource.setValue(resourceValue);
 						
-						webResources.addValue(webResource);
+						hybridResources.addValue(hybridResource);
 					}				
 		
-					webService.addData(webResources);	
+					hybridService.addData(hybridResources);	
 				}
 
 
-			webServiceDatas.addWebSiminovData(webService)
+			hybridServiceDatas.addHybridSiminovData(hybridService)
 			
-			var data = encodeURI(SIJsonHelper.toJson(webServiceDatas, true));
+			var data = encodeURI(SIJsonHelper.toJson(hybridServiceDatas, true));
 			adapter.addParameter(data);
 
 			adapter.invoke();

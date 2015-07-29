@@ -20,8 +20,8 @@
 
 <service-descriptor>
     
-    <property name="name">SIMINOV-WEB-LIQUORS-SERVICE</property>
-    <property name="description">Siminov Web Liquors Service</property>
+    <property name="name">SIMINOV-HYBRID-LIQUORS-SERVICE</property>
+    <property name="description">Siminov Hybrid Liquors Service</property>
     <property name="protocol">HTTP</property>
     <property name="instance">siminov.com</property>
     <property name="port">80</property>
