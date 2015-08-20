@@ -34,9 +34,9 @@
 	<property name="password">siminov</property>
 	
 
-	<database-mapping-descriptors>
-		<database-mapping-descriptor>Model-Mappings/Model.si.xml</database-mapping-descriptor>
-	</database-mapping-descriptors>
+	<entity-descriptors>
+		<entity-descriptor>Entity-Descriptors/Model.si.xml</entity-descriptor>
+	</entity-descriptors>
 
 </database-descriptor>
 

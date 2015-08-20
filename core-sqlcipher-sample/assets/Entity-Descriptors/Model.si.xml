@@ -19,25 +19,31 @@
 
  -->
 
-<database-mapping-descriptor>
+<entity-descriptor>
 
-	<entity table_name="MODEL" class_name="siminov.core.sqlcipher.sample.model.Model">
-		
-		<attribute variable_name="columnOne" column_name="COLUMN_ONE">
-			<property name="type">java.lang.String</property>
+    <property name="table_name">MODEL</property>
+    <property name="class_name">siminov.core.sqlcipher.sample.model.Model</property>
+    
+    <attributes>
+   		<attribute>
+		    <property name="variable_name">columnOne</property>
+		    <property name="column_name">COLUMN_ONE</property>
+			<property name="type">string</property>
 			<property name="primary_key">true</property>
 			<property name="not_null">true</property>
 			<property name="unique">true</property>
 		</attribute>		
 
-		<attribute variable_name="columnTwo" column_name="COLUMN_TWO">
-			<property name="type">java.lang.String</property>
+		<attribute>
+		    <property name="variable_name">columnTwo</property>
+		    <property name="column_name">COLUMN_TWO</property>
+			<property name="type">string</property>
 			<property name="primary_key">true</property>
 			<property name="not_null">true</property>
 			<property name="unique">true</property>
 		</attribute>		
-													
-	</entity>
-
-</database-mapping-descriptor>		
+	        
+    </attributes>
+	    
+</entity-descriptor>		
 		
