@@ -120,7 +120,7 @@ var ServiceHandler = (function() {
 			var data = encodeURI(SIJsonHelper.toJson(hybridServiceDatas, true));
 			adapter.addParameter(data);
 
-			adapter.invoke();
+			Adapter.invoke(adapter);
 		}
 	}
 		

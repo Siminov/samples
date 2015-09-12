@@ -36,10 +36,12 @@ function Adapter() {
 
     var adapterName;
     var handlerName;
-    var adapterMode;
+    var adapterMode = Adapter.ADAPTER_SYNC_MODE;
 
     var parameters = [];
 
+	var callback;
+	
 
 	/**
 		Get Adapter Name.
@@ -82,6 +84,14 @@ function Adapter() {
         handlerName = value;
     }
 
+	this.getAdapterMode = function() {
+		return adapterMode;
+	}
+	
+	this.setAdapterMode = function(value) {
+		adapterMode = value;
+	}
+	
 
 	/**
 		Add Adapter Parameter.
@@ -103,99 +113,142 @@ function Adapter() {
 		return parameters;
 	}
 
+	this.getCallback = function() {
+		return callback;
+	}
 	
-	/**
-		Invokes Handler based on request parameter set.
-		It invokes Native API.
-		
-		@method invoke
-	*/
-    this.invoke = function() {
+	this.setCallback = function(value) {
+		callback = value;
+	}
+}
 
-        var siminovDatas = new HybridSiminovDatas();
-        for(var i = 0;i < parameters.length;i++) {
-            var siminovData = new HybridSiminovDatas.HybridSiminovData();
 
-			var parameter = parameters[i];
-			if(parameter != undefined) {
-				parameter = encodeURI(parameters[i]);
-			} else {
-				parameter = "";
-			}
+Adapter.requests = new Dictionary();
 
-            siminovData.setDataValue(parameter);
-            siminovDatas.addHybridSiminovData(siminovData);
-        }
+Adapter.REQUEST_SYNC_MODE = "SYNC";
+Adapter.REQUEST_ASYNC_MODE = "ASYNC";
 
-        var json = SIJsonHelper.toJson(siminovDatas);
+
+/**
+	Invokes Handler based on request parameter set.
+	It invokes Native API.
+	
+	@method invoke
+*/
+Adapter.invoke = function(adapter) {
+
+	var adapterName = adapter.getAdapterName();
+    var handlerName = adapter.getHandlerName();
+    var adapterMode = adapter.getAdapterMode();
+
+    var parameters = adapter.getParameters();
+    	
+    var siminovDatas = new HybridSiminovDatas();
+    for(var i = 0;i < parameters.length;i++) {
+        var siminovData = new HybridSiminovDatas.HybridSiminovData();
+
+		var parameter = parameters[i];
+		if(parameter != undefined) {
+			parameter = encodeURI(parameters[i]);
+		} else {
+			parameter = "";
+		}
+
+        siminovData.setDataValue(parameter);
+        siminovDatas.addHybridSiminovData(siminovData);
+    }
+
+    var json = SIJsonHelper.toJson(siminovDatas);
+    
+    Log.debug("Adapter", "invoke", "SIMINOV HYBRID TO NATIVE - ADAPTER: " + adapterName + ", HANDLER: " + handlerName + ", DATA: " + json);
+    
+    /**
+     * Android Native Bridge
+     */
+    if(window.SIMINOV != undefined) {
+    
+    	if(adapterMode && adapterMode == Adapter.REQUEST_ASYNC_MODE) {
+    		
+    		var uniqueId = Utils.uniqueNumber();
+	    	Adapter.requests.add(uniqueId, adapter);	
+    	
+	        return window.SIMINOV.handleHybridToNativeAsync(uniqueId, adapterName + "." + handlerName, json);
+    	} 
+    	
+        return window.SIMINOV.handleHybridToNative(adapterName + "." + handlerName, json);
+    }
+
+    
+    /**
+     * iOS and Windows Sync Native Bridge
+     */
+    json = json.replace(new RegExp('#', 'g'), "%23");
+    if(adapterMode == undefined || adapterMode == null || adapterMode == Adapter.ADAPTER_SYNC_MODE) {
         
-        Log.debug("Adapter", "invoke", "SIMINOV HYBRID TO NATIVE - ADAPTER: " + adapterName + ", HANDLER: " + handlerName + ", DATA: " + json);
-        
-        
-        /**
-         * Android Native Bridge
-         */
-        if(window.SIMINOV != undefined) {
-            return window.SIMINOV.handleHybridToNative(adapterName + "." + handlerName, json);
-        }
-
-        
-        /**
-         * iOS and Windows Sync Native Bridge
-         */
-        json = json.replace(new RegExp('#', 'g'), "%23");
-        if(adapterMode == undefined || adapterMode == null || adapterMode == Adapter.ADAPTER_SYNC_MODE) {
-            
-            var xmlHttpRequest = new XMLHttpRequest();
-            
-            xmlHttpRequest.open(Constants.HTTP_POST_METHOD, Constants.HTTP_SIMINOV_PROTOCOL + "?" + Constants.HTTP_REQUEST_API_QUERY_PARAMETER + "=" + adapterName + "." + handlerName + "&" + Constants.HTTP_REQUEST_DATA_QUERY_PARAMETER + "=" + json, false);
-            xmlHttpRequest.send(json);
-            
-            return xmlHttpRequest.responseText;
-        }
-        
-
-        /**
-         * iOS and Windows Async Native Bridge
-         */
         var xmlHttpRequest = new XMLHttpRequest();
-        xmlHttpRequest.onreadystatechange = function() {
-         
-            if(xmlHttpRequest.readyState == 4) {
-                if(xmlHttpRequest.status >= 200 && xmlHttpRequest.status <= 226) {
-                    alert("response:" + xmlHttpRequest.responseText);
-                } else {
-                    alert("error response: " + xmlHttpRequest.responseText);
-                }
-            }
-        }
         
-        
-        xmlHttpRequest.open(Constants.HTTP_POST_METHOD, Constants.HTTP_SIMINOV_PROTOCOL + "?" + Constants.HTTP_REQUEST_API_QUERY_PARAMETER + "=" + adapterName + "." + handlerName + "&" + Constants.HTTP_REQUEST_DATA_QUERY_PARAMETER + "=" + json, true);
+        xmlHttpRequest.open(Constants.HTTP_POST_METHOD, Constants.HTTP_SIMINOV_PROTOCOL + "?" + Constants.HTTP_REQUEST_API_QUERY_PARAMETER + "=" + adapterName + "." + handlerName + "&" + Constants.HTTP_REQUEST_DATA_QUERY_PARAMETER + "=" + json, false);
         xmlHttpRequest.send(json);
         
         return xmlHttpRequest.responseText;
     }
+    
 
-
-	/**
-		Any request from NATIVE-TO-HYBRID is first handled by this API.
-		
-		@method handle
-		@param action {String} Name of Action. Action Represent HYBRID API Needs To Be Invoke.
-		@param data {String} Data Is Basically Parameter To HYBRID API.
-	*/
-    this.handle = function(action, data) {
-		Log.debug("Adapter", "invoke", "SIMINOV NATIVE TO HYBRID - ACTION: " + action + ", DATA: " + data);
-
-        var functionName = action.substring(0, action.indexOf('.'));
-        var apiName = action.substring(action.lastIndexOf('.') + 1, action.length);
-
-        var obj = Function.createFunctionInstance(functionName);
-        Function.invokeAndInflate(obj, apiName, data);
+    /**
+     * iOS and Windows Async Native Bridge
+     */
+    var xmlHttpRequest = new XMLHttpRequest();
+    xmlHttpRequest.onreadystatechange = function() {
+     
+        if(xmlHttpRequest.readyState == 4) {
+            if(xmlHttpRequest.status >= 200 && xmlHttpRequest.status <= 226) {
+                alert("response:" + xmlHttpRequest.responseText);
+            } else {
+                alert("error response: " + xmlHttpRequest.responseText);
+            }
+        }
     }
+    
+    
+    xmlHttpRequest.open(Constants.HTTP_POST_METHOD, Constants.HTTP_SIMINOV_PROTOCOL + "?" + Constants.HTTP_REQUEST_API_QUERY_PARAMETER + "=" + adapterName + "." + handlerName + "&" + Constants.HTTP_REQUEST_DATA_QUERY_PARAMETER + "=" + json, true);
+    xmlHttpRequest.send(json);
+    
+    return xmlHttpRequest.responseText;
 }
 
 
-Adapter.ADAPTER_SYNC_MODE = "SYNC";
-Adapter.ADAPTER_ASYNC_MODE = "ASYNC";
+/**
+	Any request from NATIVE-TO-HYBRID is first handled by this API.
+	
+	@method handle
+	@param action {String} Name of Action. Action Represent HYBRID API Needs To Be Invoke.
+	@param data {String} Data Is Basically Parameter To HYBRID API.
+*/
+Adapter.handle = function(action, data) {
+	Log.debug("Adapter", "handle", "SIMINOV NATIVE TO HYBRID - ACTION: " + action + ", DATA: " + data);
+
+    var functionName = action.substring(0, action.indexOf('.'));
+    var apiName = action.substring(action.lastIndexOf('.') + 1, action.length);
+
+    var obj = Function.createFunctionInstance(functionName);
+    Function.invokeAndInflate(obj, apiName, data);
+}
+
+Adapter.handleAsync = function(requestId, data) {
+	Log.debug("Adapter", "handleAsync", "SIMINOV NATIVE TO HYBRID ASYNC - REQUEST ID: " + requestId + ", DATA: " + data);
+	
+	var request = Adapter.requests.get(requestId);
+	if(request == undefined) {
+		Log.debug("Adapter", "handleAsync", "NO REQUEST FOUND: " + requestId);
+		return;
+	}
+	
+	var callback = request.getCallback();
+	Log.debug("Adapter", "handleAsync", "Callback: " + callback);
+	callback && callback(data);
+	
+	/**
+	 * Remove Request From Queue
+	*/
+	Adapter.requests.remove(requestId);
+}

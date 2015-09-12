@@ -182,6 +182,8 @@ function ISelect(select) {
         columns: select.columns,
 
 
+		executeAsync: select.executeAsync,
+
 		/**
 		 	Used to get tuples, this method should be called in last to get tuples from table.
 		 	

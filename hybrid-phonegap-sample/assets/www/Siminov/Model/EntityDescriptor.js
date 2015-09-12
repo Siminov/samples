@@ -520,7 +520,7 @@ EntityDescriptor.Attribute = function() {
 */
 EntityDescriptor.Index = function() {
 
-
+	var properties = new Dictionary();
     var columns = new Array();
 
     /**
@@ -596,10 +596,11 @@ EntityDescriptor.Index = function() {
  */
 EntityDescriptor.Relationship = function() {
 
+    var properties = new Dictionary();
+
     var getterReferMethodName;
     var setterReferMethodName;
 
-    var properties = new Dictionary();
 
     /**
      	Get relationship type.

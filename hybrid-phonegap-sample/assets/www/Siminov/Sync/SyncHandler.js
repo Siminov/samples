@@ -113,7 +113,7 @@ var SyncHandler = (function() {
 
 			adapter.addParameter(data);
 
-			adapter.invoke();
+			Adapter.invoke(adapter);
 		}		
 	}
 		

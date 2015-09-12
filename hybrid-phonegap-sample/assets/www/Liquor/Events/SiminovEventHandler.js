@@ -19,12 +19,12 @@
 function SiminovEventHandler() {
 
     this.onFirstTimeSiminovInitialized = function() {
-        initialize();
+        //initialize();
     }
 
 
     this.onSiminovInitialized = function() {
-        initialize();
+        //initialize();
     }
 
 

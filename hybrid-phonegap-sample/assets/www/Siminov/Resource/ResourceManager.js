@@ -64,7 +64,7 @@ var ResourceManager = (function() {
 	        adapter.setAdapterName(Constants.RESOURCE_ADAPTER);
 	        adapter.setHandlerName(Constants.RESOURCE_GET_APPLICATION_DESCRIPTOR_HANDLER);
 	
-	        var data = adapter.invoke();
+	        var data = Adapter.invoke(adapter);
 	
 	        var datas = SIJsonHelper.toSI(data);
 	        var applicationDescriptor = SIDatasHelper.toModels(datas);
@@ -97,7 +97,7 @@ var ResourceManager = (function() {
 	
 	        adapter.addParameter(databaseName);
 	
-	        var data = adapter.invoke();
+	        var data = Adapter.invoke(adapter);
 	
 	        var datas = SIJsonHelper.toSI(data);
 	        var databaseDescriptor = SIDatasHelper.toModels(datas);
@@ -122,7 +122,7 @@ var ResourceManager = (function() {
 	
 	        adapter.addParameter(className);
 	
-	        var data = adapter.invoke();
+	        var data = Adapter.invoke(adapter);
 	
 	        var datas = SIJsonHelper.toSI(data);
 	        var entityDescriptor = SIDatasHelper.toModels(datas);
@@ -147,7 +147,7 @@ var ResourceManager = (function() {
 	
 	        adapter.addParameter(tableName);
 	
-	        var data = adapter.invoke();
+	        var data = Adapter.invoke(adapter);
 	
 	        var datas = SIJsonHelper.toSI(data);
 	        var entityDescriptor = SIDatasHelper.toModels(datas);

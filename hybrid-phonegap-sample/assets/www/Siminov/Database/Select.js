@@ -257,6 +257,11 @@ function Select(object) {
         return this;
     }
 
+	this.executeAsync = function(callback) {
+		Log.debug("Select", "executeAsync", "Callback: " + callback);
+		this.execute(callback);
+	}
+
 
 	/**
 		Process the request specified by application.
@@ -264,6 +269,9 @@ function Select(object) {
 		@method execute
 	*/
     this.execute = function() {
+		
+		var callback = arguments && arguments[0];
+		Log.debug("Select", "execute", "Callback: " + callback);
 
         var whereCondition = "";
         if(whereClause == undefined || whereClause.length <= 0) {
@@ -299,29 +307,29 @@ function Select(object) {
 
 
         if(this.interfaceName ==  "ICount") {
-            return Database.count(object.getFunctionName(), column, distinct, whereCondition, groupBy, havingCondition);
+            return Database.count(object.getFunctionName(), column, distinct, whereCondition, groupBy, havingCondition, callback);
         } else if(this.interfaceName == "IAverage") {
-            return Database.avg(object.getFunctionName(), column, whereCondition, groupBy, havingCondition);
+            return Database.avg(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback);
         } else if(this.interfaceName == "ISum") {
-            return Database.sum(object.getFunctionName(), column, whereCondition, groupBy, havingCondition);
+            return Database.sum(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback);
         } else if(this.interfaceName == "ITotal") {
-            return Database.total(object.getFunctionName(), column, whereCondition, groupBy, havingCondition);
+            return Database.total(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback);
         } else if(this.interfaceName == "IMax") {
-            return Database.max(object.getFunctionName(), column, whereCondition, groupBy, havingCondition);
+            return Database.max(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback);
         } else if(this.interfaceName == "IMin") {
-            return Database.min(object.getFunctionName(), column, whereCondition, groupBy, havingCondition);
+            return Database.min(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback);
         } else if(this.interfaceName == "IGroupConcat") {
-            return Database.groupConcat(object.getFunctionName(), column, delimiter, whereCondition, groupBy, havingCondition);
+            return Database.groupConcat(object.getFunctionName(), column, delimiter, whereCondition, groupBy, havingCondition, callback);
         } else if(this.interfaceName == "IDelete") {
 
             if(whereCondition == undefined && whereCondition == null && whereCondition.length <= 0) {
                 var datas = SIDatasHelper.toSI(object);
                 var json = SIJsonHelper.toJson(datas);
 
-                Database['delete'](object.getFunctionName(), undefined, json);
+                Database['delete'](object.getFunctionName(), undefined, json, callback);
 
             } else {
-                Database['delete'](object.getFunctionName(), whereCondition, undefined);
+                Database['delete'](object.getFunctionName(), whereCondition, undefined, callback);
             }
         } else if(this.interfaceName == 'ISelect') {
         	
@@ -361,10 +369,15 @@ function Select(object) {
 	
 	
 	        if(limit == undefined || limit.length <= 0) {
-	            limit = "0";
+	            limit = "";
 	        }
 	
-	        return Database.select(object.getFunctionName(), distinct, columns, groupBy, having, orderBy, whichOrderBy, limit);
+	
+			if(callback == undefined || callback == null) {
+		        return Database.select(object.getFunctionName(), distinct, whereCondition, columns, groupBy, having, orderBy, whichOrderBy, limit);
+			} else {
+				Database.select(object.getFunctionName(), distinct, whereCondition, columns, groupBy, having, orderBy, whichOrderBy, limit, callback);
+			}
         }
     }
 }

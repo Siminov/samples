@@ -73,7 +73,7 @@ function Database() {
 
         adapter.addParameter(encodeURI(json));
 
-        var data = adapter.invoke();
+        var data = Adapter.invoke(adapter);
         if(data != undefined && data != null) {
 
             var siminovDatas = SIJsonHelper.toSI(data);
@@ -86,9 +86,43 @@ function Database() {
                 }
             }
         }
-
 	}
 
+
+	this.saveAsync = function(callback) {
+		
+		var datas = SIDatasHelper.toSI(this);
+        var json = SIJsonHelper.toJson(datas, true);
+
+        var adapter = new Adapter();
+        adapter.setAdapterName(Constants.DATABASE_ADAPTER);
+        adapter.setHandlerName(Constants.DATABASE_SAVE_HANDLER);
+
+        adapter.addParameter(encodeURI(json));
+		
+		adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
+		adapter.setCallback(saveCallback);
+		
+        Adapter.invoke(adapter);
+        
+        function saveCallback(data) {
+        
+	        if(data != undefined && data != null) {
+	
+	            var siminovDatas = SIJsonHelper.toSI(data);
+	            var exceptions = SIDatasHelper.toModels(siminovDatas);
+	
+	            if(exceptions != undefined && exceptions != null && exceptions.length > 0) {
+	                var exception = exceptions[0];
+	                if(exception != undefined && exception != null) {
+	                    onError && onError();
+	                }
+	            }
+	        } else {
+	        	callback && callback.onSuccess && callback.onSuccess();
+	        }
+        }
+	}
 
 
 	/**
@@ -123,7 +157,7 @@ function Database() {
 
         adapter.addParameter(encodeURI(json));
 
-        var data = adapter.invoke();
+        var data = Adapter.invoke(adapter);
         if(data != undefined && data != null) {
 
             var siminovDatas = SIJsonHelper.toSI(data);
@@ -167,6 +201,8 @@ function Database() {
 	   	@throws {SiminovException} If any error occurs while saving tuples in database.
 	 */
     this.saveOrUpdate = function() {
+	
+		var callback = arguments && arguments[0];
 
         var datas = SIDatasHelper.toSI(this);
         var json = SIJsonHelper.toJson(datas, true);
@@ -177,20 +213,47 @@ function Database() {
 
         adapter.addParameter(json);
 
-        var data = adapter.invoke();
-        if(data != undefined && data != null) {
-
-            var siminovDatas = SIJsonHelper.toSI(data);
-            var exceptions = SIDatasHelper.toModels(siminovDatas);
+		if(callback == undefined || callback == null) {
+			
+			var data = Adapter.invoke(adapter);
+			saveOrUpdateCallback(data);						
+		} else {
+		
+			adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
+			adapter.setCallback(saveOrUpdateCallback);
 	
-	       if(exceptions != undefined && exceptions != null && exceptions.length > 0) {
-                var exception = exceptions[0];
-                if(exception != undefined && exception != null) {
-                    throw exception;
-                }
-            }
-        }
+			Adapter.invoke(adapter);
+		}
 
+		function saveOrUpdateCallback(data) {
+		
+	        if(data != undefined && data != null) {
+	
+	            var siminovDatas = SIJsonHelper.toSI(data);
+	            var exceptions = SIDatasHelper.toModels(siminovDatas);
+		
+		       if(exceptions != undefined && exceptions != null && exceptions.length > 0) {
+	                var exception = exceptions[0];
+	                if(exception != undefined && exception != null) {
+	                
+	                	if(callback == undefined || callback == null) {
+		                    throw exception;
+						} else {
+							callback && callback.onFailure && callback.onFailure(data);
+						}
+	                } else {
+	                	callback && callback.onSuccess && callback.onSuccess(data);
+	                }
+	            } else {
+	            	callback && callback.onSuccess && callback.onSuccess(data);
+	            }
+	        }
+		}
+    }
+
+
+	this.saveOrUpdateAsync = function(callback) {
+		this.saveOrUpdate(callback);
     }
 
 
@@ -220,7 +283,7 @@ function Database() {
 		    adapter.addParameter(className);
 		    adapter.addParameter(arguments[0]);
 		
-		    var data = adapter.invoke();
+		    var data = Adapter.invoke(adapter);
 		    var datas = SIJsonHelper.toSI(data);
 		    
 		    var models = SIDatasHelper.toModels(datas);
@@ -239,8 +302,6 @@ function Database() {
     
         return new ISelect(new Select(this));
     }
-
-	
 
 	/**
 		It deletes a record to any single table in a relational database.
@@ -481,7 +542,7 @@ function Database() {
 
         adapter.addParameter(this.getObjectName());
 
-        var data = adapter.invoke();
+        var data = Adapter.invoke(adapter);
 
         var hybridData = SIJsonHelper.toSI(data);
         if(hybridData != undefined) {
@@ -534,7 +595,7 @@ function Database() {
 
         adapter.addParameter(this.getObjectName());
 
-        var data = adapter.invoke();
+        var data = Adapter.invoke(adapter);
 
         var hybridData = SIJsonHelper.toSI(data);
         var columnNames = [];
@@ -588,7 +649,7 @@ function Database() {
 
         adapter.addParameter(this.getObjectName());
 
-        var data = adapter.invoke();
+        var data = Adapter.invoke(adapter);
 
         var hybridData = SIJsonHelper.toSI(data);
         var columnTypes = new Dictionary();
@@ -650,7 +711,7 @@ function Database() {
 
         adapter.addParameter(this.getObjectName());
 
-        var data = adapter.invoke();
+        var data = Adapter.invoke(adapter);
 
         var hybridData = SIJsonHelper.toSI(data);
         var primaryKeys = [];
@@ -704,7 +765,7 @@ function Database() {
 
         adapter.addParameter(this.getObjectName());
 
-        var data = adapter.invoke();
+        var data = Adapter.invoke(adapter);
 
         var hybridData = SIJsonHelper.toSI(data);
         var mandatoryFields = [];
@@ -758,7 +819,7 @@ function Database() {
 
         adapter.addParameter(this.getObjectName());
 
-        var data = adapter.invoke();
+        var data = Adapter.invoke(adapter);
 
         var hybridData = SIJsonHelper.toSI(data);
         var uniqueFields = [];
@@ -813,7 +874,7 @@ function Database() {
 
         adapter.addParameter(this.getObjectName());
 
-        var data = adapter.invoke();
+        var data = Adapter.invoke(adapter);
 
         var hybridData = SIJsonHelper.toSI(data);
         var foreignKeys = [];
@@ -897,6 +958,9 @@ function Database() {
 
 Database.select = function(className, distinct, whereClause, columnNames, groupBy, having, orderBy, whichOrderBy, limit) {
 
+	var callback = arguments && arguments[9];
+	
+	Log.debug("Database", "select", "Callback: " + callback + ", limit: " + limit);
     var adapter = new Adapter();
     adapter.setAdapterName(Constants.DATABASE_ADAPTER);
     adapter.setHandlerName(Constants.DATABASE_SELECT_HANDLER);
@@ -911,27 +975,54 @@ Database.select = function(className, distinct, whereClause, columnNames, groupB
     adapter.addParameter(whichOrderBy);
     adapter.addParameter(limit);
 
-    var data = adapter.invoke();
-    var datas = SIJsonHelper.toSI(data);
     
-    var models = SIDatasHelper.toModels(datas);
-	if(models != undefined && models != null && models.length > 0) {
-		for(var i = 0;i < models.length;i++) {
-			var model = models[i];
-			
-			if(model instanceof SiminovException) {
-				throw model;
+    if(callback == undefined || callback == null) {
+	    var data = Adapter.invoke(adapter);
+    	return selectCallback(data);	
+    } else {
+    	
+    	adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
+    	adapter.setCallback(selectCallback);
+    	
+    	Adapter.invoke(adapter);
+    }
+    
+    function selectCallback(data) {
+    	Log.debug("Database", "select", "select callback success: " + data);
+    	
+	    var datas = SIJsonHelper.toSI(data);
+	    var models = SIDatasHelper.toModels(datas);
+	    
+		if(models != undefined && models != null && models.length > 0) {
+			for(var i = 0;i < models.length;i++) {
+				var model = models[i];
+				
+				if(model instanceof SiminovException) {
+					
+					if(callback == undefined || callback == null) {
+						throw model;
+					} else {
+						callback && callback.onFailure && callback.onFailure();											
+					}
+				}
 			}
 		}
-	}
-
-    return models;
-
+		
+		Log.debug("Database", "select", "Callback: " + callback + "model: " + models + "callback: " + callback);
+		if(callback == undefined || callback == null) {
+		    return models;
+		} else {
+			Log.debug("Database", "select", "Callback Models: " + models);
+			callback && callback.onSuccess && callback.onSuccess(models);		
+		}
+    }
 }
 
 
 
 Database.count = function(className, column, distinct, whereClause, groupBy, having) {
+
+	var callback = arguments && arguments[6];
 
     var adapter = new Adapter();
 
@@ -946,28 +1037,57 @@ Database.count = function(className, column, distinct, whereClause, groupBy, hav
     adapter.addParameter(having);
 
 
-    var data = adapter.invoke();
+	if(callback == undefined || callback == null) {
+		
+	    var data = Adapter.invoke(adapter);
+		countCallback(data);			
+	} else {
 
-    var hybridData = SIJsonHelper.toSI(data);
-    if(hybridData != undefined) {
-        var datas = hybridData.getHybridSiminovDatas();
-        if(datas != undefined) {
-            for(var i = 0;i < datas.length;i++) {
-                if(datas[i] != undefined) {
-                	var type = datas[i].getDataType();
-                	
-                	if(type != undefined && type != null) {
-						var exception = SIJsonHelper.toModel(datas[i]);
-                		if(exception != undefined && exception != null) {
-                    		throw exception;	
-                		}                	
-                	} else {
-	                    return datas[i].getDataValue();
-                	}
-                }
-            }
-        }
-    }
+		adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
+		adapter.setCallback(countCallback);
+		
+		Adapter.invoke(adapter);
+	}
+
+	function countCallback(data) {
+		
+	    var hybridData = SIJsonHelper.toSI(data);
+	    if(hybridData != undefined) {
+	    
+	        var datas = hybridData.getHybridSiminovDatas();
+	        if(datas != undefined) {
+	        
+	            for(var i = 0;i < datas.length;i++) {
+	            
+	                if(datas[i] != undefined) {
+	                	var type = datas[i].getDataType();
+	                	
+	                	if(type != undefined && type != null) {
+	                	
+							var exception = SIJsonHelper.toModel(datas[i]);
+	                		if(exception != undefined && exception != null) {
+	                			
+	                			if(callback == undefined || callback == null) {
+		                    		throw exception;	
+	                			} else {
+	                				callback && callback.onFailure && callback.onFailure(data);
+	                			}
+	                		} else {
+	                			callback && callback.onSuccess && callback.onSuccess(data);
+	                		}
+	                	} else {
+	                	
+	                		if(callback == undefined || callback == null) {
+			                    return datas[i].getDataValue();
+                			} else {
+                				callback && callback.onSuccess && callback.onSuccess(datas[i].getDataValue());
+                			}
+	                	}
+	                }
+	            }
+	        }
+	    }
+	}
 
     return 0;
 }
@@ -987,7 +1107,7 @@ Database.avg = function(className, column, whereClause, groupBy, hanving) {
     adapter.addParameter(having);
 
 
-    var data = adapter.invoke();
+    var data = Adapter.invoke(adapter);
 
     var hybridData = SIJsonHelper.toSI(data);
     if(hybridData != undefined) {
@@ -1029,7 +1149,7 @@ Database.min = function(className, column, whereClause, groupBy, having) {
     adapter.addParameter(having);
 
 
-    var data = adapter.invoke();
+    var data = Adapter.invoke(adapter);
 
     var hybridData = SIJsonHelper.toSI(data);
     if(hybridData != undefined) {
@@ -1071,7 +1191,7 @@ Database.max = function(className, column, whereClause, groupBy, having) {
     adapter.addParameter(having);
 
 
-    var data = adapter.invoke();
+    var data = Adapter.invoke(adapter);
 
     var hybridData = SIJsonHelper.toSI(data);
     if(hybridData != undefined) {
@@ -1113,7 +1233,7 @@ Database.sum = function(className, column, whereClause, groupBy, having) {
     adapter.addParameter(having);
 
 
-    var data = adapter.invoke();
+    var data = Adapter.invoke(adapter);
 
     var hybridData = SIJsonHelper.toSI(data);
     if(hybridData != undefined) {
@@ -1155,7 +1275,7 @@ Database.total = function(className, column, whereClause, groupBy, having) {
     adapter.addParameter(having);
 
 
-    var data = adapter.invoke();
+    var data = Adapter.invoke(adapter);
 
     var hybridData = SIJsonHelper.toSI(data);
     if(hybridData != undefined) {
@@ -1198,7 +1318,7 @@ Database.groupConcat = function(className, column, delimiter, whereClause, group
     adapter.addParameter(having);
 
 
-    var data = adapter.invoke();
+    var data = Adapter.invoke(adapter);
 
     var hybridData = SIJsonHelper.toSI(data);
     if(hybridData != undefined) {
@@ -1239,7 +1359,7 @@ Database['delete'] = function(className, whereClause, data) {
     adapter.addParameter(whereClause);
     adapter.addParameter(data);
 
-    var data = adapter.invoke();
+    var data = Adapter.invoke(adapter);
     if(data != undefined && data != null) {
 
         var siminovDatas = SIJsonHelper.toSI(data);
@@ -1265,7 +1385,7 @@ Database.beginTransaction = function(databaseDescriptor) {
 
     adapter.addParameter(databaseDescriptor.getDatabaseName());
 
-    var data = adapter.invoke();
+    var data = Adapter.invoke(adapter);
     if(data != undefined && data != null) {
 
         var siminovDatas = SIJsonHelper.toSI(data);
@@ -1278,7 +1398,6 @@ Database.beginTransaction = function(databaseDescriptor) {
             }
         }
     }
-
 }
 
 
@@ -1290,7 +1409,7 @@ Database.commitTransaction = function(databaseDescriptor) {
 
     adapter.addParameter(databaseDescriptor.getDatabaseName());
 
-    var data = adapter.invoke();
+    var data = Adapter.invoke(adapter);
     if(data != undefined && data != null) {
 
         var siminovDatas = SIJsonHelper.toSI(data);
@@ -1303,7 +1422,6 @@ Database.commitTransaction = function(databaseDescriptor) {
             }
         }
     }
-
 }
 
 
@@ -1315,7 +1433,7 @@ Database.endTransaction = function(databaseDescriptor) {
 
     adapter.addParameter(databaseDescriptor.getDatabaseName());
 
-    var data = adapter.invoke();
+    var data = Adapter.invoke(adapter);
     if(data != undefined && data != null) {
 
         var siminovDatas = SIJsonHelper.toSI(data);

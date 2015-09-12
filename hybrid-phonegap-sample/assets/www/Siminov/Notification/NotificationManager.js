@@ -66,7 +66,7 @@ var NotificationManager = (function() {
 		    adapter.setAdapterName(Constants.NOTIFICATION_ADAPTER);
 		    adapter.setHandlerName(Constants.NOTIFICATION_ADAPTER_DO_REGISTRATION_HANDLER);
 		
-			adapter.invoke();				
+			Adapter.invoke(adapter);				
 		}
 			
 			
@@ -81,7 +81,7 @@ var NotificationManager = (function() {
 		    adapter.setAdapterName(Constants.NOTIFICATION_ADAPTER);
 		    adapter.setHandlerName(Constants.NOTIFICATION_ADPATER_DO_UNREGISTRATION_HANDLER);
 		
-			adapter.invoke();				
+			Adapter.invoke(adapter);				
 		}
 	}
 

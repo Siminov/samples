@@ -56,7 +56,7 @@ function Clause(select) {
 	 * @return {ISelect}
 	 */
     this.equalTo = function(val) {
-        where.append(this.EQUAL_TO + " '" + val + "'");
+        where.append(Clause.EQUAL_TO + " '" + val + "'");
         return select;
     }
 
@@ -69,7 +69,7 @@ function Clause(select) {
 	 * @return {ISelect}
 	 */
     this.notEqualTo = function(val) {
-        where.append(this.NOT_EQUAL_TO + " '" + val + "' ");
+        where.append(Clause.NOT_EQUAL_TO + " '" + val + "' ");
         return select;
     }
 
@@ -82,7 +82,7 @@ function Clause(select) {
 	 * @return {ISelect}
 	 */
     this.greaterThan = function(val) {
-        where.append(this.GREATER_THAN + " '" + val + "' ");
+        where.append(Clause.GREATER_THAN + " '" + val + "' ");
         return select;
     }
 
@@ -95,7 +95,7 @@ function Clause(select) {
 	 * @return {ISelect}
 	 */
     this.greaterThanEqual = function(val) {
-        where.append(this.GREATER_THAN_EQUAL + " '" + val + "' ");
+        where.append(Clause.GREATER_THAN_EQUAL + " '" + val + "' ");
         return this.select;
     }
 
@@ -107,7 +107,7 @@ function Clause(select) {
 	 * @return {ISelect}
 	 */
     this.lessThan = function(val) {
-        where.append(this.LESS_THAN + " '" + val + "' ");
+        where.append(Clause.LESS_THAN + " '" + val + "' ");
         return select;
     }
 
@@ -120,7 +120,7 @@ function Clause(select) {
 	 * @return {ISelect}
 	 */
     this.lessThanEqual = function(val) {
-        where.append(this.LESS_THAN_EQUAL + " '" + val + "' ");
+        where.append(Clause.LESS_THAN_EQUAL + " '" + val + "' ");
         return select;
     }
 
@@ -134,7 +134,7 @@ function Clause(select) {
 	 * @return {ISelect}
 	 */
     this.between = function(start, end) {
-        where.append(this.BETWEEN + " '" + start + "' " + this.AND + " '" + end + "' ");
+        where.append(Clause.BETWEEN + " '" + start + "' " + Clause.AND + " '" + end + "' ");
         return select;
     }
 
@@ -146,7 +146,7 @@ function Clause(select) {
 	 * @return {Iselect}
 	 */
     this.like = function(val) {
-        where.append(this.LIKE + " '" + val + "' ");
+        where.append(Clause.LIKE + " '" + val + "' ");
         return select;
     }
 
@@ -159,7 +159,7 @@ function Clause(select) {
 	 * @method {ISelect}
 	 */
     this['in'] = function(values) {
-        where.append(this.IN + "(");
+        where.append(Clause.IN + "(");
 
         if(values != null && values.length > 0) {
             for(var i = 0;i < values.length;i++) {
@@ -185,7 +185,7 @@ function Clause(select) {
 	 * @param column {String} Column
 	 */
     this.add = function(column) {
-        where.append(" " + this.AND + " " + column);
+        where.append(" " + Clause.AND + " " + column);
     }
 
 	/**
@@ -195,7 +195,7 @@ function Clause(select) {
 	 * @param column {String} Column
 	 */
     this.or = function(column) {
-        where.append(" " + this.OR + " " + column);
+        where.append(" " + Clause.OR + " " + column);
     }
 
 	/**
