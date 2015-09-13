@@ -64,6 +64,8 @@ function Database() {
 	 */
 	this.save = function() {
 
+		var callback = arguments && arguments[0];
+
         var datas = SIDatasHelper.toSI(this);
         var json = SIJsonHelper.toJson(datas, true);
 
@@ -71,23 +73,52 @@ function Database() {
         adapter.setAdapterName(Constants.DATABASE_ADAPTER);
         adapter.setHandlerName(Constants.DATABASE_SAVE_HANDLER);
 
-        adapter.addParameter(encodeURI(json));
+        adapter.addParameter(json);
 
-        var data = Adapter.invoke(adapter);
-        if(data != undefined && data != null) {
+		if(callback) {
+			adapter.setCallback(saveCallback);
+			adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
+			
+			Adapter.invoke(adapter);
+		} else {
+		
+	        var data = Adapter.invoke(adapter);
+			saveCallback(data);	
+		}
 
-            var siminovDatas = SIJsonHelper.toSI(data);
-            var exceptions = SIDatasHelper.toModels(siminovDatas);
-
-            if(exceptions != undefined && exceptions != null && exceptions.length > 0) {
-                var exception = exceptions[0];
-                if(exception != undefined && exception != null) {
-                    throw exception;
-                }
-            }
-        }
+		
+		function saveCallback(data) {
+		
+	        if(data != undefined && data != null) {
+	
+	            var siminovDatas = SIJsonHelper.toSI(data);
+	            var exceptions = SIDatasHelper.toModels(siminovDatas);
+	
+	            if(exceptions != undefined && exceptions != null && exceptions.length > 0) {
+	                var exception = exceptions[0];
+	                if(exception != undefined && exception != null) {
+	                    
+	                    if(callback) {
+	                    	callback && callback.onFailure && callback.onFailure();
+	                    } else {
+							throw exception;	                    	
+	                    }
+	                } else {
+	                	callback && callback.onSuccess && callback.onSuccess(data);
+	                }
+	            } else {
+	            	callback && callback.onSuccess && callback.onSuccess(data);
+	            }
+	        } else {
+	        	callback && callback.onSuccess && callback.onSuccess(data);
+	        }
+		}
 	}
 
+	this.saveAsync = function(callback) {
+		this.save(callback?callback:new Callback());
+	}
+	
 
 	/**
 		It updates a record to any single table in a relational database.
@@ -112,6 +143,8 @@ function Database() {
 	 */
     this.update = function() {
 
+		var callback = arguments && arguments[0];
+	
         var datas = SIDatasHelper.toSI(this);
         var json = SIJsonHelper.toJson(datas, true);
 
@@ -119,24 +152,51 @@ function Database() {
         adapter.setAdapterName(Constants.DATABASE_ADAPTER);
         adapter.setHandlerName(Constants.DATABASE_UPDATE_HANDLER);
 
-        adapter.addParameter(encodeURI(json));
+        adapter.addParameter(json);
 
-        var data = Adapter.invoke(adapter);
-        if(data != undefined && data != null) {
+		if(callback) {
+			adapter.setCallback(updateCallback);
+			adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
+			
+			Adapter.invoke(adapter);
+		} else {
+			var data = Adapter.invoke(adapter);
+			updateCallback(data);
+		}
 
-            var siminovDatas = SIJsonHelper.toSI(data);
-            var exceptions = SIDatasHelper.toModels(siminovDatas);
-
-            if(exceptions != undefined && exceptions != null && exceptions.length > 0) {
-                var exception = exceptions[0];
-                if(exception != undefined && exception != null) {
-                    throw exception;
-                }
-            }
-        }
-
+	
+		function updateCallback(data) {
+		
+	        if(data != undefined && data != null) {
+	
+	            var siminovDatas = SIJsonHelper.toSI(data);
+	            var exceptions = SIDatasHelper.toModels(siminovDatas);
+	
+	            if(exceptions != undefined && exceptions != null && exceptions.length > 0) {
+	                var exception = exceptions[0];
+	                if(exception != undefined && exception != null) {
+	                    
+	                    if(callback) {
+							callback && callback.onFailure && callback.onFailure(data);	                    
+	                    } else {
+		                    throw exception;
+	                    }
+	                } else {
+	                	callback && callback.onSuccess && callback.onSuccess(data);
+	                }
+	            } else {
+	            	callback && callback.onSuccess && callback.onSuccess(data);
+	            }
+	        } else {
+	        	callback && callback.onSuccess && callback.onSuccess(data);
+	        }
+		}
     }
 
+
+	this.updateAsync = function(callback) {
+		this.update(callback?callback:new Callback());		
+	}
 	
 	
 	/**
@@ -177,16 +237,14 @@ function Database() {
 
         adapter.addParameter(json);
 
-		if(callback == undefined || callback == null) {
-			
-			var data = Adapter.invoke(adapter);
-			saveOrUpdateCallback(data);						
-		} else {
-		
+		if(callback) {
 			adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
 			adapter.setCallback(saveOrUpdateCallback);
 	
 			Adapter.invoke(adapter);
+		} else {
+			var data = Adapter.invoke(adapter);
+			saveOrUpdateCallback(data);						
 		}
 
 		function saveOrUpdateCallback(data) {
@@ -200,10 +258,10 @@ function Database() {
 	                var exception = exceptions[0];
 	                if(exception != undefined && exception != null) {
 	                
-	                	if(callback == undefined || callback == null) {
-		                    throw exception;
-						} else {
+	                	if(callback) {
 							callback && callback.onFailure && callback.onFailure(data);
+						} else {
+		                    throw exception;
 						}
 	                } else {
 	                	callback && callback.onSuccess && callback.onSuccess(data);
@@ -211,6 +269,8 @@ function Database() {
 	            } else {
 	            	callback && callback.onSuccess && callback.onSuccess(data);
 	            }
+	        } else {
+	        	callback && callback.onSuccess && callback.onSuccess(data);
 	        }
 		}
     }
@@ -940,15 +1000,14 @@ Database.select = function(className, distinct, whereClause, columnNames, groupB
     adapter.addParameter(limit);
 
     
-    if(callback == undefined || callback == null) {
-	    var data = Adapter.invoke(adapter);
-    	return selectCallback(data);	
-    } else {
-    	
+    if(callback) {
     	adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
     	adapter.setCallback(selectCallback);
     	
     	Adapter.invoke(adapter);
+    } else {
+	    var data = Adapter.invoke(adapter);
+    	return selectCallback(data);	
     }
     
     function selectCallback(data) {
@@ -963,21 +1022,21 @@ Database.select = function(className, distinct, whereClause, columnNames, groupB
 				
 				if(model instanceof SiminovException) {
 					
-					if(callback == undefined || callback == null) {
-						throw model;
-					} else {
+					if(callback) {
 						callback && callback.onFailure && callback.onFailure();											
+					} else {
+						throw model;
 					}
 				}
 			}
 		}
 		
 		Log.debug("Database", "select", "Callback: " + callback + "model: " + models + "callback: " + callback);
-		if(callback == undefined || callback == null) {
-		    return models;
-		} else {
+		if(callback) {
 			Log.debug("Database", "select", "Callback Models: " + models);
 			callback && callback.onSuccess && callback.onSuccess(models);		
+		} else {
+		    return models;
 		}
     }
 }
@@ -1001,17 +1060,16 @@ Database.count = function(className, column, distinct, whereClause, groupBy, hav
     adapter.addParameter(having);
 
 
-	if(callback == undefined || callback == null) {
-		
-	    var data = Adapter.invoke(adapter);
-		countCallback(data);			
-	} else {
-
+	if(callback) {
 		adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
 		adapter.setCallback(countCallback);
 		
 		Adapter.invoke(adapter);
+	} else {
+	    var data = Adapter.invoke(adapter);
+		return countCallback(data);			
 	}
+
 
 	function countCallback(data) {
 		
@@ -1031,25 +1089,32 @@ Database.count = function(className, column, distinct, whereClause, groupBy, hav
 							var exception = SIJsonHelper.toModel(datas[i]);
 	                		if(exception != undefined && exception != null) {
 	                			
-	                			if(callback == undefined || callback == null) {
-		                    		throw exception;	
-	                			} else {
+	                			if(callback) {
 	                				callback && callback.onFailure && callback.onFailure(data);
+	                			} else {
+		                    		throw exception;	
 	                			}
 	                		} else {
-	                			callback && callback.onSuccess && callback.onSuccess(data);
+	                		
+		                		if(callback) {
+	                				callback && callback.onSuccess && callback.onSuccess(datas[i].getDataValue());
+	                				break;
+	                			} else {
+				                    return datas[i].getDataValue();
+	                			}
 	                		}
 	                	} else {
 	                	
-	                		if(callback == undefined || callback == null) {
-			                    return datas[i].getDataValue();
-                			} else {
+	                		if(callback) {
                 				callback && callback.onSuccess && callback.onSuccess(datas[i].getDataValue());
+                				break;
+                			} else {
+			                    return datas[i].getDataValue();
                 			}
 	                	}
 	                }
 	            }
-	        }
+	        } 
 	    }
 	}
 
@@ -1057,7 +1122,9 @@ Database.count = function(className, column, distinct, whereClause, groupBy, hav
 }
 
 
-Database.avg = function(className, column, whereClause, groupBy, hanving) {
+Database.avg = function(className, column, whereClause, groupBy, having) {
+
+	var callback = arguments && arguments[5];
 
     var adapter = new Adapter();
 
@@ -1071,31 +1138,52 @@ Database.avg = function(className, column, whereClause, groupBy, hanving) {
     adapter.addParameter(having);
 
 
-    var data = Adapter.invoke(adapter);
+	if(callback) {
+	    var data = Adapter.invoke(adapter);
+		return avgCallback(data);	
+	} else {
+		adapter.setCallback(avgCallback);
+		adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
+		
+		Adapter.invoke(adapter);
+	}
 
-    var hybridData = SIJsonHelper.toSI(data);
-    if(hybridData != undefined) {
-        var datas = hybridData.getHybridSiminovDatas();
-        if(datas != undefined) {
-            for(var i = 0;i < datas.length;i++) {
-                if(datas[i] != undefined) {
-                	var type = datas[i].getDataType();
-                	
-                	if(type != undefined && type != null) {
-						var exception = SIJsonHelper.toModel(datas[i]);
-                		if(exception != undefined && exception != null) {
-                    		throw exception;	
-                		}                	
-                	} else {
-	                    return datas[i].getDataValue();
-                	}
-                }
-            }
-        }
-    }
 
-    return 0;
-
+	function avgCallback() {
+	
+	    var hybridData = SIJsonHelper.toSI(data);
+	    if(hybridData != undefined) {
+	        var datas = hybridData.getHybridSiminovDatas();
+	        if(datas != undefined) {
+	            for(var i = 0;i < datas.length;i++) {
+	                if(datas[i] != undefined) {
+	                	var type = datas[i].getDataType();
+	                	
+	                	if(type != undefined && type != null) {
+							var exception = SIJsonHelper.toModel(datas[i]);
+	                		if(exception != undefined && exception != null) {
+	                		
+	                			if(callback) {
+	                				callback && callback.onFailure && callback.onFailure(data);
+	                				break;
+	                			} else {
+		                    		throw exception;	
+	                			}
+	                		}                	
+	                	} else {
+	                	
+	                		if(callback) {
+								callback && callback.onSuccess && callback.onSuccess(datas[i].getDataValue());
+								break;	                		
+	                		} else {
+			                    return datas[i].getDataValue();
+	                		}
+	                	}
+	                }
+	            }
+	        }
+	    }
+	}
 }
 
 

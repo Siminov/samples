@@ -182,8 +182,6 @@ function ISelect(select) {
         columns: select.columns,
 
 
-		executeAsync: select.executeAsync,
-
 		/**
 		 	Used to get tuples, this method should be called in last to get tuples from table.
 		 	
@@ -191,7 +189,9 @@ function ISelect(select) {
 		 	@return {Object} Return array of model objects.
 		 	@throws {SiminovException} Throws exception if any error occur while getting tuples from table. 
 		 */
-        execute: select.execute
+        execute: select.execute,
+
+		executeAsync: select.executeAsync
 
     }
 

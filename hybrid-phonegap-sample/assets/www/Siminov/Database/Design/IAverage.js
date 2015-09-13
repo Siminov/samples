@@ -143,8 +143,10 @@ function IAverage(select) {
 			@return {Object} Return average.
 	 		@throws {SiminovException} Throws exception if any error occur while calculating average. 
 		*/
-        execute: select.execute
+        execute: select.execute,
 
+		
+		executeAsync: select.executeAsync	
     }
 
 }

@@ -232,6 +232,14 @@
 					Log.debug("Database", "home.html", "Liquors: " + liquors);
 					if(liquors != undefined) {
 						
+						callback = new Callback();
+						callback.onSuccess = function(liquorCount) {
+							alert("Liquor Count: " + liquorCount);
+						}
+						
+						var count = new Liquor().count().execute();
+						alert("Count: " + count);
+						
 						for(var i = 0;i < liquors.length;i++) {
 							var liquor = liquors[i];
 							Log.debug("Database", "home.html", "Add Liquor: " + liquor);

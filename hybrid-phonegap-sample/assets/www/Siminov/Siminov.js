@@ -63,9 +63,7 @@ Siminov.initialize = function() {
     adapter.setAdapterName(Constants.SIMINOV_ADAPTER);
     adapter.setHandlerName(Constants.SIMINOV_ADAPTER_INITIALIZE_SIMINOV_HANDLER);
 
-	if(callback == undefined || callback == null) {
-	    Adapter.invoke(adapter);
-	} else {
+	if(callback) {
 	
 		adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
 		adapter.setCallback(initializeCallback);
@@ -75,6 +73,8 @@ Siminov.initialize = function() {
 	    function initializeCallback(data) {
 			callback && callback.onSuccess && callback.onSuccess(data);
 	    }	
+	} else {
+	    Adapter.invoke(adapter);
 	}
 }
 
@@ -104,14 +104,4 @@ Siminov.shutdown = function() {
 
 
 Siminov.shutdownAsync = function(onSuccess, onError) {
-
-	var adapter = new Adapter();
-	
-    adapter.setAdapterName(Constants.SIMINOV_ADAPTER);
-    adapter.setHandlerName(Constants.SIMINOV_ADAPTER_SHUTDOWN_SIMINOV_HANDLER);
-
-	adapter.setOnSuccess(onSuccess);
-	adapter.setOnError(onError);
-
-    Adapter.invoke(adapter);
 }

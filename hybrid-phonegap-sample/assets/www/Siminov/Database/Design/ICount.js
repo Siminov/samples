@@ -148,7 +148,9 @@ function ICount(select) {
 			@return {Object} Return count.
 		 	@throws {SiminovException} Throws exception if any error occur while calculating count. 
 		 */
-        execute: select.execute
+        execute: select.execute,
+        
+        executeAsync: select.executeAsync
 
     }
 
