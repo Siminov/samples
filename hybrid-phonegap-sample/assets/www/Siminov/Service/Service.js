@@ -132,13 +132,20 @@ function Service() {
 	 */
 	this.invoke = function() {
 
+		var callback = arguments && arguments[0];
+
 		var serviceHandler = ServiceHandler.getInstance();
 		try {
-			serviceHandler.handle(this);
+			callback?serviceHandler.handleAsync(this, callback):serviceHandler.handle(this);
 		} catch(se) {
 			alert(se);
 			this.onServiceTerminate(se);
 		}
+	}
+	
+	
+	this.invokeAsync = function(callback) {
+		this.invoke(callback?callback:new Callback());
 	}
 	
 	

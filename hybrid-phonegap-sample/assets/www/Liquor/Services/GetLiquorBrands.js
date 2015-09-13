@@ -71,12 +71,27 @@ function GetLiquorBrands() {
 		
 		var liquorBrands = liquorBrandsReader.getLiquorBrands();
 
+		var callbackCount = 0;
 		for(var i = 0;i < liquorBrands.length;i++) {
 			var liquorBrand = liquorBrands[i];
 			liquorBrand.setLiquor(liquor);
 			
+			var callback = new Callback();
+			callback.onSuccess = function() {
+				++callbackCount;
+				
+				if((callbackCount + 1) == liquorBrands.length) {
+					Log.debug("GetLiquorBrands", "onRequestFinish", "Save Or Update Success: Populate Detail: " + callbackCount);
+					
+					populateDetail(liquorType);
+				}
+			
+				Log.debug("GetLiquorBrands", "onRequestFinish", "Save Or Update Success");
+				return;
+			}
+			
 			try {
-				liquorBrand.saveOrUpdate();
+				liquorBrand.saveOrUpdateAsync(callback);
 			} catch(de) {
 				Log.error("GetLiquors", "onServiceRequestFinish", "Database Exception caught while saving liquor brands in database, " + de.getMessage());
 			}
@@ -88,7 +103,7 @@ function GetLiquorBrands() {
 		}
 
 
-		populateDetail(liquorType);
+		//populateDetail(liquorType);
 	}
 
 	this.onTerminate = function(serviceException) {

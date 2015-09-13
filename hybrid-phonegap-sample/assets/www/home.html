@@ -195,13 +195,18 @@
 				syncHandler.handle(syncRequest);*/
 
 				
+				var callback = new Callback();
+				callback.onSuccess = function() {
+					Log.debug("Home", "navHome", "Get Liquors Success");
+				}
+				
 				var getLiquors = new GetLiquors();
 				getLiquors.setService(GetLiquors.SERVICE_NAME);
 				getLiquors.setRequest(GetLiquors.REQUEST_NAME);
 				
-				getLiquors.invoke();
+				getLiquors.invokeAsync(callback);
 				
-				//populateHome();
+				populateHome();
 			}			
 
 			function populateHome() {
@@ -223,8 +228,8 @@
                 liquors = new Liquor().select().executeAsync(callback);
 				//loadTasks();
 				function loadTasks() {
+				
 					Log.debug("Database", "home.html", "Liquors: " + liquors);
-					alert("load tasks");
 					if(liquors != undefined) {
 						
 						for(var i = 0;i < liquors.length;i++) {
@@ -270,6 +275,14 @@
 				var syncHandler = SyncHandler.getInstance();
 				syncHandler.handle(syncRequest);*/
 
+	
+				var callback = new Callback();
+				callback.onSuccess = function() {
+					Log.debug("Home", "nacDetail", "Get Liquor Brands Success");
+					
+					populateDetail(liquor.getLiquorType());
+				}
+
 
 				var getLiquorBrands = new GetLiquorBrands();
 				getLiquorBrands.setService(GetLiquorBrands.SERVICE_NAME);
@@ -277,9 +290,9 @@
 				
 				getLiquorBrands.addResource(GetLiquorBrands.LIQUOR_NAME, liquor.getLiquorType());
 
-				getLiquorBrands.invoke();
+				getLiquorBrands.invokeAsync(callback);
 				
-				populateDetail(liquor.getLiquorType());
+				//populateDetail(liquor.getLiquorType());
 			}
 			
 			
@@ -304,19 +317,34 @@
                 document.getElementById('liquor-history').innerHTML = liquor.getHistory();
                 document.getElementById('liquor-alcohol-content').innerHTML = liquor.getAlcholContent();
                 document.getElementById('liquor-link').innerHTML = liquor.getLink();
+	
+				var liquorBrands;
 
-                var liquorBrands = new LiquorBrand().select().where("LIQUOR_TYPE").equalTo(liquor.getLiquorType()).execute();
-                if(liquorBrands != undefined && liquorBrands != null && liquorBrands.length > 0) {
+				var callback = new Callback();
+				callback.onSuccess = function(savedLiquorBrands) {
+					Log.debug("Home", "populateDetail", "Get Liquor Brands Success: " + savedLiquorBrands);
+					liquorBrands = savedLiquorBrands;
+					
+					loadLiquorBrands();
+				}	
 
-                    for(var i = 0;i < liquorBrands.length;i++) {
-                    	
-                    	var liquorBrand = liquorBrands[i];		
-                    			
-                        $('#liquor-brands').append('<li class="ui-li ui-li-static ui-btn-up-c">' + 
-                        								liquorBrand.getBrandName() +
-												'</li>');
-												
-                    }
+                liquorBrands = new LiquorBrand().select().where("LIQUOR_TYPE").equalTo(liquor.getLiquorType()).executeAsync(callback);
+                
+                function loadLiquorBrands() {
+                
+                	Log.debug("Home", "populateDetail", "Populate Liquor Brands: " + liquorBrands);
+	                if(liquorBrands != undefined && liquorBrands != null && liquorBrands.length > 0) {
+	
+	                    for(var i = 0;i < liquorBrands.length;i++) {
+	                    	
+	                    	var liquorBrand = liquorBrands[i];		
+	                    			
+	                        $('#liquor-brands').append('<li class="ui-li ui-li-static ui-btn-up-c">' + 
+	                        								liquorBrand.getBrandName() +
+													'</li>');
+													
+	                    }
+	                }
                 }
 			}
 

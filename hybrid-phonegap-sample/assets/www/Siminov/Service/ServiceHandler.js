@@ -60,6 +60,11 @@ var ServiceHandler = (function() {
 
 	function ServiceHandler() {
 		
+		this.handleAsync = function(iService, callback) {
+			this.handle(iService, callback);
+		}
+		
+		
 		/**
 		 * It handles the service request 
 		 * 
@@ -67,6 +72,8 @@ var ServiceHandler = (function() {
 		 * @param iService {Service} Service instance
 		 */
 		this.handle = function(iService) {
+
+			var callback = arguments && arguments[1];
 
 	        var adapter = new Adapter();
 	        adapter.setAdapterName(Constants.SERVICE_ADAPTER);
@@ -120,7 +127,20 @@ var ServiceHandler = (function() {
 			var data = encodeURI(SIJsonHelper.toJson(hybridServiceDatas, true));
 			adapter.addParameter(data);
 
-			Adapter.invoke(adapter);
+
+			if(callback == undefined || callback == null) {
+				Adapter.invoke(adapter);
+			} else {
+				
+				adapter.setCallback(serviceCallback);
+				adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
+				
+				Adapter.invoke(adapter);		
+				
+				function serviceCallback() {
+					callback && callback.onSuccess && callback.onSuccess();
+				}	
+			}
 		}
 	}
 		

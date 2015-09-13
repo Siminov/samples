@@ -117,6 +117,10 @@ function IService(service) {
 		 */
 		invoke: service.invoke,
 
+	
+		invokeAsync: service.invokeAsync,
+	
+
 		/**
 		 * It terminated the executing service request
 		 * 

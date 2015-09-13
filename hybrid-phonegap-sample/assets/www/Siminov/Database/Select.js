@@ -259,7 +259,7 @@ function Select(object) {
 
 	this.executeAsync = function(callback) {
 		Log.debug("Select", "executeAsync", "Callback: " + callback);
-		this.execute(callback);
+		this.execute(callback?callback:new Callback());
 	}
 
 

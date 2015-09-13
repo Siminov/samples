@@ -80,7 +80,7 @@ Siminov.initialize = function() {
 
 
 Siminov.initializeAsync = function(callback) {
-	Siminov.initialize(callback);
+	Siminov.initialize(callback?callback:new Callback());
 }
 
 

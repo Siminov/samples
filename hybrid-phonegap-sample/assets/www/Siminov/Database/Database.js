@@ -89,42 +89,6 @@ function Database() {
 	}
 
 
-	this.saveAsync = function(callback) {
-		
-		var datas = SIDatasHelper.toSI(this);
-        var json = SIJsonHelper.toJson(datas, true);
-
-        var adapter = new Adapter();
-        adapter.setAdapterName(Constants.DATABASE_ADAPTER);
-        adapter.setHandlerName(Constants.DATABASE_SAVE_HANDLER);
-
-        adapter.addParameter(encodeURI(json));
-		
-		adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
-		adapter.setCallback(saveCallback);
-		
-        Adapter.invoke(adapter);
-        
-        function saveCallback(data) {
-        
-	        if(data != undefined && data != null) {
-	
-	            var siminovDatas = SIJsonHelper.toSI(data);
-	            var exceptions = SIDatasHelper.toModels(siminovDatas);
-	
-	            if(exceptions != undefined && exceptions != null && exceptions.length > 0) {
-	                var exception = exceptions[0];
-	                if(exception != undefined && exception != null) {
-	                    onError && onError();
-	                }
-	            }
-	        } else {
-	        	callback && callback.onSuccess && callback.onSuccess();
-	        }
-        }
-	}
-
-
 	/**
 		It updates a record to any single table in a relational database.
 	
@@ -253,7 +217,7 @@ function Database() {
 
 
 	this.saveOrUpdateAsync = function(callback) {
-		this.saveOrUpdate(callback);
+		this.saveOrUpdate(callback?callback:new Callback());
     }
 
 
