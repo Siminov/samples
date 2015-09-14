@@ -60,19 +60,42 @@ var ResourceManager = (function() {
 	 	*/
 	    this.getApplicationDescriptor = function() {
 
+			var callback = arguments && arguments[0];
+
 	        var adapter = new Adapter();
 	        adapter.setAdapterName(Constants.RESOURCE_ADAPTER);
 	        adapter.setHandlerName(Constants.RESOURCE_GET_APPLICATION_DESCRIPTOR_HANDLER);
 	
-	        var data = Adapter.invoke(adapter);
 	
-	        var datas = SIJsonHelper.toSI(data);
-	        var applicationDescriptor = SIDatasHelper.toModels(datas);
+			if(callback) {
+				adapter.setCallback(getApplicationDescriptorCallback);
+				adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
+				
+				Adapter.invoke(adapter);
+			} else {
+		        var data = Adapter.invoke(adapter);
+				return getApplicationDescriptorCallback(data);		
+			}
 	
-	        return applicationDescriptor[0];
+	
+			function getApplicationDescriptorCallback(data) {
+			
+		        var datas = SIJsonHelper.toSI(data);
+		        var applicationDescriptor = SIDatasHelper.toModels(datas);
+		        
+		        if(callback) {
+		        	callback && callback.onSuccess && callback.onSuccess(applicationDescriptor[0]);
+		        } else {
+		        	return applicationDescriptor[0];
+		        }
+			}
 	    }
 	
 	
+		this.getApplicationDescriptorAsync = function(callback) {
+			this.getApplicationDescriptor(callback?callback:new Callback());
+		}
+		
 		
 		/**
 		 	Get Database Descriptor based on database descriptor name provided as per defined in Database Descriptor file.
@@ -91,19 +114,42 @@ var ResourceManager = (function() {
 		 */
 	    this.getDatabaseDescriptor = function(databaseName) {
 	
+			var callback = arguments && arguments[1];
+	
 	        var adapter = new Adapter();
 	        adapter.setAdapterName(Constants.RESOURCE_ADAPTER);
 	        adapter.setHandlerName(Constants.RESOURCE_GET_DATABASE_DESCRIPTOR_BASED_ON_NAME_HANDLER);
 	
 	        adapter.addParameter(databaseName);
 	
-	        var data = Adapter.invoke(adapter);
-	
-	        var datas = SIJsonHelper.toSI(data);
-	        var databaseDescriptor = SIDatasHelper.toModels(datas);
-	
-	        return databaseDescriptor[0];
-	
+			
+			if(callback) {
+				adapter.setCallback(getDatabaseDescriptorCallback);
+				adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
+				
+				Adapter.invoke(adapter);
+			} else {
+		        var data = Adapter.invoke(adapter);
+				return getDatabaseDescriptorCallback(data);		
+			}
+		
+			
+			function getDatabaseDescriptorCallback(data) {
+			
+		        var datas = SIJsonHelper.toSI(data);
+		        var databaseDescriptor = SIDatasHelper.toModels(datas);
+
+				if(callback) {
+					callback && callback.onSuccess && callback.onSuccess(databaseDescriptor[0]);
+				} else {
+					return databaseDescriptor[0];
+				}
+			}
+	    }
+	    
+	    
+	    this.getDatabaseDescriptorAsync = function(databaseName, callback) {
+	    	this.getDatabaseDescriptor(databaseName, callback?callback:new Callback());
 	    }
 	
 
@@ -116,19 +162,41 @@ var ResourceManager = (function() {
 		 */	
 	    this.getEntityDescriptorBasedOnClassName = function(className) {
 	
+			var callback = arguments && arguments[1];
+	
 	        var adapter = new Adapter();
 	        adapter.setAdapterName(Constants.RESOURCE_ADAPTER);
 	        adapter.setHandlerName(Constants.RESOURCE_GET_ENTITY_DESCRIPTOR_BASED_ON_CLASS_NAME_HANDLER);
 	
 	        adapter.addParameter(className);
 	
-	        var data = Adapter.invoke(adapter);
 	
-	        var datas = SIJsonHelper.toSI(data);
-	        var entityDescriptor = SIDatasHelper.toModels(datas);
+			if(callback) {
+				adapter.setCallback(getEntityDescriptorBasedOnClassNameCallback);
+				adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
+				
+				Adapter.invoke(adapter);
+			} else {
+		        var data = Adapter.invoke(adapter);
+				return getEntityDescriptorBasedOnClassNameCallback(data);
+			}
 	
-	        return entityDescriptor[0];
-	
+			function getEntityDescriptorBasedOnClassNameCallback(data) {
+			
+		        var datas = SIJsonHelper.toSI(data);
+		        var entityDescriptor = SIDatasHelper.toModels(datas);
+
+				if(callback) {
+					callback && callback.onSuccess && callback.onSuccess(entityDescriptor[0]);
+				} else {
+			        return entityDescriptor[0];
+				}
+			}
+	    }
+	    
+	    
+	    this.getEntityDescriptorBasedOnClassNameAsync = function(className, callback) {
+	    	this.getEntityDescriptorBasedOnClassName(className, callback?callback:new Callback());
 	    }
 	
 		
@@ -141,20 +209,44 @@ var ResourceManager = (function() {
 		 */
 	    this.getEntityDescriptorBasedOnTableName = function(tableName) {
 	
+			var callback = arguments && arguments[1];
+	
 	        var adapter = new Adapter();
 	        adapter.setAdapterName(Constants.RESOURCE_ADAPTER);
 	        adapter.setHandlerName(Constants.RESOURCE_GET_ENTITY_DESCRIPTOR_BASED_ON_TABLE_NAME_HANDLER);
 	
 	        adapter.addParameter(tableName);
 	
-	        var data = Adapter.invoke(adapter);
+			
+			if(callback) {
+				adapter.setCallback(getEntityDescriptorBasedOnTableNameCallback);
+				adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
+				
+				Adapter.invoke(adapter);
+			} else {
+		        var data = Adapter.invoke(adapter);
+		        return getEntityDescriptorBasedOnTableNameCallback(data);
+			}
 	
-	        var datas = SIJsonHelper.toSI(data);
-	        var entityDescriptor = SIDatasHelper.toModels(datas);
 	
-	        return entityDescriptor[0];
-	
+			function getEntityDescriptorBasedOnTableNameCallback(data) {
+			
+		        var datas = SIJsonHelper.toSI(data);
+		        var entityDescriptor = SIDatasHelper.toModels(datas);
+		        
+		        if(callback) {
+		        	callback && callback.onSuccess && callback.onSuccess(entityDescriptor[0]);
+		        } else {
+			        return entityDescriptor[0];
+		        }
+			}
 	    }
+	    
+	    
+	    this.getEntityDescriptorBasedOnTableNameAsync = function(tableName, callback) {
+	    	this.getEntityDescriptorBasedOnTableName(tableName, callback);
+	    }
+	    
 	}
 
 		

@@ -125,6 +125,16 @@
                 
             		Log.debug("Home", "initializeApp", "App Initialized");
             		alert("initialize success");
+        		
+					var callback = new Callback();
+					callback.onSuccess = function(liquorCount) {
+						alert("Liquor Min: " + liquorCount);
+					}
+					
+					var liquor = ResourceManager.getInstance();
+					var groupConcat = liquor.getEntityDescriptorBasedOnTableNameAsync('LIQUOR', callback);
+					alert("Group Concat: " + groupConcat);
+        		
                 }
                 
                 callback.onFailure = function() {
@@ -231,14 +241,6 @@
 				
 					Log.debug("Database", "home.html", "Liquors: " + liquors);
 					if(liquors != undefined) {
-						
-						callback = new Callback();
-						callback.onSuccess = function(liquorCount) {
-							alert("Liquor Min: " + liquorCount);
-						}
-						
-						var groupConcat = new Liquor().groupConcat().column("LIQUOR_TYPE").executeAsync(callback);
-						alert("Group Concat: " + groupConcat);
 						
 						for(var i = 0;i < liquors.length;i++) {
 							var liquor = liquors[i];

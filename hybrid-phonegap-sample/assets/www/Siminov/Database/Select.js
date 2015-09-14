@@ -326,10 +326,9 @@ function Select(object) {
                 var datas = SIDatasHelper.toSI(object);
                 var json = SIJsonHelper.toJson(datas);
 
-                Database['delete'](object.getFunctionName(), undefined, json);
-
+                Database['delete'](object.getFunctionName(), undefined, json, callback);
             } else {
-                Database['delete'](object.getFunctionName(), whereCondition, undefined);
+                Database['delete'](object.getFunctionName(), whereCondition, undefined, callback);
             }
         } else if(this.interfaceName == 'ISelect') {
         	
@@ -373,10 +372,10 @@ function Select(object) {
 	        }
 	
 	
-			if(callback == undefined || callback == null) {
-		        return Database.select(object.getFunctionName(), distinct, whereCondition, columns, groupBy, having, orderBy, whichOrderBy, limit);
-			} else {
+			if(callback) {
 				Database.select(object.getFunctionName(), distinct, whereCondition, columns, groupBy, having, orderBy, whichOrderBy, limit, callback);
+			} else {
+		        return Database.select(object.getFunctionName(), distinct, whereCondition, columns, groupBy, having, orderBy, whichOrderBy, limit);
 			}
         }
     }
