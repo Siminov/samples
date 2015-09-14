@@ -1147,13 +1147,21 @@ function Database() {
 	 */
     this.getDatabaseDescriptor = function() {
 
-        var resources = Resources.getInstance();
-        return resources.getDatabaseDescriptorBasedOnClassName(this.getFunctionName());
-
+		var callback = arguments && arguments[0];
+        var resourceManager = ResourceManager.getInstance();
+        
+        if(callback) {
+			resourceManager.getDatabaseDescriptorBasedOnClassNameAsync(this.getFunctionName(), callback);
+        } else {
+	        return resourceManager.getDatabaseDescriptorBasedOnClassName(this.getFunctionName());
+        }
     }
 
 
-
+	this.getDatabaseDescriptorAsync = function(callback) {
+		this.getDatabaseDescriptor(callback?callback:new Callback());
+	}
+	
 
 	/**
 	 	Returns the actual entity descriptor object mapped for invoked class object.
@@ -1172,10 +1180,20 @@ function Database() {
 	 */
     this.getEntityDescriptor = function() {
 
-        var resources = Resources.getInstance();
-        return resources.getEntityDescriptorBasedOnClassName(this.getFunctionName());
-
+		var callback = arguments && arguments[0];
+        var resourceManager = ResourceManager.getInstance();
+        
+        if(callback) {
+        	resourceManager.getEntityDescriptorBasedOnClassNameAsync(this.getFunctionName(), callback);
+        } else {
+	        return resourceManager.getEntityDescriptorBasedOnClassName(this.getFunctionName());
+        }
     }
+
+
+	this.getEntityDescriptorAsync = function(callback) {
+		this.getEntityDescriptor(callback?callback:new Callback());
+	}
 
 }
 

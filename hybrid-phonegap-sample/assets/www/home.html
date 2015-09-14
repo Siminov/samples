@@ -131,8 +131,8 @@
 						alert("Liquor Min: " + liquorCount);
 					}
 					
-					var liquor = ResourceManager.getInstance();
-					var groupConcat = liquor.getEntityDescriptorBasedOnTableNameAsync('LIQUOR', callback);
+					var liquor = new Liquor();
+					var groupConcat = liquor.getEntityDescriptorAsync(callback);
 					alert("Group Concat: " + groupConcat);
         		
                 }
