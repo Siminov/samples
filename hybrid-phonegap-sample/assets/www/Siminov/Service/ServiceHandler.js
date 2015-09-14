@@ -61,7 +61,7 @@ var ServiceHandler = (function() {
 	function ServiceHandler() {
 		
 		this.handleAsync = function(iService, callback) {
-			this.handle(iService, callback);
+			this.handle(iService, callback?callback:new Callback());
 		}
 		
 		
@@ -128,10 +128,7 @@ var ServiceHandler = (function() {
 			adapter.addParameter(data);
 
 
-			if(callback == undefined || callback == null) {
-				Adapter.invoke(adapter);
-			} else {
-				
+			if(callback) {
 				adapter.setCallback(serviceCallback);
 				adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
 				
@@ -140,6 +137,8 @@ var ServiceHandler = (function() {
 				function serviceCallback() {
 					callback && callback.onSuccess && callback.onSuccess();
 				}	
+			} else {
+				Adapter.invoke(adapter);
 			}
 		}
 	}

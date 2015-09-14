@@ -69,6 +69,9 @@ var NotificationManager = (function() {
 			Adapter.invoke(adapter);				
 		}
 			
+		this.doRegistrationAsync = function(callback) {
+			
+		}	
 			
 		/**
 		 * It executes the unregistration process of push notification

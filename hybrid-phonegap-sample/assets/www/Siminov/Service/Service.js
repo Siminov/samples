@@ -138,7 +138,6 @@ function Service() {
 		try {
 			callback?serviceHandler.handleAsync(this, callback):serviceHandler.handle(this);
 		} catch(se) {
-			alert(se);
 			this.onServiceTerminate(se);
 		}
 	}

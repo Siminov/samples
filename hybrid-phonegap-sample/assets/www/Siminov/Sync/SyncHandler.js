@@ -68,6 +68,8 @@ var SyncHandler = (function() {
 		 */
 		this.handle = function(syncRequest) {
 			
+			var callback = arguments && arguments[1];
+			
 			var hybridSiminovDatas = new HybridSiminovDatas();
 				
 			var hybridSyncRequest = new hybridSiminovDatas.HybridSiminovData();
@@ -103,18 +105,32 @@ var SyncHandler = (function() {
 
 
 			hybridSiminovDatas.addHybridSiminovData(hybridSyncRequest);
-									
-									
 			var data = encodeURI(SIJsonHelper.toJson(hybridSiminovDatas));
-
+									
 	        var adapter = new Adapter();
 	        adapter.setAdapterName(Constants.SYNC_ADAPTER);
 	        adapter.setHandlerName(Constants.SYNC_ADAPTER_HANDLE_HANDLER);
 
 			adapter.addParameter(data);
 
-			Adapter.invoke(adapter);
+			if(callback) {
+				adapter.setCallback(syncCallback);
+				adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
+				
+				Adapter.invoke(adapter);		
+				
+				function syncCallback() {
+					callback && callback.onSuccess && callback.onSuccess();
+				}	
+			} else {
+				Adapter.invoke(adapter);
+			}
 		}		
+		
+		
+		this.handleAsync = function(syncRequest, callback) {
+			this.handle(syncRequest, callback?callback:new Callback());
+		}
 	}
 		
 }) ();
