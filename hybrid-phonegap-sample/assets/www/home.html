@@ -237,8 +237,8 @@
 							alert("Liquor Min: " + liquorCount);
 						}
 						
-						var min = new Liquor().groupConcat().execute();
-						//alert("Min: " + min);
+						var groupConcat = new Liquor().groupConcat().column("LIQUOR_TYPE").executeAsync(callback);
+						alert("Group Concat: " + groupConcat);
 						
 						for(var i = 0;i < liquors.length;i++) {
 							var liquor = liquors[i];

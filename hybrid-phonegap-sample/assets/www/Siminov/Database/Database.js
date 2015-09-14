@@ -1514,8 +1514,8 @@ Database.groupConcat = function(className, column, delimiter, whereClause, group
     adapter.setHandlerName(Constants.DATABASE_GROUP_CONCAT_HANDLER);
 
     adapter.addParameter(className);
-    adapter.addParameter(delimiter);
     adapter.addParameter(column);
+    adapter.addParameter(delimiter);
     adapter.addParameter(whereClause);
     adapter.addParameter(groupBy);
     adapter.addParameter(having);
