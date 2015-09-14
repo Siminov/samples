@@ -311,15 +311,15 @@ function Select(object) {
         } else if(this.interfaceName == "IAverage") {
             return Database.avg(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback);
         } else if(this.interfaceName == "ISum") {
-            return Database.sum(object.getFunctionName(), column, whereCondition, groupBy, havingCondition);
+            return Database.sum(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback);
         } else if(this.interfaceName == "ITotal") {
-            return Database.total(object.getFunctionName(), column, whereCondition, groupBy, havingCondition);
+            return Database.total(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback);
         } else if(this.interfaceName == "IMax") {
-            return Database.max(object.getFunctionName(), column, whereCondition, groupBy, havingCondition);
+            return Database.max(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback);
         } else if(this.interfaceName == "IMin") {
-            return Database.min(object.getFunctionName(), column, whereCondition, groupBy, havingCondition);
+            return Database.min(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback);
         } else if(this.interfaceName == "IGroupConcat") {
-            return Database.groupConcat(object.getFunctionName(), column, delimiter, whereCondition, groupBy, havingCondition);
+            return Database.groupConcat(object.getFunctionName(), column, delimiter, whereCondition, groupBy, havingCondition, callback);
         } else if(this.interfaceName == "IDelete") {
 
             if(whereCondition == undefined && whereCondition == null && whereCondition.length <= 0) {

@@ -142,8 +142,11 @@ function IMax(select) {
 		 	@return {Object} Return maximum.
 		 	@throws {SiminovException} Throws exception if any error occur while calculating maximum. 
 		 */
-        execute: select.execute
+        execute: select.execute,
 
+		
+		executeAsync: select.executeAsync
+		
     }
 
 }

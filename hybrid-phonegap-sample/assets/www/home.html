@@ -234,11 +234,11 @@
 						
 						callback = new Callback();
 						callback.onSuccess = function(liquorCount) {
-							alert("Liquor Count: " + liquorCount);
+							alert("Liquor Min: " + liquorCount);
 						}
 						
-						var count = new Liquor().count().execute();
-						alert("Count: " + count);
+						var min = new Liquor().groupConcat().execute();
+						//alert("Min: " + min);
 						
 						for(var i = 0;i < liquors.length;i++) {
 							var liquor = liquors[i];

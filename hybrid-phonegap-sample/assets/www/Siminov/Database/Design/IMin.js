@@ -143,7 +143,10 @@ function IMin(select) {
 		 	@return {Object} Return minimum.
 		 	@throws {SiminovException} Throws exception if any error occur while calculating minimum. 
 		 */
-        execute: select.execute
+        execute: select.execute,
+        
+        
+        executeAsync: select.executeAsync
 
     }
 

@@ -144,8 +144,10 @@ function ISum(select) {
 		 	@return {Object} Return sum.
 		 	@throws {SiminovException} Throws exception if any error occur while calculating sum. 
 		 */
-        execute: select.execute
+        execute: select.execute,
 
+		
+		executeAsync: select.executeAsync
     }
 
 }

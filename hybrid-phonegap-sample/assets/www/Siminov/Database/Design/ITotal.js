@@ -142,7 +142,10 @@ function ITotal(select) {
 		 	@return {Object} Return total.
 		 	@throws {SiminovException} Throws exception if any error occur while calculating total. 
 		 */
-        execute: select.execute
+        execute: select.execute,
+        
+        
+        executeAsync: select.executeAsync
 
     }
 

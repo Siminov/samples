@@ -152,7 +152,10 @@ function IGroupConcat(select) {
 			@return {Object} Return group concat.
 		 	@throws {SiminovException} Throws exception if any error occur while calculating group concat. 
 		 */
-        execute: select.execute
+        execute: select.execute,
+        
+        
+        executeAsync: select.executeAsync
 
     }
 
