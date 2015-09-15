@@ -62,15 +62,36 @@ var NotificationManager = (function() {
 		 */
 		this.doRegistration = function() {
 
+			var callback = arguments && arguments[0];
+
 		    var adapter = new Adapter();
 		    adapter.setAdapterName(Constants.NOTIFICATION_ADAPTER);
 		    adapter.setHandlerName(Constants.NOTIFICATION_ADAPTER_DO_REGISTRATION_HANDLER);
 		
-			Adapter.invoke(adapter);				
+			
+			if(callback) {
+				adapter.setCallback(doRegstrationCallback);
+				adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
+				
+				Adapter.invoke(adapter);
+			} else {
+				var data = Adapter.invoke(adapter);
+				return doRegistrationCallback(data);				
+			}
+			
+			
+			function doRegistrationCallback(data) {
+				
+				if(callback) {
+					callback && callback.onSuccess && callback.onSuccess();
+				} else {
+					return;
+				}
+			}
 		}
 			
 		this.doRegistrationAsync = function(callback) {
-			
+			this.doRegistration(callback?callback:new Callback());
 		}	
 			
 		/**
@@ -80,12 +101,39 @@ var NotificationManager = (function() {
 		 */	
 		this.doUnregistration = function() {
 
+			var callback = arguments && arguments[0];
+
 		    var adapter = new Adapter();
 		    adapter.setAdapterName(Constants.NOTIFICATION_ADAPTER);
 		    adapter.setHandlerName(Constants.NOTIFICATION_ADPATER_DO_UNREGISTRATION_HANDLER);
 		
-			Adapter.invoke(adapter);				
+		
+			if(callback) {
+				adapter.setCallback(doUnregistrationCallback);
+				adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
+				
+				Adapter.invoke(adapter);
+			} else {
+				var data = Adapter.invoke(adapter);
+				return doUnregistrationCallback(data);				
+			}
+			
+			
+			function doUnregistrationCallback(data) {
+				
+				if(callback) {
+					callback && callback.onSuccess && callback.onSuccess();
+				} else {
+					return;
+				}
+			}
 		}
+		
+		
+		this.doUnregistrationAsync = function(callback) {
+			this.doUnregistration(callback);
+		}
+		
 	}
 
 		

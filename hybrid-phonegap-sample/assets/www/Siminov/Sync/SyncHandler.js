@@ -72,7 +72,7 @@ var SyncHandler = (function() {
 			
 			var hybridSiminovDatas = new HybridSiminovDatas();
 				
-			var hybridSyncRequest = new hybridSiminovDatas.HybridSiminovData();
+			var hybridSyncRequest = new HybridSiminovDatas.HybridSiminovData();
 			hybridSyncRequest.setDataType(Constants.SYNC_ADAPTER_HANDLE_HANDLER_SYNC_REQUEST);
 
 				var hybridSyncRequestName = new HybridSiminovDatas.HybridSiminovData.HybridSiminovValue();

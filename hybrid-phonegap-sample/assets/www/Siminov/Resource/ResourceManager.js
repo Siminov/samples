@@ -152,6 +152,89 @@ var ResourceManager = (function() {
 	    	this.getDatabaseDescriptor(databaseName, callback?callback:new Callback());
 	    }
 	
+	
+		this.getDatabaseDescriptorBasedOnClassName = function(className) {
+			
+			var callback = arguments && arguments[1];
+	
+	        var adapter = new Adapter();
+	        adapter.setAdapterName(Constants.RESOURCE_ADAPTER);
+	        adapter.setHandlerName(Constants.RESOURCE_GET_DATABASE_DESCRIPTOR_BASED_ON_CLASS_NAME_HANDLER);
+	
+	        adapter.addParameter(className);
+	
+			
+			if(callback) {
+				adapter.setCallback(getDatabaseDescriptorBasedOnClassNameCallback);
+				adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
+				
+				Adapter.invoke(adapter);
+			} else {
+		        var data = Adapter.invoke(adapter);
+				return getDatabaseDescriptorBasedOnClassNameCallback(data);		
+			}
+		
+			
+			function getDatabaseDescriptorBasedOnClassNameCallback(data) {
+			
+		        var datas = SIJsonHelper.toSI(data);
+		        var databaseDescriptor = SIDatasHelper.toModels(datas);
+
+				if(callback) {
+					callback && callback.onSuccess && callback.onSuccess(databaseDescriptor[0]);
+				} else {
+					return databaseDescriptor[0];
+				}
+			}
+		}
+		
+		
+		this.getDatabaseDescriptorBasedOnClassNameAsync = function(databaseName, callback) {
+	    	this.getDatabaseDescriptorBasedOnClassName(databaseName, callback?callback:new Callback());
+	    }
+
+
+		this.getDatabaseDescriptorBasedOnTableName = function(tableName) {
+			
+			var callback = arguments && arguments[1];
+	
+	        var adapter = new Adapter();
+	        adapter.setAdapterName(Constants.RESOURCE_ADAPTER);
+	        adapter.setHandlerName(Constants.RESOURCE_GET_DATABASE_DESCRIPTOR_BASED_ON_TABLE_NAME_HANDLER);
+	
+	        adapter.addParameter(tableName);
+	
+			
+			if(callback) {
+				adapter.setCallback(getDatabaseDescriptorBasedOnTableNameCallback);
+				adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
+				
+				Adapter.invoke(adapter);
+			} else {
+		        var data = Adapter.invoke(adapter);
+				return getDatabaseDescriptorBasedOnTableNameCallback(data);		
+			}
+		
+			
+			function getDatabaseDescriptorBasedOnTableNameCallback(data) {
+			
+		        var datas = SIJsonHelper.toSI(data);
+		        var databaseDescriptor = SIDatasHelper.toModels(datas);
+
+				if(callback) {
+					callback && callback.onSuccess && callback.onSuccess(databaseDescriptor[0]);
+				} else {
+					return databaseDescriptor[0];
+				}
+			}
+		}
+		
+		
+		this.getDatabaseDescriptorBasedOnTableNameAsync = function(databaseName, callback) {
+	    	this.getDatabaseDescriptorBasedOnTableName(databaseName, callback?callback:new Callback());
+	    }
+
+
 
 		/**
 		 	Get Entity Descriptor based on mapped class name provided.

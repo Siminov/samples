@@ -1865,25 +1865,83 @@ Database['delete'] = function(className, whereClause, data) {
 
 Database.beginTransaction = function(databaseDescriptor) {
 
+	var callback = arguments && arguments[1];
+	var transaction = new Transaction();
+
     var adapter = new Adapter();
     adapter.setAdapterName(Constants.DATABASE_ADAPTER);
     adapter.setHandlerName(Constants.DATABASE_BEGIN_TRANSACTION_HANDLER);
 
     adapter.addParameter(databaseDescriptor.getDatabaseName());
 
-    var data = Adapter.invoke(adapter);
-    if(data != undefined && data != null) {
 
-        var siminovDatas = SIJsonHelper.toSI(data);
-        var exceptions = SIDatasHelper.toModels(siminovDatas);
+	if(callback) {
+		
+		setTimeout(
+			
+			function() {
+				
+				this.transaction = transaction;
+				
+				callback && callback.onExecute && callback.onExecute();
+				
+				var requests = this.transaction.getRequests();
+				for(var i = 0;i < requests.length;i++) {
+					adapter.addParameter(requests[i]);
+				}
+				
+				adapter.setCallback(beginTransactionCallback);
+				adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
+				
+				Adapter.invoke(adapter);
+			},
+			
+			0		
+		);
+	} else {
+	    var data = Adapter.invoke(adapter);
+		return beginTransactionCallback(data);	
+	}
 
-        if(exceptions != undefined && exceptions != null && exceptions.length > 0) {
-            var exception = exceptions[0];
-            if(exception != undefined && exception != null) {
-                throw exception;
-            }
-        }
-    }
+	
+	function beginTransactionCallback(data) {
+	
+	    if(data != undefined && data != null) {
+	
+	        var siminovDatas = SIJsonHelper.toSI(data);
+	        var exceptions = SIDatasHelper.toModels(siminovDatas);
+	
+	        if(exceptions != undefined && exceptions != null && exceptions.length > 0) {
+	            var exception = exceptions[0];
+	            if(exception != undefined && exception != null) {
+	            
+	            	if(callback) {
+	            		callback && callback.onFailure && callback.onFailure();
+	            		return;
+	            	} else {
+		                throw exception;
+	            	}
+	            }
+	        }
+	    }
+	    
+	    
+	    var requests = transaction.getRequests();
+	    for(var i = 0;i < requests.length;i++) {
+	    	
+	    	var request = requests[i];
+	    	var requestCallback = request.setCallback();
+	    	
+	    	requestCallback && requestCallback();
+	    }
+	    
+    	callback && callback.onSuccess && callback.onSuccess();
+	}
+}
+
+
+Database.beginTransactionAsync = function(databaseDescriptor, callback) {
+	Database.beginTransaction(databaseDescriptor, callback);
 }
 
 
