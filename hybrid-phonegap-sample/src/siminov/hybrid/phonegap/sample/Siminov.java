@@ -19,9 +19,10 @@ package siminov.hybrid.phonegap.sample;
 
 import org.apache.cordova.DroidGap;
 
-import siminov.core.IInitializer;
 import android.app.Activity;
 import android.os.Bundle;
+import android.webkit.WebView;
+import siminov.core.IInitializer;
 
 public class Siminov extends DroidGap {
 
@@ -33,7 +34,7 @@ public class Siminov extends DroidGap {
 
 		initializeSiminov();
 
-		//WebView.setWebContentsDebuggingEnabled(true);
+		WebView.setWebContentsDebuggingEnabled(true);
 		
 		super.loadUrl("file:///android_asset/www/home.html");
 	}

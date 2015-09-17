@@ -100,7 +100,6 @@ function Database() {
 	                    
 	                    if(callback) {
 	                    	callback && callback.onFailure && callback.onFailure();
-	                    	break;
 	                    } else {
 							throw exception;	                    	
 	                    }
@@ -228,6 +227,7 @@ function Database() {
     this.saveOrUpdate = function() {
 	
 		var callback = arguments && arguments[0];
+		var transaction = arguments && arguments[1];
 
         var datas = SIDatasHelper.toSI(this);
         var json = SIJsonHelper.toJson(datas, true);
@@ -237,8 +237,11 @@ function Database() {
         adapter.setHandlerName(Constants.DATABASE_SAVE_OR_UPDATE_HANDLER);
 
         adapter.addParameter(json);
-
-		if(callback) {
+		
+		if(transaction) {
+			adapter.setCallback(saveOrUpdateCallback);
+			transaction.addRequest(adapter);		
+		} else if(callback) {
 			adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
 			adapter.setCallback(saveOrUpdateCallback);
 	
@@ -277,8 +280,8 @@ function Database() {
     }
 
 
-	this.saveOrUpdateAsync = function(callback) {
-		this.saveOrUpdate(callback?callback:new Callback());
+	this.saveOrUpdateAsync = function(callback, transaction) {
+		this.saveOrUpdate(callback?callback:new Callback(), transaction);
     }
 
 
@@ -1866,7 +1869,6 @@ Database['delete'] = function(className, whereClause, data) {
 Database.beginTransaction = function(databaseDescriptor) {
 
 	var callback = arguments && arguments[1];
-	var transaction = new Transaction();
 
     var adapter = new Adapter();
     adapter.setAdapterName(Constants.DATABASE_ADAPTER);
@@ -1876,28 +1878,30 @@ Database.beginTransaction = function(databaseDescriptor) {
 
 
 	if(callback) {
+
+		var transaction = new Transaction();
+
+		callback.transaction = transaction; 		
+		callback.onExecute && callback.onExecute(transaction);
 		
-		setTimeout(
+		var requests = transaction.getRequests();
+		
+		var adapters = new StringBuilder();
+		for(var i = 0;i < requests.length;i++) {
 			
-			function() {
-				
-				this.transaction = transaction;
-				
-				callback && callback.onExecute && callback.onExecute();
-				
-				var requests = this.transaction.getRequests();
-				for(var i = 0;i < requests.length;i++) {
-					adapter.addParameter(requests[i]);
-				}
-				
-				adapter.setCallback(beginTransactionCallback);
-				adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
-				
-				Adapter.invoke(adapter);
-			},
-			
-			0		
-		);
+			var adapterDatas = SIDatasHelper.toSI(requests[i]);
+	        var adapterJson = SIJsonHelper.toJson(adapterDatas, true);
+	        
+			adapters.append(adapterJson);
+		}
+		adapter.addParameter(adapters);
+		
+	    adapter.setHandlerName(Constants.DATABASE_BEGIN_TRANSACTION_ASYNC_HANDLER);
+		    
+		adapter.setCallback(beginTransactionCallback);
+		adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
+		
+		Adapter.invoke(adapter);
 	} else {
 	    var data = Adapter.invoke(adapter);
 		return beginTransactionCallback(data);	

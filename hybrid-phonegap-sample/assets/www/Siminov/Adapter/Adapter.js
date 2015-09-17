@@ -38,7 +38,7 @@ function Adapter() {
     var handlerName;
     var adapterMode = Adapter.ADAPTER_SYNC_MODE;
 
-    var parameters = [];
+    var parameters = new Array();
 
 	var callback;
 	
@@ -172,6 +172,7 @@ Adapter.invoke = function(adapter) {
     		var uniqueId = Utils.uniqueNumber();
 	    	Adapter.requests.add(uniqueId, adapter);	
     	
+    		Log.debug("Adapter", "invoke", "handleHybridToNativeAsync: REQUEST ID: " + uniqueId + ", ADAPTER NAME: " + adapterName + ", HANDLER NAME: " + handlerName + ", DATA: " + json);
 	        return window.SIMINOV.handleHybridToNativeAsync(uniqueId, adapterName + "." + handlerName, json);
     	} 
     	

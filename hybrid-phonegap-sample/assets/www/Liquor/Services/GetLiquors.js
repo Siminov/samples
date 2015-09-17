@@ -57,10 +57,15 @@ function GetLiquors() {
 		if(liquors != undefined && liquors != null && liquors.length > 0) {
 			
 			var callback = new Callback();
-			callback.onExecute = function() {
-				
+			callback.onExecute = function(transaction) {
+			
 				for(var i = 0;i < liquors.length;i++) {
-					liquor.saveOrUpdateAsync(callback);
+					var liquor = liquors[i];
+					liquor.saveOrUpdateAsync(liquorSaveOrUpdateCallback, transaction);
+					
+					function liquorSaveOrUpdateCallback() {
+						alert("liquor saved");
+					}
 				}
 			}			
 			

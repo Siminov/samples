@@ -41,8 +41,6 @@
 
         <script src="Liquor/Constants.js"></script>
 
-        <script src="Liquor/Database/DatabaseUtils.js"></script>
-
         <script src="Liquor/Events/SiminovEventHandler.js"></script>
         <script src="Liquor/Events/DatabaseEventHandler.js"></script>
         <script src="Liquor/Events/NotificationEventHandler.js"></script>
@@ -200,7 +198,7 @@
 
 			function navHome() {
 
-				var callback = new Callback();
+				/*var callback = new Callback();
 				callback.onSuccess = function() {
 					alert("Liquors Sync Done");
 				}
@@ -209,17 +207,16 @@
 				syncRequest.setName(SYNC_LIQUORS);
 				
 				var syncHandler = SyncHandler.getInstance();
-				syncHandler.handleAsync(syncRequest, callback);
+				syncHandler.handleAsync(syncRequest, callback);*/
 
 				
-				/*
 				var getLiquors = new GetLiquors();
 				getLiquors.setService(GetLiquors.SERVICE_NAME);
 				getLiquors.setRequest(GetLiquors.REQUEST_NAME);
 				
-				getLiquors.invokeAsync(callback);
+				getLiquors.invoke();
 				
-				populateHome();*/
+				//populateHome();
 			}			
 
 			function populateHome() {
@@ -379,7 +376,7 @@
 	
 		<div data-role="page" id="login-page">
 	  		<div data-role="header">
-		    	<h1>Siminov Framework</h1>
+		    	<h1>App</h1>
 		  	</div>
 		  
 		  	<div data-role="content">

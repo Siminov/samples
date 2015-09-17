@@ -4,8 +4,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
-        android:targetSdkVersion="17" />
+        android:minSdkVersion="19" />
 
     <supports-screens
 	    android:largeScreens="true"

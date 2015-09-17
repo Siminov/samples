@@ -16,7 +16,7 @@ Utils.uniqueNumber = function() {
         Utils.uniqueNumberPrevious = date;
     }
     
-    return date;
+    return date.toString();
 }
 
 
