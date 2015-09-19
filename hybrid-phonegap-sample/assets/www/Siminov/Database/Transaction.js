@@ -13,13 +13,13 @@ function Transaction() {
 	}
 	
 	this.addRequest = function(adapter) {
-		requests.add(Utils.uniqueNumber(), adapter);
+		requests.add(adapter.getRequestId(), adapter);
 	}
 	
 	this.removeRequest = function(requestId) {
 		requests.remove(requestId);
 	}
-	
+		
 	this.containRequest = function(requestId) {
 		return requests.exists(requestId);
 	}

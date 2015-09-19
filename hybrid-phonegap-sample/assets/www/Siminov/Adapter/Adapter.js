@@ -34,6 +34,8 @@
  */
 function Adapter() {
 
+	var requestId = Utils.uniqueNumber();
+
     var adapterName;
     var handlerName;
     var adapterMode = Adapter.ADAPTER_SYNC_MODE;
@@ -41,6 +43,11 @@ function Adapter() {
     var parameters = new Array();
 
 	var callback;
+
+
+	this.getRequestId = function() {
+		return requestId;	
+	}
 	
 
 	/**
@@ -112,6 +119,10 @@ function Adapter() {
 	this.getParameters = function() {
 		return parameters;
 	}
+	
+	this.removeParameters = function() {
+		parameters = new Array();
+	}
 
 	this.getCallback = function() {
 		return callback;
@@ -169,11 +180,10 @@ Adapter.invoke = function(adapter) {
     
     	if(adapterMode && adapterMode == Adapter.REQUEST_ASYNC_MODE) {
     		
-    		var uniqueId = Utils.uniqueNumber();
-	    	Adapter.requests.add(uniqueId, adapter);	
+	    	Adapter.requests.add(adapter.getRequestId(), adapter);	
     	
-    		Log.debug("Adapter", "invoke", "handleHybridToNativeAsync: REQUEST ID: " + uniqueId + ", ADAPTER NAME: " + adapterName + ", HANDLER NAME: " + handlerName + ", DATA: " + json);
-	        return window.SIMINOV.handleHybridToNativeAsync(uniqueId, adapterName + "." + handlerName, json);
+    		Log.debug("Adapter", "invoke", "handleHybridToNativeAsync: REQUEST ID: " + adapter.getRequestId() + ", ADAPTER NAME: " + adapterName + ", HANDLER NAME: " + handlerName + ", DATA: " + json);
+	        return window.SIMINOV.handleHybridToNativeAsync(adapter.getRequestId(), adapterName + "." + handlerName, json);
     	} 
     	
         return window.SIMINOV.handleHybridToNative(adapterName + "." + handlerName, json);

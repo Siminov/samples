@@ -1869,6 +1869,7 @@ Database['delete'] = function(className, whereClause, data) {
 Database.beginTransaction = function(databaseDescriptor) {
 
 	var callback = arguments && arguments[1];
+	var transaction = new Transaction();
 
     var adapter = new Adapter();
     adapter.setAdapterName(Constants.DATABASE_ADAPTER);
@@ -1879,9 +1880,6 @@ Database.beginTransaction = function(databaseDescriptor) {
 
 	if(callback) {
 
-		var transaction = new Transaction();
-
-		callback.transaction = transaction; 		
 		callback.onExecute && callback.onExecute(transaction);
 		
 		var requests = transaction.getRequests();
@@ -1930,6 +1928,11 @@ Database.beginTransaction = function(databaseDescriptor) {
 	            	}
 	            }
 	        }
+	    }
+	    
+	    
+	    if(!callback) {
+	    	return;
 	    }
 	    
 	    
