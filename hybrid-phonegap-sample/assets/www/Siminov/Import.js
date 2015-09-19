@@ -30,6 +30,7 @@ document.write('<script type="text/javascript" src="Siminov/Callback.js"></scrip
 document.write('<script type="text/javascript" src="Siminov/Collection/Dictionary.js"></script>');
 document.write('<script type="text/javascript" src="Siminov/Collection/StringBuilder.js"></script>');
 document.write('<script type="text/javascript" src="Siminov/Collection/Array.js"></script>');
+document.write('<script type="text/javascript" src="Siminov/Collection/String.js"></script>');
 
 
 /*

@@ -169,7 +169,79 @@ SIDatasHelper.toSI = function(object) {
  */
 SIDatasHelper.parseSI = function(object) {
 
+	if(object.getterProperties().length <= 0) {
+		return object;
+	}
+
     var data = new HybridSiminovDatas.HybridSiminovData();
+
+    var modelName = object.getFunctionName();
+    data.setDataType(modelName);
+
+    var getterProperties = object.getterProperties();
+
+    for(var i = 0;i < getterProperties.length;i++) {
+
+        var value = new HybridSiminovDatas.HybridSiminovData.HybridSiminovValue();
+
+        if(getterProperties[i].indexOf("get") === 0) {
+            var type = getterProperties[i].substring(3, getterProperties[i].length);
+            var val = Function.invokeAndFetch(object, getterProperties[i]);
+
+            value.setType(type.charAt(0).toLowerCase() + type.substring(1, type.length));
+
+            if(val instanceof Object && !(val instanceof Array)) {
+				
+                var obj = SIDatasHelper.parseSI(val);
+                if(obj) {
+                	
+                	if(obj instanceof HybridSiminovDatas.HybridSiminovData) {
+		                data.addData(obj);
+                	} else {
+                	
+                		if(typeof obj == 'string') {
+	                		value.setValue(obj);
+                		}
+                	}
+                }
+            } else if(val instanceof Array) {
+
+                if(val != undefined && val != null && val.length > 0) {
+
+                    for(var j = 0;j < val.length;j++) {
+                    
+                        var obj = SIDatasHelper.parseSI(val[j]);
+                        if(obj) {
+                        
+	                        if(obj instanceof HybridSiminovDatas.HybridSiminovData) {
+				                data.addData(obj);
+		                	} else {
+		                	
+		                		if(typeof obj == 'string') {
+			                		value.setValue(obj);
+		                		}
+		                	}
+                        }
+                    }
+                }
+
+            } else {
+                value.setValue(val);
+            }
+        } else if(getterProperties[i].indexOf("is") == 0) {
+            var type = getterProperties[i].substring(2, getterProperties[i].length);
+
+            value.setType(type.charAt(0).toLowerCase() + type.substring(1, type.length));
+            value.setValue(Function.invokeAndFetch(object, getterProperties[i]));
+        }
+
+
+        data.addValue(value);
+    }
+
+    return data;
+
+    /*var data = new HybridSiminovDatas.HybridSiminovData();
 
     var modelName = object.getFunctionName();
     data.setDataType(modelName);
@@ -227,9 +299,11 @@ SIDatasHelper.parseSI = function(object) {
 		data.setDataValue(object.toString());
 	} else if(object instanceof Boolean) {
 		data.setDataValue(object.toString());
+	} else if(object instanceof Function) {
+	
 	} else {
 		data.setDataValue(object);
 	}
 
-    return data;
+    return data;*/
 }

@@ -1892,6 +1892,9 @@ Database.beginTransaction = function(databaseDescriptor) {
 			var adapterDatas = SIDatasHelper.toSI(requests[i]);
 	        var adapterJson = SIJsonHelper.toJson(adapterDatas, true);
 	        
+	        adapterJson = adapterJson.replaceAll("{'-type':'parameters','#text':'", "{'-type':'parameters','#text':\"");
+	        adapterJson = adapterJson.replaceAll("}]}]}}'},{'-type':'callback'", "}]}]}}\"},{'-type':'callback'");
+	        
 			adapters.append(adapterJson);
 		}
 		adapter.addParameter(adapters);
@@ -1934,9 +1937,10 @@ Database.beginTransaction = function(databaseDescriptor) {
 	    for(var i = 0;i < requests.length;i++) {
 	    	
 	    	var request = requests[i];
-	    	var requestCallback = request.setCallback();
-	    	
+	    	var requestCallback = request.getCallback();
 	    	requestCallback && requestCallback();
+	    	
+	    	transaction.removeRequest(request);
 	    }
 	    
     	callback && callback.onSuccess && callback.onSuccess();

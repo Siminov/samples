@@ -61,16 +61,20 @@ function GetLiquors() {
 			
 				for(var i = 0;i < liquors.length;i++) {
 					var liquor = liquors[i];
-					liquor.saveOrUpdateAsync(liquorSaveOrUpdateCallback, transaction);
-					
-					function liquorSaveOrUpdateCallback() {
-						alert("liquor saved");
+
+					var saveCallback = new Callback(); 
+					saveCallback.onSuccess =  function() {
+						//alert("liquor saved");
 					}
+
+					liquor.saveOrUpdateAsync(saveCallback, transaction);
 				}
 			}			
 			
 			callback.onSuccess = function() {
-				alert("Transaction Successful");
+				//alert("Transaction Successful");
+				
+				populateHome();
 			}	
 		
 			callback.onFailure = function() {
