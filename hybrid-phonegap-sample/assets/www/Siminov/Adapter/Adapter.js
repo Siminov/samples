@@ -154,9 +154,11 @@ Adapter.invoke = function(adapter) {
 
     var parameters = adapter.getParameters();
     	
-    var siminovDatas = new HybridSiminovDatas();
+    var siminovDatas = Object.create(HybridSiminovDatas);
+    siminovDatas.datas = new Array();
+    
     for(var i = 0;i < parameters.length;i++) {
-        var siminovData = new HybridSiminovDatas.HybridSiminovData();
+        var siminovData = Object.create(HybridSiminovDatas.HybridSiminovData);
 
 		var parameter = parameters[i];
 		if(parameter != undefined) {
@@ -165,11 +167,11 @@ Adapter.invoke = function(adapter) {
 			parameter = "";
 		}
 
-        siminovData.setDataValue(parameter);
-        siminovDatas.addHybridSiminovData(siminovData);
+        siminovData.value = parameter;
+        siminovDatas.datas.push(siminovData);
     }
 
-    var json = SIJsonHelper.toJson(siminovDatas);
+    var json = JSON.stringify(siminovDatas);
     
     Log.debug("Adapter", "invoke", "SIMINOV HYBRID TO NATIVE - ADAPTER: " + adapterName + ", HANDLER: " + handlerName + ", DATA: " + json);
     

@@ -257,9 +257,8 @@ function Select(object) {
         return this;
     }
 
-	this.executeAsync = function(callback) {
-		Log.debug("Select", "executeAsync", "Callback: " + callback);
-		this.execute(callback?callback:new Callback());
+	this.executeAsync = function(callback, transaction) {
+		this.execute(callback?callback:new Callback(), transaction);
 	}
 
 
@@ -271,39 +270,50 @@ function Select(object) {
     this.execute = function() {
 		
 		var callback = arguments && arguments[0];
-		Log.debug("Select", "execute", "Callback: " + callback);
+		var transaction = arguments && arguments[1];
 
         var whereCondition = "";
-        if(whereClause == undefined || whereClause.length <= 0) {
+        if(whereClause && whereClause.length > 0) {
+            whereCondition = whereClause;
+        } else {
             if(where != undefined && where != null) {
                 whereCondition = where.toString();
             }
-        } else {
-            whereCondition = whereClause;
         }
 
         var havingCondition = "";
-        if(havingClause == undefined || havingClause.length <= 0) {
+        if(havingClause && havingClause.length > 0) {
+            havingCondition = havingClause;
+        } else {
             if(having != undefined && having !=  null) {
                 havingCondition = having.toString();
             }
-        } else {
-            havingCondition = havingClause;
         }
 
-        if(columns == undefined || columns == null) {
+        if(!columns) {
             columns = [];
         }
 
 
-        if(orderBy == undefined || orderBy == null) {
+        if(!orderBy) {
             orderBy = [];
         }
 
 
-        if(groupBy == undefined || groupBy == null) {
+        if(!groupBy) {
             groupBy = [];
         }
+        
+        	
+        if(!limit) {
+            limit = "";
+        }
+        
+        
+        if(!whichOrderBy) {
+			whichOrderBy = "";        	
+        }
+    
 
 
         if(this.interfaceName ==  "ICount") {
@@ -332,48 +342,8 @@ function Select(object) {
             }
         } else if(this.interfaceName == 'ISelect') {
         	
-	        var whereCondition = "";
-	        if(whereClause == undefined || whereClause.length <= 0) {
-	            if(where != undefined && where != null) {
-	                whereCondition = where.toString();
-	            }
-	        } else {
-	            whereCondition = whereClause;
-	        }
-	
-	
-	        var havingCondition = "";
-	        if(havingClause == undefined || havingClause.length <= 0) {
-	            if(having != undefined && having !=  null) {
-	                havingCondition = having.toString();
-	            }
-	        } else {
-	            havingCondition = havingClause;
-	        }
-	
-	
-	        if(columns == undefined || columns == null) {
-	            columns = [];
-	        }
-	
-	
-	        if(orderBy == undefined || orderBy == null) {
-	            orderBy = [];
-	        }
-	
-	
-	        if(groupBy == undefined || groupBy == null) {
-	            groupBy = [];
-	        }
-	
-	
-	        if(limit == undefined || limit.length <= 0) {
-	            limit = "";
-	        }
-	
-	
 			if(callback) {
-				Database.select(object.getFunctionName(), distinct, whereCondition, columns, groupBy, having, orderBy, whichOrderBy, limit, callback);
+				Database.select(object.getFunctionName(), distinct, whereCondition, columns, groupBy, havingCondition, orderBy, whichOrderBy, limit, callback, transaction);
 			} else {
 		        return Database.select(object.getFunctionName(), distinct, whereCondition, columns, groupBy, having, orderBy, whichOrderBy, limit);
 			}

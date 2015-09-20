@@ -65,9 +65,10 @@ function Database() {
 	this.save = function() {
 
 		var callback = arguments && arguments[0];
+		var transaction = arguments && arguments[1];
 
         var datas = SIDatasHelper.toSI(this);
-        var json = SIJsonHelper.toJson(datas, true);
+        var json = JSON.stringify(datas);
 
         var adapter = new Adapter();
         adapter.setAdapterName(Constants.DATABASE_ADAPTER);
@@ -75,7 +76,11 @@ function Database() {
 
         adapter.addParameter(json);
 
-		if(callback) {
+
+		if(transaction) {
+			adapter.setCallback(saveCallback);
+			transaction.addRequest(adapter);	
+		} else if(callback) {
 			adapter.setCallback(saveCallback);
 			adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
 			
@@ -91,7 +96,7 @@ function Database() {
 		
 	        if(data != undefined && data != null) {
 	
-	            var siminovDatas = SIJsonHelper.toSI(data);
+	            var siminovDatas = JSON.parse(data);
 	            var exceptions = SIDatasHelper.toModels(siminovDatas);
 	
 	            if(exceptions != undefined && exceptions != null && exceptions.length > 0) {
@@ -115,8 +120,8 @@ function Database() {
 		}
 	}
 
-	this.saveAsync = function(callback) {
-		this.save(callback?callback:new Callback());
+	this.saveAsync = function(callback, transaction) {
+		this.save(callback?callback:new Callback(), transaction);
 	}
 	
 
@@ -144,9 +149,10 @@ function Database() {
     this.update = function() {
 
 		var callback = arguments && arguments[0];
+		var transaction = arguments && arguments[1];
 	
         var datas = SIDatasHelper.toSI(this);
-        var json = SIJsonHelper.toJson(datas, true);
+        var json = JSON.stringify(datas);
 
         var adapter = new Adapter();
         adapter.setAdapterName(Constants.DATABASE_ADAPTER);
@@ -154,7 +160,11 @@ function Database() {
 
         adapter.addParameter(json);
 
-		if(callback) {
+		
+		if(transaction) {
+			adapter.setCallback(updateCallback);
+			transaction.addRequest(adapter);			
+		} else if(callback) {
 			adapter.setCallback(updateCallback);
 			adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
 			
@@ -169,7 +179,7 @@ function Database() {
 		
 	        if(data != undefined && data != null) {
 	
-	            var siminovDatas = SIJsonHelper.toSI(data);
+	            var siminovDatas = JSON.parse(data);
 	            var exceptions = SIDatasHelper.toModels(siminovDatas);
 	
 	            if(exceptions != undefined && exceptions != null && exceptions.length > 0) {
@@ -194,8 +204,8 @@ function Database() {
     }
 
 
-	this.updateAsync = function(callback) {
-		this.update(callback?callback:new Callback());		
+	this.updateAsync = function(callback, transaction) {
+		this.update(callback?callback:new Callback(), transaction);		
 	}
 	
 	
@@ -230,7 +240,7 @@ function Database() {
 		var transaction = arguments && arguments[1];
 
         var datas = SIDatasHelper.toSI(this);
-        var json = SIJsonHelper.toJson(datas, true);
+        var json = JSON.stringify(datas);
 
         var adapter = new Adapter();
         adapter.setAdapterName(Constants.DATABASE_ADAPTER);
@@ -255,7 +265,7 @@ function Database() {
 		
 	        if(data != undefined && data != null) {
 	
-	            var siminovDatas = SIJsonHelper.toSI(data);
+	            var siminovDatas = JSON.parse(data);
 	            var exceptions = SIDatasHelper.toModels(siminovDatas);
 		
 		       if(exceptions != undefined && exceptions != null && exceptions.length > 0) {
@@ -312,7 +322,7 @@ function Database() {
 		    adapter.addParameter(arguments[0]);
 		
 		    var data = Adapter.invoke(adapter);
-		    var datas = SIJsonHelper.toSI(data);
+		    var datas = JSON.parse(data);
 		    
 		    var models = SIDatasHelper.toModels(datas);
 			if(models != undefined && models != null && models.length > 0) {
@@ -585,19 +595,19 @@ function Database() {
 
 		function getTableNameCallback(data) {
 		
-	        var hybridData = SIJsonHelper.toSI(data);
+	        var hybridData = JSON.parse(data);
 	        if(hybridData != undefined) {
 	        
-	            var datas = hybridData.getHybridSiminovDatas();
+	            var datas = hybridData.datas;
 	            if(datas != undefined) {
 	            
 	                for(var i = 0;i < datas.length;i++) {
 	                    if(datas[i] != undefined) {
 	                    
-	                    	var type = datas[i].getDataType();
+	                    	var type = datas[i].type;
 	                    	
 	                    	if(type != undefined && type != null) {
-	                    		var exception = SIJsonHelper.toModel(datas[i]);
+	                    		var exception = SIDatasHelper.toModel(datas[i]);
 	                    		if(exception != undefined && exception != null) {
 	                    			
 	                    			if(callback) {
@@ -610,9 +620,9 @@ function Database() {
 	                    	} else {
 	                    	
 	                    		if(callback) {
-									callback && callback.onSuccess && callback.onSuccess(datas[i].getDataValue());	                    		
+									callback && callback.onSuccess && callback.onSuccess(datas[i].value);	                    		
 	                    		} else {
-			                        return datas[i].getDataValue();
+			                        return datas[i].value;
 	                    		}
 	                    	}
 	                    }
@@ -674,20 +684,20 @@ function Database() {
 
 		function getColumnNamesCallback(data) {
 		
-	        var hybridData = SIJsonHelper.toSI(data);
+	        var hybridData = JSON.parse(data);
 	        var columnNames = [];
 	
 	        if(hybridData != undefined) {
-	            var datas = hybridData.getHybridSiminovDatas();
+	            var datas = hybridData.datas;
 	            
 	            if(datas != undefined) {
 	                for(var i = 0;i < datas.length;i++) {
 	                
 	                    if(datas[i] != undefined) {
-	                    	var type = datas[i].getDataType();
+	                    	var type = datas[i].type;
 	                    	
 	                    	if(type != undefined && type != null) {
-	                    		var exception = SIJsonHelper.toModel(datas[i]);
+	                    		var exception = SIDatasHelper.toModel(datas[i]);
 	                    		if(exception != undefined && exception != null) {
 	                    		
 	                    			if(callback) {
@@ -698,7 +708,7 @@ function Database() {
 	                    			}
 	                    		}
 	                    	} else {
-	                    		columnNames[i] = datas[i].getDataValue();
+	                    		columnNames[i] = datas[i].value;
 	                    	}
 	                    }
 	                }
@@ -759,19 +769,19 @@ function Database() {
 
 		function getColumnTypesCallback(data) {
 		
-	        var hybridData = SIJsonHelper.toSI(data);
+	        var hybridData = JSON.parse(data);
 	        var columnTypes = new Dictionary();
 	
 	        if(hybridData != undefined) {
 	        
-	            var datas = hybridData.getHybridSiminovDatas();
+	            var datas = hybridData.datas;
 	            if(datas != undefined) {
 	
 	                for(var i = 0;i < datas.length;i++) {
-						var type = datas[i].getDataType();
+						var type = datas[i].type;
 	                    	
 	                	if(type != undefined && type != null) {
-	                		var exception = SIJsonHelper.toModel(datas[i]);
+	                		var exception = SIDatasHelper.toModel(datas[i]);
 	                		if(exception != undefined && exception != null) {
 	                		
 	                			if(callback) {
@@ -782,13 +792,13 @@ function Database() {
 	                			}
 	                		}
 	                	} else {
-		                    var values = datas[i].getValues();
+		                    var values = datas[i].values;
 		                    if(values != undefined) {
 		
 		                        for(var j = 0;j < values.length;j++) {
 		                            var value = values[j];
 		
-		                            columnTypes.add(value.getType(), value.getValue());
+		                            columnTypes.add(value.type, value.value);
 		                        }
 		                    }
 	                	}
@@ -849,18 +859,18 @@ function Database() {
 
 		function getPrimaryKeysCallback(data) {
 		
-	        var hybridData = SIJsonHelper.toSI(data);
+	        var hybridData = JSON.parse(data);
 	        var primaryKeys = [];
 	
 	        if(hybridData != undefined) {
-	            var datas = hybridData.getHybridSiminovDatas();
+	            var datas = hybridData.datas;
 	            if(datas != undefined) {
 	
 	                for(var i = 0;i < datas.length;i++) {
-	                	var type = datas[i].getDataType();
+	                	var type = datas[i].type;
 	                    	
 	                	if(type != undefined && type != null) {
-	                		var exception = SIJsonHelper.toModel(datas[i]);
+	                		var exception = SIDatasHelper.toModel(datas[i]);
 	                		if(exception != undefined && exception != null) {
 	                		
 	                			if(callback) {
@@ -871,7 +881,7 @@ function Database() {
 	                			} 
 	                		}
 	                	} else {
-	                        primaryKeys[i] = datas[i].getDataValue();
+	                        primaryKeys[i] = datas[i].value;
 	                	}
 	                }
 	            }
@@ -931,19 +941,20 @@ function Database() {
 	
 		function getMandatoryFieldsCallback(data) {
 		
-	        var hybridData = SIJsonHelper.toSI(data);
+	        var hybridData = JSON.parse(data);
 	        var mandatoryFields = [];
 	
 	        if(hybridData != undefined) {
-	            var datas = hybridData.getHybridSiminovDatas();
+	            var datas = hybridData.datas;
 	            
 	            if(datas != undefined) {
 	
 	                for(var i = 0;i < datas.length;i++) {
-	                	var type = datas[i].getDataType();
+	                	var type = datas[i].type;
 	                    	
 	                	if(type != undefined && type != null) {
-	                		var exception = SIJsonHelper.toModel(datas[i]);
+	                	
+	                		var exception = SIDatasHelper.toModel(datas[i]);
 	                		if(exception != undefined && exception != null) {
 	                		
 	                			if(callback) {
@@ -954,7 +965,7 @@ function Database() {
 	                			}
 	                		}
 	                	} else {
-		                    mandatoryFields[i] = datas[i].getDataValue();
+		                    mandatoryFields[i] = datas[i].value;
 	                	}
 	                }
 	            }
@@ -1013,23 +1024,23 @@ function Database() {
 
 		function getUniqueFieldsCallback(data) {
 		
-	        var hybridData = SIJsonHelper.toSI(data);
+	        var hybridData = JSON.parse(data);
 	        var uniqueFields = [];
 	
 	        if(hybridData != undefined) {
-	            var datas = hybridData.getHybridSiminovDatas();
+	            var datas = hybridData.datas;
 	            if(datas != undefined) {
 	
 	                for(var i = 0;i < datas.length;i++) {
-	                	var type = datas[i].getDataType();
+	                	var type = datas[i].type;
 	                    	
 	                	if(type != undefined && type != null) {
-	                		var exception = SIJsonHelper.toModel(datas[i]);
+	                		var exception = SIDatasHelper.toModel(datas[i]);
 	                		if(exception != undefined && exception != null) {
 	                    		throw exception;	
 	                		}
 	                	} else {
-		                    uniqueFields[i] = datas[i].getDataValue();
+		                    uniqueFields[i] = datas[i].value;
 	                	}
 	                }
 	            }
@@ -1090,18 +1101,19 @@ function Database() {
 
 		function getForeignKeysCallback(data) {
 		
-	        var hybridData = SIJsonHelper.toSI(data);
+	        var hybridData = JSON.parse(data);
 	        var foreignKeys = [];
 	
 	        if(hybridData != undefined) {
-	            var datas = hybridData.getHybridSiminovDatas();
+	            var datas = hybridData.datas;
+	            
 	            if(datas != undefined) {
 	
 	                for(var i = 0;i < datas.length;i++) {
-	                	var type = datas[i].getDataType();
+	                	var type = datas[i].type;
 	                    	
 	                	if(type != undefined && type != null) {
-	                		var exception = SIJsonHelper.toModel(datas[i]);
+	                		var exception = SIDatasHelper.toModel(datas[i]);
 	                		if(exception != undefined && exception != null) {
 	                		
 	                			if(callback) {
@@ -1112,7 +1124,7 @@ function Database() {
 	                			}
 	                		}
 	                	} else {
-		                    foreignKeys[i] = datas[i].getDataValue();
+		                    foreignKeys[i] = datas[i].value;
 	                	}
 	                }
 	            }
@@ -1205,8 +1217,8 @@ function Database() {
 Database.select = function(className, distinct, whereClause, columnNames, groupBy, having, orderBy, whichOrderBy, limit) {
 
 	var callback = arguments && arguments[9];
+	var transaction = arguments && arguments[10];
 	
-	Log.debug("Database", "select", "Callback: " + callback + ", limit: " + limit);
     var adapter = new Adapter();
     adapter.setAdapterName(Constants.DATABASE_ADAPTER);
     adapter.setHandlerName(Constants.DATABASE_SELECT_HANDLER);
@@ -1221,8 +1233,11 @@ Database.select = function(className, distinct, whereClause, columnNames, groupB
     adapter.addParameter(whichOrderBy);
     adapter.addParameter(limit);
 
-    
-    if(callback) {
+
+	if(transaction) {
+		adapter.setCallback(selectCallback);
+		transaction.addRequest(adapter);
+	} else if(callback) {
     	adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
     	adapter.setCallback(selectCallback);
     	
@@ -1235,7 +1250,7 @@ Database.select = function(className, distinct, whereClause, columnNames, groupB
     function selectCallback(data) {
     	Log.debug("Database", "select", "select callback success: " + data);
     	
-	    var datas = SIJsonHelper.toSI(data);
+	    var datas = JSON.parse(data);
 	    var models = SIDatasHelper.toModels(datas);
 	    
 		if(models != undefined && models != null && models.length > 0) {
@@ -1296,20 +1311,20 @@ Database.count = function(className, column, distinct, whereClause, groupBy, hav
 
 	function countCallback(data) {
 		
-	    var hybridData = SIJsonHelper.toSI(data);
+	    var hybridData = JSON.parse(data);
 	    if(hybridData != undefined) {
 	    
-	        var datas = hybridData.getHybridSiminovDatas();
+	        var datas = hybridData.datas;
 	        if(datas != undefined) {
 	        
 	            for(var i = 0;i < datas.length;i++) {
 	            
 	                if(datas[i] != undefined) {
-	                	var type = datas[i].getDataType();
+	                	var type = datas[i].type;
 	                	
 	                	if(type != undefined && type != null) {
 	                	
-							var exception = SIJsonHelper.toModel(datas[i]);
+							var exception = SIDatasHelper.toModel(datas[i]);
 	                		if(exception != undefined && exception != null) {
 	                			
 	                			if(callback) {
@@ -1320,19 +1335,19 @@ Database.count = function(className, column, distinct, whereClause, groupBy, hav
 	                		} else {
 	                		
 		                		if(callback) {
-	                				callback && callback.onSuccess && callback.onSuccess(datas[i].getDataValue());
+	                				callback && callback.onSuccess && callback.onSuccess(datas[i].value);
 	                				break;
 	                			} else {
-				                    return datas[i].getDataValue();
+				                    return datas[i].value;
 	                			}
 	                		}
 	                	} else {
 	                	
 	                		if(callback) {
-                				callback && callback.onSuccess && callback.onSuccess(datas[i].getDataValue());
+                				callback && callback.onSuccess && callback.onSuccess(datas[i].value);
                 				break;
                 			} else {
-			                    return datas[i].getDataValue();
+			                    return datas[i].value;
                 			}
 	                	}
 	                }
@@ -1379,20 +1394,20 @@ Database.avg = function(className, column, whereClause, groupBy, having) {
 
 	function avgCallback(data) {
 	
-	    var hybridData = SIJsonHelper.toSI(data);
+	    var hybridData = JSON.parse(data);
 	    if(hybridData != undefined) {
 	    
-	        var datas = hybridData.getHybridSiminovDatas();
+	        var datas = hybridData.datas;
 	        if(datas != undefined) {
 	        
 	            for(var i = 0;i < datas.length;i++) {
 	            
 	                if(datas[i] != undefined) {
-	                	var type = datas[i].getDataType();
+	                	var type = datas[i].type;
 	                	
 	                	if(type != undefined && type != null) {
 	                	
-							var exception = SIJsonHelper.toModel(datas[i]);
+							var exception = SIDatasHelper.toModel(datas[i]);
 	                		if(exception != undefined && exception != null) {
 	                		
 	                			if(callback) {
@@ -1405,10 +1420,10 @@ Database.avg = function(className, column, whereClause, groupBy, having) {
 	                	} else {
 	                	
 	                		if(callback) {
-								callback && callback.onSuccess && callback.onSuccess(datas[i].getDataValue());
+								callback && callback.onSuccess && callback.onSuccess(datas[i].value);
 								break;	                		
 	                		} else {
-			                    return datas[i].getDataValue();
+			                    return datas[i].value;
 	                		}
 	                	}
 	                }
@@ -1455,19 +1470,20 @@ Database.min = function(className, column, whereClause, groupBy, having) {
 	
 	function minCallback(data) {
 	
-	    var hybridData = SIJsonHelper.toSI(data);
+	    var hybridData = JSON.parse(data);
 	    if(hybridData != undefined) {
 	    
-	        var datas = hybridData.getHybridSiminovDatas();
+	        var datas = hybridData.datas;
 	        if(datas != undefined) {
 	        
 	            for(var i = 0;i < datas.length;i++) {
 	            
 	                if(datas[i] != undefined) {
-	                    var type = datas[i].getDataType();
+	                    var type = datas[i].type;
 	                	
 	                	if(type != undefined && type != null) {
-							var exception = SIJsonHelper.toModel(datas[i]);
+							var exception = SIDatasHelper.toModel(datas[i]);
+							
 	                		if(exception != undefined && exception != null) {
 	                			
 	                			if(callback) {
@@ -1480,10 +1496,10 @@ Database.min = function(className, column, whereClause, groupBy, having) {
 	                	} else {
 	                		
 	                		if(callback) {
-	                			callback && callback.onSuccess && callback.onSuccess(datas[i].getDataValue());
+	                			callback && callback.onSuccess && callback.onSuccess(datas[i].value);
 	                			break;
 	                		} else {
-			                    return datas[i].getDataValue();
+			                    return datas[i].value;
 	                		}
 	                	}
 	                }
@@ -1530,19 +1546,19 @@ Database.max = function(className, column, whereClause, groupBy, having) {
 
 	function maxCallback(data) {
 	
-	    var hybridData = SIJsonHelper.toSI(data);
+	    var hybridData = JSON.parse(data);
 	    if(hybridData != undefined) {
 	    
-	        var datas = hybridData.getHybridSiminovDatas();
+	        var datas = hybridData.datas;
 	        if(datas != undefined) {
 	        
 	            for(var i = 0;i < datas.length;i++) {
 	            
 	                if(datas[i] != undefined) {
-	                    var type = datas[i].getDataType();
+	                    var type = datas[i].type;
 	                	
 	                	if(type != undefined && type != null) {
-							var exception = SIJsonHelper.toModel(datas[i]);
+							var exception = SIDatasHelper.toModel(datas[i]);
 	                		if(exception != undefined && exception != null) {
 	                			
 	                			if(callback) {
@@ -1555,10 +1571,10 @@ Database.max = function(className, column, whereClause, groupBy, having) {
 	                	} else {
 	                	
 	                		if(callback) {
-	                			callback && callback.onSuccess && callback.onSuccess(datas[i].getDataValue());
+	                			callback && callback.onSuccess && callback.onSuccess(datas[i].value);
 	                			break;
 	                		} else {
-			                    return datas[i].getDataValue();
+			                    return datas[i].value;
 	                		}
 	                	}
 	                }
@@ -1606,19 +1622,19 @@ Database.sum = function(className, column, whereClause, groupBy, having) {
 
 	function sumCallback(data) {
 	
-	    var hybridData = SIJsonHelper.toSI(data);
+	    var hybridData = JSON.parse(data);
 	    if(hybridData != undefined) {
 	    
-	        var datas = hybridData.getHybridSiminovDatas();
+	        var datas = hybridData.datas;
 	        if(datas != undefined) {
 	        
 	            for(var i = 0;i < datas.length;i++) {
 	            
 	                if(datas[i] != undefined) {
-	                    var type = datas[i].getDataType();
+	                    var type = datas[i].type;
 	                	
 	                	if(type != undefined && type != null) {
-							var exception = SIJsonHelper.toModel(datas[i]);
+							var exception = SIDatasHelper.toModel(datas[i]);
 	                		if(exception != undefined && exception != null) {
 	                			
 	                			if(callback) {
@@ -1631,10 +1647,10 @@ Database.sum = function(className, column, whereClause, groupBy, having) {
 	                	} else {
 	                		
 	                		if(callback) {
-	                			callback && callback.onSuccess && callback.onSuccess(datas[i].getDataValue());
+	                			callback && callback.onSuccess && callback.onSuccess(datas[i].value);
 	                			break;
 	                		} else {
-			                    return datas[i].getDataValue();
+			                    return datas[i].value;
 	                		}
 	                	}
 	                }
@@ -1681,16 +1697,18 @@ Database.total = function(className, column, whereClause, groupBy, having) {
 
 	function totalCallback(data) {
 		
-	    var hybridData = SIJsonHelper.toSI(data);
+	    var hybridData = JSON.parse(data);
 	    if(hybridData != undefined) {
-	        var datas = hybridData.getHybridSiminovDatas();
+	        var datas = hybridData.datas;
+	        
 	        if(datas != undefined) {
 	            for(var i = 0;i < datas.length;i++) {
 	                if(datas[i] != undefined) {
-	                    var type = datas[i].getDataType();
+	                    var type = datas[i].type;
 	                	
 	                	if(type != undefined && type != null) {
-							var exception = SIJsonHelper.toModel(datas[i]);
+							var exception = SIDatasHelper.toModel(datas[i]);
+							
 	                		if(exception != undefined && exception != null) {
 	                		
 	                			if(callback) {
@@ -1703,10 +1721,10 @@ Database.total = function(className, column, whereClause, groupBy, having) {
 	                	} else {
 	                	
 	                		if(callback) {
-	                			callback && callback.onSuccess && callback.onSuccess(datas[i].getDataValue());
+	                			callback && callback.onSuccess && callback.onSuccess(datas[i].value);
 	                			break;
 	                		} else {
-			                    return datas[i].getDataValue();
+			                    return datas[i].value;
 	                		}
 	                	}
 	                }
@@ -1755,18 +1773,18 @@ Database.groupConcat = function(className, column, delimiter, whereClause, group
 
 	function groupConcatCallback(data) {
 			
-	    var hybridData = SIJsonHelper.toSI(data);
+	    var hybridData = JSON.parse(data);
 	    if(hybridData != undefined) {
 	    
-	        var datas = hybridData.getHybridSiminovDatas();
+	        var datas = hybridData.datas;
 	        if(datas != undefined) {
 	        
 	            for(var i = 0;i < datas.length;i++) {
 	                if(datas[i] != undefined) {
-	                    var type = datas[i].getDataType();
+	                    var type = datas[i].type;
 	                	
 	                	if(type != undefined && type != null) {
-							var exception = SIJsonHelper.toModel(datas[i]);
+							var exception = SIDatasHelper.toModel(datas[i]);
 	                		if(exception != undefined && exception != null) {
 	                		
 	                			if(callback) {
@@ -1779,10 +1797,10 @@ Database.groupConcat = function(className, column, delimiter, whereClause, group
 	                	} else {
 	                	
 	                		if(callback) {
-	                			callback && callback.onSuccess && callback.onSuccess(datas[i].getDataValue());
+	                			callback && callback.onSuccess && callback.onSuccess(datas[i].value);
 	                			break;
 	                		} else {
-			                    return datas[i].getDataValue();
+			                    return datas[i].value;
 	                		}
 	                	}
 	                }
@@ -1831,7 +1849,7 @@ Database['delete'] = function(className, whereClause, data) {
 	
 	    if(data != undefined && data != null) {
 	
-	        var siminovDatas = SIJsonHelper.toSI(data);
+	        var siminovDatas = JSON.parse(data);
 	        var exceptions = SIDatasHelper.toModels(siminovDatas);
 	
 	        if(exceptions != undefined && exceptions != null && exceptions.length > 0) {
@@ -1888,7 +1906,7 @@ Database.beginTransaction = function(databaseDescriptor) {
 		for(var i = 0;i < requests.length;i++) {
 			
 			var adapterDatas = SIDatasHelper.toSI(requests[i]);
-	        var adapterJson = SIJsonHelper.toJson(adapterDatas, true);
+	        var adapterJson = JSON.parse(adapterDatas);
 	        
 	        adapterJson = adapterJson.replaceAll("{'-type':'parameters','#text':'", "{'-type':'parameters','#text':\"");
 	        adapterJson = adapterJson.replaceAll("}]}]}}'},{'-type':'callback'", "}]}]}}\"},{'-type':'callback'");
@@ -1913,11 +1931,12 @@ Database.beginTransaction = function(databaseDescriptor) {
 	
 	    if(data != undefined && data != null) {
 	
-	        var siminovDatas = SIJsonHelper.toSI(data);
+	        var siminovDatas = JSON.parse(data);
 	        var exceptions = SIDatasHelper.toModels(siminovDatas);
 	
 	        if(exceptions != undefined && exceptions != null && exceptions.length > 0) {
 	            var exception = exceptions[0];
+	            
 	            if(exception != undefined && exception != null) {
 	            
 	            	if(callback) {
@@ -1937,6 +1956,7 @@ Database.beginTransaction = function(databaseDescriptor) {
 	    
 	    
 	    var requests = transaction.getRequests();
+	    alert("process request");
 	    for(var i = 0;i < requests.length;i++) {
 	    	
 	    	var request = requests[i];
@@ -1946,6 +1966,7 @@ Database.beginTransaction = function(databaseDescriptor) {
 	    	transaction.removeRequest(request);
 	    }
 	    
+	    alert("call transaction succss");
     	callback && callback.onSuccess && callback.onSuccess();
 	}
 }
@@ -1967,7 +1988,7 @@ Database.commitTransaction = function(databaseDescriptor) {
     var data = Adapter.invoke(adapter);
     if(data != undefined && data != null) {
 
-        var siminovDatas = SIJsonHelper.toSI(data);
+        var siminovDatas = JSON.parse(data);
         var exceptions = SIDatasHelper.toModels(siminovDatas);
 
         if(exceptions != undefined && exceptions != null && exceptions.length > 0) {
@@ -1991,7 +2012,7 @@ Database.endTransaction = function(databaseDescriptor) {
     var data = Adapter.invoke(adapter);
     if(data != undefined && data != null) {
 
-        var siminovDatas = SIJsonHelper.toSI(data);
+        var siminovDatas = JSON.parse(data);
         var exceptions = SIDatasHelper.toModels(siminovDatas);
 
         if(exceptions != undefined && exceptions != null && exceptions.length > 0) {

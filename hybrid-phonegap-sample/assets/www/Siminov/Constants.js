@@ -963,72 +963,19 @@ Constants.SIMINOV_ADAPTER_SHUTDOWN_SIMINOV_HANDLER = "SHUTDOWN-SIMINOV";
 
 
 
-/**
-	Siminov Hybrid Data
+Constants.SIMINOV_HYBRID_DATAS = "datas";
 
-	@property SIMINOV_HYBRID_DATA
-	@type String
-	@static
-	@final
-	@readOnly
-*/
-Constants.SIMINOV_HYBRID_DATA = "siminov-hybrid-data";
+Constants.SIMINOV_HYBRID_DATA_DATAS = "datas";
 
-/**
-	Siminov Hybrid Data Data
+Constants.SIMINOV_HYBRID_DATA_TYPE = "type";
 
-	@property SIMINOV_HYBRID_DATA_DATA
-	@type String
-	@static
-	@final
-	@readOnly
-*/
-Constants.SIMINOV_HYBRID_DATA_DATA = "data";
-
-/**
-	Siminov Hybrid Data Data Type
-
-	@property SIMINOV_HYBRID_DATA_DATA_TYPE
-	@type String
-	@static
-	@final
-	@readOnly
-*/
-Constants.SIMINOV_HYBRID_DATA_DATA_TYPE = "-type";
-
-/**
-	Siminov Hybrid Data Data Text
-
-	@property SIMINOV_HYBRID_DATA_DATA_TEXT
-	@type String
-	@static
-	@final
-	@readOnly
-*/
-Constants.SIMINOV_HYBRID_DATA_DATA_TEXT = "#text";
-
-/**
-	Siminov Hybrid Data Value
-
-	@property SIMINOV_HYBRID_DATA_VALUE
-	@type String
-	@static
-	@final
-	@readOnly
-*/
 Constants.SIMINOV_HYBRID_DATA_VALUE = "value";
 
-/**
-	Siminov Hyrbid Data Text
+Constants.SIMINOV_HYBRID_DATA_VALUE = "value";
 
-	@property SIMINOV_HYBRID_DATA_TEXT
-	@type String
-	@static
-	@final
-	@readOnly
-*/
-Constants.SIMINOV_HYBRID_DATA_TEXT = "#text";
+Constants.SIMINOV_HYBRID_DATA_VALUE_TEXT = "text";
 
+Constants.SIMINOV_HYBRID_DATA_VALUE_VALUE = "value";
 
 
 // Siminov Service 
