@@ -45,8 +45,8 @@ function ServiceEventHandler() {
 	*/
 	this.triggerEvent = function(data) {
 
-        var hybridSiminovDatas = SIJsonHelper.toSI(data);
-        var datas = hybridSiminovDatas.getHybridSiminovDatas();
+        var hybridSiminovDatas = JSON.parse(data);
+        var datas = hybridSiminovDatas.datas;
 
         var apiHandler;
         var event;
@@ -61,11 +61,11 @@ function ServiceEventHandler() {
             for(var i = 0;i < datas.length;i++) {
                 var data = datas[i];
 
-                var dataType = data.getDataType();
+                var dataType = data.type;
                 if(dataType === Constants.ISERVICE_API_HANDLER) {
-                    apiHandler = data.getDataValue();
+                    apiHandler = data.value;
                 } else if(dataType === Constants.ISERVICE_TRIGGERED_EVENT) {
-					event = data.getDataValue();
+					event = data.value;
                 } else if(dataType === Constants.ISERVICE_CONNECTION_REQUEST) {
 					connectionRequest = SIDatasHelper.toModel(data);
                 } else if(dataType === Constants.ISERVICE_CONNECTION_RESPONSE) {
@@ -78,15 +78,15 @@ function ServiceEventHandler() {
                 	}
                 } else if(dataType === Constants.ISERVICE_RESOURCES) {
                 	
-                	var hybridResources = data.getDatas();
+                	var hybridResources = data.datas;
                 	if(hybridResources != undefined && hybridResources != null && hybridResources.length > 0) {
                 		
                 		for(var j = 0;j < hybridResources.length;j++) {
                 			
                 			var hybridResource = hybridResources[j];
                 			
-                			var key = hybridResource.getDataType();
-                			var value = hybridResource.getDataValue();
+                			var key = hybridResource.type;
+                			var value = hybridResource.value;
                 			
                 			resources.add(key, value);
                 		}

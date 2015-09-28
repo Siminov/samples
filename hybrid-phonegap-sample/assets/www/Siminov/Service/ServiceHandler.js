@@ -80,30 +80,37 @@ var ServiceHandler = (function() {
 	        adapter.setHandlerName(Constants.SERVICE_ADAPTER_INVOKE_HANDLER);
 			
 
-			var hybridServiceDatas = new HybridSiminovDatas();
+			var hybridServiceDatas = Object.create(HybridSiminovDatas);
+			hybridServiceDatas.datas = new Array();
 
-			var hybridService = new HybridSiminovDatas.HybridSiminovData();
-				hybridService.setDataType(Constants.SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE);
+			var hybridService = Object.create(HybridSiminovDatas.HybridSiminovData);
+			hybridService.datas = new Array();
+			hybridService.values = new Array();
+			
+				hybridService.type = Constants.SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE;
 
 				
-				var hybridServiceName = new HybridSiminovDatas.HybridSiminovData.HybridSiminovValue();
-				hybridServiceName.setType(Constants.SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE_NAME);
-				hybridServiceName.setValue(iService.getService());
+				var hybridServiceName = Object.create(HybridSiminovDatas.HybridSiminovData.HybridSiminovValue);
+				hybridServiceName.type = Constants.SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE_NAME;
+				hybridServiceName.value = iService.getService();
 			
-			hybridService.addValue(hybridServiceName)
+			hybridService.values.push(hybridServiceName);
 			
-				var hybridServiceValue = new HybridSiminovDatas.HybridSiminovData.HybridSiminovValue();
-				hybridServiceValue.setType(Constants.SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE_REQUEST);	
-				hybridServiceValue.setValue(iService.getRequest());
+				var hybridServiceValue = Object.create(HybridSiminovDatas.HybridSiminovData.HybridSiminovValue);
+				hybridServiceValue.type = Constants.SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE_REQUEST;	
+				hybridServiceValue.value = iService.getRequest();
 
-			hybridService.addValue(hybridServiceValue);
+			hybridService.values.push(hybridServiceValue);
 
 
 				var resources = iService.getResources();
 				if(resources != undefined && resources != null && resources.length > 0) {
 					
-					var hybridResources = new HybridSiminovDatas.HybridSiminovData();
-						hybridResources.setDataType(Constants.SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE_RESOURCES);
+					var hybridResources = Object.create(HybridSiminovDatas.HybridSiminovData);
+					hybridResources.datas = new Array();
+					hybridResources.values = new Array();
+					
+					hybridResources.type = Constants.SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE_RESOURCES;
 					
 					for(var i = 0;i < resources.length;i++) {
 						var resourceName = resources[i];
@@ -111,20 +118,20 @@ var ServiceHandler = (function() {
 						
 						resourceValue = '' + resourceValue;
 						
-						var hybridResource = new HybridSiminovDatas.HybridSiminovData.HybridSiminovValue();
-						hybridResource.setType(resourceName);
-						hybridResource.setValue(resourceValue);
+						var hybridResource = Object.create(HybridSiminovDatas.HybridSiminovData.HybridSiminovValue);
+						hybridResource.type = resourceName;
+						hybridResource.value = resourceValue;
 						
-						hybridResources.addValue(hybridResource);
+						hybridResources.values.push(hybridResource);
 					}				
 		
-					hybridService.addData(hybridResources);	
+					hybridService.values.push(hybridResources);	
 				}
 
 
-			hybridServiceDatas.addHybridSiminovData(hybridService)
+			hybridServiceDatas.datas.push(hybridService);
 			
-			var data = encodeURI(SIJsonHelper.toJson(hybridServiceDatas, true));
+			var data = encodeURI(JSON.stringify(hybridServiceDatas));
 			adapter.addParameter(data);
 
 

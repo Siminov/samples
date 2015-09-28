@@ -138,7 +138,7 @@ function Service() {
 		try {
 			callback?serviceHandler.handleAsync(this, callback):serviceHandler.handle(this);
 		} catch(se) {
-			this.onServiceTerminate(se);
+			this.onTerminate(se);
 		}
 	}
 	

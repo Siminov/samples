@@ -168,6 +168,10 @@ SIDatasHelper.toSI = function(object) {
  */
 SIDatasHelper.buildSI = function(object) {
 
+	if(object && object.getterProperties().length <= 0) {
+		return object;
+	}
+
     var data = Object.create(HybridSiminovDatas.HybridSiminovData);
     data.datas = new Array();
 	data.values = new Array();
@@ -188,17 +192,29 @@ SIDatasHelper.buildSI = function(object) {
             value.type = type.charAt(0).toLowerCase() + type.substring(1, type.length);
 
             if(val instanceof Object && !(val instanceof Array)) {
+
+				if(!val) {
+					continue;
+				}
 				
-                var obj = SIDatasHelper.parseSI(val);
-                data.datas.push(obj);
+                var obj = SIDatasHelper.buildSI(val);
+                if(typeof obj === 'HybridSiminovDatas.HybridSiminovData') {
+    				data.datas.push(obj);      
+                } else if(typeof obj === 'string') {
+    				value.value = obj;
+                }                
             } else if(val instanceof Array) {
 
                 if(val != undefined && val != null && val.length > 0) {
 
                     for(var j = 0;j < val.length;j++) {
                     
-                        var obj = SIDatasHelper.parseSI(val[j]);
-		                data.datas.push(obj);
+                        var obj = SIDatasHelper.buildSI(val[j]);
+                        if(typeof obj === 'HybridSiminovDatas.HybridSiminovData') {
+                        	data.datas.push(obj);
+                        } else if(typeof obj === 'string') {
+			                value.value = obj;
+                        }
                     }
                 }
             } else {

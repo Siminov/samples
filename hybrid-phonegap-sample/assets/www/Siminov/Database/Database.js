@@ -1902,18 +1902,15 @@ Database.beginTransaction = function(databaseDescriptor) {
 		
 		var requests = transaction.getRequests();
 		
-		var adapters = new StringBuilder();
+		var adapters = Object.create(HybridSiminovDatas);
+		adapters.datas = new Array();
+		
 		for(var i = 0;i < requests.length;i++) {
 			
 			var adapterDatas = SIDatasHelper.toSI(requests[i]);
-	        var adapterJson = JSON.parse(adapterDatas);
-	        
-	        adapterJson = adapterJson.replaceAll("{'-type':'parameters','#text':'", "{'-type':'parameters','#text':\"");
-	        adapterJson = adapterJson.replaceAll("}]}]}}'},{'-type':'callback'", "}]}]}}\"},{'-type':'callback'");
-	        
-			adapters.append(adapterJson);
+			adapters.datas.push(adapterDatas);
 		}
-		adapter.addParameter(adapters);
+		adapter.addParameter(JSON.stringify(adapters));
 		
 	    adapter.setHandlerName(Constants.DATABASE_BEGIN_TRANSACTION_ASYNC_HANDLER);
 		    

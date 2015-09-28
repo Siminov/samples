@@ -80,7 +80,7 @@ var ResourceManager = (function() {
 	
 			function getApplicationDescriptorCallback(data) {
 			
-		        var datas = SIJsonHelper.toSI(data);
+		        var datas = JSON.parse(data);
 		        var applicationDescriptor = SIDatasHelper.toModels(datas);
 		        
 		        if(callback) {
@@ -136,7 +136,7 @@ var ResourceManager = (function() {
 			
 			function getDatabaseDescriptorCallback(data) {
 			
-		        var datas = SIJsonHelper.toSI(data);
+		        var datas = JSON.parse(data);
 		        var databaseDescriptor = SIDatasHelper.toModels(datas);
 
 				if(callback) {
@@ -177,7 +177,7 @@ var ResourceManager = (function() {
 			
 			function getDatabaseDescriptorBasedOnClassNameCallback(data) {
 			
-		        var datas = SIJsonHelper.toSI(data);
+		        var datas = JSON.parse(data);
 		        var databaseDescriptor = SIDatasHelper.toModels(datas);
 
 				if(callback) {
@@ -218,7 +218,7 @@ var ResourceManager = (function() {
 			
 			function getDatabaseDescriptorBasedOnTableNameCallback(data) {
 			
-		        var datas = SIJsonHelper.toSI(data);
+		        var datas = JSON.parse(data);
 		        var databaseDescriptor = SIDatasHelper.toModels(datas);
 
 				if(callback) {
@@ -266,7 +266,7 @@ var ResourceManager = (function() {
 	
 			function getEntityDescriptorBasedOnClassNameCallback(data) {
 			
-		        var datas = SIJsonHelper.toSI(data);
+		        var datas = JSON.parse(data);
 		        var entityDescriptor = SIDatasHelper.toModels(datas);
 
 				if(callback) {
@@ -314,7 +314,7 @@ var ResourceManager = (function() {
 	
 			function getEntityDescriptorBasedOnTableNameCallback(data) {
 			
-		        var datas = SIJsonHelper.toSI(data);
+		        var datas = JSON.parse(data);
 		        var entityDescriptor = SIDatasHelper.toModels(datas);
 		        
 		        if(callback) {
