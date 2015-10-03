@@ -1950,10 +1950,18 @@ Database.beginTransaction = function(databaseDescriptor) {
 	
 	function beginTransactionCallback(data) {
 		Log.debug("", "", "Data: " + data);
+		
+		var siminovDatas;
 	    if(data != undefined && data != null) {
 	
-	        var siminovDatas = JSON.parse(data);
-	        var exceptions = SIDatasHelper.toModels(siminovDatas);
+	        siminovDatas = JSON.parse(data);
+	        var exceptions;
+	        
+	        try {
+	        	exceptions = SIDatasHelper.toModels(siminovDatas);
+	        } catch(e) {
+	        	Log.debug("Database", "beginTransactionCallback", "Exception caught while converting data into models.");
+	        }
 	
 	        if(exceptions != undefined && exceptions != null && exceptions.length > 0) {
 	            var exception = exceptions[0];
@@ -1982,7 +1990,25 @@ Database.beginTransaction = function(databaseDescriptor) {
 	    	
 	    	var request = requests[i];
 	    	var requestCallback = request.getCallback();
-	    	requestCallback && requestCallback();
+	    	
+	    	if(requestCallback) {
+	    		
+	    		if(siminovDatas) {
+	    		
+		    		for(var j = 0;j < siminovDatas.datas.length;j++) {
+		    			
+		    			var siminovData = siminovDatas.datas[j];
+		    			if(siminovData.type != request.getRequestId()) {
+		    				continue;
+		    			}
+		    			
+		    			var response = decodeURIComponent(siminovData.value);
+		    			requestCallback(response);
+		    		}
+	    		} else {
+	    			requestCallback();
+	    		}
+	    	}
 	    	
 	    	transaction.removeRequest(request);
 	    }
