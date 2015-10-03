@@ -85,23 +85,24 @@ function GetLiquorBrands() {
 				saveCallback.onSuccess = function() {
 					alert("liquor brand saved");
 				}
+			}
+			
+			
+			liquor.updateAsync(updateCallback, transaction);
 				
-				liquor.updateAsync(updateCallback, transaction);
-				
-				var updateCallback = new Callback();
-				updateCallback.onSuccess = function() {
-					alert("liquor updated");
-				}
-				
-				
-                var selectCallback = new Callback();
-                selectCallback.onSuccess = function(savedLiquors) {
-                	alert("get liquors success" + savedLiquors);
-                	Log.debug("Home", "populateHome", "Saved Liquors: " + savedLiquors);
-                }
-                
-                new Liquor().select().executeAsync(selectCallback, transaction);
-			}		
+			var updateCallback = new Callback();
+			updateCallback.onSuccess = function() {
+				alert("liquor updated");
+			}
+			
+			
+            var selectCallback = new Callback();
+            selectCallback.onSuccess = function(savedLiquors) {
+            	alert("get liquors success" + savedLiquors);
+            	Log.debug("Home", "populateHome", "Saved Liquors: " + savedLiquors);
+            }
+            
+            new Liquor().select().executeAsync(selectCallback, transaction);
 		}
 		
 		callback.onSuccess = function() {

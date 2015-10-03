@@ -1235,6 +1235,30 @@ Database.select = function(className, distinct, whereClause, columnNames, groupB
 
 
 	if(transaction) {
+
+		var parameters = adapter.getParameters();
+		
+		var siminovDatas = Object.create(HybridSiminovDatas);
+		siminovDatas.datas = new Array();
+		
+		for(var i = 0;i < parameters.length;i++) {
+		
+			var parameter = parameters[i];
+			if(parameter != undefined) {
+				parameter = encodeURI(parameters[i]);
+			} else {
+				parameter = "";
+			}
+			
+			var siminovData = Object.create(HybridSiminovDatas.HybridSiminovData);
+	        siminovData.value = parameter;
+	        
+	        siminovDatas.datas.push(siminovData);
+  		}
+
+		adapter.removeParameters();
+		adapter.addParameter(JSON.stringify(siminovDatas));
+	
 		adapter.setCallback(selectCallback);
 		transaction.addRequest(adapter);
 	} else if(callback) {
@@ -1925,7 +1949,7 @@ Database.beginTransaction = function(databaseDescriptor) {
 
 	
 	function beginTransactionCallback(data) {
-	
+		Log.debug("", "", "Data: " + data);
 	    if(data != undefined && data != null) {
 	
 	        var siminovDatas = JSON.parse(data);

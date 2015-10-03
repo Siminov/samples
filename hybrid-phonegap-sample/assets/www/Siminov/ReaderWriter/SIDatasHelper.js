@@ -198,10 +198,10 @@ SIDatasHelper.buildSI = function(object) {
 				}
 				
                 var obj = SIDatasHelper.buildSI(val);
-                if(typeof obj === 'HybridSiminovDatas.HybridSiminovData') {
-    				data.datas.push(obj);      
-                } else if(typeof obj === 'string') {
+                if(typeof obj === 'string') {
     				value.value = obj;
+                } else if(typeof obj === 'object') {
+    				data.datas.push(obj);      
                 }                
             } else if(val instanceof Array) {
 
@@ -210,10 +210,10 @@ SIDatasHelper.buildSI = function(object) {
                     for(var j = 0;j < val.length;j++) {
                     
                         var obj = SIDatasHelper.buildSI(val[j]);
-                        if(typeof obj === 'HybridSiminovDatas.HybridSiminovData') {
-                        	data.datas.push(obj);
-                        } else if(typeof obj === 'string') {
+                        if(typeof obj === 'string') {
 			                value.value = obj;
+                        } else if(typeof obj === 'object') {
+                        	data.datas.push(obj);
                         }
                     }
                 }
