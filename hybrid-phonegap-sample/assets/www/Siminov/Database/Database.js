@@ -78,6 +78,17 @@ function Database() {
 
 
 		if(transaction) {
+			var siminovDatas = Object.create(HybridSiminovDatas);
+			siminovDatas.datas = new Array();
+			
+			var siminovData = Object.create(HybridSiminovDatas.HybridSiminovData);
+			siminovData.value = json;
+			
+			siminovDatas.datas.push(siminovData);
+			
+			adapter.removeParameters();
+			adapter.addParameter(JSON.stringify(siminovDatas));
+		
 			adapter.setCallback(saveCallback);
 			transaction.addRequest(adapter);	
 		} else if(callback) {
@@ -162,6 +173,18 @@ function Database() {
 
 		
 		if(transaction) {
+		
+			var siminovDatas = Object.create(HybridSiminovDatas);
+			siminovDatas.datas = new Array();
+			
+			var siminovData = Object.create(HybridSiminovDatas.HybridSiminovData);
+			siminovData.value = json;
+			
+			siminovDatas.datas.push(siminovData);
+			
+			adapter.removeParameters();
+			adapter.addParameter(JSON.stringify(siminovDatas));
+			
 			adapter.setCallback(updateCallback);
 			transaction.addRequest(adapter);			
 		} else if(callback) {
@@ -249,6 +272,18 @@ function Database() {
         adapter.addParameter(json);
 		
 		if(transaction) {
+	
+			var siminovDatas = Object.create(HybridSiminovDatas);
+			siminovDatas.datas = new Array();
+			
+			var siminovData = Object.create(HybridSiminovDatas.HybridSiminovData);
+			siminovData.value = json;
+			
+			siminovDatas.datas.push(siminovData);
+			
+			adapter.removeParameters();
+			adapter.addParameter(JSON.stringify(siminovDatas));
+		
 			adapter.setCallback(saveOrUpdateCallback);
 			transaction.addRequest(adapter);		
 		} else if(callback) {
