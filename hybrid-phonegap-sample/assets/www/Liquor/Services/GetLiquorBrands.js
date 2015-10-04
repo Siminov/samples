@@ -102,7 +102,11 @@ function GetLiquorBrands() {
             	Log.debug("Home", "populateHome", "Saved Liquors: " + savedLiquors);
             }
             
-            new Liquor().select().executeAsync(selectCallback, transaction);
+            var columnNames = new Array();
+            	columnNames.push('BRAND_NAME');
+            	columnNames.push('DESCRIPTION');
+            
+            new LiquorBrand().select().columns(columnNames).ascendingOrderBy(columnNames).groupBy(columnNames).executeAsync(selectCallback, transaction);
 		}
 		
 		callback.onSuccess = function() {
