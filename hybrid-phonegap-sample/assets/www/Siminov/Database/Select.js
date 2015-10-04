@@ -317,28 +317,28 @@ function Select(object) {
 
 
         if(this.interfaceName ==  "ICount") {
-            return Database.count(object.getFunctionName(), column, distinct, whereCondition, groupBy, havingCondition, callback);
+            return Database.count(object.getFunctionName(), column, distinct, whereCondition, groupBy, havingCondition, callback, transaction);
         } else if(this.interfaceName == "IAverage") {
-            return Database.avg(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback);
+            return Database.avg(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback, transaction);
         } else if(this.interfaceName == "ISum") {
-            return Database.sum(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback);
+            return Database.sum(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback, transaction);
         } else if(this.interfaceName == "ITotal") {
-            return Database.total(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback);
+            return Database.total(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback, transaction);
         } else if(this.interfaceName == "IMax") {
-            return Database.max(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback);
+            return Database.max(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback, transaction);
         } else if(this.interfaceName == "IMin") {
-            return Database.min(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback);
+            return Database.min(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback, transaction);
         } else if(this.interfaceName == "IGroupConcat") {
-            return Database.groupConcat(object.getFunctionName(), column, delimiter, whereCondition, groupBy, havingCondition, callback);
+            return Database.groupConcat(object.getFunctionName(), column, delimiter, whereCondition, groupBy, havingCondition, callback, transaction);
         } else if(this.interfaceName == "IDelete") {
 
             if(whereCondition == undefined && whereCondition == null && whereCondition.length <= 0) {
                 var datas = SIDatasHelper.toSI(object);
                 var json = SIJsonHelper.toJson(datas);
 
-                Database['delete'](object.getFunctionName(), undefined, json, callback);
+                Database['delete'](object.getFunctionName(), undefined, json, callback, transaction);
             } else {
-                Database['delete'](object.getFunctionName(), whereCondition, undefined, callback);
+                Database['delete'](object.getFunctionName(), whereCondition, undefined, callback, transaction);
             }
         } else if(this.interfaceName == 'ISelect') {
         	

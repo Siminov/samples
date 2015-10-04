@@ -78,6 +78,7 @@ function Database() {
 
 
 		if(transaction) {
+		
 			var siminovDatas = Object.create(HybridSiminovDatas);
 			siminovDatas.datas = new Array();
 			
@@ -1343,6 +1344,7 @@ Database.select = function(className, distinct, whereClause, columnNames, groupB
 Database.count = function(className, column, distinct, whereClause, groupBy, having) {
 
 	var callback = arguments && arguments[6];
+	var transaction = arguments && arguments[7];
 
     var adapter = new Adapter();
 
@@ -1357,7 +1359,34 @@ Database.count = function(className, column, distinct, whereClause, groupBy, hav
     adapter.addParameter(having);
 
 
-	if(callback) {
+	if(transaction) {
+	
+		var parameters = adapter.getParameters();
+		
+		var siminovDatas = Object.create(HybridSiminovDatas);
+		siminovDatas.datas = new Array();
+		
+		for(var i = 0;i < parameters.length;i++) {
+		
+			var parameter = parameters[i];
+			if(parameter != undefined) {
+				parameter = encodeURI(parameters[i]);
+			} else {
+				parameter = "";
+			}
+			
+			var siminovData = Object.create(HybridSiminovDatas.HybridSiminovData);
+	        siminovData.value = parameter;
+	        
+	        siminovDatas.datas.push(siminovData);
+  		}
+
+		adapter.removeParameters();
+		adapter.addParameter(JSON.stringify(siminovDatas));
+	
+		adapter.setCallback(countCallback);
+		transaction.addRequest(adapter);
+	} else if(callback) {
 		adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
 		adapter.setCallback(countCallback);
 		
@@ -1427,6 +1456,7 @@ Database.count = function(className, column, distinct, whereClause, groupBy, hav
 Database.avg = function(className, column, whereClause, groupBy, having) {
 
 	var callback = arguments && arguments[5];
+	var transaction = arguments && arguments[6];
 
     var adapter = new Adapter();
 
@@ -1440,7 +1470,34 @@ Database.avg = function(className, column, whereClause, groupBy, having) {
     adapter.addParameter(having);
 
 
-	if(callback) {
+	if(transaction) {
+		
+		var parameters = adapter.getParameters();
+		
+		var siminovDatas = Object.create(HybridSiminovDatas);
+		siminovDatas.datas = new Array();
+		
+		for(var i = 0;i < parameters.length;i++) {
+		
+			var parameter = parameters[i];
+			if(parameter != undefined) {
+				parameter = encodeURI(parameters[i]);
+			} else {
+				parameter = "";
+			}
+			
+			var siminovData = Object.create(HybridSiminovDatas.HybridSiminovData);
+	        siminovData.value = parameter;
+	        
+	        siminovDatas.datas.push(siminovData);
+  		}
+
+		adapter.removeParameters();
+		adapter.addParameter(JSON.stringify(siminovDatas));
+	
+		adapter.setCallback(avgCallback);
+		transaction.addRequest(adapter);
+	} else if(callback) {
 		adapter.setCallback(avgCallback);
 		adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
 		
@@ -1503,6 +1560,7 @@ Database.avg = function(className, column, whereClause, groupBy, having) {
 Database.min = function(className, column, whereClause, groupBy, having) {
 
 	var callback = arguments && arguments[5];
+	var transaction = arguments && arguments[6];
 
     var adapter = new Adapter();
 
@@ -1516,7 +1574,34 @@ Database.min = function(className, column, whereClause, groupBy, having) {
     adapter.addParameter(having);
 
 	
-	if(callback) {
+	if(transaction) {
+	
+		var parameters = adapter.getParameters();
+		
+		var siminovDatas = Object.create(HybridSiminovDatas);
+		siminovDatas.datas = new Array();
+		
+		for(var i = 0;i < parameters.length;i++) {
+		
+			var parameter = parameters[i];
+			if(parameter != undefined) {
+				parameter = encodeURI(parameters[i]);
+			} else {
+				parameter = "";
+			}
+			
+			var siminovData = Object.create(HybridSiminovDatas.HybridSiminovData);
+	        siminovData.value = parameter;
+	        
+	        siminovDatas.datas.push(siminovData);
+  		}
+
+		adapter.removeParameters();
+		adapter.addParameter(JSON.stringify(siminovDatas));
+	
+		adapter.setCallback(minCallback);
+		transaction.addRequest(adapter);
+	} else if(callback) {
 		adapter.setCallback(minCallback);
 		adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
 		
@@ -1579,6 +1664,7 @@ Database.min = function(className, column, whereClause, groupBy, having) {
 Database.max = function(className, column, whereClause, groupBy, having) {
 
 	var callback = arguments && arguments[5];
+	var transaction = arguments && arguments[6];
 
     var adapter = new Adapter();
 
@@ -1592,7 +1678,34 @@ Database.max = function(className, column, whereClause, groupBy, having) {
     adapter.addParameter(having);
 
 
-	if(callback) {
+	if(transaction) {
+		
+		var parameters = adapter.getParameters();
+		
+		var siminovDatas = Object.create(HybridSiminovDatas);
+		siminovDatas.datas = new Array();
+		
+		for(var i = 0;i < parameters.length;i++) {
+		
+			var parameter = parameters[i];
+			if(parameter != undefined) {
+				parameter = encodeURI(parameters[i]);
+			} else {
+				parameter = "";
+			}
+			
+			var siminovData = Object.create(HybridSiminovDatas.HybridSiminovData);
+	        siminovData.value = parameter;
+	        
+	        siminovDatas.datas.push(siminovData);
+  		}
+
+		adapter.removeParameters();
+		adapter.addParameter(JSON.stringify(siminovDatas));
+	
+		adapter.setCallback(maxCallback);
+		transaction.addRequest(adapter);
+	} else if(callback) {
 		adapter.setCallback(maxCallback);
 		adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
 	
@@ -1642,7 +1755,6 @@ Database.max = function(className, column, whereClause, groupBy, having) {
 	        
         		if(callback) {
         			callback && callback.onSuccess && callback.onSuccess(0);
-        			break;
         		} else {
                     return 0;
         		}
@@ -1655,6 +1767,7 @@ Database.max = function(className, column, whereClause, groupBy, having) {
 Database.sum = function(className, column, whereClause, groupBy, having) {
 
 	var callback = arguments && arguments[5];
+	var transaction = arguments && arguments[6];
 
     var adapter = new Adapter();
 
@@ -1668,7 +1781,34 @@ Database.sum = function(className, column, whereClause, groupBy, having) {
     adapter.addParameter(having);
 
 
-	if(callback) {
+	if(transaction) {
+	
+		var parameters = adapter.getParameters();
+		
+		var siminovDatas = Object.create(HybridSiminovDatas);
+		siminovDatas.datas = new Array();
+		
+		for(var i = 0;i < parameters.length;i++) {
+		
+			var parameter = parameters[i];
+			if(parameter != undefined) {
+				parameter = encodeURI(parameters[i]);
+			} else {
+				parameter = "";
+			}
+			
+			var siminovData = Object.create(HybridSiminovDatas.HybridSiminovData);
+	        siminovData.value = parameter;
+	        
+	        siminovDatas.datas.push(siminovData);
+  		}
+
+		adapter.removeParameters();
+		adapter.addParameter(JSON.stringify(siminovDatas));
+	
+		adapter.setCallback(sumCallback);
+		transaction.addRequest(adapter);
+	} else if(callback) {
 		adapter.setCallback(sumCallback);
 		adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
 		
@@ -1730,6 +1870,7 @@ Database.sum = function(className, column, whereClause, groupBy, having) {
 Database.total = function(className, column, whereClause, groupBy, having) {
 
 	var callback = arguments && arguments[5];
+	var transaction = arguments && arguments[6];
 	
     var adapter = new Adapter();
 
@@ -1743,7 +1884,34 @@ Database.total = function(className, column, whereClause, groupBy, having) {
     adapter.addParameter(having);
 
 
-	if(callback) {
+	if(transaction) {
+		
+		var parameters = adapter.getParameters();
+		
+		var siminovDatas = Object.create(HybridSiminovDatas);
+		siminovDatas.datas = new Array();
+		
+		for(var i = 0;i < parameters.length;i++) {
+		
+			var parameter = parameters[i];
+			if(parameter != undefined) {
+				parameter = encodeURI(parameters[i]);
+			} else {
+				parameter = "";
+			}
+			
+			var siminovData = Object.create(HybridSiminovDatas.HybridSiminovData);
+	        siminovData.value = parameter;
+	        
+	        siminovDatas.datas.push(siminovData);
+  		}
+
+		adapter.removeParameters();
+		adapter.addParameter(JSON.stringify(siminovDatas));
+	
+		adapter.setCallback(totalCallback);
+		transaction.addRequest(adapter);
+	} else if(callback) {
 		adapter.setCallback(totalCallback);
 		adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
 		

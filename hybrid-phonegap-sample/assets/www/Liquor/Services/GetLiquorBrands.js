@@ -107,6 +107,75 @@ function GetLiquorBrands() {
             	columnNames.push('DESCRIPTION');
             
             new LiquorBrand().select().columns(columnNames).ascendingOrderBy(columnNames).groupBy(columnNames).executeAsync(selectCallback, transaction);
+            
+            
+            var countCallback = new Callback();
+            countCallback.onSuccess = function(liquorBrandCount) {
+            	alert("liquor brand count: " + liquorBrandCount);
+            	Log.debug("Home", "populateHome", "Liquor Brand Count: " + liquorBrandCount);
+            }
+            
+            
+            new LiquorBrand().count().executeAsync(countCallback, transaction);
+            
+            
+            var avgCallback = new Callback();
+            avgCallback.onSuccess = function(liquorBrandAvg) {
+            	alert("liquor brand avg: " + liquorBrandAvg);
+            	Log.debug("Home", "populateHome", "Liquor Brand Avg: " + liquorBrandAvg);
+            }
+            
+            
+            new LiquorBrand().avg().column('BRAND_NAME').executeAsync(avgCallback, transaction);
+            
+            
+            var minCallback = new Callback();
+            minCallback.onSuccess = function(liquorBrandMin) {
+            	alert("liquor brand min: " + liquorBrandMin);
+            	Log.debug("Home", "populateHome", "Liquor Brand Min: " + liquorBrandMin);
+            }
+            
+            
+            new LiquorBrand().min().column('BRAND_NAME').executeAsync(minCallback, transaction);
+            
+            var maxCallback = new Callback();
+            maxCallback.onSuccess = function(liquorBrandMax) {
+            	alert("liquor brand max: " + liquorBrandMax);
+            	Log.debug("Home", "populateHome", "Liquor Brand Max: " + liquorBrandMax);
+            }
+            
+            
+            new LiquorBrand().max().column('BRAND_NAME').executeAsync(maxCallback, transaction);
+            
+            
+            var sumCallback = new Callback();
+            sumCallback.onSuccess = function(liquorBrandSum) {
+            	alert("liquor brand sum: " + liquorBrandSum);
+            	Log.debug("Home", "populateHome", "Liquor Brand Sum: " + liquorBrandSum);
+            }
+            
+            
+            new LiquorBrand().sum().column('BRAND_NAME').executeAsync(sumCallback, transaction);
+            
+            
+            var sumCallback = new Callback();
+            sumCallback.onSuccess = function(liquorBrandSum) {
+            	alert("liquor brand sum: " + liquorBrandSum);
+            	Log.debug("Home", "populateHome", "Liquor Brand Sum: " + liquorBrandSum);
+            }
+            
+            
+            new LiquorBrand().sum().column('BRAND_NAME').executeAsync(sumCallback, transaction);
+            
+            
+            var totalCallback = new Callback();
+            totalCallback.onSuccess = function(liquorBrandTotal) {
+            	alert("liquor brand total: " + liquorBrandTotal);
+            	Log.debug("Home", "populateHome", "Liquor Brand Total: " + liquorBrandTotal);
+            }
+            
+            
+            new LiquorBrand().total().column('BRAND_NAME').executeAsync(totalCallback, transaction);
 		}
 		
 		callback.onSuccess = function() {
