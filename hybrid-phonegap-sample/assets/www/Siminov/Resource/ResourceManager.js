@@ -61,13 +61,19 @@ var ResourceManager = (function() {
 	    this.getApplicationDescriptor = function() {
 
 			var callback = arguments && arguments[0];
+			var transaction = arguments && arguments[1];
 
 	        var adapter = new Adapter();
 	        adapter.setAdapterName(Constants.RESOURCE_ADAPTER);
 	        adapter.setHandlerName(Constants.RESOURCE_GET_APPLICATION_DESCRIPTOR_HANDLER);
 	
 	
-			if(callback) {
+			if(transaction) {
+				adapter.setCallback(getApplicationDescriptorCallback);
+				adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
+				
+				transaction.addRequest(adapter);
+			} else if(callback) {
 				adapter.setCallback(getApplicationDescriptorCallback);
 				adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
 				
@@ -92,8 +98,8 @@ var ResourceManager = (function() {
 	    }
 	
 	
-		this.getApplicationDescriptorAsync = function(callback) {
-			this.getApplicationDescriptor(callback?callback:new Callback());
+		this.getApplicationDescriptorAsync = function(callback, transaction) {
+			this.getApplicationDescriptor(callback?callback:new Callback(), transaction);
 		}
 		
 		
@@ -148,14 +154,15 @@ var ResourceManager = (function() {
 	    }
 	    
 	    
-	    this.getDatabaseDescriptorAsync = function(databaseName, callback) {
-	    	this.getDatabaseDescriptor(databaseName, callback?callback:new Callback());
+	    this.getDatabaseDescriptorAsync = function(databaseName, callback, transaction) {
+	    	this.getDatabaseDescriptor(databaseName, callback?callback:new Callback(), transaction);
 	    }
 	
 	
 		this.getDatabaseDescriptorBasedOnClassName = function(className) {
 			
 			var callback = arguments && arguments[1];
+			var transaction = arguments && arguments[2];
 	
 	        var adapter = new Adapter();
 	        adapter.setAdapterName(Constants.RESOURCE_ADAPTER);
@@ -164,7 +171,33 @@ var ResourceManager = (function() {
 	        adapter.addParameter(className);
 	
 			
-			if(callback) {
+			if(transaction) {
+				var parameters = adapter.getParameters();
+			
+				var siminovDatas = Object.create(HybridSiminovDatas);
+				siminovDatas.datas = new Array();
+				
+				for(var i = 0;i < parameters.length;i++) {
+				
+					var parameter = parameters[i];
+					if(parameter != undefined) {
+						parameter = encodeURI(parameters[i]);
+					} else {
+						parameter = "";
+					}
+					
+					var siminovData = Object.create(HybridSiminovDatas.HybridSiminovData);
+			        siminovData.value = parameter;
+			        
+			        siminovDatas.datas.push(siminovData);
+		  		}
+		
+				adapter.removeParameters();
+				adapter.addParameter(JSON.stringify(siminovDatas));
+			
+				adapter.setCallback(getDatabaseDescriptorBasedOnClassNameCallback);
+				transaction.addRequest(adapter);
+			} else if(callback) {
 				adapter.setCallback(getDatabaseDescriptorBasedOnClassNameCallback);
 				adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
 				
@@ -189,14 +222,15 @@ var ResourceManager = (function() {
 		}
 		
 		
-		this.getDatabaseDescriptorBasedOnClassNameAsync = function(databaseName, callback) {
-	    	this.getDatabaseDescriptorBasedOnClassName(databaseName, callback?callback:new Callback());
+		this.getDatabaseDescriptorBasedOnClassNameAsync = function(databaseName, callback, transaction) {
+	    	this.getDatabaseDescriptorBasedOnClassName(databaseName, callback?callback:new Callback(), transaction);
 	    }
 
 
 		this.getDatabaseDescriptorBasedOnTableName = function(tableName) {
 			
 			var callback = arguments && arguments[1];
+			var transaction = arguments && arguments[2];
 	
 	        var adapter = new Adapter();
 	        adapter.setAdapterName(Constants.RESOURCE_ADAPTER);
@@ -205,7 +239,33 @@ var ResourceManager = (function() {
 	        adapter.addParameter(tableName);
 	
 			
-			if(callback) {
+			if(transaction) {
+				var parameters = adapter.getParameters();
+			
+				var siminovDatas = Object.create(HybridSiminovDatas);
+				siminovDatas.datas = new Array();
+				
+				for(var i = 0;i < parameters.length;i++) {
+				
+					var parameter = parameters[i];
+					if(parameter != undefined) {
+						parameter = encodeURI(parameters[i]);
+					} else {
+						parameter = "";
+					}
+					
+					var siminovData = Object.create(HybridSiminovDatas.HybridSiminovData);
+			        siminovData.value = parameter;
+			        
+			        siminovDatas.datas.push(siminovData);
+		  		}
+		
+				adapter.removeParameters();
+				adapter.addParameter(JSON.stringify(siminovDatas));
+			
+				adapter.setCallback(getDatabaseDescriptorBasedOnTableNameCallback);
+				transaction.addRequest(adapter);
+			} else if(callback) {
 				adapter.setCallback(getDatabaseDescriptorBasedOnTableNameCallback);
 				adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
 				
@@ -230,8 +290,8 @@ var ResourceManager = (function() {
 		}
 		
 		
-		this.getDatabaseDescriptorBasedOnTableNameAsync = function(databaseName, callback) {
-	    	this.getDatabaseDescriptorBasedOnTableName(databaseName, callback?callback:new Callback());
+		this.getDatabaseDescriptorBasedOnTableNameAsync = function(databaseName, callback, transaction) {
+	    	this.getDatabaseDescriptorBasedOnTableName(databaseName, callback?callback:new Callback(), transaction);
 	    }
 
 
@@ -246,6 +306,7 @@ var ResourceManager = (function() {
 	    this.getEntityDescriptorBasedOnClassName = function(className) {
 	
 			var callback = arguments && arguments[1];
+			var transaction = arguments && arguments[2];
 	
 	        var adapter = new Adapter();
 	        adapter.setAdapterName(Constants.RESOURCE_ADAPTER);
@@ -254,7 +315,33 @@ var ResourceManager = (function() {
 	        adapter.addParameter(className);
 	
 	
-			if(callback) {
+			if(transaction) {
+				var parameters = adapter.getParameters();
+			
+				var siminovDatas = Object.create(HybridSiminovDatas);
+				siminovDatas.datas = new Array();
+				
+				for(var i = 0;i < parameters.length;i++) {
+				
+					var parameter = parameters[i];
+					if(parameter != undefined) {
+						parameter = encodeURI(parameters[i]);
+					} else {
+						parameter = "";
+					}
+					
+					var siminovData = Object.create(HybridSiminovDatas.HybridSiminovData);
+			        siminovData.value = parameter;
+			        
+			        siminovDatas.datas.push(siminovData);
+		  		}
+		
+				adapter.removeParameters();
+				adapter.addParameter(JSON.stringify(siminovDatas));
+			
+				adapter.setCallback(getEntityDescriptorBasedOnClassNameCallback);
+				transaction.addRequest(adapter);
+			} else if(callback) {
 				adapter.setCallback(getEntityDescriptorBasedOnClassNameCallback);
 				adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
 				
@@ -278,8 +365,8 @@ var ResourceManager = (function() {
 	    }
 	    
 	    
-	    this.getEntityDescriptorBasedOnClassNameAsync = function(className, callback) {
-	    	this.getEntityDescriptorBasedOnClassName(className, callback?callback:new Callback());
+	    this.getEntityDescriptorBasedOnClassNameAsync = function(className, callback, transaction) {
+	    	this.getEntityDescriptorBasedOnClassName(className, callback?callback:new Callback(), transaction);
 	    }
 	
 		
@@ -293,6 +380,7 @@ var ResourceManager = (function() {
 	    this.getEntityDescriptorBasedOnTableName = function(tableName) {
 	
 			var callback = arguments && arguments[1];
+			var transaction = arguments && arguments[2];
 	
 	        var adapter = new Adapter();
 	        adapter.setAdapterName(Constants.RESOURCE_ADAPTER);
@@ -301,7 +389,33 @@ var ResourceManager = (function() {
 	        adapter.addParameter(tableName);
 	
 			
-			if(callback) {
+			if(transaction) {
+				var parameters = adapter.getParameters();
+			
+				var siminovDatas = Object.create(HybridSiminovDatas);
+				siminovDatas.datas = new Array();
+				
+				for(var i = 0;i < parameters.length;i++) {
+				
+					var parameter = parameters[i];
+					if(parameter != undefined) {
+						parameter = encodeURI(parameters[i]);
+					} else {
+						parameter = "";
+					}
+					
+					var siminovData = Object.create(HybridSiminovDatas.HybridSiminovData);
+			        siminovData.value = parameter;
+			        
+			        siminovDatas.datas.push(siminovData);
+		  		}
+		
+				adapter.removeParameters();
+				adapter.addParameter(JSON.stringify(siminovDatas));
+			
+				adapter.setCallback(getEntityDescriptorBasedOnTableNameCallback);
+				transaction.addRequest(adapter);
+			} else if(callback) {
 				adapter.setCallback(getEntityDescriptorBasedOnTableNameCallback);
 				adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
 				
@@ -326,8 +440,8 @@ var ResourceManager = (function() {
 	    }
 	    
 	    
-	    this.getEntityDescriptorBasedOnTableNameAsync = function(tableName, callback) {
-	    	this.getEntityDescriptorBasedOnTableName(tableName, callback);
+	    this.getEntityDescriptorBasedOnTableNameAsync = function(tableName, callback, transaction) {
+	    	this.getEntityDescriptorBasedOnTableName(tableName, callback, transaction);
 	    }
 	    
 	}

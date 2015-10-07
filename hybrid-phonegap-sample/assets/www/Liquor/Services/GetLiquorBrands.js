@@ -158,16 +158,6 @@ function GetLiquorBrands() {
             new LiquorBrand().sum().column('BRAND_NAME').executeAsync(sumCallback, transaction);
             
             
-            var sumCallback = new Callback();
-            sumCallback.onSuccess = function(liquorBrandSum) {
-            	alert("liquor brand sum: " + liquorBrandSum);
-            	Log.debug("Home", "populateHome", "Liquor Brand Sum: " + liquorBrandSum);
-            }
-            
-            
-            new LiquorBrand().sum().column('BRAND_NAME').executeAsync(sumCallback, transaction);
-            
-            
             var totalCallback = new Callback();
             totalCallback.onSuccess = function(liquorBrandTotal) {
             	alert("liquor brand total: " + liquorBrandTotal);
@@ -176,6 +166,106 @@ function GetLiquorBrands() {
             
             
             new LiquorBrand().total().column('BRAND_NAME').executeAsync(totalCallback, transaction);
+            
+            
+            var groupConcatCallback = new Callback();
+            groupConcatCallback.onSuccess = function(liquorBrandGroupConcat) {
+            	alert("liquor brand group concat: " + liquorBrandGroupConcat);
+            	Log.debug("Home", "populateHome", "Liquor Brand Group Concat: " + liquorBrandGroupConcat);
+            }
+            
+            
+            new LiquorBrand().groupConcat().column('BRAND_NAME').executeAsync(groupConcatCallback, transaction);
+            
+            
+            var deleteCallback = new Callback();
+            deleteCallback.onSuccess = function(liquorBrandDelete) {
+            	alert("liquor brand delete: " + liquorBrandDelete);
+            	Log.debug("Home", "populateHome", "Liquor Brand Delete: " + liquorBrandDelete);
+            }
+            
+            
+            new LiquorBrand().delete().executeAsync(deleteCallback, transaction);
+            
+            
+            var getTableNameCallback = new Callback();
+            getTableNameCallback.onSuccess = function(liquorBrandGetTableName) {
+            	alert("liquor brand get table name: " + liquorBrandGetTableName);
+            	Log.debug("Home", "populateHome", "Liquor Brand Get Table Name: " + liquorBrandGetTableName);
+            }
+            
+            
+            new LiquorBrand().getTableNameAsync(getTableNameCallback, transaction);
+            
+            
+            var getColumnNamesCallback = new Callback();
+            getColumnNamesCallback.onSuccess = function(liquorBrandGetColumnNames) {
+            	alert("liquor brand get column names: " + liquorBrandGetColumnNames);
+            	Log.debug("Home", "populateHome", "Liquor Brand Get Column Names: " + liquorBrandGetColumnNames);
+            }
+            
+            
+            new LiquorBrand().getColumnNamesAsync(getColumnNamesCallback, transaction);
+            
+            
+            var getColumnTypesCallback = new Callback();
+            getColumnTypesCallback.onSuccess = function(liquorBrandGetColumnTypes) {
+            	alert("liquor brand get column types: " + liquorBrandGetColumnTypes);
+            	Log.debug("Home", "populateHome", "Liquor Brand Get Column Types: " + liquorBrandGetColumnTypes);
+            }
+            
+            
+            new LiquorBrand().getColumnTypesAsync(getColumnTypesCallback, transaction);
+            
+            
+            var getPrimaryKeysCallback = new Callback();
+            getPrimaryKeysCallback.onSuccess = function(liquorBrandGetPrimaryKeys) {
+            	alert("liquor brand get primary keys: " + liquorBrandGetPrimaryKeys);
+            	Log.debug("Home", "populateHome", "Liquor Brand Get Primary Keys: " + liquorBrandGetPrimaryKeys);
+            }
+            
+            
+            new LiquorBrand().getPrimaryKeysAsync(getPrimaryKeysCallback, transaction);
+            
+            
+            var getMandatoryFieldsCallback = new Callback();
+            getMandatoryFieldsCallback.onSuccess = function(liquorBrandGetMandatoryFields) {
+            	alert("liquor brand get mandatory fields: " + liquorBrandGetMandatoryFields);
+            	Log.debug("Home", "populateHome", "Liquor Brand Get Mandatory Fields: " + liquorBrandGetMandatoryFields);
+            }
+            
+            
+            new LiquorBrand().getMandatoryFieldsAsync(getMandatoryFieldsCallback, transaction);
+            
+            
+            var getUniqueFieldsCallback = new Callback();
+            getUniqueFieldsCallback.onSuccess = function(liquorBrandGetUniqueFields) {
+            	alert("liquor brand get unique fields: " + liquorBrandGetUniqueFields);
+            	Log.debug("Home", "populateHome", "Liquor Brand Get Unique Fields: " + liquorBrandGetUniqueFields);
+            }
+            
+            
+            new LiquorBrand().getUniqueFieldsAsync(getUniqueFieldsCallback, transaction);
+            
+            
+            var getForeignKeysCallback = new Callback();
+            getForeignKeysCallback.onSuccess = function(liquorBrandGetForeignKeys) {
+            	alert("liquor brand get foreign keys: " + liquorBrandGetForeignKeys);
+            	Log.debug("Home", "populateHome", "Liquor Brand Get Foreign Keys: " + liquorBrandGetForeignKeys);
+            }
+            
+            
+            new LiquorBrand().getForeignKeysAsync(getForeignKeysCallback, transaction);
+            
+            
+            var getApplicationDescriptor = new Callback();
+            getApplicationDescriptor.onSuccess = function(applicationDescriptor) {
+            	alert("application descriptor: " + applicationDescriptor);
+            	Log.debug("Home", "populateHome", "Application Descriptor: " + applicationDescriptor);
+            }
+            
+            
+            ResourceManager.getInstance().getApplicationDescriptorAsync(getApplicationDescriptor, transaction);
 		}
 		
 		callback.onSuccess = function() {

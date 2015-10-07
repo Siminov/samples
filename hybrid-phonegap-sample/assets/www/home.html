@@ -135,6 +135,52 @@
         		
         			var notificationManager = NotificationManager.getInstance();
         			notificationManager.doUnregistration();*/
+        			
+			        			
+					var callback1 = new Callback();
+					callback1.onExecute = function(transaction) {
+						
+			            var getApplicationDescriptorCallback = new Callback();
+			            getApplicationDescriptorCallback.onSuccess = function(applicationDescriptor) {
+			            	alert("application descriptor: " + applicationDescriptor.getName());
+			            	Log.debug("Home", "populateHome", "Application Descriptor: " + applicationDescriptor.getName());
+			            }
+			            
+			            
+			            ResourceManager.getInstance().getApplicationDescriptorAsync(getApplicationDescriptorCallback, transaction);
+			            
+			            
+			            var getEntityDescriptorCallback = new Callback();
+			            getEntityDescriptorCallback.onSuccess = function(entityDescriptor) {
+			            	alert("entity descriptor: " + entityDescriptor.getTableName());
+			            	Log.debug("Home", "populateHome", "Entity Descriptor: " + entityDescriptor.getTableName());
+			            }
+			            
+			            new Liquor().getEntityDescriptorAsync(getEntityDescriptorCallback, transaction);
+			            
+			            
+			            var getDatabaseDescriptorCallback = new Callback();
+			            getDatabaseDescriptorCallback.onSuccess = function(databaseDescriptor) {
+			            	alert("database descriptor: " + databaseDescriptor.getDatabaseName());
+			            	Log.debug("Home", "populateHome", "Database Descriptor: " + databaseDescriptor.getDatabaseName());
+			            }
+			            
+			            new Liquor().getDatabaseDescriptorAsync(getDatabaseDescriptorCallback, transaction);
+			            
+					}
+					
+					callback.onSuccess = function() {
+						alert("Transaction Success");
+					}
+					
+					callback.onFailure = function() {
+						alert("Trasaction Failure");
+					}
+			
+					var databaseDescriptor = new LiquorBrand().getDatabaseDescriptor();
+					Database.beginTransactionAsync(databaseDescriptor, callback1);
+			        			
+        			
                 }
                 
                 callback.onFailure = function() {

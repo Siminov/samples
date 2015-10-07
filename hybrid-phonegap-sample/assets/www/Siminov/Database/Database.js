@@ -610,6 +610,7 @@ function Database() {
     this.getTableName = function() {
 
 		var callback = arguments && arguments[0];
+		var transaction = arguments && arguments[1];
 
         var adapter = new Adapter();
         adapter.setAdapterName(Constants.DATABASE_ADAPTER);
@@ -618,7 +619,34 @@ function Database() {
         adapter.addParameter(this.getFunctionName());
 
 		
-		if(callback) {
+		if(transaction) {
+			
+			var parameters = adapter.getParameters();
+			
+			var siminovDatas = Object.create(HybridSiminovDatas);
+			siminovDatas.datas = new Array();
+			
+			for(var i = 0;i < parameters.length;i++) {
+			
+				var parameter = parameters[i];
+				if(parameter != undefined) {
+					parameter = encodeURI(parameters[i]);
+				} else {
+					parameter = "";
+				}
+				
+				var siminovData = Object.create(HybridSiminovDatas.HybridSiminovData);
+		        siminovData.value = parameter;
+		        
+		        siminovDatas.datas.push(siminovData);
+	  		}
+	
+			adapter.removeParameters();
+			adapter.addParameter(JSON.stringify(siminovDatas));
+		
+			adapter.setCallback(getTableNameCallback);
+			transaction.addRequest(adapter);
+		} else if(callback) {
 			adapter.setCallback(getTableNameCallback);
 			adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
 			
@@ -676,8 +704,8 @@ function Database() {
     }
 
 
-	this.getTableNameAsync = function(callback) {
-		this.getTableName(callback?callback:new Callback());
+	this.getTableNameAsync = function(callback, transaction) {
+		this.getTableName(callback?callback:new Callback(), transaction);
 	}
 
 
@@ -699,6 +727,7 @@ function Database() {
     this.getColumnNames = function() {
 
 		var callback = arguments && arguments[0];
+		var transaction = arguments && arguments[1];
 
         var adapter = new Adapter();
         adapter.setAdapterName(Constants.DATABASE_ADAPTER);
@@ -707,7 +736,34 @@ function Database() {
         adapter.addParameter(this.getFunctionName());
 
 		
-		if(callback) {
+		if(transaction) {
+			
+			var parameters = adapter.getParameters();
+			
+			var siminovDatas = Object.create(HybridSiminovDatas);
+			siminovDatas.datas = new Array();
+			
+			for(var i = 0;i < parameters.length;i++) {
+			
+				var parameter = parameters[i];
+				if(parameter != undefined) {
+					parameter = encodeURI(parameters[i]);
+				} else {
+					parameter = "";
+				}
+				
+				var siminovData = Object.create(HybridSiminovDatas.HybridSiminovData);
+		        siminovData.value = parameter;
+		        
+		        siminovDatas.datas.push(siminovData);
+	  		}
+	
+			adapter.removeParameters();
+			adapter.addParameter(JSON.stringify(siminovDatas));
+		
+			adapter.setCallback(getColumnNamesCallback);
+			transaction.addRequest(adapter);
+		} else if(callback) {
 			adapter.setCallback(getColumnNamesCallback);
 			adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
 			
@@ -760,8 +816,8 @@ function Database() {
     }
 
 
-	this.getColumnNamesAsync = function(callback) {
-		this.getColumnNames(callback?callback:new Callback());
+	this.getColumnNamesAsync = function(callback, transaction) {
+		this.getColumnNames(callback?callback:new Callback(), transaction);
 	}
 
 
@@ -784,6 +840,7 @@ function Database() {
     this.getColumnTypes = function() {
 
 		var callback = arguments && arguments[0];
+		var transaction = arguments && arguments[1];
 
         var adapter = new Adapter();
         adapter.setAdapterName(Constants.DATABASE_ADAPTER);
@@ -792,7 +849,34 @@ function Database() {
         adapter.addParameter(this.getFunctionName());
 
 		
-		if(callback) {
+		if(transaction) {
+			
+			var parameters = adapter.getParameters();
+			
+			var siminovDatas = Object.create(HybridSiminovDatas);
+			siminovDatas.datas = new Array();
+			
+			for(var i = 0;i < parameters.length;i++) {
+			
+				var parameter = parameters[i];
+				if(parameter != undefined) {
+					parameter = encodeURI(parameters[i]);
+				} else {
+					parameter = "";
+				}
+				
+				var siminovData = Object.create(HybridSiminovDatas.HybridSiminovData);
+		        siminovData.value = parameter;
+		        
+		        siminovDatas.datas.push(siminovData);
+	  		}
+	
+			adapter.removeParameters();
+			adapter.addParameter(JSON.stringify(siminovDatas));
+		
+			adapter.setCallback(getColumnTypesCallback);
+			transaction.addRequest(adapter);
+		} else if(callback) {
 			adapter.setCallback(getColumnTypesCallback);
 			adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
 			
@@ -851,8 +935,8 @@ function Database() {
     }
 
 
-	this.getColumnTypesAsync = function(callback) {
-		this.getColumnTypes(callback?callback:new Callback());
+	this.getColumnTypesAsync = function(callback, transaction) {
+		this.getColumnTypes(callback?callback:new Callback(), transaction);
 	}
 
 
@@ -874,6 +958,7 @@ function Database() {
     this.getPrimaryKeys = function() {
 
 		var callback = arguments && arguments[0];
+		var transaction = arguments && arguments[1];
 	
         var adapter = new Adapter();
         adapter.setAdapterName(Constants.DATABASE_ADAPTER);
@@ -882,7 +967,34 @@ function Database() {
         adapter.addParameter(this.getFunctionName());
 
 		
-		if(callback) {
+		if(transaction) {
+			
+			var parameters = adapter.getParameters();
+			
+			var siminovDatas = Object.create(HybridSiminovDatas);
+			siminovDatas.datas = new Array();
+			
+			for(var i = 0;i < parameters.length;i++) {
+			
+				var parameter = parameters[i];
+				if(parameter != undefined) {
+					parameter = encodeURI(parameters[i]);
+				} else {
+					parameter = "";
+				}
+				
+				var siminovData = Object.create(HybridSiminovDatas.HybridSiminovData);
+		        siminovData.value = parameter;
+		        
+		        siminovDatas.datas.push(siminovData);
+	  		}
+	
+			adapter.removeParameters();
+			adapter.addParameter(JSON.stringify(siminovDatas));
+		
+			adapter.setCallback(getPrimaryKeysCallback);
+			transaction.addRequest(adapter);
+		} else if(callback) {
 			adapter.setCallback(getPrimaryKeysCallback);
 			adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
 			
@@ -933,8 +1045,8 @@ function Database() {
 
 
 
-	this.getPrimaryKeysAsync = function(callback) {
-		this.getPrimaryKeys(callback?callback:new Callback());		
+	this.getPrimaryKeysAsync = function(callback, transaction) {
+		this.getPrimaryKeys(callback?callback:new Callback(), transaction);		
 	}
 	
 
@@ -956,6 +1068,7 @@ function Database() {
     this.getMandatoryFields = function() {
 
 		var callback = arguments && arguments[0];
+		var transaction = arguments && arguments[1];
 
         var adapter = new Adapter();
         adapter.setAdapterName(Constants.DATABASE_ADAPTER);
@@ -964,7 +1077,34 @@ function Database() {
         adapter.addParameter(this.getFunctionName());
 
 	
-		if(callback) {
+		if(transaction) {
+			
+			var parameters = adapter.getParameters();
+			
+			var siminovDatas = Object.create(HybridSiminovDatas);
+			siminovDatas.datas = new Array();
+			
+			for(var i = 0;i < parameters.length;i++) {
+			
+				var parameter = parameters[i];
+				if(parameter != undefined) {
+					parameter = encodeURI(parameters[i]);
+				} else {
+					parameter = "";
+				}
+				
+				var siminovData = Object.create(HybridSiminovDatas.HybridSiminovData);
+		        siminovData.value = parameter;
+		        
+		        siminovDatas.datas.push(siminovData);
+	  		}
+	
+			adapter.removeParameters();
+			adapter.addParameter(JSON.stringify(siminovDatas));
+		
+			adapter.setCallback(getMandatoryFieldsCallback);
+			transaction.addRequest(adapter);
+		} else if(callback) {
 			adapter.setCallback(getMandatoryFieldsCallback);
 			adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
 			
@@ -1016,8 +1156,8 @@ function Database() {
     }
 
 
-	this.getMandatoryFieldsAsync = function(callback) {
-		this.getMandatoryFields(callback?callback:new Callback());
+	this.getMandatoryFieldsAsync = function(callback, transaction) {
+		this.getMandatoryFields(callback?callback:new Callback(), transaction);
 	}
 
 	/**
@@ -1039,6 +1179,7 @@ function Database() {
     this.getUniqueFields = function() {
 
 		var callback = arguments && arguments[0];
+		var transaction = arguments && arguments[1];
 
         var adapter = new Adapter();
         adapter.setAdapterName(Constants.DATABASE_ADAPTER);
@@ -1047,7 +1188,34 @@ function Database() {
         adapter.addParameter(this.getFunctionName());
 
 	
-		if(callback) {
+		if(transaction) {
+			
+			var parameters = adapter.getParameters();
+			
+			var siminovDatas = Object.create(HybridSiminovDatas);
+			siminovDatas.datas = new Array();
+			
+			for(var i = 0;i < parameters.length;i++) {
+			
+				var parameter = parameters[i];
+				if(parameter != undefined) {
+					parameter = encodeURI(parameters[i]);
+				} else {
+					parameter = "";
+				}
+				
+				var siminovData = Object.create(HybridSiminovDatas.HybridSiminovData);
+		        siminovData.value = parameter;
+		        
+		        siminovDatas.datas.push(siminovData);
+	  		}
+	
+			adapter.removeParameters();
+			adapter.addParameter(JSON.stringify(siminovDatas));
+		
+			adapter.setCallback(getUniqueFieldsCallback);
+			transaction.addRequest(adapter);
+		} else if(callback) {
 			adapter.setCallback(getUniqueFieldsCallback);
 			adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
 			
@@ -1091,8 +1259,8 @@ function Database() {
     }
 
 
-	this.getUniqueFieldsAsync = function(callback) {
-		this.getUniqueFields(callback?callback:new Callback());
+	this.getUniqueFieldsAsync = function(callback, transaction) {
+		this.getUniqueFields(callback?callback:new Callback(), transaction);
 	}
 
 
@@ -1116,6 +1284,7 @@ function Database() {
     this.getForeignKeys = function() {
 
 		var callback = arguments && arguments[0]; 
+		var transaction = arguments && arguments[1];
 
         var adapter = new Adapter();
         adapter.setAdapterName(Constants.DATABASE_ADAPTER);
@@ -1124,7 +1293,34 @@ function Database() {
         adapter.addParameter(this.getFunctionName());
 
 	
-		if(callback) {
+		if(transaction) {
+			
+			var parameters = adapter.getParameters();
+			
+			var siminovDatas = Object.create(HybridSiminovDatas);
+			siminovDatas.datas = new Array();
+			
+			for(var i = 0;i < parameters.length;i++) {
+			
+				var parameter = parameters[i];
+				if(parameter != undefined) {
+					parameter = encodeURI(parameters[i]);
+				} else {
+					parameter = "";
+				}
+				
+				var siminovData = Object.create(HybridSiminovDatas.HybridSiminovData);
+		        siminovData.value = parameter;
+		        
+		        siminovDatas.datas.push(siminovData);
+	  		}
+	
+			adapter.removeParameters();
+			adapter.addParameter(JSON.stringify(siminovDatas));
+		
+			adapter.setCallback(getForeignKeysCallback);
+			transaction.addRequest(adapter);
+		} else if(callback) {
 			adapter.setCallback(getForeignKeysCallback);
 			adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
 			
@@ -1176,8 +1372,8 @@ function Database() {
 
 
 
-	this.getForeignKeysAsync = function(callback) {
-		this.getForeignKeys(callback?callback:new Callback());
+	this.getForeignKeysAsync = function(callback, transaction) {
+		this.getForeignKeys(callback?callback:new Callback(), transaction);
 	}
 
 
@@ -1199,9 +1395,13 @@ function Database() {
     this.getDatabaseDescriptor = function() {
 
 		var callback = arguments && arguments[0];
+		var transaction = arguments && arguments[1];
+		
         var resourceManager = ResourceManager.getInstance();
         
-        if(callback) {
+        if(transaction) { 
+			resourceManager.getDatabaseDescriptorBasedOnClassNameAsync(this.getFunctionName(), callback, transaction);
+        } else if(callback) {
 			resourceManager.getDatabaseDescriptorBasedOnClassNameAsync(this.getFunctionName(), callback);
         } else {
 	        return resourceManager.getDatabaseDescriptorBasedOnClassName(this.getFunctionName());
@@ -1209,8 +1409,8 @@ function Database() {
     }
 
 
-	this.getDatabaseDescriptorAsync = function(callback) {
-		this.getDatabaseDescriptor(callback?callback:new Callback());
+	this.getDatabaseDescriptorAsync = function(callback, transaction) {
+		this.getDatabaseDescriptor(callback?callback:new Callback(), transaction);
 	}
 	
 
@@ -1232,9 +1432,14 @@ function Database() {
     this.getEntityDescriptor = function() {
 
 		var callback = arguments && arguments[0];
+		var transaction = arguments && arguments[1];
+		
         var resourceManager = ResourceManager.getInstance();
         
-        if(callback) {
+        
+        if(transaction) {
+        	resourceManager.getEntityDescriptorBasedOnClassNameAsync(this.getFunctionName(), callback, transaction);
+        } else if(callback) {
         	resourceManager.getEntityDescriptorBasedOnClassNameAsync(this.getFunctionName(), callback);
         } else {
 	        return resourceManager.getEntityDescriptorBasedOnClassName(this.getFunctionName());
@@ -1242,8 +1447,8 @@ function Database() {
     }
 
 
-	this.getEntityDescriptorAsync = function(callback) {
-		this.getEntityDescriptor(callback?callback:new Callback());
+	this.getEntityDescriptorAsync = function(callback, transaction) {
+		this.getEntityDescriptor(callback?callback:new Callback(), transaction);
 	}
 
 }
@@ -1960,7 +2165,6 @@ Database.total = function(className, column, whereClause, groupBy, having) {
 	        
         		if(callback) {
         			callback && callback.onSuccess && callback.onSuccess(0);
-        			break;
         		} else {
                     return 0;
         		}
@@ -1973,6 +2177,7 @@ Database.total = function(className, column, whereClause, groupBy, having) {
 Database.groupConcat = function(className, column, delimiter, whereClause, groupBy, having) {
 
 	var callback = arguments && arguments[6];
+	var transaction = arguments && arguments[7];
 
     var adapter = new Adapter();
 
@@ -1987,7 +2192,34 @@ Database.groupConcat = function(className, column, delimiter, whereClause, group
     adapter.addParameter(having);
 
 	
-	if(callback) {
+	if(transaction) {
+		
+		var parameters = adapter.getParameters();
+		
+		var siminovDatas = Object.create(HybridSiminovDatas);
+		siminovDatas.datas = new Array();
+		
+		for(var i = 0;i < parameters.length;i++) {
+		
+			var parameter = parameters[i];
+			if(parameter != undefined) {
+				parameter = encodeURI(parameters[i]);
+			} else {
+				parameter = "";
+			}
+			
+			var siminovData = Object.create(HybridSiminovDatas.HybridSiminovData);
+	        siminovData.value = parameter;
+	        
+	        siminovDatas.datas.push(siminovData);
+  		}
+
+		adapter.removeParameters();
+		adapter.addParameter(JSON.stringify(siminovDatas));
+	
+		adapter.setCallback(groupConcatCallback);
+		transaction.addRequest(adapter);
+	} else if(callback) {
 		adapter.setCallback(groupConcatCallback);
 		adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
 		
@@ -2049,6 +2281,7 @@ Database.groupConcat = function(className, column, delimiter, whereClause, group
 Database['delete'] = function(className, whereClause, data) {
 
 	var callback = arguments && arguments[3];
+	var transaction = arguments && arguments[4];
 
     var adapter = new Adapter();
 
@@ -2061,7 +2294,33 @@ Database['delete'] = function(className, whereClause, data) {
     adapter.addParameter(data);
 
 	
-	if(callback) {
+	if(transaction) {
+		var parameters = adapter.getParameters();
+		
+		var siminovDatas = Object.create(HybridSiminovDatas);
+		siminovDatas.datas = new Array();
+		
+		for(var i = 0;i < parameters.length;i++) {
+		
+			var parameter = parameters[i];
+			if(parameter != undefined) {
+				parameter = encodeURI(parameters[i]);
+			} else {
+				parameter = "";
+			}
+			
+			var siminovData = Object.create(HybridSiminovDatas.HybridSiminovData);
+	        siminovData.value = parameter;
+	        
+	        siminovDatas.datas.push(siminovData);
+  		}
+
+		adapter.removeParameters();
+		adapter.addParameter(JSON.stringify(siminovDatas));
+	
+		adapter.setCallback(deleteCallback);
+		transaction.addRequest(adapter);
+	} else if(callback) {
 		adapter.setCallback(deleteCallback);
 		adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
 		
@@ -2085,7 +2344,6 @@ Database['delete'] = function(className, whereClause, data) {
 	            
 	            	if(callback) {
 						callback && callback.onFailure && callback.onFailure();	   
-						break;         	
 	            	} else {
 		                throw exception;
 	            	}
@@ -2188,7 +2446,6 @@ Database.beginTransaction = function(databaseDescriptor) {
 	    
 	    
 	    var requests = transaction.getRequests();
-	    alert("process request");
 	    for(var i = 0;i < requests.length;i++) {
 	    	
 	    	var request = requests[i];
@@ -2207,6 +2464,8 @@ Database.beginTransaction = function(databaseDescriptor) {
 		    			
 		    			var response = decodeURIComponent(siminovData.value);
 		    			requestCallback(response);
+		    			
+		    			break;
 		    		}
 	    		} else {
 	    			requestCallback();
@@ -2216,7 +2475,6 @@ Database.beginTransaction = function(databaseDescriptor) {
 	    	transaction.removeRequest(request);
 	    }
 	    
-	    alert("call transaction succss");
     	callback && callback.onSuccess && callback.onSuccess();
 	}
 }
@@ -2248,30 +2506,5 @@ Database.commitTransaction = function(databaseDescriptor) {
             }
         }
     }
-}
-
-
-Database.endTransaction = function(databaseDescriptor) {
-
-    var adapter = new Adapter();
-    adapter.setAdapterName(Constants.DATABASE_ADAPTER);
-    adapter.setHandlerName(Constants.DATABASE_END_TRANSACTION_HANDLER);
-
-    adapter.addParameter(databaseDescriptor.getDatabaseName());
-
-    var data = Adapter.invoke(adapter);
-    if(data != undefined && data != null) {
-
-        var siminovDatas = JSON.parse(data);
-        var exceptions = SIDatasHelper.toModels(siminovDatas);
-
-        if(exceptions != undefined && exceptions != null && exceptions.length > 0) {
-            var exception = exceptions[0];
-            if(exception != undefined && exception != null) {
-                throw exception;
-            }
-        }
-    }
-
 }
 

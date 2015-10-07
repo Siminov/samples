@@ -907,16 +907,6 @@ Constants.DATABASE_BEGIN_TRANSACTION_ASYNC_HANDLER = "BEGIN-TRANSACTION-ASYNC";
 */
 Constants.DATABASE_COMMIT_TRANSACTION_HANDLER = "COMMIT-TRANSACTION";
 
-/**
-	Siminov Database End Transaction Handler
-
-	@property SIMINOV_DATABASE_END_TRANSACTION_HANDLER
-	@type String
-	@static
-	@final
-	@readOnly
-*/
-Constants.DATABASE_END_TRANSACTION_HANDLER = "END-TRANSACTION";
 
 
 //	Siminov Adapter
