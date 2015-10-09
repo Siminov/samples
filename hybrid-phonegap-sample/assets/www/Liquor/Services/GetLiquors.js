@@ -56,6 +56,8 @@ function GetLiquors() {
 		var liquors = liquorsReader.getLiquors();
 		if(liquors != undefined && liquors != null && liquors.length > 0) {
 			
+			var callbackCount = 0;
+			
 			var callback = new Callback();
 			callback.onExecute = function(transaction) {
 			
@@ -72,49 +74,42 @@ function GetLiquors() {
 			}			
 			
 			callback.onSuccess = function() {
-				//alert("Transaction Successful");
 				
-				populateHome();
+				if(REQUEST == ASYNC_REQUEST) {
+					++callbackCount;
+				
+					if((callbackCount + 1) == liquors.length) {
+						Log.debug("GetLiquors", "onRequestFinish", "Save Or Update Success: Populate Home: " + callbackCount);
+						populateHome();
+					}
+				} else if(REQUEST == ASYNC_TRANSACTION_REQUEST) {
+					populateHome();
+				}
 			}	
 		
 			callback.onFailure = function() {
 				alert("Transaction Failure");
 			}
 			
-			var databaseDescriptor = new Liquor().getDatabaseDescriptor();
-			Database.beginTransactionAsync(databaseDescriptor, callback);
 			
-			
-			
-			/*var callbackCount = 0;
-			for(var i = 0;i < liquors.length;i++) {
-
-				var liquor = liquors[i];
-				
-				var callback = new Callback();
-				callback.onSuccess = function() {
-					++callbackCount;
-					
-					if((callbackCount + 1) == liquors.length) {
-						Log.debug("GetLiquors", "onRequestFinish", "Save Or Update Success: Populate Home: " + callbackCount);
-						populateHome();
-					}
-				
-					Log.debug("GetLiquors", "onRequestFinish", "Save Or Update Success");
-					return;
-				}
-				
-				
-				try {
+			if(REQUEST == ASYNC_REQUEST) {
+				for(var i = 0;i < liquors.length;i++) {
+					var liquor = liquors[i];
 					liquor.saveOrUpdateAsync(callback);
-				} catch(de) {
-					Log.error("GetLiquors", "onServiceRequestFinish", "Database Exception caught while saving liquors in database, " + de.getMessage());
 				}
-			}*/
+			} else if(REQUEST == ASYNC_TRANSACTION_REQUEST) {
+				var databaseDescriptor = new Liquor().getDatabaseDescriptor();
+				Database.beginTransactionAsync(databaseDescriptor, callback);	
+			} else if(REQUEST == SYNC_REQUEST) {
+			
+				for(var i = 0;i < liquors.length;i++) {
+					var liquor = liquors[i];
+					liquor.saveOrUpdate();
+				}
+				
+				populateHome();
+			}
 		}		
-		
-		
-		//populateHome();
 	}
 
 	this.onTerminate = function(serviceException) {

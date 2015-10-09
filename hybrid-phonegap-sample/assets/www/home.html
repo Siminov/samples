@@ -135,59 +135,18 @@
         		
         			var notificationManager = NotificationManager.getInstance();
         			notificationManager.doUnregistration();*/
-        			
-			        			
-					var callback1 = new Callback();
-					callback1.onExecute = function(transaction) {
-						
-			            var getApplicationDescriptorCallback = new Callback();
-			            getApplicationDescriptorCallback.onSuccess = function(applicationDescriptor) {
-			            	alert("application descriptor: " + applicationDescriptor.getName());
-			            	Log.debug("Home", "populateHome", "Application Descriptor: " + applicationDescriptor.getName());
-			            }
-			            
-			            
-			            ResourceManager.getInstance().getApplicationDescriptorAsync(getApplicationDescriptorCallback, transaction);
-			            
-			            
-			            var getEntityDescriptorCallback = new Callback();
-			            getEntityDescriptorCallback.onSuccess = function(entityDescriptor) {
-			            	alert("entity descriptor: " + entityDescriptor.getTableName());
-			            	Log.debug("Home", "populateHome", "Entity Descriptor: " + entityDescriptor.getTableName());
-			            }
-			            
-			            new Liquor().getEntityDescriptorAsync(getEntityDescriptorCallback, transaction);
-			            
-			            
-			            var getDatabaseDescriptorCallback = new Callback();
-			            getDatabaseDescriptorCallback.onSuccess = function(databaseDescriptor) {
-			            	alert("database descriptor: " + databaseDescriptor.getDatabaseName());
-			            	Log.debug("Home", "populateHome", "Database Descriptor: " + databaseDescriptor.getDatabaseName());
-			            }
-			            
-			            new Liquor().getDatabaseDescriptorAsync(getDatabaseDescriptorCallback, transaction);
-			            
-					}
-					
-					callback.onSuccess = function() {
-						alert("Transaction Success");
-					}
-					
-					callback.onFailure = function() {
-						alert("Trasaction Failure");
-					}
-			
-					var databaseDescriptor = new LiquorBrand().getDatabaseDescriptor();
-					Database.beginTransactionAsync(databaseDescriptor, callback1);
-			        			
-        			
                 }
                 
                 callback.onFailure = function() {
             		alert("initialize error");
                 }
                 
-                Siminov.initializeAsync(callback);
+                
+                if(REQUEST == ASYNC_REQUEST || REQUEST == ASYNC_TRANSACTION_REQUEST) {
+	                Siminov.initializeAsync(callback);
+                } else if(REQUEST == SYNC_REQUEST) {
+	                Siminov.initialize();
+                }
             }
 
 		    function initialize() {
@@ -235,9 +194,37 @@
 	                credential.setToken(password);
 					credential.setActive(true);
 	
-	                credential.saveOrUpdate();
 	
-					navHome();
+					var credentialCallback = new Callback();
+					credentialCallback.onExecute = function(transaction) {
+						credential.saveOrUpdateAsync(undefined, transaction);
+					}
+					
+					credentialCallback.onSuccess = function() {
+						alert("credential save success");
+						navHome();
+					}
+					
+					credentialCallback.onFailure = function() {
+						alert("credential error");
+					}
+	
+		
+					if(REQUEST == ASYNC_REQUEST) {
+						credential.saveOrUpdateAsync(credentialCallback);
+					} else if(REQUEST == ASYNC_TRANSACTION_REQUEST) {
+						var databaseDescriptor = new LiquorBrand().getDatabaseDescriptor();
+						Database.beginTransactionAsync(databaseDescriptor, credentialCallback);
+					} else if(REQUEST == SYNC_REQUEST) {
+					
+						try {
+			                credential.saveOrUpdate();
+						} catch(e) {
+							alert("error while saving credential");	
+						}
+						
+						navHome();
+					}
 				}
 			}
 			
@@ -260,7 +247,21 @@
 				getLiquors.setService(GetLiquors.SERVICE_NAME);
 				getLiquors.setRequest(GetLiquors.REQUEST_NAME);
 				
-				getLiquors.invoke();
+				
+				var getLiquorsCallback = new Callback();
+				getLiquorsCallback.onSuccess = function() {
+					alert("get liquors success");
+				}
+				
+				getLiquorsCallback.onFailure = function() {
+					alert("get liquors error");
+				}
+				
+				if(REQUEST == ASYNC_REQUEST || REQUEST == ASYNC_TRANSACTION_REQUEST) {
+					getLiquors.invokeAsync(getLiquorsCallback);
+				} else if(REQUEST == SYNC_REQUEST) {
+					getLiquors.invoke();
+				}
 				
 				//populateHome();
 			}			
@@ -274,15 +275,41 @@
                 
                 
                 var callback = new Callback();
+                callback.onExecute = function(transaction) {
+                
+                	var selectCallback = new Callback();
+                	selectCallback.onSuccess = function(getLiquors) {
+                		liquors = getLiquors;
+                	}
+                
+                	new Liquor().select().executeAsync(selectCallback, transaction);
+                }
+                
                 callback.onSuccess = function(savedLiquors) {
                 	Log.debug("Home", "populateHome", "Saved Liquors: " + savedLiquors);
                 	
-                	liquors = savedLiquors;
+                	if(REQUEST == ASYNC_REQUEST) {
+	                	liquors = savedLiquors;
+                	}
+                	
                 	loadTasks();
                 }
                 
-                liquors = new Liquor().select().executeAsync(callback);
-				//loadTasks();
+                callback.onFailure = function() {
+                	alert("select liquors error");
+                }
+                
+                
+                if(REQUEST == ASYNC_REQUEST) {
+                	liquors = new Liquor().select().executeAsync(callback);
+				} else if(REQUEST == ASYNC_TRANSACTION_REQUEST) {
+					var databaseDescriptor = new LiquorBrand().getDatabaseDescriptor();
+					Database.beginTransactionAsync(databaseDescriptor, callback);
+				} else if(REQUEST == SYNC_REQUEST) {
+	                liquors = new Liquor().select().execute();
+					loadTasks();
+				}
+                
 				function loadTasks() {
 				
 					Log.debug("Database", "home.html", "Liquors: " + liquors);
@@ -331,10 +358,14 @@
 				syncRequest.setName(SYNC_LIQUOR_BRANDS);
 				
 				syncRequest.addResource(GetLiquorBrands.LIQUOR_NAME, liquor.getLiquorType());
-				
-				
 				var syncHandler = SyncHandler.getInstance();
-				syncHandler.handleAsync(syncRequest, callback);
+				
+				if(REQUEST == ASYNC_REQUEST || REQUEST == ASYNC_TRANSACTION_REQUEST) {
+					syncHandler.handleAsync(syncRequest, callback);
+				} else if(REQUEST == SYNC_REQUEST) {
+					syncHandler.handle(syncRequest);
+				}
+				
 
 	
 				/*var callback = new Callback();
@@ -382,15 +413,42 @@
 				var liquorBrands;
 
 				var callback = new Callback();
+				callback.onExecute = function(transaction) {
+				
+					var getLiquorBrands = new Callback();
+					getLiquorBrands.onSuccess = function(getLiquorBrands) {
+						liquorBrands = getLiquorBrands;
+					}
+					
+	                new LiquorBrand().select().where("LIQUOR_TYPE").equalTo(liquor.getLiquorType()).executeAsync(getLiquorBrands, transaction);
+				}	
+				
 				callback.onSuccess = function(savedLiquorBrands) {
 					Log.debug("Home", "populateDetail", "Get Liquor Brands Success: " + savedLiquorBrands);
-					liquorBrands = savedLiquorBrands;
+					
+					if(REQUEST == ASYNC_REQUEST) {
+						liquorBrands = savedLiquorBrands;
+					}
 					
 					loadLiquorBrands();
 				}	
+				
+				callback.onFailure = function() {
+					alert("get liquor brands error");
+				}
 
-                liquorBrands = new LiquorBrand().select().where("LIQUOR_TYPE").equalTo(liquor.getLiquorType()).executeAsync(callback);
-                
+	
+				if(REQUEST == ASYNC_REQUEST) {
+	                new LiquorBrand().select().where("LIQUOR_TYPE").equalTo(liquor.getLiquorType()).executeAsync(callback);
+				} else if(REQUEST == ASYNC_TRANSACTION_REQUEST) {
+					var databaseDescriptor = new LiquorBrand().getDatabaseDescriptor();
+					Database.beginTransactionAsync(databaseDescriptor, callback);
+				} else if(REQUEST == SYNC_REQUEST) {
+	                liquorBrands = new LiquorBrand().select().where("LIQUOR_TYPE").equalTo(liquor.getLiquorType()).execute();
+	                loadLiquorBrands();
+				}
+
+
                 function loadLiquorBrands() {
                 
                 	Log.debug("Home", "populateDetail", "Populate Liquor Brands: " + liquorBrands);

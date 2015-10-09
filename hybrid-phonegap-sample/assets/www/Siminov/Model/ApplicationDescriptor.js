@@ -121,6 +121,16 @@ function ApplicationDescriptor() {
     this.setVersion = function(version) {
         properties.add(Constants.APPLICATION_DESCRIPTOR_VERSION, version);
     }
+    
+    
+    this.getDeploy = function() {
+    	return properties.get(Constants.APPLICATION_DESCRIPTOR_DEPLOY);
+    }
+    
+    this.setDeploy = function(deploy) {
+    	properties.add(Constants.APPLICATION_DESCRIPTOR_DEPLOY, deploy);
+    }
+    
 
 	/**
 	 	Get all Properties defined in descriptor.

@@ -65,6 +65,9 @@ Constants.APPLICATION_DESCRIPTOR_DESCRIPTION = "description";
 Constants.APPLICATION_DESCRIPTOR_VERSION = "version";
 
 
+Constants.APPLICATION_DESCRIPTOR_DEPLOY = "deploy";
+
+
 //   DatabaseDescriptor.si.xml Constants.
 
 
