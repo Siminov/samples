@@ -38,6 +38,10 @@ function Credential() {
 	this.setToken = function(val) {
 		token = val;
 	}
+
+	this.getActive = function() {
+		return active;
+	}
 	
 	this.isActive = function() {
 		return active;

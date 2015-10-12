@@ -162,7 +162,12 @@ Adapter.invoke = function(adapter) {
 
 		var parameter = parameters[i];
 		if(parameter != undefined) {
-			parameter = encodeURI(parameters[i]);
+            
+            if(window.SIMINOV != undefined) {
+                parameter = encodeURI(parameters[i]);
+            } else {
+                parameter = encodeURI(encodeURI(parameters[i]));
+            }
 		} else {
 			parameter = "";
 		}
@@ -210,20 +215,13 @@ Adapter.invoke = function(adapter) {
     /**
      * iOS and Windows Async Native Bridge
      */
+    Adapter.requests.add(adapter.getRequestId(), adapter);
+    
+    Log.debug("Adapter", "invoke", "handleHybridToNativeAsync: REQUEST ID: " + adapter.getRequestId() + ", ADAPTER NAME: " + adapterName + ", HANDLER NAME: " + handlerName + ", DATA: " + json);
+    
     var xmlHttpRequest = new XMLHttpRequest();
-    xmlHttpRequest.onreadystatechange = function() {
-     
-        if(xmlHttpRequest.readyState == 4) {
-            if(xmlHttpRequest.status >= 200 && xmlHttpRequest.status <= 226) {
-                alert("response:" + xmlHttpRequest.responseText);
-            } else {
-                alert("error response: " + xmlHttpRequest.responseText);
-            }
-        }
-    }
+    xmlHttpRequest.open(Constants.HTTP_POST_METHOD, Constants.HTTP_SIMINOV_PROTOCOL + "?" + Constants.HTTP_REQUEST_ID + "=" + adapter.getRequestId() + "&" + Constants.HTTP_REQUEST_MODE + "=" + Adapter.REQUEST_ASYNC_MODE + "&" + Constants.HTTP_REQUEST_API_QUERY_PARAMETER + "=" + adapterName + "." + handlerName + "&" + Constants.HTTP_REQUEST_DATA_QUERY_PARAMETER + "=" + json, true);
     
-    
-    xmlHttpRequest.open(Constants.HTTP_POST_METHOD, Constants.HTTP_SIMINOV_PROTOCOL + "?" + Constants.HTTP_REQUEST_API_QUERY_PARAMETER + "=" + adapterName + "." + handlerName + "&" + Constants.HTTP_REQUEST_DATA_QUERY_PARAMETER + "=" + json, true);
     xmlHttpRequest.send(json);
     
     return xmlHttpRequest.responseText;

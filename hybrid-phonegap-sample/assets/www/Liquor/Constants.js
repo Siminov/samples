@@ -1,4 +1,4 @@
-/** 
+/**
  * [SIMINOV FRAMEWORK]
  * Copyright [2015] [Siminov Software Solution LLP|support@siminov.com]
  *
@@ -183,5 +183,5 @@ var ASYNC_TRANSACTION_REQUEST = "ASYNC-TRANSACTION";
 var SYNC_REQUEST = "SYNC";
 
 
-var REQUEST = ASYNC_REQUEST;
+var REQUEST = ASYNC_TRANSACTION_REQUEST;
 

@@ -1,4 +1,4 @@
-/** 
+/**
  * [SIMINOV FRAMEWORK]
  * Copyright [2015] [Siminov Software Solution LLP|support@siminov.com]
  *
@@ -18,101 +18,99 @@
 
 
 function GetLiquorBrands() {
+    
+    this.setService(GetLiquorBrands.SERVICE_NAME);
+    this.setRequest(GetLiquorBrands.REQUEST_NAME);
+    
+    this.onStart = function() {
+        
+    }
+    
+    this.onQueue = function() {
+        
+    }
+    
+    this.onPause = function() {
+        
+    }
+    
+    this.onResume = function() {
+        
+    }
+    
+    this.onFinish = function() {
+        
+    }
+    
+    this.onRequestInvoke = function(connectionRequest) {
+        
+    }
+    
+    this.onRequestFinish = function(connectionResponse) {
+        
+        if(connectionResponse.getResponse() == null) {
+            return;
+        }
+        
+        var liquorType = this.getResource(GetLiquorBrands.LIQUOR_NAME);
+        
+        
+        var liquor;
+        for(var i = 0;i < liquors.length;i++) {
+            
+            if(liquors[i].getLiquorType() === liquorType) {
+                liquor = liquors[i];
+            }
+        }
+        
+        liquor.removeLiquorBrands();
+        
+        
+        var liquorBrandsReader = new LiquorBrandsReader();
+        liquorBrandsReader.parse(connectionResponse.getResponse());
+        
+        var liquorBrands = liquorBrandsReader.getLiquorBrands();
+        var callbackCount = 0;
+        
+        var callback = new Callback();
+        callback.onExecute = function(transaction) {
+            
+            for(var i = 0;i < liquorBrands.length;i++) {
+                var liquorBrand = liquorBrands[i];
+                liquorBrand.setLiquor(liquor);
+                
+                liquorBrand.saveOrUpdateAsync(saveCallback, transaction);
+                
+                var saveCallback = new Callback();
+                saveCallback.onSuccess = function() {
 
-	this.setService(GetLiquorBrands.SERVICE_NAME);
-	this.setRequest(GetLiquorBrands.REQUEST_NAME);
-	
-	this.onStart = function() {
+                }
+            }
+            
+            
+            liquor.updateAsync(updateCallback, transaction);
+            
+            var updateCallback = new Callback();
+            updateCallback.onSuccess = function() {
 
-	}
-
-	this.onQueue = function() {
-		
-	}
-
-	this.onPause = function() {
-		
-	}
-
-	this.onResume = function() {
-			
-	}
-
-	this.onFinish = function() {
-		
-	}
-
-	this.onRequestInvoke = function(connectionRequest) {
-	
-	}
-
-	this.onRequestFinish = function(connectionResponse) {
-	
-		if(connectionResponse.getResponse() == null) {
-			return;
-		}
-		
-		var liquorType = this.getResource(GetLiquorBrands.LIQUOR_NAME);
-
-		
-		var liquor;
-		for(var i = 0;i < liquors.length;i++) {
-			
-			if(liquors[i].getLiquorType() === liquorType) {
-				liquor = liquors[i];
-			}
-		}
-
-		liquor.removeLiquorBrands();
-
-
-		var liquorBrandsReader = new LiquorBrandsReader();
-		liquorBrandsReader.parse(connectionResponse.getResponse());
-		
-		var liquorBrands = liquorBrandsReader.getLiquorBrands();
-		var callbackCount = 0;
-
-		var callback = new Callback();
-		callback.onExecute = function(transaction) {
-			
-			for(var i = 0;i < liquorBrands.length;i++) {
-				var liquorBrand = liquorBrands[i];
-				liquorBrand.setLiquor(liquor);
-				
-				liquorBrand.saveOrUpdateAsync(saveCallback, transaction);
-				
-				var saveCallback = new Callback();
-				saveCallback.onSuccess = function() {
-					alert("liquor brand saved");
-				}
-			}
-			
-			
-			liquor.updateAsync(updateCallback, transaction);
-				
-			var updateCallback = new Callback();
-			updateCallback.onSuccess = function() {
-				alert("liquor updated");
-			}
-			
-			
+            }
+            
+            
             var selectCallback = new Callback();
             selectCallback.onSuccess = function(savedLiquors) {
-            	alert("get liquors success" + savedLiquors);
-            	Log.debug("Home", "populateHome", "Saved Liquors: " + savedLiquors);
+                Log.debug("Home", "populateHome", "Saved Liquors: " + savedLiquors);
             }
             
             var columnNames = new Array();
-            	columnNames.push('BRAND_NAME');
-            	columnNames.push('DESCRIPTION');
+            columnNames.push('BRAND_NAME');
+            columnNames.push('DESCRIPTION');
             
             new LiquorBrand().select().columns(columnNames).ascendingOrderBy(columnNames).groupBy(columnNames).executeAsync(selectCallback, transaction);
             
             
             var countCallback = new Callback();
             countCallback.onSuccess = function(liquorBrandCount) {
-            	alert("liquor brand count: " + liquorBrandCount);
-            	Log.debug("Home", "populateHome", "Liquor Brand Count: " + liquorBrandCount);
+                Log.debug("Home", "populateHome", "Liquor Brand Count: " + liquorBrandCount);
             }
             
             
@@ -121,8 +119,7 @@ function GetLiquorBrands() {
             
             var avgCallback = new Callback();
             avgCallback.onSuccess = function(liquorBrandAvg) {
-            	alert("liquor brand avg: " + liquorBrandAvg);
-            	Log.debug("Home", "populateHome", "Liquor Brand Avg: " + liquorBrandAvg);
+                Log.debug("Home", "populateHome", "Liquor Brand Avg: " + liquorBrandAvg);
             }
             
             
@@ -131,8 +128,7 @@ function GetLiquorBrands() {
             
             var minCallback = new Callback();
             minCallback.onSuccess = function(liquorBrandMin) {
-            	alert("liquor brand min: " + liquorBrandMin);
-            	Log.debug("Home", "populateHome", "Liquor Brand Min: " + liquorBrandMin);
+                Log.debug("Home", "populateHome", "Liquor Brand Min: " + liquorBrandMin);
             }
             
             
@@ -140,8 +136,7 @@ function GetLiquorBrands() {
             
             var maxCallback = new Callback();
             maxCallback.onSuccess = function(liquorBrandMax) {
-            	alert("liquor brand max: " + liquorBrandMax);
-            	Log.debug("Home", "populateHome", "Liquor Brand Max: " + liquorBrandMax);
+                Log.debug("Home", "populateHome", "Liquor Brand Max: " + liquorBrandMax);
             }
             
             
@@ -150,8 +145,7 @@ function GetLiquorBrands() {
             
             var sumCallback = new Callback();
             sumCallback.onSuccess = function(liquorBrandSum) {
-            	alert("liquor brand sum: " + liquorBrandSum);
-            	Log.debug("Home", "populateHome", "Liquor Brand Sum: " + liquorBrandSum);
+                Log.debug("Home", "populateHome", "Liquor Brand Sum: " + liquorBrandSum);
             }
             
             
@@ -160,8 +154,7 @@ function GetLiquorBrands() {
             
             var totalCallback = new Callback();
             totalCallback.onSuccess = function(liquorBrandTotal) {
-            	alert("liquor brand total: " + liquorBrandTotal);
-            	Log.debug("Home", "populateHome", "Liquor Brand Total: " + liquorBrandTotal);
+                Log.debug("Home", "populateHome", "Liquor Brand Total: " + liquorBrandTotal);
             }
             
             
@@ -170,8 +163,7 @@ function GetLiquorBrands() {
             
             var groupConcatCallback = new Callback();
             groupConcatCallback.onSuccess = function(liquorBrandGroupConcat) {
-            	alert("liquor brand group concat: " + liquorBrandGroupConcat);
-            	Log.debug("Home", "populateHome", "Liquor Brand Group Concat: " + liquorBrandGroupConcat);
+                Log.debug("Home", "populateHome", "Liquor Brand Group Concat: " + liquorBrandGroupConcat);
             }
             
             
@@ -180,8 +172,7 @@ function GetLiquorBrands() {
             
             var deleteCallback = new Callback();
             deleteCallback.onSuccess = function(liquorBrandDelete) {
-            	alert("liquor brand delete: " + liquorBrandDelete);
-            	Log.debug("Home", "populateHome", "Liquor Brand Delete: " + liquorBrandDelete);
+                Log.debug("Home", "populateHome", "Liquor Brand Delete: " + liquorBrandDelete);
             }
             
             
@@ -190,8 +181,7 @@ function GetLiquorBrands() {
             
             var getTableNameCallback = new Callback();
             getTableNameCallback.onSuccess = function(liquorBrandGetTableName) {
-            	alert("liquor brand get table name: " + liquorBrandGetTableName);
-            	Log.debug("Home", "populateHome", "Liquor Brand Get Table Name: " + liquorBrandGetTableName);
+                Log.debug("Home", "populateHome", "Liquor Brand Get Table Name: " + liquorBrandGetTableName);
             }
             
             
@@ -200,8 +190,7 @@ function GetLiquorBrands() {
             
             var getColumnNamesCallback = new Callback();
             getColumnNamesCallback.onSuccess = function(liquorBrandGetColumnNames) {
-            	alert("liquor brand get column names: " + liquorBrandGetColumnNames);
-            	Log.debug("Home", "populateHome", "Liquor Brand Get Column Names: " + liquorBrandGetColumnNames);
+                Log.debug("Home", "populateHome", "Liquor Brand Get Column Names: " + liquorBrandGetColumnNames);
             }
             
             
@@ -210,8 +199,7 @@ function GetLiquorBrands() {
             
             var getColumnTypesCallback = new Callback();
             getColumnTypesCallback.onSuccess = function(liquorBrandGetColumnTypes) {
-            	alert("liquor brand get column types: " + liquorBrandGetColumnTypes);
-            	Log.debug("Home", "populateHome", "Liquor Brand Get Column Types: " + liquorBrandGetColumnTypes);
+                Log.debug("Home", "populateHome", "Liquor Brand Get Column Types: " + liquorBrandGetColumnTypes);
             }
             
             
@@ -220,8 +208,7 @@ function GetLiquorBrands() {
             
             var getPrimaryKeysCallback = new Callback();
             getPrimaryKeysCallback.onSuccess = function(liquorBrandGetPrimaryKeys) {
-            	alert("liquor brand get primary keys: " + liquorBrandGetPrimaryKeys);
-            	Log.debug("Home", "populateHome", "Liquor Brand Get Primary Keys: " + liquorBrandGetPrimaryKeys);
+                Log.debug("Home", "populateHome", "Liquor Brand Get Primary Keys: " + liquorBrandGetPrimaryKeys);
             }
             
             
@@ -230,8 +217,7 @@ function GetLiquorBrands() {
             
             var getMandatoryFieldsCallback = new Callback();
             getMandatoryFieldsCallback.onSuccess = function(liquorBrandGetMandatoryFields) {
-            	alert("liquor brand get mandatory fields: " + liquorBrandGetMandatoryFields);
-            	Log.debug("Home", "populateHome", "Liquor Brand Get Mandatory Fields: " + liquorBrandGetMandatoryFields);
+                Log.debug("Home", "populateHome", "Liquor Brand Get Mandatory Fields: " + liquorBrandGetMandatoryFields);
             }
             
             
@@ -240,8 +226,7 @@ function GetLiquorBrands() {
             
             var getUniqueFieldsCallback = new Callback();
             getUniqueFieldsCallback.onSuccess = function(liquorBrandGetUniqueFields) {
-            	alert("liquor brand get unique fields: " + liquorBrandGetUniqueFields);
-            	Log.debug("Home", "populateHome", "Liquor Brand Get Unique Fields: " + liquorBrandGetUniqueFields);
+                Log.debug("Home", "populateHome", "Liquor Brand Get Unique Fields: " + liquorBrandGetUniqueFields);
             }
             
             
@@ -250,8 +235,7 @@ function GetLiquorBrands() {
             
             var getForeignKeysCallback = new Callback();
             getForeignKeysCallback.onSuccess = function(liquorBrandGetForeignKeys) {
-            	alert("liquor brand get foreign keys: " + liquorBrandGetForeignKeys);
-            	Log.debug("Home", "populateHome", "Liquor Brand Get Foreign Keys: " + liquorBrandGetForeignKeys);
+                Log.debug("Home", "populateHome", "Liquor Brand Get Foreign Keys: " + liquorBrandGetForeignKeys);
             }
             
             
@@ -260,76 +244,76 @@ function GetLiquorBrands() {
             
             var getApplicationDescriptor = new Callback();
             getApplicationDescriptor.onSuccess = function(applicationDescriptor) {
-            	alert("application descriptor: " + applicationDescriptor);
-            	Log.debug("Home", "populateHome", "Application Descriptor: " + applicationDescriptor);
+                Log.debug("Home", "populateHome", "Application Descriptor: " + applicationDescriptor);
             }
             
             
             ResourceManager.getInstance().getApplicationDescriptorAsync(getApplicationDescriptor, transaction);
-		}
-		
-		callback.onSuccess = function() {
-
-			if(REQUEST == ASYNC_REQUEST) {
-				++callbackCount;
-					
-				if((callbackCount + 1) == liquorBrands.length) {
-					Log.debug("GetLiquorBrands", "onRequestFinish", "Save Or Update Success: Populate Detail: " + callbackCount);
-					
-					loadLiquorBrands();
-				}
-			} else if(REQUEST == ASYNC_TRANSACTION_REQUEST) {
-				loadLiquorBrands();
-			}
-		}
-		
-		callback.onFailure = function() {
-			alert("Trasaction Failure");
-		}
-
-
-
-		if(REQUEST == ASYNC_REQUEST) {
-			
-			for(var i = 0;i < liquorBrands.length;i++) {
-				var liquorBrand = liquorBrands[i];
-				liquorBrand.setLiquor(liquor);
-				
-				liquorBrand.saveOrUpdateAsync(callback);
-			}
-		} else if(REQUEST == ASYNC_TRANSACTION_REQUEST) {
-			var databaseDescriptor = new LiquorBrand().getDatabaseDescriptor();
-			Database.beginTransactionAsync(databaseDescriptor, callback);
-		} else if(REQUEST == SYNC_REQUEST) {
-		
-			for(var i = 0;i < liquorBrands.length;i++) {
-				var liquorBrand = liquorBrands[i];
-				liquorBrand.setLiquor(liquor);
-				
-				try {
-					liquorBrand.saveOrUpdate();
-				} catch(de) {
-					Log.error("GetLiquors", "onServiceRequestFinish", "Database Exception caught while saving liquor brands in database, " + de.getMessage());
-				}
-			}
-			
-			loadLiquorBrands();
-		}
-		
-
-		function loadLiquorBrands() {
-			for(var i = 0;i < liquorBrands.length;i++) {
-				liquor.addLiquorBrand(liquorBrands[i]);
-			}
-	
-	
-			populateDetail(liquorType);
-		}
-	}
-
-	this.onTerminate = function(serviceException) {
-		
-	}
+        }
+        
+        callback.onSuccess = function() {
+            
+            if(REQUEST == ASYNC_REQUEST) {
+                ++callbackCount;
+                
+                if((callbackCount + 1) == liquorBrands.length) {
+                    Log.debug("GetLiquorBrands", "onRequestFinish", "Save Or Update Success: Populate Detail: " + callbackCount);
+                    
+                    fetchLiquorBrands();
+                }
+            } else if(REQUEST == ASYNC_TRANSACTION_REQUEST) {
+                fetchLiquorBrands();
+            }
+        }
+        
+        callback.onFailure = function() {
+            alert("Trasaction Failure");
+        }
+        
+        
+        
+        if(REQUEST == ASYNC_REQUEST) {
+            
+            for(var i = 0;i < liquorBrands.length;i++) {
+                var liquorBrand = liquorBrands[i];
+                liquorBrand.setLiquor(liquor);
+                
+                liquorBrand.saveOrUpdateAsync(callback);
+            }
+        } else if(REQUEST == ASYNC_TRANSACTION_REQUEST) {
+            var databaseDescriptor = new LiquorBrand().getDatabaseDescriptor();
+            Database.beginTransactionAsync(databaseDescriptor, callback);
+        } else if(REQUEST == SYNC_REQUEST) {
+            
+            for(var i = 0;i < liquorBrands.length;i++) {
+                var liquorBrand = liquorBrands[i];
+                liquorBrand.setLiquor(liquor);
+                
+                try {
+                    liquorBrand.saveOrUpdate();
+                } catch(de) {
+                    Log.error("GetLiquors", "onServiceRequestFinish", "Database Exception caught while saving liquor brands in database, " + de.getMessage());
+                    alert("error while saving liquor brands");
+                }
+            }
+            
+            fetchLiquorBrands();
+        }
+        
+        
+        function fetchLiquorBrands() {
+            for(var i = 0;i < liquorBrands.length;i++) {
+                liquor.addLiquorBrand(liquorBrands[i]);
+            }
+            
+            
+            populateDetail(liquorType);
+        }
+    }
+    
+    this.onTerminate = function(serviceException) {
+        
+    }
 }
 
 GetLiquorBrands.SERVICE_NAME = "SIMINOV-HYBRID-LIQUOR-BRANDS-SERVICE";

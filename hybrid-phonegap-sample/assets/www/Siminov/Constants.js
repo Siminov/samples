@@ -1310,3 +1310,7 @@ Constants.HTTP_REQUEST_DATA_QUERY_PARAMETER = "request_data";
 Constants.HTTP_SIMINOV_PROTOCOL = "siminov://";
 
 Constants.REQUEST_UNIQUE_ID = "REQUEST_UNIQUE_ID";
+
+Constants.HTTP_REQUEST_ID = "request_id";
+Constants.HTTP_REQUEST_MODE = "request_mode";
+
