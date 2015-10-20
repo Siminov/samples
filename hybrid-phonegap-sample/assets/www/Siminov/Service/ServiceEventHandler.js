@@ -25,7 +25,14 @@
 	@module Service
 */
 
+var Function = require('../Function/Function');
+var Dictionary = require('../Collection/Dictionary');
+var SIDatasHelper = require('../ReaderWriter/SIDatasHelper');
+var Constants = require('../Constants');
 
+
+module.exports = ServiceEventHandler;
+window.ServiceEventHandler = ServiceEventHandler;
 
 /**
 	Any service event triggered by Siminov is first handled by this function later it will deliver to appropriate Service Event APIs. 
@@ -45,7 +52,7 @@ function ServiceEventHandler() {
 	*/
 	this.triggerEvent = function(data) {
 
-        var hybridSiminovDatas = JSON.parse(data);
+        var hybridSiminovDatas = JSON.parse(eval(data));
         var datas = hybridSiminovDatas.datas;
 
         var apiHandler;

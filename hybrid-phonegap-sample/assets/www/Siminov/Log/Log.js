@@ -23,6 +23,9 @@
 	@module Log
 */
 
+module.exports = Log;
+
+
 /**
 	Log Siminov Messages.
 	

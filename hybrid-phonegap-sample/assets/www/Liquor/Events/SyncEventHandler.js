@@ -16,6 +16,11 @@
  **/
 
 
+var ISyncEvents = require('../../Siminov/Events/ISyncEvents');
+var Function = require('../../Siminov/Function/Function');
+
+module.exports = SyncEventHandler;
+
 
 function SyncEventHandler() {
 	
@@ -38,3 +43,6 @@ function SyncEventHandler() {
 		//alert("onSyncTerminated");
 	}
 }
+
+
+Function.implement(ISyncEvents, SyncEventHandler);

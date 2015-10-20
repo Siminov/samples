@@ -25,6 +25,7 @@
 	@module Database
 */
 
+module.exports = IAverage;
 
 /**
 	Design contain all interfaces required by database layer to deal with database.

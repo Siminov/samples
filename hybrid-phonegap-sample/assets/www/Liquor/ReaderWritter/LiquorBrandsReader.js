@@ -15,6 +15,15 @@
  * limitations under the License.
  **/
 
+var Function = require('../../Siminov/Function/Function');
+var ServiceException = require('../../Siminov/Exception/ServiceException');
+var Log = require('../../Siminov/Log/Log');
+
+var LiquorBrand = require('../Models/LiquorBrand');
+var LiquorConstants = require('../Constants');
+
+module.exports = LiquorBrandsReader;
+
 
 function LiquorBrandsReader() {
 	
@@ -37,7 +46,7 @@ function LiquorBrandsReader() {
 
 			if(nodeName == PARSER_ERROR) {
 				throw new ServiceException("LiquorBrandsReader", "parse", "Error while parsing liquor brands.");					
-			} else if(nodeName === GET_LIQUOR_BRANDS_WS_BRAND) {
+			} else if(nodeName === LiquorConstants.GET_LIQUOR_BRANDS_WS_BRAND) {
 
 				var liquorBrand = parseLiquorBrand(rootElement[i]);
 				liquorBrands.push(liquorBrand);
@@ -60,13 +69,13 @@ function LiquorBrandsReader() {
 			nodeName = liquorBrandProperties[i].nodeName;
 			var nodeValue = liquorBrandProperties[i].childNodes[0].nodeValue; 
 
-			if(nodeName === GET_LIQUOR_BRANDS_WS_BRAND_NAME) {
+			if(nodeName === LiquorConstants.GET_LIQUOR_BRANDS_WS_BRAND_NAME) {
 				liquorBrand.setBrandName(nodeValue);
-			} else if(nodeName === GET_LIQUOR_BRANDS_WS_BRAND_COUNTRY) {
+			} else if(nodeName === LiquorConstants.GET_LIQUOR_BRANDS_WS_BRAND_COUNTRY) {
 				liquorBrand.setCountry(nodeValue);
-			} else if(nodeName === GET_LIQUOR_BRANDS_WS_BRAND_DESCRIPTION) {
+			} else if(nodeName === LiquorConstants.GET_LIQUOR_BRANDS_WS_BRAND_DESCRIPTION) {
 				liquorBrand.setDescription(nodeValue);
-			} else if(nodeName === GET_LIQUOR_BRANDS_WS_BRAND_LINK) {
+			} else if(nodeName === LiquorConstants.GET_LIQUOR_BRANDS_WS_BRAND_LINK) {
 				liquorBrand.setLink(nodeValue);
 			}
 		}

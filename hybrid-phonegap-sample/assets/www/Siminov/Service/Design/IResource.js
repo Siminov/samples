@@ -33,6 +33,7 @@
 	@submodule Design
 */
 
+module.exports = IResource;
 
 /**
 	It exposes APIs to Get and Set service resources

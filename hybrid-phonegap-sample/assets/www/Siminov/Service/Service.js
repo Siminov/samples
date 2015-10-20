@@ -23,7 +23,10 @@
 	@module Service
 */
 
+var Dictionary = require('../Collection/Dictionary');
+var ServiceHandler = require('./ServiceHandler');
 
+module.exports = Service;
 
 /**
 	It exposes APIs to Get and Set service information by extending IService

@@ -24,6 +24,10 @@
 	@module Database
 */
 
+var Clause = require('./Clause');
+var Database = require('./Database');
+
+module.exports = Select;
 
 /**
 	Exposes API to deal with conditions and other constraints used in query.

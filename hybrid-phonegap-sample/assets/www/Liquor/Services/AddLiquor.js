@@ -15,7 +15,15 @@
  * limitations under the License.
  **/
 
+var Log = require('../../Siminov/Log/Log');
+var Function = require('../../Siminov/Function/Function');
+var Service = require('../../Siminov/Service/Service');
 
+var Liquor = require('../Models/Liquor');
+var Constants = require('../Constants');
+var LiquorWritter = require('../ReaderWritter/LiquorsReader');
+
+module.exports = AddLiquor;
 
 
 function AddLiquor() {

@@ -23,6 +23,8 @@
 	@module Exception
 */
 
+module.exports = ServiceException;
+window.ServiceException = ServiceException;
 
 /**
 	This is general exception, which is thrown through Service APIs, if any exception occur while processing service request.
@@ -39,4 +41,4 @@
 }
 
 
-Function.extend(SiminovException, ServiceException);
+//Function.extend(SiminovException, ServiceException);

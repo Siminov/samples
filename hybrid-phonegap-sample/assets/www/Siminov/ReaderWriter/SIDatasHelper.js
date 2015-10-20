@@ -23,6 +23,12 @@
 	@module Parser
 */
 
+var Function = require('../Function/Function');
+var HybridSiminovDatas = require('../Model/HybridSiminovDatas');
+
+
+module.exports = SIDatasHelper;
+
 /**
 	Exposes APIs to deal with Models, it convert si datas to models or models to si datas.
 	

@@ -15,31 +15,23 @@
  * limitations under the License.
  **/
 
+module.exports = IDatabaseEvents;
 
 
-/**
-	It contain Siminov defined exceptions.
-	
-	@module Exception
-*/
+function IDatabaseEvents(databaseEvents) {
+    
+    return {
 
-module.exports = SyncException;
-window.SyncException = SyncException;
-
-/**
-	This is general exception, which is thrown through Sync APIs, if any exception occur while processing sync request.
-
-	@module Exception
-	@class SyncException
-	@constructor 
-	@param className {String} Name of Class
-	@param methodName {String} Name of Method
-	@param message {String} Message
-
-*/
-function SyncException(className, methodName, message) {
-
+        onDatabaseCreated: databaseEvents.onDatabaseCreated,
+        
+        onDatabaseDropped: databaseEvents.onDatabaseDropped,
+        
+        onTableCreated: databaseEvents.onTableCreated,
+        
+        onTableDropped: databaseEvents.onTableDropped,
+        
+        onIndexCreated: databaseEvents.onIndexCreated,
+        
+        onIndexDropped: databaseEvents.onIndexDropped
+    }
 }
-
-
-//Function.extend(SiminovException, SyncException);

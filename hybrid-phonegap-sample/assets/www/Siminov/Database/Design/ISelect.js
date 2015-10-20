@@ -25,6 +25,7 @@
 	@module Database
 */
 
+module.exports = ISelect;
 
 /**
 	Design contain all interfaces required by database layer to deal with database.

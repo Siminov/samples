@@ -23,6 +23,9 @@
 */
 
 
+module.exports = ConnectionRequest;
+window.ConnectionRequest = ConnectionRequest;
+
 /**
 	It contains connection request information.
 	Exposes method to GET and SET connection request details.

@@ -32,6 +32,7 @@
 	@submodule Design
 */
 
+module.exports = IService;
 
 /**
 	It exposes APIs to Get and Set service information

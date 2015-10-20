@@ -1,4 +1,7 @@
 
+module.exports = Callback;
+
+
 function Callback() {
 
 	this.onSuccess;

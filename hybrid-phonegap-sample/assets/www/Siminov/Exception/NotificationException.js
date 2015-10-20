@@ -22,6 +22,8 @@
 	@module Exception
 */
 
+module.exports = NotificationException;
+window.NotificationException = NotificationException;
 
 /**
 	This is general exception, which is thrown through Notification APIs, if any exception occur while processing notification.
@@ -38,4 +40,4 @@ function NotificationException(className, methodName, message) {
 
 }
 
-Function.extend(SiminovException, NotificationException);
+//Function.extend(SiminovException, NotificationException);

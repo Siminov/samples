@@ -22,6 +22,8 @@
 	@module Exception
 */
 
+module.exports = DeploymentException;
+window.DeploymentException = DeploymentException;
 
 /**
 	This is general exception, which is thrown through Deployment APIs, if any exception occur while deploying application.
@@ -39,4 +41,4 @@ function DeploymentException(className, methodName, message) {
 }
 
 
-Function.extend(SiminovException, DeploymentException);
+//Function.extend(SiminovException, DeploymentException);

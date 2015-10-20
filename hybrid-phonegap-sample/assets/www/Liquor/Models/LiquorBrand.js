@@ -15,6 +15,11 @@
  * limitations under the License.
  **/
 
+var Database = require('../../Siminov/Database/Database');
+var Function = require('../../Siminov/Function/Function');
+
+module.exports = LiquorBrand;
+
 
 function LiquorBrand() {
 

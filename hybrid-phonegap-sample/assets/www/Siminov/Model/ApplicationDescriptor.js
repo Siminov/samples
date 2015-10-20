@@ -23,6 +23,12 @@
 	@module Model
 */
 
+var Constants = require('../Constants');
+var Dictionary = require('../Collection/Dictionary');
+
+
+module.exports = ApplicationDescriptor;
+window.ApplicationDescriptor = ApplicationDescriptor;
 
 /**
  	Exposes methods to GET and SET Application Descriptor information as per define in ApplicationDescriptor.si.xml file by application.

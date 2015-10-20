@@ -16,15 +16,21 @@
  **/
 
 
+var ISiminovEvents = require('../../Siminov/Events/ISiminovEvents');
+var Function = require('../../Siminov/Function/Function');
+
+module.exports = SiminovEventHandler;
+
+
 function SiminovEventHandler() {
 
     this.onFirstTimeSiminovInitialized = function() {
-        initialize();
+        //initialize();
     }
 
 
     this.onSiminovInitialized = function() {
-        initialize();
+        //initialize();
     }
 
 
@@ -33,3 +39,6 @@ function SiminovEventHandler() {
     }
 
 }
+
+
+Function.implement(ISiminovEvents, SiminovEventHandler);

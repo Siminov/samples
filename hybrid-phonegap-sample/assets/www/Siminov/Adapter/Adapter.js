@@ -23,6 +23,23 @@
 	@module Adapter
 */
 
+var Utils = require('../Utils/Utils');
+var Dictionary = require('../Collection/Dictionary');
+var HybridSiminovDatas = require('../Model/HybridSiminovDatas');
+var Log = require('../Log/Log');
+var Constants = require('../Constants');
+var Function = require('../Function/Function');
+
+/*
+ * React Native Imports
+ */
+var SIHReactInterceptor = require('NativeModules').SIHReactInterceptor;
+var RCTDeviceEventEmitter = require('RCTDeviceEventEmitter');
+
+
+module.exports = Adapter;
+
+
 
 /**
 	Handle Request between NATIVE-TO-HYBRID and HYBRID-TO-NATIVE.
@@ -134,7 +151,7 @@ function Adapter() {
 }
 
 
-Adapter.requests = new Dictionary();
+Adapter.requests;
 
 Adapter.REQUEST_SYNC_MODE = "SYNC";
 Adapter.REQUEST_ASYNC_MODE = "ASYNC";
@@ -148,6 +165,10 @@ Adapter.REQUEST_ASYNC_MODE = "ASYNC";
 */
 Adapter.invoke = function(adapter) {
 
+    if(!Adapter.requests) {
+        Adapter.requests = new Dictionary();
+    }
+    
 	var adapterName = adapter.getAdapterName();
     var handlerName = adapter.getHandlerName();
     var adapterMode = adapter.getAdapterMode();
@@ -183,7 +204,7 @@ Adapter.invoke = function(adapter) {
     /**
      * Android Native Bridge
      */
-    if(window.SIMINOV != undefined) {
+    if(window.SIMINOV) {
     
     	if(adapterMode && adapterMode == Adapter.REQUEST_ASYNC_MODE) {
     		
@@ -197,10 +218,31 @@ Adapter.invoke = function(adapter) {
     }
 
     
+    json = json.replace(new RegExp('#', 'g'), "%23");
+    
+    /*
+     * React Native iOS Native Bridge
+     */
+    if(SIHReactInterceptor) {
+        Log.debug("Adapter", "invoke", "handleHybridToNativeAsync: REQUEST ID: " + adapter.getRequestId() + ", ADAPTER NAME: " + adapterName + ", HANDLER NAME: " + handlerName + ", DATA: " + json);
+        
+        
+        if(adapterMode == undefined || adapterMode == null || adapterMode == Adapter.ADAPTER_SYNC_MODE) {
+            SIHReactInterceptor.handleHybridToNative(Constants.HTTP_POST_METHOD, adapterName + "." + handlerName, json);
+        } else {
+            Adapter.requests.add(adapter.getRequestId(), adapter);
+            
+            SIHReactInterceptor.handleHybridToNativeAsync(Constants.HTTP_POST_METHOD, adapter.getRequestId(), adapterName + "." + handlerName, json);
+        }
+        
+        return;
+    }
+
+    
+    
     /**
      * iOS and Windows Sync Native Bridge
      */
-    json = json.replace(new RegExp('#', 'g'), "%23");
     if(adapterMode == undefined || adapterMode == null || adapterMode == Adapter.ADAPTER_SYNC_MODE) {
         
         var xmlHttpRequest = new XMLHttpRequest();
@@ -211,7 +253,7 @@ Adapter.invoke = function(adapter) {
         return xmlHttpRequest.responseText;
     }
     
-
+    
     /**
      * iOS and Windows Async Native Bridge
      */
@@ -263,3 +305,33 @@ Adapter.handleAsync = function(requestId, data) {
 	*/
 	Adapter.requests.remove(requestId);
 }
+
+
+if(RCTDeviceEventEmitter) {
+    
+    var REACT_CALLBACK_API = "api";
+    var REACT_CALLBACK_ACTION = "action";
+    var REACT_CALLBACK_PARAMETERS = "parameters";
+    
+    var REACT_CALLBACK_API_HANDLE = "handle";
+    var REACT_CALLBACK_API_HANDLE_ASYNC = "handleAsync";
+    
+    var REACT_INTECEPTOR = RCTDeviceEventEmitter.addListener(
+        'Adapter',
+        handler
+    );
+    
+    function handler(parameters) {
+        
+        var api = parameters[REACT_CALLBACK_API];
+        var action = parameters[REACT_CALLBACK_ACTION];
+        var params = parameters[REACT_CALLBACK_PARAMETERS];
+        
+        if(api === REACT_CALLBACK_API_HANDLE) {
+            Adapter.handle(action, params);
+        } else if(api === REACT_CALLBACK_API_HANDLE_ASYNC) {
+            Adapter.handleAsync(action, params);
+        }
+    }
+}
+

@@ -15,6 +15,12 @@
  * limitations under the License.
  **/
 
+var Log = require('../../Siminov/Log/Log');
+var Function = require('../../Siminov/Function/Function');
+var Service = require('../../Siminov/Service/Service');
+
+
+module.exports = DeleteLiquor;
 
 
 function DeleteLiquor() {

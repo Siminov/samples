@@ -25,6 +25,9 @@
 	@module Database
 */
 
+var StringBuilder = require('../Collection/StringBuilder');
+
+module.exports = Clause;
 
 /**
 	Exposes API to deal with conditions used in query.

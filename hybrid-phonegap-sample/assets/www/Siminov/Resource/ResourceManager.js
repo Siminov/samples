@@ -23,6 +23,8 @@
 	@module Resource
 */
 
+module.exports = ResourceManager;
+
 /**
 	It handles and provides all resources needed by SIMINOV HYBRID.
 	

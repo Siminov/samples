@@ -26,6 +26,12 @@
 	@module Sync
 */
 
+var HybridSiminovDatas = require('../Model/HybridSiminovDatas');
+var Constants = require('../Constants');
+var Callback = require('Callback');
+
+var Adapter = require('../Adapter/Adapter');
+
 
 
 /**
@@ -35,111 +41,104 @@
 	@class SyncHandler
 	@constructor
 */
-var SyncHandler = (function() {
 
-	var syncHandler;
-	
-	return {
-		
-		/**
-		 * Get singleton instance of Sync Handler class
-		 * 
-		 * @method getInstance
-		 * @return {SyncHandler} Singleton instance of Sync Handler 
-		 */
-		getInstance : function() {
-			
-			if(syncHandler == null) {
-				syncHandler = new SyncHandler();
-				
-				syncHandler.constructor = null;
-			}
-			
-			return syncHandler;
-		}
-	}
-	
+var syncHandler = null;
 
-	function SyncHandler() {
+var getInstance = function() {
+    
+    if(syncHandler == null) {
+        syncHandler = new SyncHandler();
+    }
+    
+    return syncHandler;
+}
 
-		/**
-		 * It handles and processes the sync request
-		 * 
-		 */
-		this.handle = function(syncRequest) {
-			
-			var callback = arguments && arguments[1];
-			
-			var hybridSiminovDatas = Object.create(HybridSiminovDatas);
-			hybridSiminovDatas.datas = new Array();	
-			
-			var hybridSyncRequest = Object.create(HybridSiminovDatas.HybridSiminovData);
-			hybridSyncRequest.datas = new Array();
-			hybridSyncRequest.values = new Array();
-			
-			hybridSyncRequest.type = Constants.SYNC_ADAPTER_HANDLE_HANDLER_SYNC_REQUEST;
+function SyncHandler() {
 
-				var hybridSyncRequestName = Object.create(HybridSiminovDatas.HybridSiminovData.HybridSiminovValue);
-				hybridSyncRequestName.type = Constants.SYNC_ADAPTER_HANDLE_HANDLER_SYNC_REQUEST_NAME;
-				hybridSyncRequestName.value = syncRequest.getName();
+    /**
+     * It handles and processes the sync request
+     *
+     */
+    var handle = function(syncRequest) {
 			
-			hybridSyncRequest.values.push(hybridSyncRequestName);
+        var callback = arguments && arguments[1];
 			
-				var resources = syncRequest.getResources();
-				if(resources != undefined && resources != null && resources.length > 0) {
+        var hybridSiminovDatas = Object.create(HybridSiminovDatas);
+        hybridSiminovDatas.datas = new Array();
+			
+        var hybridSyncRequest = Object.create(HybridSiminovDatas.HybridSiminovData);
+        hybridSyncRequest.datas = new Array();
+        hybridSyncRequest.values = new Array();
+			
+        hybridSyncRequest.type = Constants.SYNC_ADAPTER_HANDLE_HANDLER_SYNC_REQUEST;
+
+        var hybridSyncRequestName = Object.create(HybridSiminovDatas.HybridSiminovData.HybridSiminovValue);
+        hybridSyncRequestName.type = Constants.SYNC_ADAPTER_HANDLE_HANDLER_SYNC_REQUEST_NAME;
+        hybridSyncRequestName.value = syncRequest.getName();
+			
+        hybridSyncRequest.values.push(hybridSyncRequestName);
+			
+            var resources = syncRequest.getResources();
+            if(resources != undefined && resources != null && resources.length > 0) {
 					
-					var hybridResources = Object.create(HybridSiminovDatas.HybridSiminovData);
-					hybridResources.datas = new Array();
-					hybridResources.values = new Array();
+                var hybridResources = Object.create(HybridSiminovDatas.HybridSiminovData);
+                hybridResources.datas = new Array();
+                hybridResources.values = new Array();
 					
-					hybridResources.type = Constants.SYNC_ADAPTER_HANDLE_HANDLER_SYNC_REQUEST_RESOURCES;
+                hybridResources.type = Constants.SYNC_ADAPTER_HANDLE_HANDLER_SYNC_REQUEST_RESOURCES;
 
-					for(var i = 0;i < resources.length;i++) {
+                for(var i = 0;i < resources.length;i++) {
 						
-						var resourceName = resources[i];
-						var resourceValue = syncRequest.getResource(resourceName);
-						resourceValue = '' + resourceValue;
+                    var resourceName = resources[i];
+                    var resourceValue = syncRequest.getResource(resourceName);
+                    resourceValue = '' + resourceValue;
 						
-						var hybridResource = Object.create(HybridSiminovDatas.HybridSiminovData.HybridSiminovValue);
-						hybridResource.type = resourceName;
-						hybridResource.value = '' + resourceValue;
+                    var hybridResource = Object.create(HybridSiminovDatas.HybridSiminovData.HybridSiminovValue);
+                    hybridResource.type = resourceName;
+                    hybridResource.value = '' + resourceValue;
 	
-						hybridResources.values.push(hybridResource);
-					}
+                    hybridResources.values.push(hybridResource);
+                }
 					
-					hybridSyncRequest.datas.push(hybridResources);
-				}
+                hybridSyncRequest.datas.push(hybridResources);
+            }
 
 
-			hybridSiminovDatas.datas.push(hybridSyncRequest);
-			var data = encodeURI(JSON.stringify(hybridSiminovDatas));
+        hybridSiminovDatas.datas.push(hybridSyncRequest);
+        var data = encodeURI(JSON.stringify(hybridSiminovDatas));
 									
-	        var adapter = new Adapter();
-	        adapter.setAdapterName(Constants.SYNC_ADAPTER);
-	        adapter.setHandlerName(Constants.SYNC_ADAPTER_HANDLE_HANDLER);
+        var adapter = new Adapter();
+        adapter.setAdapterName(Constants.SYNC_ADAPTER);
+        adapter.setHandlerName(Constants.SYNC_ADAPTER_HANDLE_HANDLER);
 
-			adapter.addParameter(data);
+        adapter.addParameter(data);
 
-			if(callback) {
-				adapter.setCallback(syncCallback);
-				adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
+        if(callback) {
+            adapter.setCallback(syncCallback);
+            adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
 				
-				Adapter.invoke(adapter);		
+            Adapter.invoke(adapter);
 				
-				function syncCallback() {
-					callback && callback.onSuccess && callback.onSuccess();
-				}	
-			} else {
-				Adapter.invoke(adapter);
-			}
-		}		
+            function syncCallback() {
+                callback && callback.onSuccess && callback.onSuccess();
+            }
+        } else {
+            Adapter.invoke(adapter);
+        }
+    };
 		
 		
-		this.handleAsync = function(syncRequest, callback) {
-			this.handle(syncRequest, callback?callback:new Callback());
-		}
-	}
-		
-}) ();
+    var handleAsync = function(syncRequest, callback) {
+        this.handle(syncRequest, callback?callback:new Callback());
+    };
+    
+    
+    return {
+        handleAsync,
+        handle
+    }
+};
 
 
+
+exports.getInstance = getInstance;

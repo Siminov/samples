@@ -15,6 +15,11 @@
  * limitations under the License.
  **/
 
+var Log = require('../../Siminov/Log/Log');
+var Function = require('../../Siminov/Function/Function');
+var Service = require('../../Siminov/Service/Service');
+
+module.exports = UnregisterDevice;
 
 
 function UnregisterDevice() {
@@ -61,4 +66,4 @@ UnregisterDevice.SERVICE_NAME = "SIMINOV-HYBRID-NOTIFICATION-SERVICE";
 UnregisterDevice.REQUEST_NAME = "UNREGISTER-DEVICE";
 
 
-Function.extend(Service, RegisterDevice);
+Function.extend(Service, UnregisterDevice);

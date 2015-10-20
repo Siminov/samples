@@ -26,6 +26,9 @@
 	@module Sync
 */
 
+var Dictionary = require('../Collection/Dictionary');
+
+module.exports = SyncRequest;
 
 
 /**

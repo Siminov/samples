@@ -18,11 +18,16 @@
 
 
 
+
 /**
 	It provide Util class needed by Siminov Framework.
 	
-	@module Utils
+	@module Function
 */
+
+var Log = require('../Log/Log');
+
+module.exports = Function;
 
 /**
 	Get all properties a given function contain.
@@ -160,8 +165,14 @@ function Function() {
 Function.extend = function (parent, child) {
     child.prototype = new parent();
     child.prototype.constructor = child;
+    
+    window[child.name] = child;
 }
 
+                      
+Function.implement = function(parent, child) {
+    window[child.name] = child;
+}
 
 
 /**

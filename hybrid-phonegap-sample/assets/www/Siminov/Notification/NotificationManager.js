@@ -23,6 +23,8 @@
 	@module Notification
 */
 
+module.exports = NotificationManager;
+
 /**
 	It exposes APIs to Get and Set push notification 
 	

@@ -23,6 +23,11 @@
 	@module Model
 */
 
+var Constants = require('../Constants');
+var Dictionary = require('../Collection/Dictionary');
+
+module.exports = SyncDescriptor;
+window.SyncDescriptor = SyncDescriptor;
 
 /**
  	Exposes methods to GET and SET Sync Descriptor information as per define in SyncDescriptor.si.xml file by application.

@@ -15,7 +15,17 @@
  * limitations under the License.
  **/
 
+var Log = require('../../Siminov/Log/Log');
+var Function = require('../../Siminov/Function/Function');
+var Service = require('../../Siminov/Service/Service');
+var Callback = require('../../Siminov/Callback');
 
+var Liquor = require('../Models/Liquor');
+var LiquorBrand = require('../Models/LiquorBrand');
+var LiquorsReader = require('../ReaderWritter/LiquorsReader');
+var Constants = require('../ReaderWritter/LiquorsReader');
+
+module.exports = GetLiquors;
 
 
 function GetLiquors() {
@@ -50,6 +60,8 @@ function GetLiquors() {
     this.onRequestFinish = function(connectionResponse) {
         //alert("onServiceRequestFinish");
         
+        var home = this.getResource("HOME");
+        
         var liquorsReader = new LiquorsReader();
         liquorsReader.parse(connectionResponse.getResponse());
         
@@ -75,15 +87,15 @@ function GetLiquors() {
             
             callback.onSuccess = function() {
                 
-                if(REQUEST == ASYNC_REQUEST) {
+                if(Constants.REQUEST == Constants.ASYNC_REQUEST) {
                     ++callbackCount;
                     
                     if((callbackCount + 1) == liquors.length) {
                         Log.debug("GetLiquors", "onRequestFinish", "Save Or Update Success: Populate Home: " + callbackCount);
-                        populateHome();
+                        loadLiquors();
                     }
-                } else if(REQUEST == ASYNC_TRANSACTION_REQUEST) {
-                    populateHome();
+                } else if(Constants.REQUEST == Constants.ASYNC_TRANSACTION_REQUEST) {
+                    loadLiquors();
                 }
             }
             
@@ -92,22 +104,30 @@ function GetLiquors() {
             }
             
             
-            if(REQUEST == ASYNC_REQUEST) {
+            if(Constants.REQUEST == Constants.ASYNC_REQUEST) {
                 for(var i = 0;i < liquors.length;i++) {
                     var liquor = liquors[i];
                     liquor.saveOrUpdateAsync(callback);
                 }
-            } else if(REQUEST == ASYNC_TRANSACTION_REQUEST) {
+            } else if(Constants.REQUEST == Constants.ASYNC_TRANSACTION_REQUEST) {
                 var databaseDescriptor = new Liquor().getDatabaseDescriptor();
                 Database.beginTransactionAsync(databaseDescriptor, callback);	
-            } else if(REQUEST == SYNC_REQUEST) {
+            } else if(Constants.REQUEST == Constants.SYNC_REQUEST) {
                 
                 for(var i = 0;i < liquors.length;i++) {
                     var liquor = liquors[i];
                     liquor.saveOrUpdate();
                 }
                 
-                populateHome();
+                loadLiquors();
+            }
+            
+            function loadLiquors() {
+                
+                me.props.navigator.push({
+                    title: "Liquor List",
+                    component: LiquorList,
+                });
             }
         }		
     }

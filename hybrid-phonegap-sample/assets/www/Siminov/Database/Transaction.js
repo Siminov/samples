@@ -1,4 +1,8 @@
 
+var Dictionary = require('../Collection/Dictionary');
+
+module.exports = Transaction;
+
 function Transaction() {
 	
 	var requests = new Dictionary();

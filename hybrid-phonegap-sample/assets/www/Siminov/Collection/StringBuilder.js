@@ -24,6 +24,7 @@
 	@module Collection
 */
 
+module.exports = StringBuilder;
 
 /**
 	A mutable sequence of characters.

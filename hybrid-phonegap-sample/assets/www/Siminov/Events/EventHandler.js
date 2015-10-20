@@ -23,6 +23,14 @@
 	@module Events	
 */
 
+var Constants = require('../Constants');
+var Dictionary = require('../Collection/Dictionary');
+var Function = require('../Function/Function');
+var SIDatasHelper = require('../ReaderWriter/SIDatasHelper');
+
+module.exports = EventHandler;
+window.EventHandler = EventHandler;
+
 /**
 	Any event triggered by Siminov is first handled by this function later it will deliver to appropriate Event APIs. 
 	
@@ -41,7 +49,7 @@ function EventHandler() {
 	*/
     this.triggerEvent = function(data) {
 
-        var hybridSiminovDatas = JSON.parse(data);
+        var hybridSiminovDatas = JSON.parse(eval(data));
         var datas = hybridSiminovDatas.datas;
 
         var functionName;

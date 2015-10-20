@@ -15,31 +15,18 @@
  * limitations under the License.
  **/
 
+module.exports = INotificationEvents;
 
-
-/**
-	It contain Siminov defined exceptions.
-	
-	@module Exception
-*/
-
-module.exports = SyncException;
-window.SyncException = SyncException;
-
-/**
-	This is general exception, which is thrown through Sync APIs, if any exception occur while processing sync request.
-
-	@module Exception
-	@class SyncException
-	@constructor 
-	@param className {String} Name of Class
-	@param methodName {String} Name of Method
-	@param message {String} Message
-
-*/
-function SyncException(className, methodName, message) {
-
+function INotificationEvents(notificationEvents) {
+    
+    return {
+        
+        onRegistration: notificationEvents.onRegistration,
+        
+        onUnregistration: notificationEvents.onUnregistration,
+        
+        onNotification: notificationEvents.onNotification,
+        
+        onError: notificationEvents.onError
+    }
 }
-
-
-//Function.extend(SiminovException, SyncException);

@@ -1,4 +1,5 @@
 
+module.exports = Array;
 
 Array.prototype.contains = function(obj) {
     var i = this.length;

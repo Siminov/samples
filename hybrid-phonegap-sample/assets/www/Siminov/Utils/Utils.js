@@ -1,5 +1,8 @@
 
 
+module.exports = Utils;
+
+
 function Utils() {
 
 }

@@ -23,11 +23,10 @@
 	@module Model
 */
 
-
 var HybridSiminovDatas = {
 
 	datas: []
-} 
+};
 
 HybridSiminovDatas.HybridSiminovData = {
 	
@@ -36,12 +35,13 @@ HybridSiminovDatas.HybridSiminovData = {
 	values: [],
 	
 	datas: []
-}
+};
 
 
 HybridSiminovDatas.HybridSiminovData.HybridSiminovValue = {
 
 	type: "",
     value: ""
-}
+};
 
+module.exports = HybridSiminovDatas;

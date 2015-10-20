@@ -15,7 +15,7 @@
  * limitations under the License.
  **/
 
-
+module.exports = IAverageClause;
 
 /**
 	Exposes classes which deal with database.

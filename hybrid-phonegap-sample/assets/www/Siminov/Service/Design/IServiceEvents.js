@@ -33,6 +33,8 @@
 	@submodule Design
 */
 
+module.exports = IServiceEvents;
+
 
 /**
 	It exposes APIs to handle service request events

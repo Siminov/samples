@@ -22,6 +22,9 @@
 */
 
 
+module.exports = ConnectionResponse;
+window.ConnectionResponse = ConnectionResponse;
+
 /**
 	It contains connection response information.
 	Exposes method to GET and SET connection response details.

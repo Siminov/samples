@@ -23,6 +23,8 @@
 	@module Exception
 */
 
+module.exports = DatabaseException;
+window.DatabaseException = DatabaseException;
 
 /**
 	This is general exception, which is thrown through Database APIs, if any exception occur while performing any database request.
@@ -39,5 +41,5 @@ function DatabaseException(className, methodName, message) {
 
 }
 
-Function.extend(SiminovException, DatabaseException);
+//Function.extend(SiminovException, DatabaseException);
 

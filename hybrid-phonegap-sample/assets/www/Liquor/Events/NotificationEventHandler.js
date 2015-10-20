@@ -16,6 +16,11 @@
  **/
 
 
+var INotificationEvents = require('../../Siminov/Events/INotificationEvents');
+var Function = require('../../Siminov/Function/Function');
+
+module.exports = NotificationEventHandler;
+
 
 function NotificationEventHandler() {
 	
@@ -35,3 +40,6 @@ function NotificationEventHandler() {
 		//alert("onError");
 	}
 }
+
+
+Function.implement(INotificationEvents, NotificationEventHandler);

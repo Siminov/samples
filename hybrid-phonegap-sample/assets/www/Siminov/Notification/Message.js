@@ -22,6 +22,9 @@
 	@module Notification
 */
 
+module.exports = Message;
+window.Message = Message;
+
 /**
 	It exposes APIs to Get and Set push notification 
 	

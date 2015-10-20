@@ -23,6 +23,13 @@
 	@module Model
 */
 
+var Constants = require('../Constants');
+var Dictionary = require('../Collection/Dictionary');
+
+
+module.exports = DatabaseDescriptor;
+window.DatabaseDescriptor = DatabaseDescriptor;
+
 /**
  	Exposes methods to GET and SET Database Descriptor information as per define in DatabaseDescriptor.si.xml file by application.
 	

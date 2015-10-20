@@ -16,6 +16,8 @@
  **/
 
 
+module.exports = Constants;
+
 
 /**
 	It contain all contain variables requried by Siminov Framework.
