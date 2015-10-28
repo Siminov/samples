@@ -23,13 +23,16 @@
 	@module Events	
 */
 
-var Constants = require('../Constants');
-var Dictionary = require('../Collection/Dictionary');
-var Function = require('../Function/Function');
-var SIDatasHelper = require('../ReaderWriter/SIDatasHelper');
-
-module.exports = EventHandler;
-window.EventHandler = EventHandler;
+if(window['document'] == undefined) {
+    var Constants = require('../Constants');
+    var Dictionary = require('../Collection/Dictionary');
+    var Function = require('../Function/Function');
+    var SIDatasHelper = require('../ReaderWriter/SIDatasHelper');
+    var Log = require('../Log/Log');
+    
+    module.exports = EventHandler;
+    window.EventHandler = EventHandler;    
+}
 
 /**
 	Any event triggered by Siminov is first handled by this function later it will deliver to appropriate Event APIs. 
@@ -48,8 +51,9 @@ function EventHandler() {
 		@param data {String} Hybrid Data From Native
 	*/
     this.triggerEvent = function(data) {
-
-        var hybridSiminovDatas = JSON.parse(eval(data));
+        Log.debug("EventHandler", "triggerEvent", "Data: " + data);
+        
+        var hybridSiminovDatas = window['document'] == undefined?JSON.parse(eval('(' + data + ')')):JSON.parse(data);
         var datas = hybridSiminovDatas.datas;
 
         var functionName;

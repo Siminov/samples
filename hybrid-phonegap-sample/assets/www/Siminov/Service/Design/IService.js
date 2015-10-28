@@ -32,7 +32,9 @@
 	@submodule Design
 */
 
-module.exports = IService;
+if(window['document'] == undefined) {
+    module.exports = IService;    
+}
 
 /**
 	It exposes APIs to Get and Set service information

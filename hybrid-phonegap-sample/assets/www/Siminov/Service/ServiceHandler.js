@@ -25,10 +25,13 @@
 	@module Service
 */
 
-var Callback = require('../Callback');
-var Constants = require('../Constants');
-var Adapter = require('../Adapter/Adapter');
-var HybridSiminovDatas = require('../Model/HybridSiminovDatas');
+if(window['document'] == undefined) {
+    var Callback = require('../Callback');
+    var Constants = require('../Constants');
+    var Adapter = require('../Adapter/Adapter');
+    var Dictionary = require('../Collection/Dictionary');
+    var HybridSiminovDatas = require('../Model/HybridSiminovDatas');
+}
 
 
 
@@ -42,6 +45,15 @@ var HybridSiminovDatas = require('../Model/HybridSiminovDatas');
 
 var serviceHandler = null;
 
+ServiceHandler.getInstance = function() {
+    
+    if(serviceHandler == null) {
+        serviceHandler = new ServiceHandler();
+    }
+    
+    return serviceHandler;
+};
+
 var getInstance = function() {
     
     if(serviceHandler == null) {
@@ -53,6 +65,18 @@ var getInstance = function() {
 
 
 function ServiceHandler() {
+    
+    var requestQueue = new Dictionary();
+    
+    var getRequest = function(requestId) {
+        return requestQueue.get(requestId);
+    }
+    
+    
+    var removeRequest = function(requestId) {
+        requestQueue.remove(requestId);
+    }
+    
     
     var handleAsync = function(iService, callback) {
         this.handle(iService, callback?callback:new Callback());
@@ -84,6 +108,12 @@ function ServiceHandler() {
         hybridService.type = Constants.SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE;
         
         
+        var hybridRequestId = Object.create(HybridSiminovDatas.HybridSiminovData.HybridSiminovValue);
+        hybridRequestId.type = Constants.SERVICE_ADAPTER_INVOKE_HANDLER_REQUEST_ID;
+        hybridRequestId.value = iService.getRequestId();
+        
+        hybridService.values.push(hybridRequestId);
+        
         var hybridServiceName = Object.create(HybridSiminovDatas.HybridSiminovData.HybridSiminovValue);
         hybridServiceName.type = Constants.SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE_NAME;
         hybridServiceName.value = iService.getService();
@@ -109,6 +139,9 @@ function ServiceHandler() {
             for(var i = 0;i < resources.length;i++) {
                 var resourceName = resources[i];
                 var resourceValue = iService.getResource(resourceName);
+                if(resourceValue && !(typeof resourceValue == 'string')) {
+                    continue;
+                }
                 
                 resourceValue = '' + resourceValue;
                 
@@ -119,7 +152,7 @@ function ServiceHandler() {
                 hybridResources.values.push(hybridResource);
             }
             
-            hybridService.values.push(hybridResources);
+            hybridService.datas.push(hybridResources);
         }
         
         
@@ -128,7 +161,7 @@ function ServiceHandler() {
         var data = encodeURI(JSON.stringify(hybridServiceDatas));
         adapter.addParameter(data);
         
-        
+        requestQueue.add(iService.getRequestId(), iService);
         if(callback) {
             adapter.setCallback(serviceCallback);
             adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
@@ -144,10 +177,15 @@ function ServiceHandler() {
     };
     
     return {
+        getRequest: getRequest,
+        removeRequest: removeRequest,
         handleAsync: handleAsync,
         handle: handle
     };
 };
 
 
-exports.getInstance = getInstance;
+
+if(window['document'] == undefined) {
+    exports.getInstance = getInstance;
+}

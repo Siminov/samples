@@ -21,9 +21,11 @@
 	@module Connection
 */
 
+if(window['document'] == undefined) {
+    module.exports = ConnectionResponse;
+    window.ConnectionResponse = ConnectionResponse;
+}
 
-module.exports = ConnectionResponse;
-window.ConnectionResponse = ConnectionResponse;
 
 /**
 	It contains connection response information.

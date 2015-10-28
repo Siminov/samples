@@ -1499,8 +1499,9 @@ function _XMLNode_toString() {
 } // end function _XMLNode_toString
 
 
-
-module.exports = XMLDoc;
+if(window['document'] == undefined) {
+    module.exports = XMLDoc;    
+}
 
 
 

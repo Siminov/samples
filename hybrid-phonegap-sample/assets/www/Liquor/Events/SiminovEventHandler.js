@@ -15,11 +15,12 @@
  * limitations under the License.
  **/
 
-
-var ISiminovEvents = require('../../Siminov/Events/ISiminovEvents');
-var Function = require('../../Siminov/Function/Function');
-
-module.exports = SiminovEventHandler;
+if(window['document'] == undefined) {
+    var ISiminovEvents = require('../../Siminov/Events/ISiminovEvents');
+    var Function = require('../../Siminov/Function/Function');
+    
+    module.exports = SiminovEventHandler;    
+}
 
 
 function SiminovEventHandler() {

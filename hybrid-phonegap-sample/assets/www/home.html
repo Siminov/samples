@@ -64,7 +64,6 @@
             
             document.addEventListener("deviceready", deviceReady, false);
             
-            
             $(document).on("click", ".show-page-loading-msg", function() {
                            var $this = $( this ),
                            theme = $this.jqmData("theme") || $.mobile.loader.prototype.options.theme,
@@ -136,9 +135,9 @@
             }
             
             
-            if(REQUEST == ASYNC_REQUEST || REQUEST == ASYNC_TRANSACTION_REQUEST) {
+            if(LiquorConstants.REQUEST == LiquorConstants.ASYNC_REQUEST || LiquorConstants.REQUEST == LiquorConstants.ASYNC_TRANSACTION_REQUEST) {
                 Siminov.initializeAsync(callback);
-            } else if(REQUEST == SYNC_REQUEST) {
+            } else if(LiquorConstants.REQUEST == LiquorConstants.SYNC_REQUEST) {
                 Siminov.initialize();
             }
         }
@@ -203,12 +202,12 @@
                 }
                 
                 
-                if(REQUEST == ASYNC_REQUEST) {
+                if(LiquorConstants.REQUEST == LiquorConstants.ASYNC_REQUEST) {
                     credential.saveOrUpdateAsync(credentialCallback);
-                } else if(REQUEST == ASYNC_TRANSACTION_REQUEST) {
+                } else if(LiquorConstants.REQUEST == LiquorConstants.ASYNC_TRANSACTION_REQUEST) {
                     var databaseDescriptor = new LiquorBrand().getDatabaseDescriptor();
                     Database.beginTransactionAsync(databaseDescriptor, credentialCallback);
-                } else if(REQUEST == SYNC_REQUEST) {
+                } else if(LiquorConstants.REQUEST == LiquorConstants.SYNC_REQUEST) {
                     
                     try {
                         credential.saveOrUpdate();
@@ -250,9 +249,9 @@
                 alert("get liquors error");
             }
             
-            if(REQUEST == ASYNC_REQUEST || REQUEST == ASYNC_TRANSACTION_REQUEST) {
+            if(LiquorConstants.REQUEST == LiquorConstants.ASYNC_REQUEST || LiquorConstants.REQUEST == LiquorConstants.ASYNC_TRANSACTION_REQUEST) {
                 getLiquors.invokeAsync(getLiquorsCallback);
-            } else if(REQUEST == SYNC_REQUEST) {
+            } else if(LiquorConstants.REQUEST == LiquorConstants.SYNC_REQUEST) {
                 getLiquors.invoke();
             }
             
@@ -281,7 +280,7 @@
             callback.onSuccess = function(savedLiquors) {
                 Log.debug("Home", "populateHome", "Saved Liquors: " + savedLiquors);
                 
-                if(REQUEST == ASYNC_REQUEST) {
+                if(LiquorConstants.REQUEST == LiquorConstants.ASYNC_REQUEST) {
                     liquors = savedLiquors;
                 }
                 
@@ -293,12 +292,12 @@
             }
             
             
-            if(REQUEST == ASYNC_REQUEST) {
+            if(LiquorConstants.REQUEST == LiquorConstants.ASYNC_REQUEST) {
                 liquors = new Liquor().select().executeAsync(callback);
-            } else if(REQUEST == ASYNC_TRANSACTION_REQUEST) {
+            } else if(LiquorConstants.REQUEST == LiquorConstants.ASYNC_TRANSACTION_REQUEST) {
                 var databaseDescriptor = new LiquorBrand().getDatabaseDescriptor();
                 Database.beginTransactionAsync(databaseDescriptor, callback);
-            } else if(REQUEST == SYNC_REQUEST) {
+            } else if(LiquorConstants.REQUEST == LiquorConstants.SYNC_REQUEST) {
                 liquors = new Liquor().select().execute();
                 loadTasks();
             }
@@ -348,14 +347,16 @@
             }
             
             var syncRequest = new SyncRequest();
-            syncRequest.setName(SYNC_LIQUOR_BRANDS);
+            syncRequest.setName(LiquorConstants.SYNC_LIQUOR_BRANDS);
             
             syncRequest.addResource(GetLiquorBrands.LIQUOR_NAME, liquor.getLiquorType());
+            syncRequest.addResource(GetLiquorBrands.LIQUOR, liquor);
+            
             var syncHandler = SyncHandler.getInstance();
             
-            if(REQUEST == ASYNC_REQUEST || REQUEST == ASYNC_TRANSACTION_REQUEST) {
+            if(LiquorConstants.REQUEST == LiquorConstants.ASYNC_REQUEST || LiquorConstants.REQUEST == LiquorConstants.ASYNC_TRANSACTION_REQUEST) {
                 syncHandler.handleAsync(syncRequest, callback);
-            } else if(REQUEST == SYNC_REQUEST) {
+            } else if(LiquorConstants.REQUEST == LiquorConstants.SYNC_REQUEST) {
                 syncHandler.handle(syncRequest);
             }
             
@@ -419,7 +420,7 @@
             callback.onSuccess = function(savedLiquorBrands) {
                 Log.debug("Home", "populateDetail", "Get Liquor Brands Success: " + savedLiquorBrands);
                 
-                if(REQUEST == ASYNC_REQUEST) {
+                if(LiquorConstants.REQUEST == LiquorConstants.ASYNC_REQUEST) {
                     liquorBrands = savedLiquorBrands;
                 }
                 
@@ -431,12 +432,12 @@
             }
             
             
-            if(REQUEST == ASYNC_REQUEST) {
+            if(LiquorConstants.REQUEST == LiquorConstants.ASYNC_REQUEST) {
                 new LiquorBrand().select().where("LIQUOR_TYPE").equalTo(liquor.getLiquorType()).executeAsync(callback);
-            } else if(REQUEST == ASYNC_TRANSACTION_REQUEST) {
+            } else if(LiquorConstants.REQUEST == LiquorConstants.ASYNC_TRANSACTION_REQUEST) {
                 var databaseDescriptor = new LiquorBrand().getDatabaseDescriptor();
                 Database.beginTransactionAsync(databaseDescriptor, callback);
-            } else if(REQUEST == SYNC_REQUEST) {
+            } else if(LiquorConstants.REQUEST == LiquorConstants.SYNC_REQUEST) {
                 liquorBrands = new LiquorBrand().select().where("LIQUOR_TYPE").equalTo(liquor.getLiquorType()).execute();
                 loadLiquorBrands();
             }

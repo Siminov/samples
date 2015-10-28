@@ -25,7 +25,9 @@
 	@module Database
 */
 
-module.exports = IGroupConcat;
+if(window['document'] == undefined) {
+    module.exports = IGroupConcat;    
+}
 
 /**
 	Design contain all interfaces required by database layer to deal with database.

@@ -22,8 +22,10 @@
 	@module Exception
 */
 
-module.exports = SiminovExceptionHandler;
-window.SiminovExceptionHandler = SiminovExceptionHandler;
+if(window['document'] == undefined) {
+    module.exports = SiminovExceptionHandler;
+    window.SiminovExceptionHandler = SiminovExceptionHandler;    
+}
 
 /**
 	Any exception thrown from NATIVE-TO-HYBRID is handled and show to user. 

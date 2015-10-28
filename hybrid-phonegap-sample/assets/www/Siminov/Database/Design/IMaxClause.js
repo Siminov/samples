@@ -25,7 +25,9 @@
 	@module Database
 */
 
-module.exports = IMaxClause;
+if(window['document'] == undefined) {
+    module.exports = IMaxClause;    
+}
 
 /**
 	Design contain all interfaces required by database layer to deal with database.

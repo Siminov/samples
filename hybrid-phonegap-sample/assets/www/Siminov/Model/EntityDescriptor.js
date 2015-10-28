@@ -23,12 +23,13 @@
 	@module Model
 */
 
-var Constants = require('../Constants');
-var Dictionary = require('../Collection/Dictionary');
-
-
-module.exports = EntityDescriptor;
-window.EntityDescriptor = EntityDescriptor;
+if(window['document'] == undefined) {
+    var Constants = require('../Constants');
+    var Dictionary = require('../Collection/Dictionary');
+    
+    module.exports = EntityDescriptor;
+    window.EntityDescriptor = EntityDescriptor;
+}
 
 /**
  	Exposes methods to GET and SET Entity Descriptor information as per define in EntityDescriptor.si.xml file by application.

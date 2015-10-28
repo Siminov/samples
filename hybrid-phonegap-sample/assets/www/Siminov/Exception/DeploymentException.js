@@ -22,8 +22,10 @@
 	@module Exception
 */
 
-module.exports = DeploymentException;
-window.DeploymentException = DeploymentException;
+if(window['document'] == undefined) {
+    module.exports = DeploymentException;
+    window.DeploymentException = DeploymentException;    
+}
 
 /**
 	This is general exception, which is thrown through Deployment APIs, if any exception occur while deploying application.

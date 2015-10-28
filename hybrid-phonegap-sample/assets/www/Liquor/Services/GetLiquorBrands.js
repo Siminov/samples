@@ -15,18 +15,29 @@
  * limitations under the License.
  **/
 
-var Log = require('../../Siminov/Log/Log');
-var Function = require('../../Siminov/Function/Function');
-var Service = require('../../Siminov/Service/Service');
+if(window['document'] == undefined) {
+    var Log = require('../../Siminov/Log/Log');
+    var Function = require('../../Siminov/Function/Function');
+    var Service = require('../../Siminov/Service/Service');
+    var Callback = require('../../Siminov/Callback');
+    var Database = require('../../Siminov/Database/Database');
+    var ResourceManager = require('../../Siminov/Resource/ResourceManager');
+    
+    var Liquor = require('../Models/Liquor');
+    var LiquorBrand = require('../Models/LiquorBrand');
+    var LiquorBrandsReader = require('../ReaderWritter/LiquorBrandsReader');
+    var LiquorConstants = require('../Constants');
+    
+    var LiquorDetail = require('../../LiquorDetail');
+    
+    module.exports = GetLiquorBrands;
+}
 
-var Liquor = require('../Models/Liquor');
-var LiquorBrand = require('../Models/LiquorBrand');
-var LiquorBrandsReader = require('../ReaderWritter/LiquorBrandsReader');
-
-module.exports = GetLiquorBrands;
 
 
 function GetLiquorBrands() {
+    
+    Service.apply(this, arguments);
     
     this.setService(GetLiquorBrands.SERVICE_NAME);
     this.setRequest(GetLiquorBrands.REQUEST_NAME);
@@ -62,15 +73,16 @@ function GetLiquorBrands() {
         }
         
         var liquorType = this.getResource(GetLiquorBrands.LIQUOR_NAME);
+        var liquor = this.getResource(GetLiquorBrands.LIQUOR);
+        var home = this.getResource("HOME");
         
-        
-        var liquor;
+        /*var liquor;
         for(var i = 0;i < liquors.length;i++) {
             
             if(liquors[i].getLiquorType() === liquorType) {
                 liquor = liquors[i];
             }
-        }
+        }*/
         
         liquor.removeLiquorBrands();
         
@@ -262,7 +274,7 @@ function GetLiquorBrands() {
         
         callback.onSuccess = function() {
             
-            if(REQUEST == ASYNC_REQUEST) {
+            if(LiquorConstants.REQUEST == LiquorConstants.ASYNC_REQUEST) {
                 ++callbackCount;
                 
                 if((callbackCount + 1) == liquorBrands.length) {
@@ -270,7 +282,7 @@ function GetLiquorBrands() {
                     
                     fetchLiquorBrands();
                 }
-            } else if(REQUEST == ASYNC_TRANSACTION_REQUEST) {
+            } else if(LiquorConstants.REQUEST == LiquorConstants.ASYNC_TRANSACTION_REQUEST) {
                 fetchLiquorBrands();
             }
         }
@@ -281,7 +293,7 @@ function GetLiquorBrands() {
         
         
         
-        if(REQUEST == ASYNC_REQUEST) {
+        if(LiquorConstants.REQUEST == LiquorConstants.ASYNC_REQUEST) {
             
             for(var i = 0;i < liquorBrands.length;i++) {
                 var liquorBrand = liquorBrands[i];
@@ -289,10 +301,15 @@ function GetLiquorBrands() {
                 
                 liquorBrand.saveOrUpdateAsync(callback);
             }
-        } else if(REQUEST == ASYNC_TRANSACTION_REQUEST) {
-            var databaseDescriptor = new LiquorBrand().getDatabaseDescriptor();
-            Database.beginTransactionAsync(databaseDescriptor, callback);
-        } else if(REQUEST == SYNC_REQUEST) {
+        } else if(LiquorConstants.REQUEST == LiquorConstants.ASYNC_TRANSACTION_REQUEST) {
+            
+            var databaseDescriptorCallback = new Callback();
+            databaseDescriptorCallback.onSuccess = function(databaseDescriptor) {
+                Database.beginTransactionAsync(databaseDescriptor, callback);
+            }
+            
+            new LiquorBrand().getDatabaseDescriptorAsync(databaseDescriptorCallback);
+        } else if(LiquorConstants.REQUEST == LiquorConstants.SYNC_REQUEST) {
             
             for(var i = 0;i < liquorBrands.length;i++) {
                 var liquorBrand = liquorBrands[i];
@@ -316,7 +333,16 @@ function GetLiquorBrands() {
             }
             
             
-            populateDetail(liquorType);
+            if(window['document'] != undefined) {
+                populateDetail(liquor.getLiquorType());
+            } else {
+                
+                home.props.navigator.push({
+                    title: liquor.getLiquorType(),
+                    component: LiquorDetail,
+                    passProps: {liquor}
+                });
+            }
         }
     }
     
@@ -329,6 +355,7 @@ GetLiquorBrands.SERVICE_NAME = "SIMINOV-HYBRID-LIQUOR-BRANDS-SERVICE";
 GetLiquorBrands.REQUEST_NAME = "GET-LIQUOR-BRANDS";
 
 GetLiquorBrands.LIQUOR_NAME = "LIQUOR-NAME";
+GetLiquorBrands.LIQUOR = "LIQUOR";
 
 
 Function.extend(Service, GetLiquorBrands);

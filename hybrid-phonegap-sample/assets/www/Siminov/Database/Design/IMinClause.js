@@ -25,7 +25,9 @@
 	@module Database
 */
 
-module.exports = IMinClause;
+if(window['document'] == undefined) {
+    module.exports = IMinClause;    
+}
 
 /**
 	Design contain all interfaces required by database layer to deal with database.

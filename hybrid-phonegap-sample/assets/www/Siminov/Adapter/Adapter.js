@@ -22,22 +22,24 @@
 
 	@module Adapter
 */
-
-var Utils = require('../Utils/Utils');
-var Dictionary = require('../Collection/Dictionary');
-var HybridSiminovDatas = require('../Model/HybridSiminovDatas');
-var Log = require('../Log/Log');
-var Constants = require('../Constants');
-var Function = require('../Function/Function');
-
-/*
- * React Native Imports
- */
-var SIHReactInterceptor = require('NativeModules').SIHReactInterceptor;
-var RCTDeviceEventEmitter = require('RCTDeviceEventEmitter');
-
-
-module.exports = Adapter;
+if(window['document'] == undefined) {
+    
+    var Utils = require('../Utils/Utils');
+    var Dictionary = require('../Collection/Dictionary');
+    var HybridSiminovDatas = require('../Model/HybridSiminovDatas');
+    var Log = require('../Log/Log');
+    var Constants = require('../Constants');
+    var Function = require('../Function/Function');
+    
+    /*
+     * React Native Imports
+     */
+    var SIHReactInterceptor = require('NativeModules').SIHReactInterceptor;
+    var RCTDeviceEventEmitter = require('RCTDeviceEventEmitter');
+    
+    
+    module.exports = Adapter;
+}
 
 
 
@@ -228,7 +230,11 @@ Adapter.invoke = function(adapter) {
         
         
         if(adapterMode == undefined || adapterMode == null || adapterMode == Adapter.ADAPTER_SYNC_MODE) {
-            SIHReactInterceptor.handleHybridToNative(Constants.HTTP_POST_METHOD, adapterName + "." + handlerName, json);
+            SIHReactInterceptor.handleHybridToNative(Constants.HTTP_POST_METHOD, adapterName + "." + handlerName, json, reactSyncCallback);
+            
+            function reactSyncCallback() {
+                alert("react sync callback");
+            }
         } else {
             Adapter.requests.add(adapter.getRequestId(), adapter);
             

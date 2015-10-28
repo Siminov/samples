@@ -15,8 +15,10 @@
  * limitations under the License.
  **/
 
+if(window['document'] == undefined) {
+    module.exports = LiquorConstants;
+}
 
-module.exports = LiquorConstants;
 
 function LiquorConstants() {
     

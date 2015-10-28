@@ -22,8 +22,10 @@
 	@module Exception
 */
 
-module.exports = NotificationException;
-window.NotificationException = NotificationException;
+if(window['document'] == undefined) {
+    module.exports = NotificationException;
+    window.NotificationException = NotificationException;    
+}
 
 /**
 	This is general exception, which is thrown through Notification APIs, if any exception occur while processing notification.

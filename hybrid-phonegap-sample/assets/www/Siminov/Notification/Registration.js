@@ -22,8 +22,10 @@
 	@module Notification
 */
 
-module.exports = Registration;
-window.Registration = Registration;
+if(window['document'] == undefined) {
+    module.exports = Registration;
+    window.Registration = Registration;    
+}
 
 /**
 	It exposes APIs to Get and Set push notification registration information

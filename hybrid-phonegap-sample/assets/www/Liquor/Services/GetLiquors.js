@@ -15,20 +15,28 @@
  * limitations under the License.
  **/
 
-var Log = require('../../Siminov/Log/Log');
-var Function = require('../../Siminov/Function/Function');
-var Service = require('../../Siminov/Service/Service');
-var Callback = require('../../Siminov/Callback');
-
-var Liquor = require('../Models/Liquor');
-var LiquorBrand = require('../Models/LiquorBrand');
-var LiquorsReader = require('../ReaderWritter/LiquorsReader');
-var Constants = require('../ReaderWritter/LiquorsReader');
-
-module.exports = GetLiquors;
+if(window['document'] == undefined) {
+    var LiquorList = require('../../LiquorList');
+    
+    var Log = require('../../Siminov/Log/Log');
+    var Function = require('../../Siminov/Function/Function');
+    var Service = require('../../Siminov/Service/Service');
+    var Callback = require('../../Siminov/Callback');
+    var Database = require('../../Siminov/Database/Database');
+    
+    var Liquor = require('../Models/Liquor');
+    var LiquorBrand = require('../Models/LiquorBrand');
+    var LiquorsReader = require('../ReaderWritter/LiquorsReader');
+    var Constants = require('../ReaderWritter/LiquorsReader');
+    var LiquorConstants = require('../Constants');
+    
+    module.exports = GetLiquors;    
+}
 
 
 function GetLiquors() {
+    
+    Service.apply(this, arguments);
     
     this.setService(GetLiquors.SERVICE_NAME);
     this.setRequest(GetLiquors.REQUEST_NAME);
@@ -87,14 +95,14 @@ function GetLiquors() {
             
             callback.onSuccess = function() {
                 
-                if(Constants.REQUEST == Constants.ASYNC_REQUEST) {
+                if(LiquorConstants.REQUEST == LiquorConstants.ASYNC_REQUEST) {
                     ++callbackCount;
                     
                     if((callbackCount + 1) == liquors.length) {
                         Log.debug("GetLiquors", "onRequestFinish", "Save Or Update Success: Populate Home: " + callbackCount);
                         loadLiquors();
                     }
-                } else if(Constants.REQUEST == Constants.ASYNC_TRANSACTION_REQUEST) {
+                } else if(LiquorConstants.REQUEST == LiquorConstants.ASYNC_TRANSACTION_REQUEST) {
                     loadLiquors();
                 }
             }
@@ -104,19 +112,25 @@ function GetLiquors() {
             }
             
             
-            if(Constants.REQUEST == Constants.ASYNC_REQUEST) {
+            if(LiquorConstants.REQUEST == LiquorConstants.ASYNC_REQUEST) {
                 for(var i = 0;i < liquors.length;i++) {
                     var liquor = liquors[i];
                     liquor.saveOrUpdateAsync(callback);
                 }
-            } else if(Constants.REQUEST == Constants.ASYNC_TRANSACTION_REQUEST) {
-                var databaseDescriptor = new Liquor().getDatabaseDescriptor();
-                Database.beginTransactionAsync(databaseDescriptor, callback);	
-            } else if(Constants.REQUEST == Constants.SYNC_REQUEST) {
+            } else if(LiquorConstants.REQUEST == LiquorConstants.ASYNC_TRANSACTION_REQUEST) {
+                
+                var databaseDescriptorCallback = new Callback();
+                databaseDescriptorCallback.onSuccess = function(databaseDescriptor) {
+                    Database.beginTransactionAsync(databaseDescriptor, callback);
+                }
+                
+                new Liquor().getDatabaseDescriptorAsync(databaseDescriptorCallback);
+            } else if(LiquorConstants.REQUEST == LiquorConstants.SYNC_REQUEST) {
                 
                 for(var i = 0;i < liquors.length;i++) {
                     var liquor = liquors[i];
                     liquor.saveOrUpdate();
+                    break;
                 }
                 
                 loadLiquors();
@@ -124,10 +138,14 @@ function GetLiquors() {
             
             function loadLiquors() {
                 
-                me.props.navigator.push({
-                    title: "Liquor List",
-                    component: LiquorList,
-                });
+                if(window['document'] != undefined) {
+                    populateHome();
+                } else {
+                    home.props.navigator.push({
+                        title: "Liquor List",
+                        component: LiquorList,
+                    });
+                }
             }
         }		
     }

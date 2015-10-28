@@ -15,7 +15,6 @@
  * limitations under the License.
  **/
 
-module.exports = IAverageClause;
 
 /**
 	Exposes classes which deal with database.
@@ -25,6 +24,10 @@ module.exports = IAverageClause;
 	@module Database
 */
 
+
+if(window['document'] == undefined) {
+    module.exports = IAverageClause;    
+}
 
 /**
 	Design contain all interfaces required by database layer to deal with database.

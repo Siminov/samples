@@ -25,7 +25,9 @@
 	@module Database
 */
 
-module.exports = IDeleteClause;
+if(window['document'] == undefined) {
+    module.exports = IDeleteClause;    
+}
 
 /**
 	Design contain all interfaces required by database layer to deal with database.

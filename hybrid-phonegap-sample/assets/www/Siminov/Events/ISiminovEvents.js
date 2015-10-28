@@ -15,7 +15,9 @@
  * limitations under the License.
  **/
 
-module.exports = ISiminovEvents;
+if(window['document'] == undefined) {
+    module.exports = ISiminovEvents;
+}
 
 
 function ISiminovEvents(siminovEvents) {

@@ -15,7 +15,9 @@
  * limitations under the License.
  **/
 
-module.exports = INotificationEvents;
+if(window['document'] == undefined) {
+    module.exports = INotificationEvents;    
+}
 
 function INotificationEvents(notificationEvents) {
     

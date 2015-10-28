@@ -23,7 +23,9 @@
 	@module Log
 */
 
-module.exports = Log;
+if(window['document'] == undefined) {
+    module.exports = Log;    
+}
 
 
 /**

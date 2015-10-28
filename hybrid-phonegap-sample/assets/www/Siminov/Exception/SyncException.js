@@ -23,8 +23,10 @@
 	@module Exception
 */
 
-module.exports = SyncException;
-window.SyncException = SyncException;
+if(window['document'] == undefined) {
+    module.exports = SyncException;
+    window.SyncException = SyncException;    
+}
 
 /**
 	This is general exception, which is thrown through Sync APIs, if any exception occur while processing sync request.

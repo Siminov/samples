@@ -25,7 +25,9 @@
 	@module Database
 */
 
-module.exports = ISelectClause;
+if(window['document'] == undefined) {
+    module.exports = ISelectClause;    
+}
 
 /**
 	Design contain all interfaces required by database layer to deal with database.

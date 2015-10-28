@@ -20,58 +20,68 @@
 /*
     Import Required Siminov
  */
-//document.write('<script type="text/javascript" src="Siminov/Import.js"></script>');
 
-var Constants = require('./Constants');
-var Callback = require('./Callback');
+if(window['document'] != undefined) {
+    document.write('<script type="text/javascript" src="Siminov/Import.js"></script>');
+} else {
+    
+    var Constants = require('./Constants');
+    var Callback = require('./Callback');
+    
+    
+    /*
+     * Adapter
+     */
+    var Adapter = require('./Adapter/Adapter');
+    
+    
+    /*
+     * Events
+     */
+    var EventHandler = require('./Events/EventHandler');
+    
+    
+    /*
+     * Service
+     */
+    var ServiceEventHandler = require('./Service/ServiceEventHandler');
+    
+    
+    /*
+     * Collection
+     */
+    var Array = require('./Collection/Array');
+    var String = require('./Collection/String');
+    
+    
+    /*
+     * Models
+     */
+    var ApplicationDescriptor = require('./Model/ApplicationDescriptor');
+    var AdapterDescriptor = require('./Model/AdapterDescriptor');
+    var DatabaseDescriptor = require('./Model/DatabaseDescriptor');
+    var EntityDescriptor = require('./Model/EntityDescriptor');
+    var LibraryDescriptor = require('./Model/LibraryDescriptor');
+    var NotificationDescriptor = require('./Model/NotificationDescriptor');
+    var ServiceDescriptor = require('./Model/ServiceDescriptor');
+    var SyncDescriptor = require('./Model/SyncDescriptor');
+    
+    
+    /*
+     * Connection
+     */
+    var ConnectionRequest = require('./Connection/ConnectionRequest');
+    var ConnectionResponse = require('./Connection/ConnectionResponse');
+    
+    
+    /*
+     * Sync
+     */
+    var SyncRequest = require('./Sync/SyncRequest');
+    
+    module.exports = Siminov;
+}
 
-
-/*
- * Adapter
- */
-var Adapter = require('./Adapter/Adapter');
-
-
-/*
- * Events
- */
-var EventHandler = require('./Events/EventHandler');
-
-
-/*
- * Service
- */
-var ServiceEventHandler = require('./Service/ServiceEventHandler');
-
-
-/*
- * Collection
- */
-var Array = require('./Collection/Array');
-var String = require('./Collection/String');
-
-
-/*
- * Models
- */
-var ApplicationDescriptor = require('./Model/ApplicationDescriptor');
-var AdapterDescriptor = require('./Model/AdapterDescriptor');
-var DatabaseDescriptor = require('./Model/DatabaseDescriptor');
-var EntityDescriptor = require('./Model/EntityDescriptor');
-var LibraryDescriptor = require('./Model/LibraryDescriptor');
-var NotificationDescriptor = require('./Model/NotificationDescriptor');
-var ServiceDescriptor = require('./Model/ServiceDescriptor');
-var SyncDescriptor = require('./Model/SyncDescriptor');
-
-
-/*
- * Connection
- */
-var ConnectionRequest = require('./Connection/ConnectionRequest');
-var ConnectionResponse = require('./Connection/ConnectionResponse');
-
-
-module.exports = Siminov;
 
 
 /**

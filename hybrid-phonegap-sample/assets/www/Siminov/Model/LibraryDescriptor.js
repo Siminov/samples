@@ -24,12 +24,14 @@
 	@module Model
 */
 
-var Constants = require('../Constants');
-var Dictionary = require('../Collection/Dictionary');
-
-
-module.exports = LibraryDescriptor;
-window.LibraryDescriptor = LibraryDescriptor;
+if(window['document'] == undefined) {
+    var Constants = require('../Constants');
+    var Dictionary = require('../Collection/Dictionary');
+    
+    
+    module.exports = LibraryDescriptor;
+    window.LibraryDescriptor = LibraryDescriptor;
+}
 
 /**
  	Exposes methods to GET and SET Library Descriptor information as per define in LibraryDescriptor.si.xml file by application.

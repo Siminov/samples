@@ -25,7 +25,9 @@
 	@module Database
 */
 
-module.exports = ISumClause;
+if(window['document'] == undefined) {
+    module.exports = ISumClause;    
+}
 
 /**
 	Design contain all interfaces required by database layer to deal with database.

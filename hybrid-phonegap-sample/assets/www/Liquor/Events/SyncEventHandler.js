@@ -15,11 +15,12 @@
  * limitations under the License.
  **/
 
-
-var ISyncEvents = require('../../Siminov/Events/ISyncEvents');
-var Function = require('../../Siminov/Function/Function');
-
-module.exports = SyncEventHandler;
+if(window['document'] == undefined) {
+    var ISyncEvents = require('../../Siminov/Events/ISyncEvents');
+    var Function = require('../../Siminov/Function/Function');
+    
+    module.exports = SyncEventHandler;    
+}
 
 
 function SyncEventHandler() {

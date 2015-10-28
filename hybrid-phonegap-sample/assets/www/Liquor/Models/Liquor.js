@@ -15,14 +15,19 @@
  * limitations under the License.
  **/
 
-var Database = require('../../Siminov/Database/Database');
-var Function = require('../../Siminov/Function/Function');
 
-module.exports = Liquor;
+if(window['document'] == undefined) {
+    var Database = require('../../Siminov/Database/Database');
+    var Function = require('../../Siminov/Function/Function');
+    
+    module.exports = Liquor;    
+}
 
 
 function Liquor() {
 
+    Database.apply(this, arguments);
+    
     var liquorType;
     var description;
     var history;

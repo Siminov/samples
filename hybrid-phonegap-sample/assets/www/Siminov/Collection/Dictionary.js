@@ -24,7 +24,10 @@
 	@module Collection
 */
 
-module.exports = Dictionary;
+if(window['document'] == undefined) {
+    module.exports = Dictionary;
+}
+
 
 
 /**

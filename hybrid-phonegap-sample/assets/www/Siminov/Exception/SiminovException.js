@@ -23,8 +23,10 @@
 	@module Exception
 */
 
-module.exports = SiminovException;
-window.SiminovException = SiminovException;
+if(window['document'] == undefined) {
+    module.exports = SiminovException;
+    window.SiminovException = SiminovException;    
+}
 
 /**
 	This is general exception, which is thrown through Siminov APIs, if any exception occur while performing any tasks.

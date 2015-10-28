@@ -1,7 +1,10 @@
 
-var Dictionary = require('../Collection/Dictionary');
+if(window['document'] == undefined) {
+    var Dictionary = require('../Collection/Dictionary');
+    
+    module.exports = Transaction;    
+}
 
-module.exports = Transaction;
 
 function Transaction() {
 	

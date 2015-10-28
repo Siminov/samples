@@ -22,11 +22,13 @@
 	@module Model
 */
 
-var Constants = require('../Constants');
-var Dictionary = require('../Collection/Dictionary');
-
-module.exports = AdapterDescriptor;
-window.AdapterDescriptor = AdapterDescriptor;
+if(window['document'] == undefined) {
+    var Constants = require('../Constants');
+    var Dictionary = require('../Collection/Dictionary');
+    
+    module.exports = AdapterDescriptor;
+    window.AdapterDescriptor = AdapterDescriptor;    
+}
 
 /**
  	Exposes methods to GET and SET Adapter Descriptor information as per define in AdapterDescriptor.si.xml file by application.

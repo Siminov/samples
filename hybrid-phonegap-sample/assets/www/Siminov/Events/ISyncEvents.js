@@ -15,7 +15,9 @@
  * limitations under the License.
  **/
 
-module.exports = ISyncEvents;
+if(window['document'] == undefined) {
+    module.exports = ISyncEvents;
+}
 
 function ISyncEvents(syncEvents) {
     

@@ -24,7 +24,10 @@
 	@module Collection
 */
 
-module.exports = StringBuilder;
+if(window['document'] == undefined) {
+    module.exports = StringBuilder;
+}
+
 
 /**
 	A mutable sequence of characters.

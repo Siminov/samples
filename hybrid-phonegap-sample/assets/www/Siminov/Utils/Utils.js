@@ -1,6 +1,8 @@
 
 
-module.exports = Utils;
+if(window['document'] == undefined) {
+    module.exports = Utils;
+}
 
 
 function Utils() {

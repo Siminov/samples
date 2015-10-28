@@ -55,7 +55,7 @@ document.write('<script type="text/javascript" src="Siminov/Function/Function.js
 /*
     Parser Layer Import
  */
-document.write('<script type="text/javascript" src="Siminov/ReaderWritter/SIDatasHelper.js"></script>');
+document.write('<script type="text/javascript" src="Siminov/ReaderWriter/SIDatasHelper.js"></script>');
 
 
 /*

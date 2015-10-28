@@ -15,17 +15,19 @@
  * limitations under the License.
  **/
 
-
-var Log = require('../../Siminov/Log/Log');
-var Function = require('../../Siminov/Function/Function');
-var Service = require('../../Siminov/Service/Service');
-
-
-module.exports = RegisterDevice;
+if(window['document'] == undefined) {
+    var Log = require('../../Siminov/Log/Log');
+    var Function = require('../../Siminov/Function/Function');
+    var Service = require('../../Siminov/Service/Service');
+    
+    module.exports = RegisterDevice;
+}
 
 
 function RegisterDevice() {
 
+    Service.apply(this, arguments);
+    
 	this.setService(RegisterDevice.SERVICE_NAME);
 	this.setRequest(RegisterDevice.REQUEST_NAME);
 	

@@ -25,7 +25,9 @@
 	@module Database
 */
 
-module.exports = ICount;
+if(window['document'] == undefined) {
+    module.exports = ICount;    
+}
 
 /**
 	Design contain all interfaces required by database layer to deal with database.

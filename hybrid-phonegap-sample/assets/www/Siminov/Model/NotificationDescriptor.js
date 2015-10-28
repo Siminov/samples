@@ -23,12 +23,13 @@
 	@module Model
 */
 
-var Constants = require('../Constants');
-var Dictionary = require('../Collection/Dictionary');
-
-
-module.exports = NotificationDescriptor;
-window.NotificationDescriptor = NotificationDescriptor;
+if(window['document'] == undefined) {
+    var Constants = require('../Constants');
+    var Dictionary = require('../Collection/Dictionary');
+    
+    module.exports = NotificationDescriptor;
+    window.NotificationDescriptor = NotificationDescriptor;
+}
 
 /**
  	Exposes methods to GET and SET Notification Descriptor information as per define in NotificationDescriptor.si.xml file by application.

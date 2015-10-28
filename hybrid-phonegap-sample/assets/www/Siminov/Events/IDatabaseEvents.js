@@ -15,8 +15,9 @@
  * limitations under the License.
  **/
 
-module.exports = IDatabaseEvents;
-
+if(window['document'] == undefined) {
+    module.exports = IDatabaseEvents;
+}
 
 function IDatabaseEvents(databaseEvents) {
     

@@ -15,16 +15,19 @@
  * limitations under the License.
  **/
 
-var Log = require('../../Siminov/Log/Log');
-var Function = require('../../Siminov/Function/Function');
-var Service = require('../../Siminov/Service/Service');
-
-
-module.exports = DeleteLiquor;
+if(window['document'] == undefined) {
+    var Log = require('../../Siminov/Log/Log');
+    var Function = require('../../Siminov/Function/Function');
+    var Service = require('../../Siminov/Service/Service');
+    
+    module.exports = DeleteLiquor;
+}
 
 
 function DeleteLiquor() {
 
+    Service.apply(this, arguments);
+    
 	this.setService(DeleteLiquor.SERVICE_NAME);
 	this.setRequest(DeleteLiquor.REQUEST_NAME);
 	

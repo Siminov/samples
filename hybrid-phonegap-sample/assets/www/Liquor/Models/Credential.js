@@ -15,14 +15,18 @@
  * limitations under the License.
  **/
 
-var Database = require('../../Siminov/Database/Database');
-var Function = require('../../Siminov/Function/Function');
-
-module.exports = Credential;
+if(window['document'] == undefined) {
+    var Database = require('../../Siminov/Database/Database');
+    var Function = require('../../Siminov/Function/Function');
+    
+    module.exports = Credential;    
+}
 
 
 function Credential() {
 
+    Database.apply(this, arguments);
+    
 	//Class Variables.
 	var accountId = null;
 	var token = null;

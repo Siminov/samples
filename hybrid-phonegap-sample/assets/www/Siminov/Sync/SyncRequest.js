@@ -26,9 +26,13 @@
 	@module Sync
 */
 
-var Dictionary = require('../Collection/Dictionary');
-
-module.exports = SyncRequest;
+if(window['document'] == undefined) {
+    var Dictionary = require('../Collection/Dictionary');
+    var Utils = require('../Utils/Utils');
+    
+    module.exports = SyncRequest;
+    window.SyncRequest = SyncRequest;    
+}
 
 
 /**
@@ -40,10 +44,16 @@ module.exports = SyncRequest;
 */
 function SyncRequest() {
 
+    var requestId = Utils.uniqueNumber();
 	var name;
 
 	var resources = new Dictionary();
 	
+    this.getRequestId = function() {
+        return requestId;
+    }
+    
+    
 	/**
 	 * Get name of sync request
 	 * 

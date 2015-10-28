@@ -25,9 +25,11 @@
 	@module Function
 */
 
-var Log = require('../Log/Log');
-
-module.exports = Function;
+if(window['document'] == undefined) {
+    var Log = require('../Log/Log');
+    
+    module.exports = Function;    
+}
 
 /**
 	Get all properties a given function contain.
@@ -40,7 +42,7 @@ Object.defineProperty(
         value: function() {
             var result = [];
             for (var property in this) {
-                if (this.hasOwnProperty(property))
+                if (this.hasOwnProperty(property) && !this.__proto__.hasOwnProperty(property))
                     result.push(property);
             }
 
@@ -166,12 +168,17 @@ Function.extend = function (parent, child) {
     child.prototype = new parent();
     child.prototype.constructor = child;
     
-    window[child.name] = child;
+    if(!window[child.name]) {
+        window[child.name] = child;
+    }
 }
 
                       
 Function.implement = function(parent, child) {
-    window[child.name] = child;
+                      
+    if(!window[child.name]) {
+        window[child.name] = child;
+    }
 }
 
 

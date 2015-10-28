@@ -15,11 +15,12 @@
  * limitations under the License.
  **/
 
-
-var INotificationEvents = require('../../Siminov/Events/INotificationEvents');
-var Function = require('../../Siminov/Function/Function');
-
-module.exports = NotificationEventHandler;
+if(window['document'] == undefined) {
+    var INotificationEvents = require('../../Siminov/Events/INotificationEvents');
+    var Function = require('../../Siminov/Function/Function');
+    
+    module.exports = NotificationEventHandler;    
+}
 
 
 function NotificationEventHandler() {

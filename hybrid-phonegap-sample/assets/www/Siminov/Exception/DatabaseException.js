@@ -23,8 +23,10 @@
 	@module Exception
 */
 
-module.exports = DatabaseException;
-window.DatabaseException = DatabaseException;
+if(window['document'] == undefined) {
+    module.exports = DatabaseException;
+    window.DatabaseException = DatabaseException;    
+}
 
 /**
 	This is general exception, which is thrown through Database APIs, if any exception occur while performing any database request.

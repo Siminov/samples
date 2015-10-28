@@ -16,10 +16,12 @@
  * limitations under the License.
  **/
 
-var IDatabaseEvents = require('../../Siminov/Events/IDatabaseEvents');
-var Function = require('../../Siminov/Function/Function');
-
-module.exports = DatabaseEventHandler;
+if(window['document'] == undefined) {
+    var IDatabaseEvents = require('../../Siminov/Events/IDatabaseEvents');
+    var Function = require('../../Siminov/Function/Function');
+    
+    module.exports = DatabaseEventHandler;
+}
 
 
 function DatabaseEventHandler() {

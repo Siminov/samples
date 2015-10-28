@@ -25,14 +25,17 @@
 	@module Service
 */
 
-var Function = require('../Function/Function');
-var Dictionary = require('../Collection/Dictionary');
-var SIDatasHelper = require('../ReaderWriter/SIDatasHelper');
-var Constants = require('../Constants');
-
-
-module.exports = ServiceEventHandler;
-window.ServiceEventHandler = ServiceEventHandler;
+if(window['document'] == undefined) {
+    var Function = require('../Function/Function');
+    var ServiceHandler = require('../Service/ServiceHandler');
+    var SyncHandler = require('../Sync/SyncHandler');
+    var Dictionary = require('../Collection/Dictionary');
+    var SIDatasHelper = require('../ReaderWriter/SIDatasHelper');
+    var Constants = require('../Constants');
+    
+    module.exports = ServiceEventHandler;
+    window.ServiceEventHandler = ServiceEventHandler;
+}
 
 /**
 	Any service event triggered by Siminov is first handled by this function later it will deliver to appropriate Service Event APIs. 
@@ -52,9 +55,13 @@ function ServiceEventHandler() {
 	*/
 	this.triggerEvent = function(data) {
 
-        var hybridSiminovDatas = JSON.parse(eval(data));
+        var hybridSiminovDatas = window['document'] == undefined?JSON.parse(eval('(' + data + ')')):JSON.parse(data);
         var datas = hybridSiminovDatas.datas;
 
+        var serviceHandler = ServiceHandler.getInstance();
+        var syncHandler = SyncHandler.getInstance();
+        
+        var requestId;
         var apiHandler;
         var event;
 
@@ -69,7 +76,9 @@ function ServiceEventHandler() {
                 var data = datas[i];
 
                 var dataType = data.type;
-                if(dataType === Constants.ISERVICE_API_HANDLER) {
+                if(dataType === Constants.ISERVICE_REQUEST_ID) {
+                    requestId = data.value;
+                } else if(dataType === Constants.ISERVICE_API_HANDLER) {
                     apiHandler = data.value;
                 } else if(dataType === Constants.ISERVICE_TRIGGERED_EVENT) {
 					event = data.value;
@@ -102,16 +111,33 @@ function ServiceEventHandler() {
             }
         }
 
-
-        var eventHandler = Function.createFunctionInstance(apiHandler);
+        var eventHandler;
         
-        //Inflate Resources
-        var resourceKeys = resources.keys();
-        for(var i = 0;i < resourceKeys.length;i++) {
-        	var resourceName = resourceKeys[i];
-        	var resourceValue = resources.get(resourceName);
-        	
-        	Function.invokeAndInflate(eventHandler, Constants.ISERVICE_ADD_RESOURCE, resourceName, resourceValue);
+        var service = serviceHandler.getRequest(requestId);
+        if(service) {
+            eventHandler = service;
+        } else {
+            eventHandler = Function.createFunctionInstance(apiHandler);
+            
+            var syncRequest = syncHandler.getRequest(requestId);
+            if(syncRequest) {
+                
+                resources = new Dictionary();
+                
+                var syncResourcesKeys = syncRequest.getResources();
+                for(var i = 0;i < syncResourcesKeys.length;i++) {
+                    resources.add(syncResourcesKeys[i], syncRequest.getResource(syncResourcesKeys[i]));
+                }
+            }
+            
+            //Inflate Resources
+            var resourceKeys = resources.keys();
+            for(var i = 0;i < resourceKeys.length;i++) {
+                var resourceName = resourceKeys[i];
+                var resourceValue = resources.get(resourceName);
+                
+                Function.invokeAndInflate(eventHandler, Constants.ISERVICE_ADD_RESOURCE, resourceName, resourceValue);
+            }
         }
         
 
@@ -131,6 +157,8 @@ function ServiceEventHandler() {
         } else if(event === Constants.ISERVICE_ON_FINISH_EVENT) {
 
             Function.invokeAndInflate(eventHandler, event);
+            
+            serviceHandler.removeRequest(requestId);
         } else if(event === Constants.ISERVICE_ON_REQUEST_INVOKE_EVENT) {
 
 			Function.invokeAndInflate(eventHandler, event, connectionRequest);
@@ -140,6 +168,8 @@ function ServiceEventHandler() {
         } else if(event === Constants.ISERVICE_ON_TERMINATE_EVENT) {
 
             Function.invokeAndInflate(eventHandler, event);
+            
+            serviceHandler.removeRequest(requestId);
         }
     }
 }

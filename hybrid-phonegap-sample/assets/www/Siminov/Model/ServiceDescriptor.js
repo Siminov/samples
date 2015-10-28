@@ -22,12 +22,13 @@
 	@module Model
 */
 
-var Constants = require('../Constants');
-var Dictionary = require('../Collection/Dictionary');
-
-
-module.exports = ServiceDescriptor;
-window.ServiceDescriptor = ServiceDescriptor;
+if(window['document'] == undefined) {
+    var Constants = require('../Constants');
+    var Dictionary = require('../Collection/Dictionary');
+    
+    module.exports = ServiceDescriptor;
+    window.ServiceDescriptor = ServiceDescriptor;
+}
 
 /**
  	Exposes methods to GET and SET Service Descriptor information as per define in ServiceDescriptor.si.xml file by application.

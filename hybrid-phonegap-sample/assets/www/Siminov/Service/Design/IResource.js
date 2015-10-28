@@ -33,7 +33,9 @@
 	@submodule Design
 */
 
-module.exports = IResource;
+if(window['document'] == undefined) {
+    module.exports = IResource;    
+}
 
 /**
 	It exposes APIs to Get and Set service resources

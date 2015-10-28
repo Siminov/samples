@@ -16,15 +16,17 @@
  **/
 
 
-var ServiceException = require('../../Siminov/Exception/ServiceException');
-var Log = require('../../Siminov/Log/Log');
-
-var Liquor = require('../Models/Liquor');
-var LiquorConstants = require('../Constants');
-
-var XMLTools = require('./XMLDoc');
-
-module.exports = LiquorsReader;
+if(window['document'] == undefined) {
+    var ServiceException = require('../../Siminov/Exception/ServiceException');
+    var Log = require('../../Siminov/Log/Log');
+    
+    var Liquor = require('../Models/Liquor');
+    var LiquorConstants = require('../Constants');
+    
+    var XMLTools = require('./XMLDoc');
+    
+    module.exports = LiquorsReader;    
+}
 
 
 function LiquorsReader() {
@@ -37,7 +39,7 @@ function LiquorsReader() {
 		
 
 		var xmlDoc;
-		if(window.DOMParser) {
+		if(window['document'] != undefined) {
 			var parser = new DOMParser();
 			xmlDoc = parser.parseFromString(data, "text/xml");
         } else {
@@ -49,22 +51,31 @@ function LiquorsReader() {
             } //end function xmlError
         }
 		
-		//var rootElement = xmlDoc.documentElement.childNodes;
-        var rootElement = xmlDoc.docNode;
-        var liquorsElement = rootElement.getElements("liquor");
+        var liquorsElement;
+        if(window['document'] != undefined) {
+            liquorsElement = xmlDoc.documentElement.childNodes;
+        } else {
+            var rootElement = xmlDoc.docNode;
+            liquorsElement = rootElement.getElements("liquor");
+        }
+        
 		for(var i = 0;i < liquorsElement.length;i++) {
 		
-			//var nodeName = liquorsElement[i].nodeName;
-            //var nodeName = liquorsElement[i];
-
-			//if(nodeName == PARSER_ERROR) {
-				//throw new ServiceException("LiquorsReader", "parse", "Error while parsing liquors.");
-			//} else if(nodeName === LiquorConstants.GET_LIQUORS_WS_LIQUOR) {
-
-				var liquor = parseLiquor(liquorsElement[i]);
-				liquors.push(liquor);
-			//}
-		}		
+            if(window['document'] != undefined) {
+                
+                var nodeName = liquorsElement[i].nodeName;
+                if(nodeName == LiquorConstants.PARSER_ERROR) {
+                    throw new ServiceException("LiquorsReader", "parse", "Error while parsing liquors.");
+                } else if(nodeName === LiquorConstants.GET_LIQUORS_WS_LIQUOR) {
+                
+                    var liquor = parseLiquor(liquorsElement[i]);
+                    liquors.push(liquor);
+                }
+            } else {
+                var liquor = parseLiquor(liquorsElement[i]);
+                liquors.push(liquor);
+            }
+		}
 	}	
 
 	
@@ -72,13 +83,31 @@ function LiquorsReader() {
 
 		var liquor = new Liquor();
 				
-		//var liquorProperties = liquorElement.childNodes;
-        var liquorProperties = liquorElement.children;
-
+		var liquorProperties;
+        if(window['document'] != undefined) {
+            liquorProperties = liquorElement.childNodes;
+        } else {
+            liquorProperties = liquorElement.children;
+        }
+        
 		for(var i = 0;i < liquorProperties.length;i++) {
+            
+            if(window['document'] != undefined) {
+                
+                if(liquorProperties[i].childNodes[0] == undefined || liquorProperties[i].childNodes[0] == null) {
+                    continue;
+                }
+            }
 			
-			nodeName = liquorProperties[i].tagName;
-			var nodeValue = liquorProperties[i].getText();
+            var nodeValue;
+            if(window['document'] != undefined) {
+                nodeName = liquorProperties[i].nodeName;
+                nodeValue = liquorProperties[i].childNodes[0].nodeValue;
+            } else {
+                nodeName = liquorProperties[i].tagName;
+                nodeValue = liquorProperties[i].getText();
+            }
+            
 
 			if(nodeName === LiquorConstants.GET_LIQUORS_WS_LIQUOR_NAME) {
 				liquor.setLiquorType(nodeValue);

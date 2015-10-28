@@ -1,5 +1,7 @@
 
-module.exports = Callback;
+if(window['document'] == undefined) {
+    module.exports = Callback;
+}
 
 
 function Callback() {

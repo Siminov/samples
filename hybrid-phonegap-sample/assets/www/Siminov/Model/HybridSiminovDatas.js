@@ -44,4 +44,8 @@ HybridSiminovDatas.HybridSiminovData.HybridSiminovValue = {
     value: ""
 };
 
-module.exports = HybridSiminovDatas;
+
+if(window['document'] == undefined) {
+    module.exports = HybridSiminovDatas;
+}
+

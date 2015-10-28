@@ -24,26 +24,37 @@
 	@module Database
 */
 
-var SIDatasHelper = require('../ReaderWriter/SIDatasHelper');
-var Constants = require('../Constants');
-var Callback = require('../Callback');
-var Transaction = require('./Transaction');
-var Adapter = require('../Adapter/Adapter');
+if(window['document'] == undefined) {
+    
+    var SIDatasHelper = require('../ReaderWriter/SIDatasHelper');
+    var HybridSiminovDatas = require('../Model/HybridSiminovDatas');
+    var Constants = require('../Constants');
+    var Callback = require('../Callback');
+    var Transaction = require('./Transaction');
+    var Adapter = require('../Adapter/Adapter');
+    var Dictionary = require('../Collection/Dictionary');
+    var Log = require('../Log/Log');
+    var SiminovException = require('../Exception/SiminovException');
+    var ResourceManager = require('../Resource/ResourceManager');
+    
+    
+    var Select = require('./Select');
+    
+    var IAverage = require('./Design/IAverage');
+    var ICount = require('./Design/ICount');
+    var IDelete = require('./Design/IDelete');
+    var IGroupConcat = require('./Design/IGroupConcat');
+    var IMax = require('./Design/IMax');
+    var IMin = require('./Design/IMin');
+    var ISelect = require('./Design/ISelect');
+    var ISum = require('./Design/ISum');
+    var ITotal = require('./Design/ITotal');
+    
+    
+    module.exports = Database;
+}
 
-var Select = require('./Select');
 
-var IAverage = require('./Design/IAverage');
-var ICount = require('./Design/ICount');
-var IDelete = require('./Design/IDelete');
-var IGroupConcat = require('./Design/IGroupConcat');
-var IMax = require('./Design/IMax');
-var IMin = require('./Design/IMin');
-var ISelect = require('./Design/ISelect');
-var ISum = require('./Design/ISum');
-var ITotal = require('./Design/ITotal');
-
-
-module.exports = Database;
 
 /**
 	Exposes methods to deal with database.
@@ -128,7 +139,7 @@ function Database() {
 		
 	        if(data != undefined && data != null) {
 	
-	            var siminovDatas = JSON.parse(eval(data));
+	            var siminovDatas = window['document'] == undefined?JSON.parse(eval('(' + data + ')')):JSON.parse(data);
 	            var exceptions = SIDatasHelper.toModels(siminovDatas);
 	
 	            if(exceptions != undefined && exceptions != null && exceptions.length > 0) {
@@ -223,7 +234,7 @@ function Database() {
 		
 	        if(data != undefined && data != null) {
 	
-	            var siminovDatas = JSON.parse(eval(data));
+	            var siminovDatas = window['document'] == undefined?JSON.parse(eval('(' + data + ')')):JSON.parse(data);
 	            var exceptions = SIDatasHelper.toModels(siminovDatas);
 	
 	            if(exceptions != undefined && exceptions != null && exceptions.length > 0) {
@@ -318,10 +329,11 @@ function Database() {
 		}
 
 		function saveOrUpdateCallback(data) {
-		
+            Log.debug("Database", "saveOrUpdateCallback", "Callback: " + data);
+            
 	        if(data != undefined && data != null) {
 	
-	            var siminovDatas = JSON.parse(eval(data));
+	            var siminovDatas = window['document'] == undefined?JSON.parse(eval('(' + data + ')')):JSON.parse(data);
 	            var exceptions = SIDatasHelper.toModels(siminovDatas);
 		
 		       if(exceptions != undefined && exceptions != null && exceptions.length > 0) {
@@ -378,7 +390,7 @@ function Database() {
 		    adapter.addParameter(arguments[0]);
 		
 		    var data = Adapter.invoke(adapter);
-		    var datas = JSON.parse(eval(data));
+		    var datas = window['document'] == undefined?JSON.parse(eval('(' + data + ')')):JSON.parse(data);
 		    
 		    var models = SIDatasHelper.toModels(datas);
 			if(models != undefined && models != null && models.length > 0) {
@@ -678,8 +690,9 @@ function Database() {
 
 
 		function getTableNameCallback(data) {
-		
-	        var hybridData = JSON.parse(eval(data));
+            Log.debug("Database", "getTableNameCallback", "Callback: " + data);
+            
+	        var hybridData = window['document'] == undefined?JSON.parse(eval('(' + data + ')')):JSON.parse(data);
 	        if(hybridData != undefined) {
 	        
 	            var datas = hybridData.datas;
@@ -795,8 +808,9 @@ function Database() {
 
 
 		function getColumnNamesCallback(data) {
-		
-	        var hybridData = JSON.parse(eval(data));
+            Log.debug("Database", "getColumnNamesCallback", "Callback: " + data);
+
+	        var hybridData = window['document'] == undefined?JSON.parse(eval('(' + data + ')')):JSON.parse(data);
 	        var columnNames = [];
 	
 	        if(hybridData != undefined) {
@@ -908,8 +922,9 @@ function Database() {
 
 
 		function getColumnTypesCallback(data) {
+            Log.debug("Database", "getColumnTypesCallback", "Callback: " + data);
 		
-	        var hybridData = JSON.parse(eval(data));
+	        var hybridData = window['document'] == undefined?JSON.parse(eval('(' + data + ')')):JSON.parse(data);
 	        var columnTypes = new Dictionary();
 	
 	        if(hybridData != undefined) {
@@ -1026,8 +1041,9 @@ function Database() {
 
 
 		function getPrimaryKeysCallback(data) {
+            Log.debug("Database", "getPrimaryKeysCallback", "Callback: " + data);
 		
-	        var hybridData = JSON.parse(eval(data));
+	        var hybridData = window['document'] == undefined?JSON.parse(eval('(' + data + ')')):JSON.parse(data);
 	        var primaryKeys = [];
 	
 	        if(hybridData != undefined) {
@@ -1136,8 +1152,9 @@ function Database() {
 	
 	
 		function getMandatoryFieldsCallback(data) {
+            Log.debug("Database", "getMandatoryFieldsCallback", "Callback: " + data);
 		
-	        var hybridData = JSON.parse(eval(data));
+	        var hybridData = window['document'] == undefined?JSON.parse(eval('(' + data + ')')):JSON.parse(data);
 	        var mandatoryFields = [];
 	
 	        if(hybridData != undefined) {
@@ -1247,8 +1264,9 @@ function Database() {
 
 
 		function getUniqueFieldsCallback(data) {
+            Log.debug("Database", "getUniqueFieldsCallback", "Callback: " + data);
 		
-	        var hybridData = JSON.parse(eval(data));
+	        var hybridData = window['document'] == undefined?JSON.parse(eval('(' + data + ')')):JSON.parse(data);
 	        var uniqueFields = [];
 	
 	        if(hybridData != undefined) {
@@ -1352,8 +1370,9 @@ function Database() {
 		
 
 		function getForeignKeysCallback(data) {
+            Log.debug("Database", "getForeignKeysCallback", "Callback: " + data);
 		
-	        var hybridData = JSON.parse(eval(data));
+	        var hybridData = window['document'] == undefined?JSON.parse(eval('(' + data + ')')):JSON.parse(data);
 	        var foreignKeys = [];
 	
 	        if(hybridData != undefined) {
@@ -1533,9 +1552,9 @@ Database.select = function(className, distinct, whereClause, columnNames, groupB
     }
     
     function selectCallback(data) {
-    	Log.debug("Database", "select", "select callback success: " + data);
+    	Log.debug("Database", "selectCallback", "Callback : " + data);
     	
-	    var datas = JSON.parse(eval(data));
+	    var datas = window['document'] == undefined?JSON.parse(eval('(' + data + ')')):JSON.parse(data);
 	    var models = SIDatasHelper.toModels(datas);
 	    
 		if(models != undefined && models != null && models.length > 0) {
@@ -1623,8 +1642,9 @@ Database.count = function(className, column, distinct, whereClause, groupBy, hav
 
 
 	function countCallback(data) {
-		
-	    var hybridData = JSON.parse(eval(data));
+        Log.debug("Database", "countCallback", "Callback : " + data);
+
+	    var hybridData = window['document'] == undefined?JSON.parse(eval('(' + data + ')')):JSON.parse(data);
 	    if(hybridData != undefined) {
 	    
 	        var datas = hybridData.datas;
@@ -1734,8 +1754,9 @@ Database.avg = function(className, column, whereClause, groupBy, having) {
 
 
 	function avgCallback(data) {
+        Log.debug("Database", "avgCallback", "Callback : " + data);
 	
-	    var hybridData = JSON.parse(eval(data));
+	    var hybridData = window['document'] == undefined?JSON.parse(eval('(' + data + ')')):JSON.parse(data);
 	    if(hybridData != undefined) {
 	    
 	        var datas = hybridData.datas;
@@ -1838,8 +1859,9 @@ Database.min = function(className, column, whereClause, groupBy, having) {
 	
 	
 	function minCallback(data) {
+        Log.debug("Database", "minCallback", "Callback : " + data);
 	
-	    var hybridData = JSON.parse(eval(data));
+	    var hybridData = window['document'] == undefined?JSON.parse(eval('(' + data + ')')):JSON.parse(data);
 	    if(hybridData != undefined) {
 	    
 	        var datas = hybridData.datas;
@@ -1942,8 +1964,9 @@ Database.max = function(className, column, whereClause, groupBy, having) {
 
 
 	function maxCallback(data) {
+        Log.debug("Database", "maxCallback", "Callback : " + data);
 	
-	    var hybridData = JSON.parse(eval(data));
+	    var hybridData = window['document'] == undefined?JSON.parse(eval('(' + data + ')')):JSON.parse(data);
 	    if(hybridData != undefined) {
 	    
 	        var datas = hybridData.datas;
@@ -2045,8 +2068,9 @@ Database.sum = function(className, column, whereClause, groupBy, having) {
 
 
 	function sumCallback(data) {
+        Log.debug("Database", "sumCallback", "Callback : " + data);
 	
-	    var hybridData = JSON.parse(eval(data));
+	    var hybridData = window['document'] == undefined?JSON.parse(eval('(' + data + ')')):JSON.parse(data);
 	    if(hybridData != undefined) {
 	    
 	        var datas = hybridData.datas;
@@ -2148,8 +2172,9 @@ Database.total = function(className, column, whereClause, groupBy, having) {
 
 
 	function totalCallback(data) {
+        Log.debug("Database", "totalCallback", "Callback : " + data);
 		
-	    var hybridData = JSON.parse(eval(data));
+	    var hybridData = window['document'] == undefined?JSON.parse(eval('(' + data + ')')):JSON.parse(data);
 	    if(hybridData != undefined) {
 	        var datas = hybridData.datas;
 	        
@@ -2251,8 +2276,9 @@ Database.groupConcat = function(className, column, delimiter, whereClause, group
 
 
 	function groupConcatCallback(data) {
+        Log.debug("Database", "groupConcatCallback", "Callback : " + data);
 			
-	    var hybridData = JSON.parse(eval(data));
+	    var hybridData = window['document'] == undefined?JSON.parse(eval('(' + data + ')')):JSON.parse(data);
 	    if(hybridData != undefined) {
 	    
 	        var datas = hybridData.datas;
@@ -2352,10 +2378,11 @@ Database['delete'] = function(className, whereClause, data) {
 
 
 	function deleteCallback(data) {
+        Log.debug("Database", "deleteCallback", "Callback : " + data);
 	
 	    if(data != undefined && data != null) {
 	
-	        var siminovDatas = JSON.parse(eval(data));
+	        var siminovDatas = window['document'] == undefined?JSON.parse(eval('(' + data + ')')):JSON.parse(data);
 	        var exceptions = SIDatasHelper.toModels(siminovDatas);
 	
 	        if(exceptions != undefined && exceptions != null && exceptions.length > 0) {
@@ -2430,12 +2457,12 @@ Database.beginTransaction = function(databaseDescriptor) {
 
 	
 	function beginTransactionCallback(data) {
-		Log.debug("", "", "Data: " + data);
+        Log.debug("Database", "beginTransactionCallback", "Callback : " + data);
 		
 		var siminovDatas;
 	    if(data != undefined && data != null) {
 	
-	        siminovDatas = JSON.parse(eval(data));
+	        siminovDatas = window['document'] == undefined?JSON.parse(eval('(' + data + ')')):JSON.parse(data);
 	        var exceptions;
 	        
 	        try {
@@ -2483,6 +2510,8 @@ Database.beginTransaction = function(databaseDescriptor) {
 		    			}
 		    			
 		    			var response = decodeURIComponent(siminovData.value);
+                        response = response && JSON.stringify(response);
+                        
 		    			requestCallback(response);
 		    			
 		    			break;
@@ -2516,7 +2545,7 @@ Database.commitTransaction = function(databaseDescriptor) {
     var data = Adapter.invoke(adapter);
     if(data != undefined && data != null) {
 
-        var siminovDatas = JSON.parse(eval(data));
+        var siminovDatas = window['document'] == undefined?JSON.parse(eval('(' + data + ')')):JSON.parse(data);
         var exceptions = SIDatasHelper.toModels(siminovDatas);
 
         if(exceptions != undefined && exceptions != null && exceptions.length > 0) {

@@ -23,7 +23,9 @@
 	@module Notification
 */
 
-module.exports = NotificationManager;
+if(window['document'] == undefined) {
+    module.exports = NotificationManager;    
+}
 
 /**
 	It exposes APIs to Get and Set push notification 

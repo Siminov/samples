@@ -33,7 +33,9 @@
 	@submodule Design
 */
 
-module.exports = IServiceEvents;
+if(window['document'] == undefined) {
+    module.exports = IServiceEvents;    
+}
 
 
 /**

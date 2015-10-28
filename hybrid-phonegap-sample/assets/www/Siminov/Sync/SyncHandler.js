@@ -26,11 +26,14 @@
 	@module Sync
 */
 
-var HybridSiminovDatas = require('../Model/HybridSiminovDatas');
-var Constants = require('../Constants');
-var Callback = require('Callback');
-
-var Adapter = require('../Adapter/Adapter');
+if(window['document'] == undefined) {
+    var HybridSiminovDatas = require('../Model/HybridSiminovDatas');
+    var Constants = require('../Constants');
+    var Callback = require('../Callback');
+    var Dictionary = require('../Collection/Dictionary');
+    
+    var Adapter = require('../Adapter/Adapter');    
+}
 
 
 
@@ -44,6 +47,16 @@ var Adapter = require('../Adapter/Adapter');
 
 var syncHandler = null;
 
+
+SyncHandler.getInstance = function() {
+    
+    if(syncHandler == null) {
+        syncHandler = new SyncHandler();
+    }
+    
+    return syncHandler;
+}
+
 var getInstance = function() {
     
     if(syncHandler == null) {
@@ -55,6 +68,20 @@ var getInstance = function() {
 
 function SyncHandler() {
 
+    
+    var requestQueue = new Dictionary();
+    
+    var getRequest = function(requestId) {
+        return requestQueue.get(requestId);
+    }
+    
+    
+    var removeRequest = function(requestId) {
+        requestQueue.remove(requestId);
+    }
+    
+
+    
     /**
      * It handles and processes the sync request
      *
@@ -71,6 +98,12 @@ function SyncHandler() {
         hybridSyncRequest.values = new Array();
 			
         hybridSyncRequest.type = Constants.SYNC_ADAPTER_HANDLE_HANDLER_SYNC_REQUEST;
+
+        var hybridSyncRequestId = Object.create(HybridSiminovDatas.HybridSiminovData.HybridSiminovValue);
+        hybridSyncRequestId.type = Constants.SYNC_ADAPTER_HANDLE_HANDLER_SYNC_REQUEST_ID;
+        hybridSyncRequestId.value = syncRequest.getRequestId();
+        
+        hybridSyncRequest.values.push(hybridSyncRequestId);
 
         var hybridSyncRequestName = Object.create(HybridSiminovDatas.HybridSiminovData.HybridSiminovValue);
         hybridSyncRequestName.type = Constants.SYNC_ADAPTER_HANDLE_HANDLER_SYNC_REQUEST_NAME;
@@ -91,6 +124,10 @@ function SyncHandler() {
 						
                     var resourceName = resources[i];
                     var resourceValue = syncRequest.getResource(resourceName);
+                    if(resourceValue && !(typeof resourceValue == 'string')) {
+                        continue;
+                    }
+
                     resourceValue = '' + resourceValue;
 						
                     var hybridResource = Object.create(HybridSiminovDatas.HybridSiminovData.HybridSiminovValue);
@@ -113,6 +150,7 @@ function SyncHandler() {
 
         adapter.addParameter(data);
 
+        requestQueue.add(syncRequest.getRequestId(), syncRequest);
         if(callback) {
             adapter.setCallback(syncCallback);
             adapter.setAdapterMode(Adapter.REQUEST_ASYNC_MODE);
@@ -134,11 +172,14 @@ function SyncHandler() {
     
     
     return {
-        handleAsync,
-        handle
+        getRequest: getRequest,
+        removeRequest: removeRequest,
+        handleAsync: handleAsync,
+        handle: handle
     }
 };
 
 
-
-exports.getInstance = getInstance;
+if(window['document'] == undefined) {
+    exports.getInstance = getInstance;    
+}

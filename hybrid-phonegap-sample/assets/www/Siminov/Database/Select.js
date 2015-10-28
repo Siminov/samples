@@ -1,4 +1,4 @@
-/** 
+/**
  * [SIMINOV FRAMEWORK]
  * Copyright [2015] [Siminov Software Solution LLP|support@siminov.com]
  *
@@ -24,10 +24,12 @@
 	@module Database
 */
 
-var Clause = require('./Clause');
-var Database = require('./Database');
+if(window['document'] == undefined) {
+    var Clause = require('./Clause');
+    
+    module.exports = Select;
+}
 
-module.exports = Select;
 
 /**
 	Exposes API to deal with conditions and other constraints used in query.
@@ -38,7 +40,7 @@ module.exports = Select;
 	@param object {Select}
 */
 function Select(object) {
-
+    
     var where;
     var whereClause;
 
@@ -262,20 +264,24 @@ function Select(object) {
     }
 
 	this.executeAsync = function(callback, transaction) {
-		this.execute(callback?callback:new Callback(), transaction);
-	}
+        this['execute'](callback?callback:new Callback(), transaction);
+    }
 
-
+    
 	/**
 		Process the request specified by application.
 		
 		@method execute
 	*/
     this.execute = function() {
-		
+        
 		var callback = arguments && arguments[0];
 		var transaction = arguments && arguments[1];
-
+        
+        if(window['document'] == undefined) {
+            var DatabaseInstance = require('./Database');
+        }
+        
         var whereCondition = "";
         if(whereClause && whereClause.length > 0) {
             whereCondition = whereClause;
@@ -321,35 +327,90 @@ function Select(object) {
 
 
         if(this.interfaceName ==  "ICount") {
-            return Database.count(object.getFunctionName(), column, distinct, whereCondition, groupBy, havingCondition, callback, transaction);
+            
+            if(window['document'] != undefined) {
+                return Database.count(object.getFunctionName(), column, distinct, whereCondition, groupBy, havingCondition, callback, transaction);
+            } else {
+                return DatabaseInstance.count(object.getFunctionName(), column, distinct, whereCondition, groupBy, havingCondition, callback, transaction);
+            }
         } else if(this.interfaceName == "IAverage") {
-            return Database.avg(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback, transaction);
+            
+            if(window['document'] != undefined) {
+                return Database.avg(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback, transaction);
+            } else {
+                return DatabaseInstance.avg(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback, transaction);
+            }
         } else if(this.interfaceName == "ISum") {
-            return Database.sum(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback, transaction);
+            
+            if(window['document'] != undefined) {
+                return Database.sum(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback, transaction);
+            } else {
+                return DatabaseInstance.sum(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback, transaction);
+            }
         } else if(this.interfaceName == "ITotal") {
-            return Database.total(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback, transaction);
+            
+            if(window['document'] != undefined) {
+                return Database.total(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback, transaction);
+            } else {
+                return DatabaseInstance.total(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback, transaction);
+            }
         } else if(this.interfaceName == "IMax") {
-            return Database.max(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback, transaction);
+            
+            if(window['document'] != undefined) {
+                return Database.max(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback, transaction);
+            } else {
+                return DatabaseInstance.max(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback, transaction);
+            }
         } else if(this.interfaceName == "IMin") {
-            return Database.min(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback, transaction);
+            
+            if(window['document'] != undefined) {
+                return Database.min(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback, transaction);
+            } else {
+                return DatabaseInstance.min(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback, transaction);
+            }
         } else if(this.interfaceName == "IGroupConcat") {
-            return Database.groupConcat(object.getFunctionName(), column, delimiter, whereCondition, groupBy, havingCondition, callback, transaction);
+            
+            if(window['document'] != undefined) {
+                return Database.groupConcat(object.getFunctionName(), column, delimiter, whereCondition, groupBy, havingCondition, callback, transaction);
+            } else {
+                return DatabaseInstance.groupConcat(object.getFunctionName(), column, delimiter, whereCondition, groupBy, havingCondition, callback, transaction);
+            }
         } else if(this.interfaceName == "IDelete") {
 
             if(whereCondition == undefined && whereCondition == null && whereCondition.length <= 0) {
+                
                 var datas = SIDatasHelper.toSI(object);
                 var json = SIJsonHelper.toJson(datas);
 
-                Database['delete'](object.getFunctionName(), undefined, json, callback, transaction);
+                if(window['document'] != undefined) {
+                    Database['delete'](object.getFunctionName(), undefined, json, callback, transaction);
+                } else {
+                    DatabaseInstance['delete'](object.getFunctionName(), undefined, json, callback, transaction);
+                }
             } else {
-                Database['delete'](object.getFunctionName(), whereCondition, undefined, callback, transaction);
+                
+                if(window['document'] != undefined) {
+                    Database['delete'](object.getFunctionName(), whereCondition, undefined, callback, transaction);
+                } else {
+                    DatabaseInstance['delete'](object.getFunctionName(), whereCondition, undefined, callback, transaction);
+                }
             }
         } else if(this.interfaceName == 'ISelect') {
-        	
+
 			if(callback) {
-				Database.select(object.getFunctionName(), distinct, whereCondition, columns, groupBy, havingCondition, orderBy, whichOrderBy, limit, callback, transaction);
+                
+                if(window['document'] != undefined) {
+                    Database.select(object.getFunctionName(), distinct, whereCondition, columns, groupBy, havingCondition, orderBy, whichOrderBy, limit, callback, transaction);
+                } else {
+                    DatabaseInstance.select(object.getFunctionName(), distinct, whereCondition, columns, groupBy, havingCondition, orderBy, whichOrderBy, limit, callback, transaction);
+                }
 			} else {
-		        return Database.select(object.getFunctionName(), distinct, whereCondition, columns, groupBy, having, orderBy, whichOrderBy, limit);
+                
+                if(window['document'] != undefined) {
+                    return Database.select(object.getFunctionName(), distinct, whereCondition, columns, groupBy, having, orderBy, whichOrderBy, limit);
+                } else {
+                    return DatabaseInstance.select(object.getFunctionName(), distinct, whereCondition, columns, groupBy, having, orderBy, whichOrderBy, limit);
+                }
 			}
         }
     }

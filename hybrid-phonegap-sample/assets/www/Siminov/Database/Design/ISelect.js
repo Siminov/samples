@@ -25,7 +25,9 @@
 	@module Database
 */
 
-module.exports = ISelect;
+if(window['document'] == undefined) {
+    module.exports = ISelect;
+}
 
 /**
 	Design contain all interfaces required by database layer to deal with database.
@@ -45,7 +47,7 @@ module.exports = ISelect;
 	@param select {Select} Select class object.
 */
 function ISelect(select) {
-
+    
     return {
 
 		/**
@@ -192,8 +194,8 @@ function ISelect(select) {
 		 */
         execute: select.execute,
 
-		executeAsync: select.executeAsync
-
+		executeAsync: select.executeAsync,
+        
     }
 
 }

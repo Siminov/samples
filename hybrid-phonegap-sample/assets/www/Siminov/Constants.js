@@ -16,7 +16,9 @@
  **/
 
 
-module.exports = Constants;
+if(window['document'] == undefined) {
+    module.exports = Constants;
+}
 
 
 /**
@@ -1008,6 +1010,8 @@ Constants.SERVICE_ADAPTER_INVOKE_HANDLER = "INVOKE";
 */
 Constants.SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE = "SERVICE";
 
+Constants.SERVICE_ADAPTER_INVOKE_HANDLER_REQUEST_ID = "REQUEST_ID";
+
 /**
 	Service Adapter Invoke Handler Service Name
 
@@ -1041,6 +1045,7 @@ Constants.SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE_REQUEST = "REQUEST_NAME";
 */
 Constants.SERVICE_ADAPTER_INVOKE_HANDLER_SERVICE_RESOURCES = "RESOURCES";
 
+Constants.ISERVICE_REQUEST_ID = "ISERVICE_REQUEST_ID";
 
 /**
 	IService API Handler
@@ -1278,6 +1283,8 @@ Constants.SYNC_ADAPTER_HANDLE_HANDLER = "HANDLE";
 	@readOnly
 */
 Constants.SYNC_ADAPTER_HANDLE_HANDLER_SYNC_REQUEST = "SyncRequest";
+
+Constants.SYNC_ADAPTER_HANDLE_HANDLER_SYNC_REQUEST_ID = "request_id";
 
 /**
 	Sync Adapter Handler Handler Sync Request Name

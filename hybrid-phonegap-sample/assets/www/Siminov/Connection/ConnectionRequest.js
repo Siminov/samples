@@ -23,8 +23,11 @@
 */
 
 
-module.exports = ConnectionRequest;
-window.ConnectionRequest = ConnectionRequest;
+if(window['document'] == undefined) {
+    module.exports = ConnectionRequest;
+    window.ConnectionRequest = ConnectionRequest;
+}
+
 
 /**
 	It contains connection request information.

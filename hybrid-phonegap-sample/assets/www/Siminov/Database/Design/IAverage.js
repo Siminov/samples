@@ -25,7 +25,10 @@
 	@module Database
 */
 
-module.exports = IAverage;
+if(window['document'] == undefined) {
+    module.exports = IAverage;
+}
+
 
 /**
 	Design contain all interfaces required by database layer to deal with database.

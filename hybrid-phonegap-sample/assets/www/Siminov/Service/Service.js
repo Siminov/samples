@@ -23,10 +23,13 @@
 	@module Service
 */
 
-var Dictionary = require('../Collection/Dictionary');
-var ServiceHandler = require('./ServiceHandler');
-
-module.exports = Service;
+if(window['document'] == undefined) {
+    var Dictionary = require('../Collection/Dictionary');
+    var ServiceHandler = require('./ServiceHandler');
+    var Utils = require('../Utils/Utils');
+    
+    module.exports = Service;
+}
 
 /**
 	It exposes APIs to Get and Set service information by extending IService
@@ -37,7 +40,7 @@ module.exports = Service;
 */
 function Service() {
 	
-	var requestId;
+	var requestId = Utils.uniqueNumber();
 	
 	var service;
 	var request;

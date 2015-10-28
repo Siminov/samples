@@ -23,8 +23,10 @@
 	@module Exception
 */
 
-module.exports = ServiceException;
-window.ServiceException = ServiceException;
+if(window['document'] == undefined) {
+    module.exports = ServiceException;
+    window.ServiceException = ServiceException;    
+}
 
 /**
 	This is general exception, which is thrown through Service APIs, if any exception occur while processing service request.
