@@ -26,7 +26,7 @@
 	<property name="description">Siminov Core Library Sample</property>
 
 	<entity-descriptors>
-		<entity-descriptor>SIMINOV-CORE-SAMPLE.Credential.si.xml</entity-descriptor>
+		<entity-descriptor>SIMINOV-CORE-SAMPLE.Credential.xml</entity-descriptor>
 	</entity-descriptors>
 	 
 </library-descriptor>
