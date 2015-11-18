@@ -27,11 +27,11 @@
 	<property name="transaction_safe">true</property>
 
 	<entity-descriptors>
-		<entity-descriptor>Entity-Descriptors/Liquor.si.xml</entity-descriptor>
-		<entity-descriptor>Entity-Descriptors/LiquorBrand.si.xml</entity-descriptor>
-		<entity-descriptor>Entity-Descriptors/Shop.si.xml</entity-descriptor>
-		<entity-descriptor>Entity-Descriptors/LiquorShopMapping.si.xml</entity-descriptor>
-		<entity-descriptor>Entity-Descriptors/Pricing.si.xml</entity-descriptor>
+		<entity-descriptor>Entity-Descriptors/Liquor.xml</entity-descriptor>
+		<entity-descriptor>Entity-Descriptors/LiquorBrand.xml</entity-descriptor>
+		<entity-descriptor>Entity-Descriptors/Shop.xml</entity-descriptor>
+		<entity-descriptor>Entity-Descriptors/LiquorShopMapping.xml</entity-descriptor>
+		<entity-descriptor>Entity-Descriptors/Pricing.xml</entity-descriptor>
 	</entity-descriptors>
 
 </database-descriptor>

@@ -30,7 +30,7 @@
 	
 	<!-- Database Descriptors -->
 	<database-descriptors>
-		<database-descriptor>DatabaseDescriptor.si.xml</database-descriptor>
+		<database-descriptor>DatabaseDescriptor.xml</database-descriptor>
 	</database-descriptors>
 
 	
