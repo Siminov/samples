@@ -20,4 +20,5 @@ android {
 
 dependencies {
     compile files('libs/cordova-2.3.0.jar')
+    compile project(':Hybrid-Library-Samples')
 }
