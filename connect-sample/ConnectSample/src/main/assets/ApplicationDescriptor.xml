@@ -28,22 +28,22 @@
 
 	<!-- Database Descriptors -->
 	<database-descriptors>
-		<database-descriptor>DatabaseDescriptor.si.xml</database-descriptor>
+		<database-descriptor>DatabaseDescriptor.xml</database-descriptor>
 	</database-descriptors>
 
 	
 	<!-- Service Descriptors -->
 	<service-descriptors>
-	    <service-descriptor>Service-Descriptors/Liquors.si.xml</service-descriptor>
-	    <service-descriptor>Service-Descriptors/LiquorBrands.si.xml</service-descriptor>
-	    <service-descriptor>Service-Descriptors/NotificationService.si.xml</service-descriptor>
+	    <service-descriptor>Service-Descriptors/Liquors.xml</service-descriptor>
+	    <service-descriptor>Service-Descriptors/LiquorBrands.xml</service-descriptor>
+	    <service-descriptor>Service-Descriptors/NotificationService.xml</service-descriptor>
 	</service-descriptors>
 	
 	
 	<!-- Sync Descriptors -->
 	<syn-descriptors>
-	    <sync-descriptor>Sync-Descriptors/Liquors.si.xml</sync-descriptor>
-	    <sync-descriptor>Sync-Descriptors/LiquorBrands.si.xml</sync-descriptor>
+	    <sync-descriptor>Sync-Descriptors/Liquors.xml</sync-descriptor>
+	    <sync-descriptor>Sync-Descriptors/LiquorBrands.xml</sync-descriptor>
 	</syn-descriptors>
 	
 

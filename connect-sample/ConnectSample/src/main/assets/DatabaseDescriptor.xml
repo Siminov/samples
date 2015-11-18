@@ -29,9 +29,9 @@
 	<property name="is_locking_required">true</property>
 
 	<entity-descriptors>
-		<entity-descriptor>Entity-Descriptors/Credential.si.xml</entity-descriptor>
-		<entity-descriptor>Entity-Descriptors/Liquor.si.xml</entity-descriptor>
-		<entity-descriptor>Entity-Descriptors/LiquorBrand.si.xml</entity-descriptor>
+		<entity-descriptor>Entity-Descriptors/Credential.xml</entity-descriptor>
+		<entity-descriptor>Entity-Descriptors/Liquor.xml</entity-descriptor>
+		<entity-descriptor>Entity-Descriptors/LiquorBrand.xml</entity-descriptor>
 	</entity-descriptors>
 
 </database-descriptor>
