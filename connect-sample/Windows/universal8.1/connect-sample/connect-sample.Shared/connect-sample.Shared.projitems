@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>6bceed03-22e2-453e-9c24-dc35e20a70a1</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>connect_sample</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Constants.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\CredentialManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Database\DatabaseUtils.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Events\DatabaseEventHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Events\NotificationEventHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Events\SiminovEventHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Model\Credential.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Model\Liquor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Model\LiquorBrand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Reader\LiquorBrandsReader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Reader\LiquorsReader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Services\AddLiquor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Services\DeleteLiquor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Services\GetLiquorBrands.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Services\GetLiquors.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Services\RegisterDevice.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Services\UnregisterDevice.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Siminov.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Writter\LiquorWritter.cs" />
+  </ItemGroup>
+</Project>
