@@ -1,0 +1,6 @@
+include ':CoreSample'
+include ':Core'
+include ':Core-Library-Sample'
+
+project(':Core').projectDir = new File(settingsDir,'../Core/Core')
+project(':Core-Library-Sample').projectDir = new File(settingsDir,'../Core-Library-Sample/CoreLibrarySample')

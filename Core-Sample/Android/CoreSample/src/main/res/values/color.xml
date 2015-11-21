@@ -1,0 +1,10 @@
+<resources>
+
+	<color name="liquors_list_option_background">#f6f6f6</color>
+	<color name="menu_slider_option_background">#FFFFFF</color>
+	<color name="title_bar_background">#2B2B2B</color>
+	<color name="liquor_brand_gadget">#FFFFFF</color>
+	<color name="liquor_brand_gadget_options">#f6f6f6</color>
+	<color name="light_grey">#E6E6FA</color>
+	
+</resources>
