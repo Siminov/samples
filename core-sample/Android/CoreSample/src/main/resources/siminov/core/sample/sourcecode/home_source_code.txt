@@ -1,7 +1,0 @@
-Liquor[] liquors = null;
-
-try {
-	liquors = (Liquor[]) new Liquor().fetch();
-} catch(DatabaseException databaseException) {
-	return;
-}

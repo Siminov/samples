@@ -1,6 +1,0 @@
-include ':ConnectSample'
-include ':Core'
-include ':Connect'
-
-project(':Core').projectDir = new File(settingsDir,'../Core/Core')
-project(':Connect').projectDir = new File(settingsDir,'../Connect/Connect')
