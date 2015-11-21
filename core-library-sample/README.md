@@ -1,4 +1,4 @@
-Siminov Core (Object Relationship Mapping) - Library Sample Application
+Siminov Core (Object Relationship Mapping) - Android, iOS, Windows - Library Sample Application
 ===================================================
 
 Siminov Core Framework
@@ -31,7 +31,7 @@ LICENSE
  
  [SIMINOV FRAMEWORK]
  <p>
- Copyright [2013] [Siminov Software Solution|support@siminov.com]
+ Copyright [2015] [Siminov Software Solution|support@siminov.com]
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.

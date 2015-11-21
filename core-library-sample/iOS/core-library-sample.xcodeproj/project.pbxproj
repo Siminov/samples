@@ -1,0 +1,361 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0297C3261AA1D520006672E9 /* CredentialAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 0297C31F1AA1D520006672E9 /* CredentialAPI.m */; };
+		0297C3271AA1D520006672E9 /* Credential.m in Sources */ = {isa = PBXBuildFile; fileRef = 0297C3221AA1D520006672E9 /* Credential.m */; };
+		0297C3681AA1D640006672E9 /* CredentialAPI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0297C31E1AA1D520006672E9 /* CredentialAPI.h */; };
+		0297C3691AA1D640006672E9 /* Credential.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0297C3211AA1D520006672E9 /* Credential.h */; };
+		CE1ADEDF1BFDA406006897DF /* Credential.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE1ADEDD1BFDA39F006897DF /* Credential.xml */; };
+		CE1ADEE01BFDA409006897DF /* LibraryDescriptor.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE1ADEDE1BFDA3B2006897DF /* LibraryDescriptor.xml */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0297C2FD1AA1D4C8006672E9 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = include;
+			dstSubfolderSpec = 16;
+			files = (
+				0297C3681AA1D640006672E9 /* CredentialAPI.h in CopyFiles */,
+				0297C3691AA1D640006672E9 /* Credential.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE7112B91ADBB9D000163D06 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = include/Siminov.Core.Library.Sample.Resources;
+			dstSubfolderSpec = 7;
+			files = (
+				CE1ADEDF1BFDA406006897DF /* Credential.xml in CopyFiles */,
+				CE1ADEE01BFDA409006897DF /* LibraryDescriptor.xml in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		02408BD81ABD77E6000620D7 /* siminov-core-library-sample-v1.0.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "siminov-core-library-sample-v1.0.zip"; sourceTree = "<group>"; };
+		0297C2FF1AA1D4C8006672E9 /* libcore-library-sample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libcore-library-sample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0297C31E1AA1D520006672E9 /* CredentialAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CredentialAPI.h; sourceTree = "<group>"; };
+		0297C31F1AA1D520006672E9 /* CredentialAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CredentialAPI.m; sourceTree = "<group>"; };
+		0297C3211AA1D520006672E9 /* Credential.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Credential.h; sourceTree = "<group>"; };
+		0297C3221AA1D520006672E9 /* Credential.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Credential.m; sourceTree = "<group>"; };
+		CE1ADEDD1BFDA39F006897DF /* Credential.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Credential.xml; sourceTree = "<group>"; };
+		CE1ADEDE1BFDA3B2006897DF /* LibraryDescriptor.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LibraryDescriptor.xml; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0297C2FC1AA1D4C8006672E9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		02408BD71ABD77E6000620D7 /* Build */ = {
+			isa = PBXGroup;
+			children = (
+				02408BD81ABD77E6000620D7 /* siminov-core-library-sample-v1.0.zip */,
+			);
+			path = Build;
+			sourceTree = "<group>";
+		};
+		0297C2F61AA1D4C8006672E9 = {
+			isa = PBXGroup;
+			children = (
+				02408BD71ABD77E6000620D7 /* Build */,
+				0297C3191AA1D520006672E9 /* Siminov */,
+				0297C3001AA1D4C8006672E9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0297C3001AA1D4C8006672E9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0297C2FF1AA1D4C8006672E9 /* libcore-library-sample.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0297C3191AA1D520006672E9 /* Siminov */ = {
+			isa = PBXGroup;
+			children = (
+				0297C31A1AA1D520006672E9 /* Core */,
+			);
+			path = Siminov;
+			sourceTree = "<group>";
+		};
+		0297C31A1AA1D520006672E9 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				0297C31B1AA1D520006672E9 /* Library */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		0297C31B1AA1D520006672E9 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				0297C31C1AA1D520006672E9 /* Sample */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		0297C31C1AA1D520006672E9 /* Sample */ = {
+			isa = PBXGroup;
+			children = (
+				0297C31D1AA1D520006672E9 /* Apis */,
+				0297C3201AA1D520006672E9 /* Model */,
+				0297C3231AA1D520006672E9 /* Resources */,
+			);
+			path = Sample;
+			sourceTree = "<group>";
+		};
+		0297C31D1AA1D520006672E9 /* Apis */ = {
+			isa = PBXGroup;
+			children = (
+				0297C31E1AA1D520006672E9 /* CredentialAPI.h */,
+				0297C31F1AA1D520006672E9 /* CredentialAPI.m */,
+			);
+			path = Apis;
+			sourceTree = "<group>";
+		};
+		0297C3201AA1D520006672E9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0297C3211AA1D520006672E9 /* Credential.h */,
+				0297C3221AA1D520006672E9 /* Credential.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0297C3231AA1D520006672E9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CE1ADEDD1BFDA39F006897DF /* Credential.xml */,
+				CE1ADEDE1BFDA3B2006897DF /* LibraryDescriptor.xml */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0297C2FE1AA1D4C8006672E9 /* core-library-sample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0297C3131AA1D4C8006672E9 /* Build configuration list for PBXNativeTarget "core-library-sample" */;
+			buildPhases = (
+				0297C2FB1AA1D4C8006672E9 /* Sources */,
+				0297C2FC1AA1D4C8006672E9 /* Frameworks */,
+				0297C2FD1AA1D4C8006672E9 /* CopyFiles */,
+				0297C3281AA1D5BE006672E9 /* Core Library Sample Script */,
+				CE7112B91ADBB9D000163D06 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "core-library-sample";
+			productName = "core-library-sample";
+			productReference = 0297C2FF1AA1D4C8006672E9 /* libcore-library-sample.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0297C2F71AA1D4C8006672E9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = Siminov;
+				TargetAttributes = {
+					0297C2FE1AA1D4C8006672E9 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+				};
+			};
+			buildConfigurationList = 0297C2FA1AA1D4C8006672E9 /* Build configuration list for PBXProject "core-library-sample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0297C2F61AA1D4C8006672E9;
+			productRefGroup = 0297C3001AA1D4C8006672E9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0297C2FE1AA1D4C8006672E9 /* core-library-sample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0297C3281AA1D5BE006672E9 /* Core Library Sample Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Core Library Sample Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\nset -o pipefail\n\n#################[ Tests: helps workaround any future bugs in Xcode ]########\n#\nDEBUG_THIS_SCRIPT=\"false\"\n\nif [ $DEBUG_THIS_SCRIPT = \"true\" ]\nthen\necho \"########### TESTS #############\"\necho \"Use the following variables when debugging this script; note that they may change on recursions\"\necho \"BUILD_DIR = $BUILD_DIR\"\necho \"BUILD_ROOT = $BUILD_ROOT\"\necho \"CONFIGURATION_BUILD_DIR = $CONFIGURATION_BUILD_DIR\"\necho \"BUILT_PRODUCTS_DIR = $BUILT_PRODUCTS_DIR\"\necho \"CONFIGURATION_TEMP_DIR = $CONFIGURATION_TEMP_DIR\"\necho \"TARGET_BUILD_DIR = $TARGET_BUILD_DIR\"\nfi\n\n#####################[ part 1 ]##################\n# First, work out the BASESDK version number (NB: Apple ought to report this, but they hide it)\n#    (incidental: searching for substrings in sh is a nightmare! Sob)\n\nSDK_VERSION=$(echo ${SDK_NAME} | grep -o '.\\{3\\}$')\n\n# Next, work out if we're in SIM or DEVICE\n\nif [ ${PLATFORM_NAME} = \"iphonesimulator\" ]\nthen\nOTHER_SDK_TO_BUILD=iphoneos${SDK_VERSION}\nelse\nOTHER_SDK_TO_BUILD=iphonesimulator${SDK_VERSION}\nfi\n\necho \"XCode has selected SDK: ${PLATFORM_NAME} with version: ${SDK_VERSION} (although back-targetting: ${IPHONEOS_DEPLOYMENT_TARGET})\"\necho \"...therefore, OTHER_SDK_TO_BUILD = ${OTHER_SDK_TO_BUILD}\"\n#\n#####################[ end of part 1 ]##################\n\n#####################[ part 2 ]##################\n#\n# IF this is the original invocation, invoke WHATEVER other builds are required\n#\n# Xcode is already building ONE target...\n#\n# ...but this is a LIBRARY, so Apple is wrong to set it to build just one.\n# ...we need to build ALL targets\n# ...we MUST NOT re-build the target that is ALREADY being built: Xcode WILL CRASH YOUR COMPUTER if you try this (infinite recursion!)\n#\n#\n# So: build ONLY the missing platforms/configurations.\n\nif [ \"true\" == ${ALREADYINVOKED:-false} ]\nthen\necho \"RECURSION: I am NOT the root invocation, so I'm NOT going to recurse\"\nelse\n# CRITICAL:\n# Prevent infinite recursion (Xcode sucks)\nexport ALREADYINVOKED=\"true\"\n\necho \"RECURSION: I am the root ... recursing all missing build targets NOW...\"\necho \"RECURSION: ...about to invoke: xcodebuild -configuration \\\"${CONFIGURATION}\\\" -project \\\"${PROJECT_NAME}.xcodeproj\\\" -target \\\"${TARGET_NAME}\\\" -sdk \\\"${OTHER_SDK_TO_BUILD}\\\" ${ACTION} RUN_CLANG_STATIC_ANALYZER=NO\" BUILD_DIR=\\\"${BUILD_DIR}\\\" BUILD_ROOT=\\\"${BUILD_ROOT}\\\" SYMROOT=\\\"${SYMROOT}\\\"\n\nxcodebuild -configuration \"${CONFIGURATION}\" -project \"${PROJECT_NAME}.xcodeproj\" -target \"${TARGET_NAME}\" -sdk \"${OTHER_SDK_TO_BUILD}\" ${ACTION} RUN_CLANG_STATIC_ANALYZER=NO BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" SYMROOT=\"${SYMROOT}\"\n\nACTION=\"build\"\n\n#Merge all platform binaries as a fat binary for each configurations.\n\n# Calculate where the (multiple) built files are coming from:\nCURRENTCONFIG_DEVICE_DIR=${SYMROOT}/${CONFIGURATION}-iphoneos\nCURRENTCONFIG_SIMULATOR_DIR=${SYMROOT}/${CONFIGURATION}-iphonesimulator\n\necho \"Taking device build from: ${CURRENTCONFIG_DEVICE_DIR}\"\necho \"Taking simulator build from: ${CURRENTCONFIG_SIMULATOR_DIR}\"\n\nCREATING_UNIVERSAL_DIR=${SYMROOT}/${CONFIGURATION}-universal\necho \"...I will output a universal build to: ${CREATING_UNIVERSAL_DIR}\"\n\n# ... remove the products of previous runs of this script\n#      NB: this directory is ONLY created by this script - it should be safe to delete!\n\nrm -rf \"${CREATING_UNIVERSAL_DIR}\"\nmkdir \"${CREATING_UNIVERSAL_DIR}\"\n\n#\necho \"lipo: for current configuration (${CONFIGURATION}) creating output file: ${CREATING_UNIVERSAL_DIR}/${EXECUTABLE_NAME}\"\nxcrun -sdk iphoneos lipo -create -output \"${CREATING_UNIVERSAL_DIR}/${EXECUTABLE_NAME}\" \"${CURRENTCONFIG_DEVICE_DIR}/${EXECUTABLE_NAME}\" \"${CURRENTCONFIG_SIMULATOR_DIR}/${EXECUTABLE_NAME}\"\n\n#########\n#\n# Added: StackOverflow suggestion to also copy \"include\" files\n#    (untested, but should work OK)\n#\necho \"Fetching headers from ${PUBLIC_HEADERS_FOLDER_PATH}\"\necho \"  (if you embed your library project in another project, you will need to add\"\necho \"   a \"User Search Headers\" build setting of: (NB INCLUDE THE DOUBLE QUOTES BELOW!)\"\necho '        \"$(TARGET_BUILD_DIR)/include/\"'\nif [ -d \"${CURRENTCONFIG_DEVICE_DIR}/include/\" ]\nthen\nmkdir -p \"${CREATING_UNIVERSAL_DIR}/include/\"\n# * needs to be outside the double quotes?\ncp -r \"${CURRENTCONFIG_DEVICE_DIR}/include/\"* \"${CREATING_UNIVERSAL_DIR}/include\"\nfi\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0297C2FB1AA1D4C8006672E9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0297C3261AA1D520006672E9 /* CredentialAPI.m in Sources */,
+				0297C3271AA1D520006672E9 /* Credential.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0297C3111AA1D4C8006672E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		0297C3121AA1D4C8006672E9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0297C3141AA1D4C8006672E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/core-sample-ffxosncagbifgreabfvsvmzcfvbk/Build/Products/Debug-universal",
+					"$(PROJECT_DIR)",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		0297C3151AA1D4C8006672E9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/core-sample-ffxosncagbifgreabfvsvmzcfvbk/Build/Products/Debug-universal",
+					"$(PROJECT_DIR)",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0297C2FA1AA1D4C8006672E9 /* Build configuration list for PBXProject "core-library-sample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0297C3111AA1D4C8006672E9 /* Debug */,
+				0297C3121AA1D4C8006672E9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0297C3131AA1D4C8006672E9 /* Build configuration list for PBXNativeTarget "core-library-sample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0297C3141AA1D4C8006672E9 /* Debug */,
+				0297C3151AA1D4C8006672E9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0297C2F71AA1D4C8006672E9 /* Project object */;
+}

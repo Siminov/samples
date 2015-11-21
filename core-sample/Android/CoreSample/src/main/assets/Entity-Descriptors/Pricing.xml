@@ -1,0 +1,72 @@
+<!-- 
+/** 
+ * [SIMINOV FRAMEWORK]
+ * Copyright [2015] [Siminov Software Solution LLP|support@siminov.com]
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **/
+
+
+ -->
+
+<entity-descriptor>
+
+    <property name="table_name">PRICING</property>
+    <property name="class_name">siminov.core.sample.model.Pricing</property>
+    
+	<attributes>
+
+		<attribute>
+		    <property name="variable_name">priceId</property>
+		    <property name="column_name">PRICE_ID</property>
+			<property name="type">primitive-long</property>
+			<property name="primary_key">true</property>
+			<property name="not_null">true</property>
+			<property name="unique">true</property>
+		</attribute>		
+
+		<attribute>
+		    <property name="variable_name">price</property>
+		    <property name="column_name">PRICE</property>
+			<property name="type">primitive-float</property>
+		</attribute>
+
+		<attribute>
+		    <property name="variable_name">tax</property>
+		    <property name="column_name">TAX</property>
+			<property name="type">primitive-float</property>
+		</attribute>
+
+		<attribute>
+		    <property name="variable_name">discount</property>
+		    <property name="column_name">DISCOUNT</property>
+			<property name="type">primitive-float</property>
+		</attribute>
+		
+	</attributes>
+
+	<relationships>
+		
+		<relationship>
+		    <property name="type">one-to-one</property>
+		    <property name="refer">liquorBrand</property>
+		    <property name="refer_to">siminov.core.sample.model.LiquorBrand</property>
+		    <property name="on_update">cascade</property>
+		    <property name="on_delete">cascade</property>
+			<property name="load">true</property>
+		</relationship>		
+							    		
+	</relationships>				
+		
+</entity-descriptor>		
+		

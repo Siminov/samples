@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>665b7dc9-cf90-4198-a619-015f7a51a684</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>core_sample</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Core\Sample\Database\DatabaseUtils.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Core\Sample\Events\DatabaseEventHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Core\Sample\Events\SiminovEventHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Core\Sample\Model\Liquor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Core\Sample\Model\LiquorBrand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Core\Sample\Siminov.cs" />
+  </ItemGroup>
+</Project>

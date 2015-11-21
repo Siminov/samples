@@ -1,4 +1,4 @@
-Siminov Core (Object Relationship Mapping) - Sample Application
+Siminov Core (Object Relationship Mapping) - Android, iOS, Windows - Sample Application
 ===================================================
 
 Siminov Core Framework
@@ -31,7 +31,7 @@ Setting Up Application
 Application Configuration
 -------------------------
 
-- <b>1. Application Descriptor - ApplicationDescriptor.si.xml</b>
+- <b>1. Application Descriptor - ApplicationDescriptor.xml</b>
 
 ```xml
 <siminov>
@@ -44,7 +44,7 @@ Application Configuration
 
 	<!-- DATABASE-DESCRIPTORS -->
 	<database-descriptors>
-		<database-descriptor>DatabaseDescriptor.si.xml</database-descriptor>
+		<database-descriptor>DatabaseDescriptor.xml</database-descriptor>
 	</database-descriptors>
 
 	
@@ -58,7 +58,7 @@ Application Configuration
 
 ```
 
-- <b>2. Database Descriptor - DatabaseDescriptor.si.xml</b>
+- <b>2. Database Descriptor - DatabaseDescriptor.xml</b>
 
 ```xml
 
@@ -72,8 +72,8 @@ Application Configuration
 	<property name="password"></property>
 
 	<database-mappings>
-		<database-mapping path="Liquor-Mappings/Liquor.si.xml" />
-		<database-mapping path="Liquor-Mappings/LiquorBrand.si.xml" />
+		<database-mapping path="Liquor-Mappings/Liquor.xml" />
+		<database-mapping path="Liquor-Mappings/LiquorBrand.xml" />
 	</database-mappings>
 
 	<libraries>
@@ -85,7 +85,7 @@ Application Configuration
 
 ```
 
-- <b>3. Database Mapping Descriptor - Liquor.si.xml</b>
+- <b>3. Database Mapping Descriptor - Liquor.xml</b>
 
 ```xml
 <database-mapping>
