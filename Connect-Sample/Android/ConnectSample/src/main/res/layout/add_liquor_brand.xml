@@ -1,0 +1,80 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent" android:layout_height="fill_parent"
+    android:orientation="vertical" android:background="@drawable/background_theme"
+    >
+
+    <fragment android:name="siminov.connect.sample.fragments.TitleBar" android:id="@+id/title_bar"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"        
+        />
+
+	<LinearLayout 
+	    android:layout_width="fill_parent" android:layout_height="wrap_content"
+	    android:orientation="vertical"
+	    >
+	
+	    <LinearLayout
+	        android:layout_width="fill_parent" android:layout_height="wrap_content"
+	        android:orientation="vertical"
+	        >
+	        
+	        <TextView 
+	            android:layout_width="wrap_content" android:layout_height="wrap_content"
+	            android:text="@string/add_liquor_brand_name"
+	            />
+	        
+	        <EditText android:id="@+id/add_liquor_brand_name"
+	            android:layout_width="fill_parent" android:layout_height="wrap_content"
+	            />
+	        
+	    </LinearLayout>
+	
+	    <LinearLayout
+	        android:layout_width="fill_parent" android:layout_height="wrap_content"
+	        android:orientation="vertical"
+	        >
+	        
+	        <TextView 
+	            android:layout_width="wrap_content" android:layout_height="wrap_content"
+	            android:text="@string/add_liquor_brand_country"
+	            />
+	        
+	        <EditText android:id="@+id/add_liquor_brand_country"
+	            android:layout_width="fill_parent" android:layout_height="wrap_content"
+	            />
+	        
+	    </LinearLayout>
+	    
+	    <LinearLayout
+	        android:layout_width="fill_parent" android:layout_height="wrap_content"
+	        android:orientation="vertical"
+	        >
+	        
+	        <TextView 
+	            android:layout_width="wrap_content" android:layout_height="wrap_content"
+	            android:text="@string/add_liquor_brand_description"
+	            />
+	        
+	        <EditText android:id="@+id/add_liquor_brand_description"
+	            android:layout_width="fill_parent" android:layout_height="wrap_content"
+	            />
+	        
+	    </LinearLayout>
+	
+	    <LinearLayout
+	        android:layout_width="fill_parent" android:layout_height="wrap_content"
+	        android:orientation="vertical"
+	        >
+	        
+	        <TextView 
+	            android:layout_width="wrap_content" android:layout_height="wrap_content"
+	            android:text="@string/add_liquor_brand_link"
+	            />
+	        
+	        <EditText android:id="@+id/add_liquor_brand_link"
+	            android:layout_width="fill_parent" android:layout_height="wrap_content"
+	            />
+	        
+	    </LinearLayout>
+	
+	</LinearLayout>
+</LinearLayout>
