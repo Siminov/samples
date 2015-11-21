@@ -1,0 +1,19 @@
+<Alloy>
+	<Window class="container" title="Liquor Detail">
+		<View layout='vertical'>
+			<Label id="titleLabel" class='labelName'>Brand</Label>
+			<Label id="title"></Label>
+			<Label id="descriptionLabel" class='labelName'>Description</Label>
+			<Label id="description"></Label>
+			<Label id="historyLabel" class='labelName'>History</Label>
+			<Label id="history">By the 11th century, Italian monks were flavoring crudely distilled spirits with juniper berries. During the Black Death, this drink was used, although ineffectively, as a remedy. As the science of distillation advanced from the Middle Ages into the Renaissance period, juniper was one of many botanicals employed by virtue of its perfume, flavour, and purported medicinal propertie.
+				</Label>
+			<Label id="alcoholLabel" class='labelName'>Alcohol Content</Label>
+			<Label id="alcohol">Gin has a minimum alcohol content of 40 percent in the US (80 proof).</Label>
+			<Label id="linkLabel" class='labelName'>Link</Label>
+			<Label id="link">http://en.wikipedia.org/wiki/Gin</Label>
+			<Label id="brandsLabel" class='labelName'>Brands</Label>
+			<Label id="brands">The+Botanist</Label>
+		</View>
+	</Window>
+</Alloy>

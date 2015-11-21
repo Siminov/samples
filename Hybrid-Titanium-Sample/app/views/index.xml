@@ -1,0 +1,9 @@
+<Alloy>
+    <Window class="container">
+        <View layout="vertical" id="login">
+            <TextField id="username" hintText="Username..."></TextField>
+            <TextField id="password" hintText="Password..."></TextField>
+            <Button id="insertBookButton" onClick="showLiquorList">Login</Button>
+        </View>
+    </Window>
+</Alloy>

@@ -1,0 +1,11 @@
+<Alloy>
+	<Collection src="liquors"/>
+	<NavigationWindow>
+		<Window class="container" title="My Liquors">
+			<!-- Add TableView and  TableViewRow -->
+	    	<TableView dataCollection="liquors">
+	            <TableViewRow title="{liquorName}" liquorDescription="{liquorDescription}" onClick="showLiquorDetail"></TableViewRow>
+	        </TableView>
+		</Window>
+    </NavigationWindow>
+</Alloy>

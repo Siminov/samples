@@ -1,0 +1,3 @@
+".container[platform=ios]": {
+	backgroundColor:"white"
+}

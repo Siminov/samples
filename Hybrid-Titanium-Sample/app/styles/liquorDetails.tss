@@ -1,0 +1,17 @@
+
+".container[platform=ios]" : {
+	backgroundColor: 'white'
+},
+
+".labelName":{
+	 font:{
+		 fontSize: '18',
+		 fontWeight: 'bold'
+	 },
+	top: 10,
+},
+
+"Label" : {
+	left: 20,
+	height: 20
+}

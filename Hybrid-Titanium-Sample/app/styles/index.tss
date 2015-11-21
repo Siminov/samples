@@ -1,0 +1,21 @@
+"Label": {
+	width: Ti.UI.SIZE,
+	height: Ti.UI.SIZE,
+	color: "#000"
+}
+
+".container[platform=ios]" : {
+  backgroundColor: 'white'
+}
+
+"#login": {
+    top: '10'
+}
+
+"TextField" : {
+	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	top: 10,
+	left: 20,
+	right: 20,
+	height: 40
+}
