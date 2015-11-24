@@ -119,21 +119,21 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SQLite.cs" />
+    <Compile Include="SQLiteAsync.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <None Include="Build\core-sample-v1.0.zip" />
     <None Include="core-sample.Windows_TemporaryKey.pfx" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\ApplicationDescriptor.si.xml">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Assets\DatabaseDescriptor.si.xml" />
-    <Content Include="Assets\Entity-Descriptors\Liquor.si.xml" />
-    <Content Include="Assets\Entity-Descriptors\LiquorBrand.si.xml" />
+    <Content Include="Assets\ApplicationDescriptor.xml" />
+    <Content Include="Assets\DatabaseDescriptor.xml" />
+    <Content Include="Assets\Entity-Descriptors\Liquor.xml" />
+    <Content Include="Assets\Entity-Descriptors\LiquorBrand.xml" />
     <Content Include="Assets\Logo.scale-100.png" />
     <Content Include="Assets\SmallLogo.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
@@ -157,19 +157,9 @@
     <SDKReference Include="Microsoft.VCLibs, version=12.0">
       <Name>Microsoft Visual C++ 2013 Runtime Package for Windows</Name>
     </SDKReference>
-    <SDKReference Include="SQLite.WinRT81, Version=3.8.8.1">
+    <SDKReference Include="SQLite.WinRT81, Version=3.9.2">
       <Name>SQLite for Windows Runtime %28Windows 8.1%29</Name>
     </SDKReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Core-Library-Sample\core-library-sample.csproj">
-      <Project>{33d3f868-c351-4951-bb77-7c3499eee6c6}</Project>
-      <Name>core-library-sample</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Core\core.csproj">
-      <Project>{bab29a50-621e-48c6-9f73-c0a9bba3b2d5}</Project>
-      <Name>core</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
