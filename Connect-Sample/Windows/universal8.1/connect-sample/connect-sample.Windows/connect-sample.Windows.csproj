@@ -128,20 +128,20 @@
     <None Include="connect-sample.Windows_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\ApplicationDescriptor.si.xml" />
-    <Content Include="Assets\DatabaseDescriptor.si.xml" />
-    <Content Include="Assets\Entity-Descriptors\Credential.si.xml" />
-    <Content Include="Assets\Entity-Descriptors\Liquor.si.xml" />
-    <Content Include="Assets\Entity-Descriptors\LiquorBrand.si.xml" />
+    <Content Include="Assets\ApplicationDescriptor.xml" />
+    <Content Include="Assets\DatabaseDescriptor.xml" />
+    <Content Include="Assets\Entity-Descriptors\Credential.xml" />
+    <Content Include="Assets\Entity-Descriptors\Liquor.xml" />
+    <Content Include="Assets\Entity-Descriptors\LiquorBrand.xml" />
     <Content Include="Assets\Logo.scale-100.png" />
-    <Content Include="Assets\Service-Descriptors\LiquorBrands.si.xml" />
-    <Content Include="Assets\Service-Descriptors\Liquors.si.xml" />
-    <Content Include="Assets\Service-Descriptors\NotificationService.si.xml" />
+    <Content Include="Assets\Service-Descriptors\LiquorBrands.xml" />
+    <Content Include="Assets\Service-Descriptors\Liquors.xml" />
+    <Content Include="Assets\Service-Descriptors\NotificationService.xml" />
     <Content Include="Assets\SmallLogo.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\StoreLogo.scale-100.png" />
-    <Content Include="Assets\Sync-Descriptors\LiquorBrands.si.xml" />
-    <Content Include="Assets\Sync-Descriptors\Liquors.si.xml" />
+    <Content Include="Assets\Sync-Descriptors\LiquorBrands.xml" />
+    <Content Include="Assets\Sync-Descriptors\Liquors.xml" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="Detail.xaml">
@@ -161,19 +161,9 @@
     <SDKReference Include="Microsoft.VCLibs, version=12.0">
       <Name>Microsoft Visual C++ 2013 Runtime Package for Windows</Name>
     </SDKReference>
-    <SDKReference Include="SQLite.WinRT81, Version=3.8.8.1">
+    <SDKReference Include="SQLite.WinRT81, Version=3.9.2">
       <Name>SQLite for Windows Runtime %28Windows 8.1%29</Name>
     </SDKReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Connect\connect.csproj">
-      <Project>{e0c859aa-497b-4633-828a-a17e7e400fdd}</Project>
-      <Name>connect</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Core\core.csproj">
-      <Project>{bab29a50-621e-48c6-9f73-c0a9bba3b2d5}</Project>
-      <Name>core</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
