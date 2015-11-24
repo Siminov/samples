@@ -35,29 +35,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <!-- A reference to the entire .NET Framework is automatically included -->
-    <EmbeddedResource Include="Siminov\Core\Library\Sample\Resources\Credential.si.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Siminov\Core\Library\Sample\Resources\LibraryDescriptor.si.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Siminov\Core\Library\Sample\APIS\CredentialAPI.cs" />
     <Compile Include="Siminov\Core\Library\Sample\Model\Credential.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Build\V1.0\core-library-sample.dll" />
-    <Content Include="Build\V1.0\core-library-sample.resources.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Core\core.csproj">
-      <Project>{bab29a50-621e-48c6-9f73-c0a9bba3b2d5}</Project>
-      <Name>core</Name>
-    </ProjectReference>
+    <Content Include="Siminov\Core\Library\Sample\Resources\Credential.xml" />
+    <Content Include="Siminov\Core\Library\Sample\Resources\LibraryDescriptor.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
