@@ -161,6 +161,16 @@
       <Name>SQLite for Windows Runtime %28Windows 8.1%29</Name>
     </SDKReference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\..\Core\Windows\universal8.1\core.csproj">
+      <Project>{bab29a50-621e-48c6-9f73-c0a9bba3b2d5}</Project>
+      <Name>core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\Core-Library-Sample\Windows\universal8.1\core-library-sample.csproj">
+      <Project>{33d3f868-c351-4951-bb77-7c3499eee6c6}</Project>
+      <Name>core-library-sample</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
   </PropertyGroup>
