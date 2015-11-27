@@ -1,0 +1,19 @@
+﻿<Properties StartupItem="Droid/Connect-Sample.Droid.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus_5_API_23_x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Droid/Resources/Resource.designer.cs">
+    <Files>
+      <File FileName="../Connect/Connect/Siminov/Connect/Model/ServiceDescriptor.cs" Line="1" Column="1" />
+      <File FileName="../Connect/Connect/Siminov/Connect/Reader/ApplicationDescriptorReader.cs" Line="1" Column="1" />
+      <File FileName="Droid/Detail.cs" Line="36" Column="1" />
+      <File FileName="Droid/Home.cs" Line="1" Column="1" />
+      <File FileName="Droid/Siminov/Connect/Sample/Services/GetLiquorBrands.cs" Line="1" Column="1" />
+      <File FileName="Droid/Siminov/Connect/Sample/Services/AddLiquor.cs" Line="1" Column="1" />
+      <File FileName="../Core/Core/Siminov/Core/Database/DatabaseUtils.cs" Line="72" Column="4" />
+      <File FileName="Droid/Resources/Resource.designer.cs" Line="29" Column="94" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
