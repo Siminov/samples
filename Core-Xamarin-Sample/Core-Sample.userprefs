@@ -1,0 +1,22 @@
+﻿<Properties StartupItem="Droid/Core-Sample.Droid.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus_5_API_23_x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Droid/Detail.cs">
+    <Files>
+      <File FileName="../Core/Core/Siminov/Core/Utils/ClassUtils.cs" Line="1" Column="1" />
+      <File FileName="Core-Sample/Siminov/Core/Sample/Siminov.cs" Line="1" Column="1" />
+      <File FileName="../Core/Core/Siminov/Core/Reader/ApplicationDescriptorReader.cs" Line="1" Column="1" />
+      <File FileName="../Core/Core/Siminov/Core/Database/SQLite/DatabaseImpl.cs" Line="1" Column="1" />
+      <File FileName="Droid/Home.cs" Line="1" Column="1" />
+      <File FileName="Droid/Detail.cs" Line="60" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/private/var/user/Documents/Apps/Xamarin/Core/Core/Siminov/Core/Utils/FileUtils.cs" line="724" column="1" />
+      <Breakpoint file="/private/var/user/Documents/Apps/Xamarin/Core-Sample/Droid/Home.cs" line="45" column="1" />
+      <Breakpoint file="/private/var/user/Documents/Apps/Xamarin/Core-Sample/Droid/Detail.cs" line="25" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Core-Sample.Droid AndroidDesignerPreferredDevice="Nexus 4" />
+</Properties>
