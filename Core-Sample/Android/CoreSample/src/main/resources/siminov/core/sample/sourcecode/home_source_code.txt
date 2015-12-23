@@ -1,7 +1,7 @@
-Liquor[] liquors = null;
+Book[] books = null;
 
 try {
-	liquors = (Liquor[]) new Liquor().fetch();
+	books = (Book[]) new Book().fetch();
 } catch(DatabaseException databaseException) {
 	return;
 }

@@ -59,8 +59,8 @@
 		
 		<relationship>
 		    <property name="type">one-to-one</property>
-		    <property name="refer">liquorBrand</property>
-		    <property name="refer_to">siminov.core.sample.model.LiquorBrand</property>
+		    <property name="refer">book</property>
+		    <property name="refer_to">siminov.core.sample.model.Book</property>
 		    <property name="on_update">cascade</property>
 		    <property name="on_delete">cascade</property>
 			<property name="load">true</property>

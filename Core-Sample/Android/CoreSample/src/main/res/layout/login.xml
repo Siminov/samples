@@ -7,7 +7,7 @@
 		android:layout_width="fill_parent" android:layout_height="wrap_content"        
         />
 
-    <fragment android:name="siminov.core.sample.fragments.Login" android:id="@+id/liquor_detail"
+    <fragment android:name="siminov.core.sample.fragments.Login" android:id="@+id/book_detail"
         android:layout_width="fill_parent" android:layout_height="fill_parent"
         />
 

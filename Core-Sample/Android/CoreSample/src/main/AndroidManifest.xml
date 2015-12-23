@@ -16,7 +16,7 @@
         </activity>
 
         <activity android:name=".activities.Home" />
-        <activity android:name=".activities.LiquorDetail" />
+        <activity android:name=".activities.BookDetail" />
         <activity android:name=".activities.HomeSourceCode" />
         <activity android:name=".activities.About" />
         
