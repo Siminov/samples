@@ -1,4 +1,4 @@
-/** 
+/**
  * [SIMINOV FRAMEWORK]
  * Copyright [2015] [Siminov Software Solution LLP|support@siminov.com]
  *
@@ -19,25 +19,25 @@
 package siminov.core.sample.activities;
 
 import siminov.core.sample.R;
-import siminov.core.sample.model.Liquor;
+import siminov.core.sample.model.Book;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 
-public class LiquorDetail extends FragmentActivity {
+public class BookDetail extends FragmentActivity {
 
-	public static final String INTENT_LIQUOR = "INTENT_LIQUOR";
+    public static final String INTENT_BOOK = "INTENT_BOOK";
 
-	private Liquor liquor = null;
-	
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		
-		liquor = (Liquor) getIntent().getExtras().getSerializable(INTENT_LIQUOR);
-		
-		setContentView(R.layout.liquor_detail);
-	}
+    private Book book = null;
 
-	public Liquor getLiquor() {
-		return this.liquor;
-	}
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        book = (Book) getIntent().getExtras().getSerializable(INTENT_BOOK);
+
+        setContentView(R.layout.book_detail);
+    }
+
+    public Book getBook() {
+        return this.book;
+    }
 }

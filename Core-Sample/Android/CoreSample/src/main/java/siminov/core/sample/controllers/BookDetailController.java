@@ -1,4 +1,4 @@
-/** 
+/**
  * [SIMINOV FRAMEWORK]
  * Copyright [2015] [Siminov Software Solution LLP|support@siminov.com]
  *
@@ -16,30 +16,22 @@
  **/
 
 
+package siminov.core.sample.controllers;
 
-package siminov.core.sample.model;
+import siminov.core.exception.DatabaseException;
+import siminov.core.log.Log;
+import siminov.core.sample.model.Lession;
 
-import siminov.core.database.Database;
+public class BookDetailController {
 
-public class LiquorAndLiquorBrandJoin extends Database {
+    public Lession[] getLessions(String bookTitle) {
 
-	private String alcholContent = null;
-	private String description = null;
-	
-	public String getAlcholContent() {
-		return this.alcholContent;
-	}
-	
-	public void setAlcholContent(String alcholContent) {
-		this.alcholContent = alcholContent;
-	}
-	
-	public String getDescription() {
-		return this.description;
-	}
-	
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	
+        try {
+            return new Lession().select().where(Lession.BOOK_TITLE).equalTo(bookTitle).execute();
+        } catch(DatabaseException databaseException) {
+            Log.error(getClass().getName(), "getLessions", "DatabaseException caught while getting lessions, " + databaseException.getMessage());
+            return null;
+        }
+    }
+
 }

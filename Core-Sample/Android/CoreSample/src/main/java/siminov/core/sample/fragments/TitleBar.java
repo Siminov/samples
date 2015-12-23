@@ -19,7 +19,7 @@
 package siminov.core.sample.fragments;
 
 import siminov.core.sample.R;
-import siminov.core.sample.model.Liquor;
+import siminov.core.sample.model.Book;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -62,10 +62,10 @@ public class TitleBar extends Fragment {
 	private void initialize() {
 		Activity currentActivity = getActivity();
 		if(currentActivity instanceof siminov.core.sample.activities.Home) {
-			title.setText(getResources().getString(R.string.liquors));
-		} else if(currentActivity instanceof siminov.core.sample.activities.LiquorDetail) {
-			Liquor liquor = ((siminov.core.sample.activities.LiquorDetail) currentActivity).getLiquor();
-			title.setText(liquor.getLiquorType());
+			title.setText(getResources().getString(R.string.books));
+		} else if(currentActivity instanceof siminov.core.sample.activities.BookDetail) {
+			Book book = ((siminov.core.sample.activities.BookDetail) currentActivity).getBook();
+			title.setText(book.getTitle());
 			
 			menuLauncher.setVisibility(View.INVISIBLE);
 		} else if(currentActivity instanceof siminov.core.sample.activities.Login) {

@@ -32,6 +32,7 @@ public class SiminovEventHandler implements ISiminovEvents {
 	}
 
 	public void onSiminovStopped() {
+
 	}
 
 }

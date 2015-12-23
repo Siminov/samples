@@ -20,7 +20,7 @@ package siminov.core.sample.model;
 
 public class Gadget {
 
-	public static final String LIQUOR_BRANDS_LABEL = "LIQUOR_BRANDS_LABEL";
+	public static final String LESSION_LABEL = "LESSION_LABEL";
 	
 	private String statusType = null;
 	

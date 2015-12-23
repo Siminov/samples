@@ -35,7 +35,7 @@ public class Pricing {
 	private float tax;
 	private float discount;
 	
-	private LiquorBrand liquorBrand = null;
+	private Book book = null;
 	
 	//Methods
 	
@@ -71,12 +71,12 @@ public class Pricing {
 		this.discount = discount;
 	}
 	
-	public LiquorBrand getLiquorBrand() {
-		return this.liquorBrand;
+	public Book getBook() {
+		return this.book;
 	}
 	
-	public void setLiquorBrand(LiquorBrand liquorBrand) {
-		this.liquorBrand = liquorBrand;
+	public void setBook(Book book) {
+		this.book = book;
 	}
 	
 }

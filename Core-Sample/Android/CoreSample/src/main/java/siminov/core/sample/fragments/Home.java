@@ -20,7 +20,7 @@ package siminov.core.sample.fragments;
 
 import siminov.core.sample.R;
 import siminov.core.sample.StateManager;
-import siminov.core.sample.model.Liquor;
+import siminov.core.sample.model.Book;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -55,10 +55,10 @@ public class Home extends ListFragment {
 
 	private class LoadData extends AsyncTask<Void, Void, Void> {
 
-		Liquor[] liquors = null;
+		Book[] books = null;
 
 		protected Void doInBackground(Void... params) {
-			liquors = new siminov.core.sample.controllers.Home().getLiquors();
+			books = new siminov.core.sample.controllers.Home().getBooks();
 			return null;
 		}
 
@@ -68,7 +68,7 @@ public class Home extends ListFragment {
 				return;
 			}
 
-			setListAdapter(new siminov.core.sample.adapters.Home(getActivity().getApplicationContext(), liquors));
+			setListAdapter(new siminov.core.sample.adapters.Home(getActivity().getApplicationContext(), books));
 		}
 	}
 

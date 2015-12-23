@@ -1,4 +1,4 @@
-/** 
+/**
  * [SIMINOV FRAMEWORK]
  * Copyright [2015] [Siminov Software Solution LLP|support@siminov.com]
  *
@@ -15,23 +15,35 @@
  * limitations under the License.
  **/
 
+package siminov.core.sample.model;
 
-package siminov.core.sample.controllers;
+import siminov.core.database.Database;
 
-import siminov.core.exception.DatabaseException;
-import siminov.core.log.Log;
-import siminov.core.sample.model.LiquorBrand;
+public class BookShopMapping extends Database {
 
-public class LiquorDetailController {
+    //Table Name
+    transient public static final String TABLE_NAME = "BOOK_SHOP_MAPPING";
 
-	public LiquorBrand[] getLiquorBrands(String liquorType) {
-		
-		try {
-			return new LiquorBrand().select().where(LiquorBrand.LIQUOR_TYPE).equalTo(liquorType).execute();
-		} catch(DatabaseException databaseException) {
-			Log.error(getClass().getName(), "getLiquorBrands", "DatabaseException caught while getting liquor brands, " + databaseException.getMessage());
-			return null;
-		}
-	}
-	
+    //Variable Names
+    private Book book = null;
+    private Shop shop = null;
+
+
+    //Method Names
+
+    public Book getBook() {
+        return this.book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
+
+    public Shop getShop() {
+        return this.shop;
+    }
+
+    public void setShop(Shop shop) {
+        this.shop = shop;
+    }
 }
