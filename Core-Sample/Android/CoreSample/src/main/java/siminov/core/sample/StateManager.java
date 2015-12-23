@@ -22,6 +22,7 @@ import java.util.Hashtable;
 
 public class StateManager {
 
+
 	private static StateManager stateManager = null;
 	private Hashtable<String, Object> stateList = null;
 	
