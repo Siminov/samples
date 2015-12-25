@@ -26,26 +26,24 @@ namespace Siminov.Connect.Sample
     public class Constants
     {
         /*
-         * Liquors Constants
+         * Books Constants
          */
-        public static readonly String GET_LIQUORS_WS_LIQUORS = "liquors";
-        public static readonly String GET_LIQUORS_WS_LIQUOR = "liquor";
-        public static readonly String GET_LIQUORS_WS_LIQUOR_NAME = "name";
-        public static readonly String GET_LIQUORS_WS_LIQUOR_DESCRIPTION = "description";
-        public static readonly String GET_LIQUORS_WS_LIQUOR_HISTROY = "histroy";
-        public static readonly String GET_LIQUORS_WS_LIQUOR_LINK = "link";
-        public static readonly String GET_LIQUORS_WS_LIQUOR_ALCHOL_CONTENT = "alchol_content";
+        public static readonly String GET_BOOKS_WS_BOOKS = "books";
+        public static readonly String GET_BOOKS_WS_BOOK = "book";
+        public static readonly String GET_BOOKS_WS_BOOK_TITLE = "name";
+        public static readonly String GET_BOOKS_WS_BOOK_DESCRIPTION = "description";
+        public static readonly String GET_BOOKS_WS_BOOK_AUTHOR = "author";
+        public static readonly String GET_BOOKS_WS_BOOK_LINK = "link";
 
 
         /*
-         * Liquor Brands Constants
+         * Lessions Constants
          */
-        public static readonly String GET_LIQUOR_BRANDS_WS_BRANDS = "brands";
-        public static readonly String GET_LIQUOR_BRANDS_WS_BRAND = "brand";
-        public static readonly String GET_LIQUOR_BRANDS_WS_BRAND_NAME = "name";
-        public static readonly String GET_LIQUOR_BRANDS_WS_BRAND_COUNTRY = "country";
-        public static readonly String GET_LIQUOR_BRANDS_WS_BRAND_DESCRIPTION = "description";
-        public static readonly String GET_LIQUOR_BRANDS_WS_BRAND_LINK = "link";
+        public static readonly String GET_LESSIONS_WS_LESSIONS = "lessions";
+        public static readonly String GET_LESSIONS_WS_LESSION = "lession";
+        public static readonly String GET_LESSIONS_WS_LESSION_NAME = "name";
+        public static readonly String GET_LESSIONS_WS_LESSION_DESCRIPTION = "description";
+        public static readonly String GET_LESSIONS_WS_LESSION_LINK = "link";
 
 
         public static readonly String NEW_LINE = "\n";
@@ -54,25 +52,23 @@ namespace Siminov.Connect.Sample
         /*
          * Sync Constants
          */
-        public static readonly String SYNC_LIQUORS = "SYNC-LIQUORS";
-        public static readonly String SYNC_LIQUOR_BRANDS = "SYNC-LIQUOR-BRANDS";
+        public static readonly String SYNC_BOOKS = "SYNC-BOOKS";
+        public static readonly String SYNC_LESSIONS = "SYNC-LESSIONS";
 
 
         /*
-         * Add Liquor Constants
+         * Add Book Constants
          */
-        public static readonly String ADD_LIQUOR_WS_LIQUOR = "liquor";
-        public static readonly String ADD_LIQUOR_WS_LIQUOR_NAME = "name";
-        public static readonly String ADD_LIQUOR_WS_LIQUOR_DESCRIPTION = "description";
-        public static readonly String ADD_LIQUOR_WS_LIQUOR_HISTORY = "histroy";
-        public static readonly String ADD_LIQUOR_WS_LIQUOR_LINK = "link";
-        public static readonly String ADD_LIQUOR_WS_LIQUOR_ALCHOL_CONTENT = "alchol_content";
-        public static readonly String ADD_LIQUOR_WS_BRANDS = "brands";
-        public static readonly String ADD_LIQUOR_WS_BRAND = "brand";
-        public static readonly String ADD_LIQUOR_WS_BRAND_NAME = "name";
-        public static readonly String ADD_LIQUOR_WS_BRAND_COUNTRY = "country";
-        public static readonly String ADD_LIQUOR_WS_BRAND_DESCRIPTION = "description";
-        public static readonly String ADD_LIQUOR_WS_BRAND_LINK = "link";
+        public static readonly String ADD_BOOK_WS_BOOK = "book";
+        public static readonly String ADD_BOOK_WS_BOOK_TITLE = "name";
+        public static readonly String ADD_BOOK_WS_BOOK_DESCRIPTION = "description";
+        public static readonly String ADD_BOOK_WS_BOOK_AUTHOR = "author";
+        public static readonly String ADD_BOOK_WS_BOOK_LINK = "link";
+        public static readonly String ADD_BOOK_WS_LESSIONS = "lessions";
+        public static readonly String ADD_BOOK_WS_LESSION = "lession";
+        public static readonly String ADD_BOOK_WS_LESSION_NAME = "name";
+        public static readonly String ADD_BOOK_WS_LESSION_DESCRIPTION = "description";
+        public static readonly String ADD_BOOK_WS_LESSION_LINK = "link";
 
     }
 }

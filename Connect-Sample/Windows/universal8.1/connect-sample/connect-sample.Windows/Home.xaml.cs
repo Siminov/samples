@@ -55,11 +55,11 @@ namespace connect_sample
 
         public void Refresh()
         {
-            Liquor[] liquors = (Liquor[])new Liquor().Select().Execute();
+            Book[] books = (Book[])new Book().Select().Execute();
 
-            for (int i = 0; i < liquors.Length; i++)
+            for (int i = 0; i < books.Length; i++)
             {
-                liquorsList.Items.Add(liquors[i].GetLiquorType());
+                booksList.Items.Add(books[i].GetTitle());
             }
         }
 
@@ -122,7 +122,7 @@ namespace connect_sample
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Object brand = liquorsList.SelectedValue;
+            Object brand = booksList.SelectedValue;
 
             Frame.Navigate(typeof(Detail), brand);
         }
@@ -131,8 +131,8 @@ namespace connect_sample
         {
 
             ISyncRequest syncRequest = new SyncRequest();
-            syncRequest.SetName(Constants.SYNC_LIQUORS);
-            syncRequest.AddResource(GetLiquors.UI_COMPONENT, this);
+            syncRequest.SetName(Constants.SYNC_BOOKS);
+            syncRequest.AddResource(GetBooks.UI_COMPONENT, this);
 
 
             SyncHandler syncHandler = SyncHandler.GetInstance();

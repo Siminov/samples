@@ -20,8 +20,8 @@
 
 <service-descriptor>
 
-  <property name="name">SIMINOV-CONNECT-LIQUOR-BRANDS-SERVICE</property>
-  <property name="description">Siminov Connect Liquor Brands Service</property>
+  <property name="name">SIMINOV-CONNECT-LESSIONS-SERVICE</property>
+  <property name="description">Siminov Connect Lessions Service</property>
   <property name="protocol">HTTP</property>
   <property name="instance">siminov.com</property>
   <property name="port">80</property>
@@ -30,16 +30,16 @@
   <requests>
     <request>
 
-      <property name="name">GET-LIQUOR-BRANDS</property>
+      <property name="name">GET-LESSIONS</property>
       <property name="type">GET</property>
       <property name="api">get_brands.php</property>
-      <property name="handler">Siminov.Connect.Sample.Services.GetLiquorBrands</property>
+      <property name="handler">Siminov.Connect.Sample.Services.GetLessions</property>
       <property name="mode">SYNC</property>
 
       <query-parameters>
         <query-parameter>
           <property name="name">name</property>
-          <property name="value">{@resource LIQUOR-NAME}</property>
+          <property name="value">{@resource BOOK-TITLE}</property>
         </query-parameter>
       </query-parameters>
 

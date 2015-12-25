@@ -130,18 +130,18 @@
   <ItemGroup>
     <Content Include="Assets\ApplicationDescriptor.xml" />
     <Content Include="Assets\DatabaseDescriptor.xml" />
+    <Content Include="Assets\Entity-Descriptors\Book.xml" />
     <Content Include="Assets\Entity-Descriptors\Credential.xml" />
-    <Content Include="Assets\Entity-Descriptors\Liquor.xml" />
-    <Content Include="Assets\Entity-Descriptors\LiquorBrand.xml" />
+    <Content Include="Assets\Entity-Descriptors\Lession.xml" />
     <Content Include="Assets\Logo.scale-100.png" />
-    <Content Include="Assets\Service-Descriptors\LiquorBrands.xml" />
-    <Content Include="Assets\Service-Descriptors\Liquors.xml" />
+    <Content Include="Assets\Service-Descriptors\Books.xml" />
+    <Content Include="Assets\Service-Descriptors\Lessions.xml" />
     <Content Include="Assets\Service-Descriptors\NotificationService.xml" />
     <Content Include="Assets\SmallLogo.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\StoreLogo.scale-100.png" />
-    <Content Include="Assets\Sync-Descriptors\LiquorBrands.xml" />
-    <Content Include="Assets\Sync-Descriptors\Liquors.xml" />
+    <Content Include="Assets\Sync-Descriptors\Books.xml" />
+    <Content Include="Assets\Sync-Descriptors\Lessions.xml" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="Detail.xaml">
@@ -164,6 +164,16 @@
     <SDKReference Include="SQLite.WinRT81, Version=3.9.2">
       <Name>SQLite for Windows Runtime %28Windows 8.1%29</Name>
     </SDKReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\..\Connect\Windows\universal8.1\connect.csproj">
+      <Project>{e0c859aa-497b-4633-828a-a17e7e400fdd}</Project>
+      <Name>connect</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\..\Core\Windows\universal8.1\core.csproj">
+      <Project>{bab29a50-621e-48c6-9f73-c0a9bba3b2d5}</Project>
+      <Name>core</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>

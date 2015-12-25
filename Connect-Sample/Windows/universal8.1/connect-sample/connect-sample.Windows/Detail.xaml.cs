@@ -107,33 +107,32 @@ namespace connect_sample
 
         public void Refresh()
         {
-            Liquor[] liquor = (Liquor[])new Liquor().Select().Where(Liquor.LIQUOR_TYPE).EqualTo(brandName).Execute();
-            IEnumerator<LiquorBrand> liquorBrands = liquor[0].GetLiquorBrands();
+            Book[] book = (Book[])new Book().Select().Where(Book.TITLE).EqualTo(brandName).Execute();
+            IEnumerator<Lession> lessions = book[0].GetLessions();
 
-            brand.Text = liquor[0].GetLiquorType();
-            description.Text = liquor[0].GetDescription();
-            history.Text = liquor[0].GetHistory();
-            alcholContent.Text = liquor[0].GetAlcholContent();
-            link.Text = liquor[0].GetLink();
+            title.Text = book[0].GetTitle();
+            description.Text = book[0].GetDescription();
+            author.Text = book[0].GetAuthor();
+            link.Text = book[0].GetLink();
 
 
-            while (liquorBrands.MoveNext())
+            while (lessions.MoveNext())
             {
-                liquorBrandList.Items.Add(liquorBrands.Current.GetBrandName());
+                lessionsList.Items.Add(lessions.Current.GetName());
             }
         }
 
         private void GetBrands()
         {
 
-            Liquor[] liquors = (Liquor[])new Liquor().Select().Where(Liquor.LIQUOR_TYPE).EqualTo(brandName).Execute();
-            Liquor liquor = liquors[0];
+            Book[] books = (Book[])new Book().Select().Where(Book.TITLE).EqualTo(brandName).Execute();
+            Book book = books[0];
 
             ISyncRequest syncRequest = new SyncRequest();
-            syncRequest.SetName(Constants.SYNC_LIQUOR_BRANDS);
-            syncRequest.AddResource(GetLiquorBrands.LIQUOR_NAME, liquor.GetLiquorType());
-            syncRequest.AddResource(GetLiquorBrands.LIQUOR, liquor);
-            syncRequest.AddResource(GetLiquorBrands.UI_COMPONENT, this);
+            syncRequest.SetName(Constants.SYNC_LESSIONS);
+            syncRequest.AddResource(GetLessions.BOOK_TITLE, book.GetTitle());
+            syncRequest.AddResource(GetLessions.BOOK, book);
+            syncRequest.AddResource(GetLessions.UI_COMPONENT, this);
 
             SyncHandler syncHandler = SyncHandler.GetInstance();
             syncHandler.Handle(syncRequest);

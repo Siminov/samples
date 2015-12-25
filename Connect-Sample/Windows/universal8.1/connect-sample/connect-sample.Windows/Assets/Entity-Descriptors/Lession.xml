@@ -21,14 +21,14 @@
 
 <entity-descriptor>
 
-  <property name="table_name">LIQUOR_BRAND</property>
-  <property name="class_name">Siminov.Connect.Sample.Model.LiquorBrand</property>
+  <property name="table_name">LESSION</property>
+  <property name="class_name">Siminov.Connect.Sample.Model.Lession</property>
 
   <attributes>
 
     <attribute>
-      <property name="variable_name">brandName</property>
-      <property name="column_name">BRAND_NAME</property>
+      <property name="variable_name">name</property>
+      <property name="column_name">NAME</property>
       <property name="type">string</property>
       <property name="primary_key">true</property>
       <property name="not_null">true</property>
@@ -48,18 +48,12 @@
       <property name="default">www.wikipedia.org</property>
     </attribute>
 
-    <attribute>
-      <property name="variable_name">country</property>
-      <property name="column_name">COUNTRY</property>
-      <property name="type">string</property>
-    </attribute>
-
     <relationships>
 
       <relationship>
         <property name="type">many-to-one</property>
-        <property name="refer">liquor</property>
-        <property name="refer_to">Siminov.Connect.Sample.Model.Liquor</property>
+        <property name="refer">book</property>
+        <property name="refer_to">Siminov.Connect.Sample.Model.Book</property>
         <property name="on_update">cascade</property>
         <property name="on_delete">cascade</property>
         <property name="load">true</property>

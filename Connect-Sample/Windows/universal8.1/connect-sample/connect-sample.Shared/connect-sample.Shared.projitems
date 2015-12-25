@@ -21,18 +21,18 @@
     <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Events\DatabaseEventHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Events\NotificationEventHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Events\SiminovEventHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Model\Book.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Model\Credential.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Model\Liquor.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Model\LiquorBrand.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Reader\LiquorBrandsReader.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Reader\LiquorsReader.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Services\AddLiquor.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Services\DeleteLiquor.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Services\GetLiquorBrands.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Services\GetLiquors.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Model\Lession.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Reader\BooksReader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Reader\LessionsReader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Services\AddBook.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Services\DeleteBook.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Services\GetBooks.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Services\GetLessions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Services\RegisterDevice.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Services\UnregisterDevice.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Siminov.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Writter\LiquorWritter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Connect\Sample\Writter\BookWritter.cs" />
   </ItemGroup>
 </Project>

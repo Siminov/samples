@@ -43,7 +43,7 @@
             <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40" SelectionChanged="pageTitle_SelectionChanged"/>
         </Grid>
-        <ListView x:Name="liquorsList" HorizontalAlignment="Left" Height="499" Margin="57,64,0,0" Grid.Row="1" VerticalAlignment="Top" Width="1261" SelectionChanged="ListView_SelectionChanged">
+        <ListView x:Name="booksList" HorizontalAlignment="Left" Height="499" Margin="57,64,0,0" Grid.Row="1" VerticalAlignment="Top" Width="1261" SelectionChanged="ListView_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>

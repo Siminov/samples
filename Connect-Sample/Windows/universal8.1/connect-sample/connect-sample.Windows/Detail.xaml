@@ -50,12 +50,11 @@
             <TextBlock HorizontalAlignment="Left" Margin="55,316,0,0" TextWrapping="Wrap" Text="Alchol Content" VerticalAlignment="Top" FontSize="18.667" Height="36" Width="159"/>
             <TextBlock HorizontalAlignment="Left" Margin="55,408,0,0" TextWrapping="Wrap" Text="Link" VerticalAlignment="Top" FontSize="18.667"/>
             <TextBlock HorizontalAlignment="Left" Margin="55,516,0,0" TextWrapping="Wrap" Text="Brands" VerticalAlignment="Top" FontSize="18.667"/>
-            <TextBox x:Name="brand" HorizontalAlignment="Left" Margin="350,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="786"/>
+            <TextBox x:Name="title" HorizontalAlignment="Left" Margin="350,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="786"/>
             <TextBox x:Name="description" HorizontalAlignment="Left" Margin="350,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="786"/>
-            <TextBox x:Name="history" HorizontalAlignment="Left" Margin="350,227,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="786"/>
-            <TextBox x:Name="alcholContent" HorizontalAlignment="Left" Margin="350,316,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="786"/>
+            <TextBox x:Name="author" HorizontalAlignment="Left" Margin="350,227,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="786"/>
             <TextBox x:Name="link" HorizontalAlignment="Left" Margin="350,408,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="786"/>
-            <ListView x:Name="liquorBrandList" HorizontalAlignment="Left" Height="100" Margin="133,498,0,0" VerticalAlignment="Top" Width="1203">
+            <ListView x:Name="lessionsList" HorizontalAlignment="Left" Height="100" Margin="133,498,0,0" VerticalAlignment="Top" Width="1203">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
