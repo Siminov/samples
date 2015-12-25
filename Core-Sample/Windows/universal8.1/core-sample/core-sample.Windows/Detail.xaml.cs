@@ -29,7 +29,7 @@ namespace core_sample
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
 
-        private String brandName;
+        private String bookName;
 
 
         /// <summary>
@@ -64,21 +64,20 @@ namespace core_sample
         /// session. The state will be null the first time a page is visited.</param>
         private void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-            brandName = e.NavigationParameter as string;
+            bookName = e.NavigationParameter as string;
 
-            Liquor[] liquor = (Liquor[])new Liquor().Select().Where(Liquor.LIQUOR_TYPE).EqualTo(brandName).Execute();
-            IEnumerator<LiquorBrand> liquorBrands = liquor[0].GetLiquorBrands();
+            Book[] book = (Book[])new Book().Select().Where(Book.TITLE).EqualTo(bookName).Execute();
+            IEnumerator<Lession> liquorBrands = book[0].GetLessions();
 
-            brand.Text = liquor[0].GetLiquorType();
-            description.Text = liquor[0].GetDescription();
-            history.Text = liquor[0].GetHistory();
-            alcholContent.Text = liquor[0].GetAlcholContent();
-            link.Text = liquor[0].GetLink();
+            name.Text = book[0].GetTitle();
+            description.Text = book[0].GetDescription();
+            author.Text = book[0].GetAuthor();
+            link.Text = book[0].GetLink();
 
 
             while (liquorBrands.MoveNext())
             {
-                liquorBrandList.Items.Add(liquorBrands.Current.GetBrandName());
+                lessionsList.Items.Add(liquorBrands.Current.GetName());
             }
         }
 

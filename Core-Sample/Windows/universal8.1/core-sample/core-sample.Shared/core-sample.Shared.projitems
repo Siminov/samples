@@ -18,8 +18,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Siminov\Core\Sample\Database\DatabaseUtils.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Siminov\Core\Sample\Events\DatabaseEventHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Siminov\Core\Sample\Events\SiminovEventHandler.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Core\Sample\Model\Liquor.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Core\Sample\Model\LiquorBrand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Core\Sample\Model\Book.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Siminov\Core\Sample\Model\Lession.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Siminov\Core\Sample\Siminov.cs" />
   </ItemGroup>
 </Project>

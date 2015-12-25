@@ -47,11 +47,11 @@ namespace core_sample
             this.navigationHelper.SaveState += navigationHelper_SaveState;
 
 
-            Liquor[] liquors = (Liquor[])new Liquor().Select().Execute();
+            Book[] books = (Book[])new Book().Select().Execute();
 
-            for (int i = 0; i < liquors.Length; i++)
+            for (int i = 0; i < books.Length; i++)
             {
-                liquorsList.Items.Add(liquors[i].GetLiquorType());
+                liquorsList.Items.Add(books[i].GetTitle());
             }
         }
 

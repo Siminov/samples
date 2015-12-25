@@ -132,8 +132,8 @@
   <ItemGroup>
     <Content Include="Assets\ApplicationDescriptor.xml" />
     <Content Include="Assets\DatabaseDescriptor.xml" />
-    <Content Include="Assets\Entity-Descriptors\Liquor.xml" />
-    <Content Include="Assets\Entity-Descriptors\LiquorBrand.xml" />
+    <Content Include="Assets\Entity-Descriptors\Book.xml" />
+    <Content Include="Assets\Entity-Descriptors\Lession.xml" />
     <Content Include="Assets\Logo.scale-100.png" />
     <Content Include="Assets\SmallLogo.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
