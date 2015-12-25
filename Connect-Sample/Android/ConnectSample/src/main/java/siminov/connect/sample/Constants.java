@@ -20,26 +20,24 @@ package siminov.connect.sample;
 public interface Constants {
 
 	/*
-	 * Liquors Constants
+	 * Books Constants
 	 */
-	public String GET_LIQUORS_WS_LIQUORS = "liquors";
-	public String GET_LIQUORS_WS_LIQUOR = "liquor";
-	public String GET_LIQUORS_WS_LIQUOR_NAME = "name";
-	public String GET_LIQUORS_WS_LIQUOR_DESCRIPTION = "description";
-	public String GET_LIQUORS_WS_LIQUOR_HISTROY = "histroy";
-	public String GET_LIQUORS_WS_LIQUOR_LINK = "link";
-	public String GET_LIQUORS_WS_LIQUOR_ALCHOL_CONTENT = "alchol_content";
-	
+	public String GET_BOOKS_WS_BOOKS = "books";
+	public String GET_BOOKS_WS_BOOK = "book";
+	public String GET_BOOKS_WS_BOOK_TITLE = "name";
+	public String GET_BOOKS_WS_BOOK_DESCRIPTION = "description";
+	public String GET_BOOKS_WS_BOOK_AUTHOR = "histroy";
+	public String GET_BOOKS_WS_BOOK_LINK = "link";
+
 	
 	/*
-	 * Liquor Brands Constants
+	 * Lessions Constants
 	 */
-	public String GET_LIQUOR_BRANDS_WS_BRANDS = "brands";
-	public String GET_LIQUOR_BRANDS_WS_BRAND = "brand";
-	public String GET_LIQUOR_BRANDS_WS_BRAND_NAME = "name";
-	public String GET_LIQUOR_BRANDS_WS_BRAND_COUNTRY = "country";
-	public String GET_LIQUOR_BRANDS_WS_BRAND_DESCRIPTION = "description";
-	public String GET_LIQUOR_BRANDS_WS_BRAND_LINK = "link";
+	public String GET_BOOKS_WS_LESSIONS = "lessions";
+	public String GET_BOOKS_WS_LESSION = "lession";
+	public String GET_BOOKS_WS_LESSION_NAME = "name";
+	public String GET_BOOKS_WS_LESSION_DESCRIPTION = "description";
+	public String GET_BOOKS_WS_LESSION_LINK = "link";
 
 
 	public String NEW_LINE = "\n";
@@ -48,23 +46,21 @@ public interface Constants {
 	/*
 	 * Sync Constants
 	 */
-	public String SYNC_LIQUORS = "SYNC-LIQUORS";
-	public String SYNC_LIQUOR_BRANDS = "SYNC-LIQUOR-BRANDS";
+	public String SYNC_BOOKS = "SYNC-BOOKS";
+	public String SYNC_LESSIONS = "SYNC-LESSIONS";
 	
 	
 	/*
-	 * Add Liquor Constants
+	 * Add Book Constants
 	 */
-	public String ADD_LIQUOR_WS_LIQUOR = "liquor";
-	public String ADD_LIQUOR_WS_LIQUOR_NAME = "name";
-	public String ADD_LIQUOR_WS_LIQUOR_DESCRIPTION = "description";
-	public String ADD_LIQUOR_WS_LIQUOR_HISTORY = "histroy";
-	public String ADD_LIQUOR_WS_LIQUOR_LINK = "link";
-	public String ADD_LIQUOR_WS_LIQUOR_ALCHOL_CONTENT = "alchol_content";
-	public String ADD_LIQUOR_WS_BRANDS = "brands";
-	public String ADD_LIQUOR_WS_BRAND = "brand";
-	public String ADD_LIQUOR_WS_BRAND_NAME = "name";
-	public String ADD_LIQUOR_WS_BRAND_COUNTRY = "country";
-	public String ADD_LIQUOR_WS_BRAND_DESCRIPTION = "description";
-	public String ADD_LIQUOR_WS_BRAND_LINK = "link";
+	public String ADD_BOOK_WS_BOOK = "book";
+	public String ADD_BOOK_WS_BOOK_TITLE = "name";
+	public String ADD_BOOK_WS_BOOK_DESCRIPTION = "description";
+	public String ADD_BOOK_WS_BOOK_AUTHOR = "author";
+	public String ADD_BOOK_WS_BOOK_LINK = "link";
+	public String ADD_BOOK_WS_LESSIONS = "lessions";
+	public String ADD_BOOK_WS_LESSION = "lession";
+	public String ADD_BOOK_WS_LESSION_NAME = "name";
+	public String ADD_BOOK_WS_LESSION_DESCRIPTION = "description";
+	public String ADD_BOOK_WS_LESSION_LINK = "link";
 }

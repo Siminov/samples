@@ -20,8 +20,8 @@ package siminov.connect.sample.fragments;
 import siminov.connect.sample.Constants;
 import siminov.connect.sample.R;
 import siminov.connect.sample.StateManager;
-import siminov.connect.sample.model.Liquor;
-import siminov.connect.sample.services.GetLiquors;
+import siminov.connect.sample.model.Book;
+import siminov.connect.sample.services.GetBooks;
 import siminov.connect.sync.SyncHandler;
 import siminov.connect.sync.SyncRequest;
 import siminov.connect.sync.design.ISyncRequest;
@@ -49,7 +49,7 @@ public class Home extends ListFragment {
 		StateManager.getInstance().putState(StateManager.ACTIVE_FRAGMENT, this);
 		
 		refresh();
-        getLiquors();
+        getBooks();
 
         registerForContextMenu(getListView());        
 	}
@@ -64,10 +64,10 @@ public class Home extends ListFragment {
 
 	private class LoadData extends AsyncTask<Void, Void, Void> {
 
-		Liquor[] liquors = null;
+		Book[] books = null;
 
 		protected Void doInBackground(Void... params) {
-			liquors = new siminov.connect.sample.controllers.Home().getLiquors();
+			books = new siminov.connect.sample.controllers.Home().getBooks();
 			return null;
 		}
 
@@ -77,25 +77,25 @@ public class Home extends ListFragment {
 				return;
 			}
 
-			setListAdapter(new siminov.connect.sample.adapters.Home(getActivity().getApplicationContext(), liquors));
+			setListAdapter(new siminov.connect.sample.adapters.Home(getActivity().getApplicationContext(), books));
 		}
 	}
 	
 	
-	private void getLiquors() {
+	private void getBooks() {
 		
 		/*ISyncRequest syncRequest = new SyncRequest();
-		syncRequest.setName(Constants.SYNC_LIQUORS);
-		syncRequest.addResource(GetLiquors.UI_COMPONENT, this);
+		syncRequest.setName(Constants.SYNC_BOOKS);
+		syncRequest.addResource(GetBooks.UI_COMPONENT, this);
 	
 		
 		SyncHandler syncHandler = SyncHandler.getInstance();
 		syncHandler.handle(syncRequest);*/
 		
-		GetLiquors getLiquors = new GetLiquors();
-		getLiquors.addResource(GetLiquors.UI_COMPONENT, this);
+		GetBooks getBooks = new GetBooks();
+		getBooks.addResource(GetBooks.UI_COMPONENT, this);
 		
-		getLiquors.invoke();
+		getBooks.invoke();
 		
 	}
 }

@@ -1,4 +1,4 @@
-/** 
+/**
  * [SIMINOV FRAMEWORK]
  * Copyright [2015] [Siminov Software Solution LLP|support@siminov.com]
  *
@@ -15,19 +15,22 @@
  * limitations under the License.
  **/
 
-package siminov.connect.sample.model;
+package siminov.connect.sample.controllers;
 
-public class Gadget {
+import siminov.connect.sample.model.Lession;
+import siminov.core.exception.DatabaseException;
+import siminov.core.log.Log;
 
-	public static final String LESSIONS_LABEL = "LESSIONS_LABEL";
-	
-	private String statusType = null;
-	
-	public String getStatusType() {
-		return this.statusType;
-	}
-	
-	public void setStatusType(String statusType) {
-		this.statusType = statusType;
-	}
+public class BookDetailController {
+
+    public Lession[] getLessions(String bookTitle) {
+
+        try {
+            return (Lession[]) new Lession().select().where(Lession.BOOK_TITLE).equalTo(bookTitle).execute();
+        } catch(DatabaseException databaseException) {
+            Log.error(getClass().getName(), "getLessions", "DatabaseException caught while getting lessions, " + databaseException.getMessage());
+            return null;
+        }
+    }
+
 }

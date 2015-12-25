@@ -18,8 +18,8 @@
 package siminov.connect.sample.fragments;
 
 import siminov.connect.sample.R;
-import siminov.connect.sample.activities.AddLiquor;
-import siminov.connect.sample.model.Liquor;
+import siminov.connect.sample.activities.AddBook;
+import siminov.connect.sample.model.Book;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -33,7 +33,7 @@ import android.widget.TextView;
 
 public class TitleBar extends Fragment implements OnClickListener {
 
-	private final int ADD_LIQUOR_KEY = 1;
+	private final int ADD_BOOK_KEY = 1;
 	
 	public static ImageView menuLauncher = null;
 	
@@ -67,23 +67,23 @@ public class TitleBar extends Fragment implements OnClickListener {
 
 		Activity currentActivity = getActivity();
 		if(currentActivity instanceof siminov.connect.sample.activities.Home) {
-			title.setText(getResources().getString(R.string.liquors));
-		} else if(currentActivity instanceof siminov.connect.sample.activities.LiquorDetail) {
-			Liquor liquor = ((siminov.connect.sample.activities.LiquorDetail) currentActivity).getLiquor();
-			title.setText(liquor.getLiquorType());
+			title.setText(getResources().getString(R.string.books));
+		} else if(currentActivity instanceof siminov.connect.sample.activities.BookDetail) {
+			Book book = ((siminov.connect.sample.activities.BookDetail) currentActivity).getBook();
+			title.setText(book.getTitle());
 			
 			menuLauncher.setVisibility(View.INVISIBLE);
 		} else if(currentActivity instanceof siminov.connect.sample.activities.Login) {
 
 			title.setText(R.string.welcome_note);
 			menuLauncher.setVisibility(View.INVISIBLE);
-		} else if(currentActivity instanceof siminov.connect.sample.activities.AddLiquor) {
+		} else if(currentActivity instanceof siminov.connect.sample.activities.AddBook) {
 			
-			title.setText(R.string.add_liquor_title);
+			title.setText(R.string.add_book_title);
 			menuLauncher.setVisibility(View.INVISIBLE);
-		} else if(currentActivity instanceof siminov.connect.sample.activities.AddLiquorBrand) {
+		} else if(currentActivity instanceof siminov.connect.sample.activities.AddLession) {
 			
-			title.setText(R.string.add_liquor_brand_title);
+			title.setText(R.string.add_book_title);
 			menuLauncher.setVisibility(View.INVISIBLE);
 		}
 	}
@@ -94,12 +94,12 @@ public class TitleBar extends Fragment implements OnClickListener {
 		Activity currentActivity = getActivity();
 		if(currentActivity instanceof siminov.connect.sample.activities.Home) {
 			
-			Intent intent = new Intent(currentActivity, AddLiquor.class);
+			Intent intent = new Intent(currentActivity, AddBook.class);
 			startActivity(intent);
 		}
 	}
 	
 	public void onClick(View arg0) {
-		onClick(ADD_LIQUOR_KEY);
+		onClick(ADD_BOOK_KEY);
 	}
 }

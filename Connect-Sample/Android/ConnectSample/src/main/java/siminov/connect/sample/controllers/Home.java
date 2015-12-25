@@ -17,18 +17,18 @@
 
 package siminov.connect.sample.controllers;
 
-import siminov.connect.sample.model.Liquor;
+import siminov.connect.sample.model.Book;
 import siminov.core.exception.DatabaseException;
 import siminov.core.log.Log;
 
 public class Home {
 
-	public Liquor[] getLiquors() {
+	public Book[] getBooks() {
 		
 		try {
-			return (Liquor[]) new Liquor().select().execute();
+			return (Book[]) new Book().select().execute();
 		} catch(DatabaseException databaseException) {
-			Log.error(getClass().getName(), "getLiquors", "DatabaseException caught while getting liquors, " + databaseException.getMessage());
+			Log.error(getClass().getName(), "getBooks", "DatabaseException caught while getting books, " + databaseException.getMessage());
 			return null;
 		}
 		

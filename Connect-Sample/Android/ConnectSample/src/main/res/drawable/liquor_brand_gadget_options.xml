@@ -1,7 +1,0 @@
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <stroke android:width="15dp" />
-    <padding android:left="10dp" android:top="10dp"
-            android:right="10dp" android:bottom="10dp" />
-    <corners android:radius="8dp" />
-    <solid android:color="@color/liquor_brand_gadget_options"/>
-</shape>

@@ -1,3 +1,4 @@
+<!-- 
 /** 
  * [SIMINOV FRAMEWORK]
  * Copyright [2015] [Siminov Software Solution LLP|support@siminov.com]
@@ -15,19 +16,13 @@
  * limitations under the License.
  **/
 
-package siminov.connect.sample.model;
+ -->
 
-public class Gadget {
+<sync-descriptor>
+    <property name="name">SYNC-BOOKS</property>
+    <property name="interval">5000</property>
 
-	public static final String LESSIONS_LABEL = "LESSIONS_LABEL";
-	
-	private String statusType = null;
-	
-	public String getStatusType() {
-		return this.statusType;
-	}
-	
-	public void setStatusType(String statusType) {
-		this.statusType = statusType;
-	}
-}
+    <service-descriptors>
+        <service-descriptor>SIMINOV-CONNECT-BOOKS-SERVICE.GET-BOOKS</service-descriptor>
+    </service-descriptors>
+</sync-descriptor>

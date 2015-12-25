@@ -24,8 +24,8 @@ import siminov.connect.sample.artist.SliderScroll;
 import siminov.connect.sample.artist.SliderScroll.ClickListenerForScrolling;
 import siminov.connect.sample.artist.SliderScroll.SizeCallbackForMenu;
 import siminov.connect.sample.fragments.TitleBar;
-import siminov.connect.sample.model.Liquor;
-import siminov.connect.sample.services.DeleteLiquor;
+import siminov.connect.sample.model.Book;
+import siminov.connect.sample.services.DeleteBook;
 import siminov.connect.service.design.IService;
 import siminov.core.exception.DatabaseException;
 import siminov.core.log.Log;
@@ -56,7 +56,7 @@ public class Home extends FragmentActivity implements OnClickListener {
 	
 	private LinearLayout sourceCode = null;
 	
-	public Liquor selectedLiquor = null;
+	public Book selectedBook = null;
 	
 	public static final String SHOW_MENU_INTENT_HANDLER = Home.class.getName() + "." + "SHOW_MENU_INTENT_HANDLER";
 	
@@ -136,17 +136,17 @@ public class Home extends FragmentActivity implements OnClickListener {
 	public boolean onContextItemSelected(MenuItem item) {
 
 		switch(item.getItemId()) {
-	    	case R.id.delete_liquor:
+	    	case R.id.delete_book:
 	    		
-		    	IService deleteLiquorService = new DeleteLiquor();
-		    	deleteLiquorService.addResource(DeleteLiquor.LIQUOR_NAME, selectedLiquor.getLiquorType());
+		    	IService deleteBookService = new DeleteBook();
+		    	deleteBookService.addResource(DeleteBook.BOOK_TITLE, selectedBook.getTitle());
 		    		
-		    	deleteLiquorService.invoke();
+		    	deleteBookService.invoke();
 	
 		    	try {
-		    		selectedLiquor.delete().execute();
+		    		selectedBook.delete().execute();
 		    	} catch(DatabaseException de) {
-		    		Log.error(Home.class.getName(), "onLongClick", "DatabaseException caught while deleting liquor from database, " + de.getMessage());
+		    		Log.error(Home.class.getName(), "onLongClick", "DatabaseException caught while deleting book from database, " + de.getMessage());
 		    	}
 	
 		    		
@@ -169,9 +169,9 @@ public class Home extends FragmentActivity implements OnClickListener {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		
 	    switch (item.getItemId()) {
-	        case R.id.add_liquor:
+	        case R.id.add_book:
 	        	
-	        	Intent intent = new Intent(this, AddLiquor.class);
+	        	Intent intent = new Intent(this, AddBook.class);
 	        	startActivity(intent);
 	        	
 	        	return true;

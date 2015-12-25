@@ -46,9 +46,9 @@
         
         
         <activity android:name=".activities.Home" />
-        <activity android:name=".activities.AddLiquor" />
-        <activity android:name=".activities.AddLiquorBrand" />
-        <activity android:name=".activities.LiquorDetail" />
+        <activity android:name=".activities.AddBook" />
+        <activity android:name=".activities.AddLession" />
+        <activity android:name=".activities.BookDetail" />
         <activity android:name=".activities.HomeSourceCode" />
         <activity android:name=".activities.About" />
     

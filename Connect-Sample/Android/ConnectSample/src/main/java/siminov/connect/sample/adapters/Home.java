@@ -19,7 +19,7 @@ package siminov.connect.sample.adapters;
 
 import siminov.connect.sample.R;
 import siminov.connect.sample.StateManager;
-import siminov.connect.sample.model.Liquor;
+import siminov.connect.sample.model.Book;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -32,33 +32,33 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class Home extends ArrayAdapter<Liquor> implements OnClickListener, OnLongClickListener {
+public class Home extends ArrayAdapter<Book> implements OnClickListener, OnLongClickListener {
 
-	public Home(Context context, Liquor[] liquors) {
-		super(context, R.layout.blank_layout, liquors);
+	public Home(Context context, Book[] books) {
+		super(context, R.layout.blank_layout, books);
 	}
 	
 	public View getView (int position, View convertView, ViewGroup parent) {
 		LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View view = null;
 
-		Liquor liquor = getItem(position);
-		if(liquor == null) {
+		Book book = getItem(position);
+		if(book == null) {
 			view = inflater.inflate(R.layout.blank_layout, null);
 		}
 
-		view = inflater.inflate(R.layout.liquors_list_artist, null);
+		view = inflater.inflate(R.layout.books_list_artist, null);
 		
-		TextView liquorType = (TextView) view.findViewById(R.id.liquor_type);
-		LinearLayout liquorDetails = (LinearLayout) view.findViewById(R.id.liquor_details);
+		TextView bookTitle = (TextView) view.findViewById(R.id.book_title);
+		LinearLayout bookDetails = (LinearLayout) view.findViewById(R.id.book_details);
 		
-		liquorType.setText(liquor.getLiquorType());
-		liquorDetails.setId(position);
+		bookTitle.setText(book.getTitle());
+		bookDetails.setId(position);
 
 		view.setId(position);
-		view.setTag(liquor);
+		view.setTag(book);
 		
-		liquorDetails.setOnClickListener(this);
+		bookDetails.setOnClickListener(this);
 
 		view.setOnLongClickListener(this);
 		return view;
@@ -66,8 +66,8 @@ public class Home extends ArrayAdapter<Liquor> implements OnClickListener, OnLon
 	
 	public void onClick(View v) {
 
-		Intent intent = new Intent(getContext(), siminov.connect.sample.activities.LiquorDetail.class);
-		intent.putExtra(siminov.connect.sample.activities.LiquorDetail.INTENT_LIQUOR, (Liquor) getItem(v.getId()));
+		Intent intent = new Intent(getContext(), siminov.connect.sample.activities.BookDetail.class);
+		intent.putExtra(siminov.connect.sample.activities.BookDetail.INTENT_BOOK, (Book) getItem(v.getId()));
 		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		
 		getContext().startActivity(intent);
@@ -75,7 +75,7 @@ public class Home extends ArrayAdapter<Liquor> implements OnClickListener, OnLon
 
 	public boolean onLongClick(View view) {
 		
-		((siminov.connect.sample.activities.Home) StateManager.getInstance().getState(StateManager.ACTIVE_ACTIVITY)).selectedLiquor = getItem(view.getId());
+		((siminov.connect.sample.activities.Home) StateManager.getInstance().getState(StateManager.ACTIVE_ACTIVITY)).selectedBook = getItem(view.getId());
 		((Activity) StateManager.getInstance().getState(StateManager.ACTIVE_ACTIVITY)).openContextMenu(view);
 		 
 		return true;
