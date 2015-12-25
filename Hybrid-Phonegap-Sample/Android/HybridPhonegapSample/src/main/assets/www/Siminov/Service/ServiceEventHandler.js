@@ -25,7 +25,24 @@
 	@module Service
 */
 
-if(window['document'] == undefined) {
+var win;
+var dom;
+
+try {
+
+    if(!window) {
+    	window = global || window;
+    }
+
+	win = window;
+	dom = window['document'];
+} catch(e) {
+	win = Ti.App.Properties;
+}
+
+
+
+if(dom == undefined) {
     var Function = require('../Function/Function');
     var ServiceHandler = require('../Service/ServiceHandler');
     var SyncHandler = require('../Sync/SyncHandler');
@@ -34,7 +51,7 @@ if(window['document'] == undefined) {
     var Constants = require('../Constants');
     
     module.exports = ServiceEventHandler;
-    window.ServiceEventHandler = ServiceEventHandler;
+    win.ServiceEventHandler = ServiceEventHandler;
 }
 
 /**
@@ -55,7 +72,7 @@ function ServiceEventHandler() {
 	*/
 	this.triggerEvent = function(data) {
 
-        var hybridSiminovDatas = window['document'] == undefined?JSON.parse(eval('(' + data + ')')):JSON.parse(data);
+        var hybridSiminovDatas = dom == undefined?JSON.parse(eval('(' + data + ')')):JSON.parse(data);
         var datas = hybridSiminovDatas.datas;
 
         var serviceHandler = ServiceHandler.getInstance();

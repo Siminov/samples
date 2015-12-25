@@ -23,7 +23,24 @@
 	@module Events	
 */
 
-if(window['document'] == undefined) {
+var win;
+var dom;
+
+try {
+
+    if(!window) {
+    	window = global || window;
+    }
+
+	win = window;
+	dom = window['document'];
+} catch(e) {
+	win = Ti.App.Properties;
+}
+
+
+
+if(dom == undefined) {
     var Constants = require('../Constants');
     var Dictionary = require('../Collection/Dictionary');
     var Function = require('../Function/Function');
@@ -31,7 +48,8 @@ if(window['document'] == undefined) {
     var Log = require('../Log/Log');
     
     module.exports = EventHandler;
-    window.EventHandler = EventHandler;    
+    
+    win.EventHandler = EventHandler;    	
 }
 
 /**
@@ -53,7 +71,7 @@ function EventHandler() {
     this.triggerEvent = function(data) {
         Log.debug("EventHandler", "triggerEvent", "Data: " + data);
         
-        var hybridSiminovDatas = window['document'] == undefined?JSON.parse(eval('(' + data + ')')):JSON.parse(data);
+        var hybridSiminovDatas = dom == undefined?JSON.parse(eval('(' + data + ')')):JSON.parse(data);
         var datas = hybridSiminovDatas.datas;
 
         var functionName;

@@ -35,32 +35,32 @@
         
         <script src="Siminov/Siminov.js"></script>
         
-        <script src="Liquor/Models/Liquor.js"></script>
-        <script src="Liquor/Models/LiquorBrand.js"></script>
-        <script src="Liquor/Models/Credential.js"></script>
+        <script src="Book/Models/Book.js"></script>
+        <script src="Book/Models/Lession.js"></script>
+        <script src="Book/Models/Credential.js"></script>
         
-        <script src="Liquor/Constants.js"></script>
+        <script src="Book/Constants.js"></script>
         
-        <script src="Liquor/Events/SiminovEventHandler.js"></script>
-        <script src="Liquor/Events/DatabaseEventHandler.js"></script>
-        <script src="Liquor/Events/NotificationEventHandler.js"></script>
-        <script src="Liquor/Events/SyncEventHandler.js"></script>
+        <script src="Book/Events/SiminovEventHandler.js"></script>
+        <script src="Book/Events/DatabaseEventHandler.js"></script>
+        <script src="Book/Events/NotificationEventHandler.js"></script>
+        <script src="Book/Events/SyncEventHandler.js"></script>
         
-        <script src="Liquor/ReaderWritter/LiquorsReader.js"></script>
-        <script src="Liquor/ReaderWritter/LiquorBrandsReader.js"></script>
+        <script src="Book/ReaderWritter/BooksReader.js"></script>
+        <script src="Book/ReaderWritter/LessionsReader.js"></script>
         
-        <script src="Liquor/Services/AddLiquor.js"></script>
-        <script src="Liquor/Services/DeleteLiquor.js"></script>
-        <script src="Liquor/Services/GetLiquorBrands.js"></script>
-        <script src="Liquor/Services/GetLiquors.js"></script>
-        <script src="Liquor/Services/RegisterDevice.js"></script>
-        <script src="Liquor/Services/UnregisterDevice.js"></script>
-        
+        <script src="Book/Services/AddBook.js"></script>
+        <script src="Book/Services/DeleteBook.js"></script>
+        <script src="Book/Services/GetLessions.js"></script>
+        <script src="Book/Services/GetBooks.js"></script>
+        <script src="Book/Services/RegisterDevice.js"></script>
+        <script src="Book/Services/UnregisterDevice.js"></script>
+
         
         <script>
             
             var credential;
-            var liquors;
+            var books;
             
             document.addEventListener("deviceready", deviceReady, false);
             
@@ -122,8 +122,8 @@
                 
                 Log.debug("Home", "initializeApp", "App Initialized");
 
-                /*var liquor = ResourceManager.getInstance();
-                 var groupConcat = liquor.getDatabaseDescriptorBasedOnTableNameAsync('LIQUOR', callback);
+                /*var book = ResourceManager.getInstance();
+                 var groupConcat = book.getDatabaseDescriptorBasedOnTableNameAsync('BOOK', callback);
                  alert("Group Concat: " + groupConcat);
                  
                  var notificationManager = NotificationManager.getInstance();
@@ -135,9 +135,9 @@
             }
             
             
-            if(LiquorConstants.REQUEST == LiquorConstants.ASYNC_REQUEST || LiquorConstants.REQUEST == LiquorConstants.ASYNC_TRANSACTION_REQUEST) {
+            if(BookConstants.REQUEST == BookConstants.ASYNC_REQUEST || BookConstants.REQUEST == BookConstants.ASYNC_TRANSACTION_REQUEST) {
                 Siminov.initializeAsync(callback);
-            } else if(LiquorConstants.REQUEST == LiquorConstants.SYNC_REQUEST) {
+            } else if(BookConstants.REQUEST == BookConstants.SYNC_REQUEST) {
                 Siminov.initialize();
             }
         }
@@ -202,12 +202,12 @@
                 }
                 
                 
-                if(LiquorConstants.REQUEST == LiquorConstants.ASYNC_REQUEST) {
+                if(BookConstants.REQUEST == BookConstants.ASYNC_REQUEST) {
                     credential.saveOrUpdateAsync(credentialCallback);
-                } else if(LiquorConstants.REQUEST == LiquorConstants.ASYNC_TRANSACTION_REQUEST) {
-                    var databaseDescriptor = new LiquorBrand().getDatabaseDescriptor();
+                } else if(BookConstants.REQUEST == BookConstants.ASYNC_TRANSACTION_REQUEST) {
+                    var databaseDescriptor = new BookBrand().getDatabaseDescriptor();
                     Database.beginTransactionAsync(databaseDescriptor, credentialCallback);
-                } else if(LiquorConstants.REQUEST == LiquorConstants.SYNC_REQUEST) {
+                } else if(BookConstants.REQUEST == BookConstants.SYNC_REQUEST) {
                     
                     try {
                         credential.saveOrUpdate();
@@ -225,34 +225,34 @@
             
             /*var callback = new Callback();
              callback.onSuccess = function() {
-             alert("Liquors Sync Done");
+             alert("Books Sync Done");
              }
              
              var syncRequest = new SyncRequest();
-             syncRequest.setName(SYNC_LIQUORS);
+             syncRequest.setName(SYNC_BOOKS);
              
              var syncHandler = SyncHandler.getInstance();
              syncHandler.handleAsync(syncRequest, callback);*/
             
             
-            var getLiquors = new GetLiquors();
-            getLiquors.setService(GetLiquors.SERVICE_NAME);
-            getLiquors.setRequest(GetLiquors.REQUEST_NAME);
+            var getBooks = new GetBooks();
+            getBooks.setService(GetBooks.SERVICE_NAME);
+            getBooks.setRequest(GetBooks.REQUEST_NAME);
             
             
-            var getLiquorsCallback = new Callback();
-            getLiquorsCallback.onSuccess = function() {
+            var getBooksCallback = new Callback();
+            getBooksCallback.onSuccess = function() {
                
             }
             
-            getLiquorsCallback.onFailure = function() {
-                alert("get liquors error");
+            getBooksCallback.onFailure = function() {
+                alert("get books error");
             }
             
-            if(LiquorConstants.REQUEST == LiquorConstants.ASYNC_REQUEST || LiquorConstants.REQUEST == LiquorConstants.ASYNC_TRANSACTION_REQUEST) {
-                getLiquors.invokeAsync(getLiquorsCallback);
-            } else if(LiquorConstants.REQUEST == LiquorConstants.SYNC_REQUEST) {
-                getLiquors.invoke();
+            if(BookConstants.REQUEST == BookConstants.ASYNC_REQUEST || BookConstants.REQUEST == BookConstants.ASYNC_TRANSACTION_REQUEST) {
+                getBooks.invokeAsync(getBooksCallback);
+            } else if(BookConstants.REQUEST == BookConstants.SYNC_REQUEST) {
+                getBooks.invoke();
             }
             
             //populateHome();
@@ -263,61 +263,61 @@
             $.mobile.changePage($('#home-page'));
             //document.getElementById('show-loader').click();
             
-            $('liquor-types').empty();
+            $('book-types').empty();
             
             
             var callback = new Callback();
             callback.onExecute = function(transaction) {
                 
                 var selectCallback = new Callback();
-                selectCallback.onSuccess = function(getLiquors) {
-                    liquors = getLiquors;
+                selectCallback.onSuccess = function(getBooks) {
+                    books = getBooks;
                 }
                 
-                new Liquor().select().executeAsync(selectCallback, transaction);
+                new Book().select().executeAsync(selectCallback, transaction);
             }
             
-            callback.onSuccess = function(savedLiquors) {
-                Log.debug("Home", "populateHome", "Saved Liquors: " + savedLiquors);
+            callback.onSuccess = function(savedBooks) {
+                Log.debug("Home", "populateHome", "Saved Books: " + savedBooks);
                 
-                if(LiquorConstants.REQUEST == LiquorConstants.ASYNC_REQUEST) {
-                    liquors = savedLiquors;
+                if(BookConstants.REQUEST == BookConstants.ASYNC_REQUEST) {
+                    books = savedBooks;
                 }
                 
                 loadTasks();
             }
             
             callback.onFailure = function() {
-                alert("select liquors error");
+                alert("select books error");
             }
             
             
-            if(LiquorConstants.REQUEST == LiquorConstants.ASYNC_REQUEST) {
-                liquors = new Liquor().select().executeAsync(callback);
-            } else if(LiquorConstants.REQUEST == LiquorConstants.ASYNC_TRANSACTION_REQUEST) {
-                var databaseDescriptor = new LiquorBrand().getDatabaseDescriptor();
+            if(BookConstants.REQUEST == BookConstants.ASYNC_REQUEST) {
+                books = new Book().select().executeAsync(callback);
+            } else if(BookConstants.REQUEST == BookConstants.ASYNC_TRANSACTION_REQUEST) {
+                var databaseDescriptor = new BookBrand().getDatabaseDescriptor();
                 Database.beginTransactionAsync(databaseDescriptor, callback);
-            } else if(LiquorConstants.REQUEST == LiquorConstants.SYNC_REQUEST) {
-                liquors = new Liquor().select().execute();
+            } else if(BookConstants.REQUEST == BookConstants.SYNC_REQUEST) {
+                books = new Book().select().execute();
                 loadTasks();
             }
             
             function loadTasks() {
                 
-                Log.debug("Database", "home.html", "Liquors: " + liquors);
-                if(liquors != undefined) {
+                Log.debug("Database", "home.html", "Books: " + books);
+                if(books != undefined) {
                     
-                    for(var i = 0;i < liquors.length;i++) {
-                        var liquor = liquors[i];
-                        Log.debug("Database", "home.html", "Add Liquor: " + liquor);
+                    for(var i = 0;i < books.length;i++) {
+                        var book = books[i];
+                        Log.debug("Database", "home.html", "Add Book: " + book);
                         
-                        $('#liquor-types').append('<li onclick="navDetail(' + i + ')" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c">' +
+                        $('#book-types').append('<li onclick="navDetail(' + i + ')" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c">' +
                                                   '<div class="ui-btn-inner ui-li">' +
                                                   '<div class="ui-btn-text">'+
                                                   '<a href="index.html" class="ui-link-inherit">' +
-                                                  '<img src="Liquor/Resources/Images/liquor.png" class="ui-li-thumb">' +
-                                                  '<h3 class="ui-li-heading">' + liquor.getLiquorType() + '</h3>' +
-                                                  '<p class="ui-li-desc">' + liquor.getDescription() + '</p>' +
+                                                  '<img src="Book/Resources/Images/book.png" class="ui-li-thumb">' +
+                                                  '<h3 class="ui-li-heading">' + book.getTitle() + '</h3>' +
+                                                  '<p class="ui-li-desc">' + book.getDescription() + '</p>' +
                                                   '</a>' +
                                                   '</div>' +
                                                   
@@ -338,25 +338,25 @@
         function navDetail(id) {
             
             $.mobile.changePage($('#detail-page'));
-            
-            var liquor = liquors[id];
-            
+
+            var book = books[0];
+
             var callback = new Callback();
             callback.onSuccess = function() {
                 
             }
             
             var syncRequest = new SyncRequest();
-            syncRequest.setName(LiquorConstants.SYNC_LIQUOR_BRANDS);
+            syncRequest.setName(BookConstants.SYNC_LESSIONS);
             
-            syncRequest.addResource(GetLiquorBrands.LIQUOR_NAME, liquor.getLiquorType());
-            syncRequest.addResource(GetLiquorBrands.LIQUOR, liquor);
+            syncRequest.addResource(GetLessions.BOOK_TITLE, book.getTitle());
+            syncRequest.addResource(GetLessions.BOOK, book);
             
             var syncHandler = SyncHandler.getInstance();
             
-            if(LiquorConstants.REQUEST == LiquorConstants.ASYNC_REQUEST || LiquorConstants.REQUEST == LiquorConstants.ASYNC_TRANSACTION_REQUEST) {
+            if(BookConstants.REQUEST == BookConstants.ASYNC_REQUEST || BookConstants.REQUEST == BookConstants.ASYNC_TRANSACTION_REQUEST) {
                 syncHandler.handleAsync(syncRequest, callback);
-            } else if(LiquorConstants.REQUEST == LiquorConstants.SYNC_REQUEST) {
+            } else if(BookConstants.REQUEST == BookConstants.SYNC_REQUEST) {
                 syncHandler.handle(syncRequest);
             }
             
@@ -364,96 +364,95 @@
             
             /*var callback = new Callback();
              callback.onSuccess = function() {
-             Log.debug("Home", "nacDetail", "Get Liquor Brands Success");
+             Log.debug("Home", "nacDetail", "Get Lessions Success");
              
-             populateDetail(liquor.getLiquorType());
+             populateDetail(book.getTitle());
              }
              
              
-             var getLiquorBrands = new GetLiquorBrands();
-             getLiquorBrands.setService(GetLiquorBrands.SERVICE_NAME);
-             getLiquorBrands.setRequest(GetLiquorBrands.REQUEST_NAME);
+             var getLessions = new GetLessions();
+             getLessions.setService(GetLessions.SERVICE_NAME);
+             getLessions.setRequest(GetLessions.REQUEST_NAME);
              
-             getLiquorBrands.addResource(GetLiquorBrands.LIQUOR_NAME, liquor.getLiquorType());
+             getLessions.addResource(GetLessions.BOOK_TITLE, book.getTitle());
              
-             getLiquorBrands.invokeAsync(callback);*/
+             getLessions.invokeAsync(callback);*/
             
-            //populateDetail(liquor.getLiquorType());
+            //populateDetail(book.getTitle());
         }
         
         
-        function populateDetail(liquorType) {
+        function populateDetail(bookTitle) {
             
-            var liquor;
-            for(var i = 0;i < liquors.length;i++) {
+            var book;
+            for(var i = 0;i < books.length;i++) {
                 
-                if(liquors[i].getLiquorType() === liquorType) {
-                    liquor = liquors[i];
+                if(books[i].getTitle() === bookTitle) {
+                    book = books[i];
                     break;
                 }
             }
             
             
-            $('#liquor-brands').empty();
-            $('#liquor-brands').html('');
+            $('#lessions').empty();
+            $('#lessions').html('');
             
             
-            document.getElementById('liquor-brand').innerHTML = liquor.getLiquorType();
-            document.getElementById('liquor-description').innerHTML = liquor.getDescription();
-            document.getElementById('liquor-history').innerHTML = liquor.getHistory();
-            document.getElementById('liquor-alcohol-content').innerHTML = liquor.getAlcholContent();
-            document.getElementById('liquor-link').innerHTML = liquor.getLink();
+            document.getElementById('book-title').innerHTML = book.getTitle();
+            document.getElementById('book-description').innerHTML = book.getDescription();
+            document.getElementById('book-author').innerHTML = book.getAuthor();
+            document.getElementById('book-link').innerHTML = book.getLink();
             
-            var liquorBrands;
+            var lessions;
             
             var callback = new Callback();
             callback.onExecute = function(transaction) {
                 
-                var getLiquorBrands = new Callback();
-                getLiquorBrands.onSuccess = function(getLiquorBrands) {
-                    liquorBrands = getLiquorBrands;
+                var getLessions = new Callback();
+                getLessions.onSuccess = function(getLessions) {
+                    lessions = getLessions;
                 }
                 
-                new LiquorBrand().select().where("LIQUOR_TYPE").equalTo(liquor.getLiquorType()).executeAsync(getLiquorBrands, transaction);
+                new Lession().select().where("TITLE").equalTo(book.getTitle()).executeAsync(getLessions, transaction);
             }
             
-            callback.onSuccess = function(savedLiquorBrands) {
-                Log.debug("Home", "populateDetail", "Get Liquor Brands Success: " + savedLiquorBrands);
+            callback.onSuccess = function(savedLessions) {
+                Log.debug("Home", "populateDetail", "Get Lessions Success: " + savedLessions);
                 
-                if(LiquorConstants.REQUEST == LiquorConstants.ASYNC_REQUEST) {
-                    liquorBrands = savedLiquorBrands;
+                if(BookConstants.REQUEST == BookConstants.ASYNC_REQUEST) {
+                    lessions = savedLessions;
                 }
                 
-                loadLiquorBrands();
+                loadLessions();
             }
             
             callback.onFailure = function() {
-                alert("get liquor brands error");
+                alert("get lessions error");
             }
             
             
-            if(LiquorConstants.REQUEST == LiquorConstants.ASYNC_REQUEST) {
-                new LiquorBrand().select().where("LIQUOR_TYPE").equalTo(liquor.getLiquorType()).executeAsync(callback);
-            } else if(LiquorConstants.REQUEST == LiquorConstants.ASYNC_TRANSACTION_REQUEST) {
-                var databaseDescriptor = new LiquorBrand().getDatabaseDescriptor();
+            if(BookConstants.REQUEST == BookConstants.ASYNC_REQUEST) {
+                new Lession().select().where("TITLE").equalTo(book.getTitle()).executeAsync(callback);
+            } else if(BookConstants.REQUEST == BookConstants.ASYNC_TRANSACTION_REQUEST) {
+                var databaseDescriptor = new Lession().getDatabaseDescriptor();
                 Database.beginTransactionAsync(databaseDescriptor, callback);
-            } else if(LiquorConstants.REQUEST == LiquorConstants.SYNC_REQUEST) {
-                liquorBrands = new LiquorBrand().select().where("LIQUOR_TYPE").equalTo(liquor.getLiquorType()).execute();
-                loadLiquorBrands();
+            } else if(BookConstants.REQUEST == BookConstants.SYNC_REQUEST) {
+                lessions = new Lession().select().where("TITLE").equalTo(book.getTitle()).execute();
+                loadLessions();
             }
             
             
-            function loadLiquorBrands() {
+            function loadLessions() {
 
-                Log.debug("Home", "populateDetail", "Populate Liquor Brands: " + liquorBrands);
-                if(liquorBrands != undefined && liquorBrands != null && liquorBrands.length > 0) {
+                Log.debug("Home", "populateDetail", "Populate Lessions: " + lessions);
+                if(lessions != undefined && lessions != null && lessions.length > 0) {
                     
-                    for(var i = 0;i < liquorBrands.length;i++) {
+                    for(var i = 0;i < lessions.length;i++) {
                         
-                        var liquorBrand = liquorBrands[i];
+                        var lession = lessions[i];
 	                    			
-                                    $('#liquor-brands').append('<li class="ui-li ui-li-static ui-btn-up-c">' +
-                                                               liquorBrand.getBrandName() +
+                                    $('#lessions').append('<li class="ui-li ui-li-static ui-btn-up-c">' +
+                                                               lession.getName() +
                                                                '</li>');
                                                                
                     }
@@ -499,7 +498,7 @@
             </div>
             
             <div data-role="content">
-                <ul id="liquor-types" data-role="listview" class="ui-listview">
+                <ul id="book-types" data-role="listview" class="ui-listview">
                     
                 </ul>
             </div>
@@ -520,7 +519,7 @@
                     </tr>
                     
                     <tr>
-                        <td id="liquor-brand" style="background-color: #FFFFFF; width:100%; padding-left: 10px; padding-right: 10px;"></td>
+                        <td id="book-title" style="background-color: #FFFFFF; width:100%; padding-left: 10px; padding-right: 10px;"></td>
                         <td style="width:100%; background-color: #FFFFFF;">&nbsp;</td>
                     </tr>
                     
@@ -529,7 +528,7 @@
                     </tr>
                     
                     <tr>
-                        <td id="liquor-description" style="background-color: #FFFFFF; width:100%; padding-left: 10px; padding-right: 10px;"></td>
+                        <td id="book-description" style="background-color: #FFFFFF; width:100%; padding-left: 10px; padding-right: 10px;"></td>
                         <td style="width:100%; background-color: #FFFFFF">&nbsp;</td>
                     </tr>
                     
@@ -538,7 +537,7 @@
                     </tr>
                     
                     <tr>
-                        <td id="liquor-history" style="background-color: #FFFFFF; width:100%; padding-left: 10px; padding-right: 10px;"></td>
+                        <td id="book-author" style="background-color: #FFFFFF; width:100%; padding-left: 10px; padding-right: 10px;"></td>
                         <td style="width:100%; background-color: #FFFFFF">&nbsp;</td>
                     </tr>
                     
@@ -547,16 +546,11 @@
                     </tr>
                     
                     <tr>
-                        <td id="liquor-alcohol-content" style="background-color: #FFFFFF; width:100%; padding-left: 10px; padding-right: 10px;"></td>
-                        <td style="width:100%; background-color: #FFFFFF">&nbsp;</td>
-                    </tr>
-                    
-                    <tr>
                         <td style="padding-top: 15px;">&nbsp; &nbsp; <b>Link</b></td>
                     </tr>
                     
                     <tr>
-                        <td id="liquor-link" style="background-color: #FFFFFF; width:100%; padding-left: 10px; padding-right: 10px;"></td>
+                        <td id="book-link" style="background-color: #FFFFFF; width:100%; padding-left: 10px; padding-right: 10px;"></td>
                         <td style="width:100%; background-color: #FFFFFF">&nbsp;</td>
                     </tr>				
                     
@@ -567,7 +561,7 @@
                 </div>
                 
                 <div data-role="content">
-                    <ol data-role="listview" id="liquor-brands" class="ui-listview">
+                    <ol data-role="listview" id="lessions" class="ui-listview">
                         
                     </ol>
                 </div>

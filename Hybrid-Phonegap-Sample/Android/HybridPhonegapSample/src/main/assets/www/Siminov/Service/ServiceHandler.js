@@ -24,8 +24,24 @@
 	
 	@module Service
 */
+var win;
+var dom;
 
-if(window['document'] == undefined) {
+try {
+
+    if(!window) {
+    	window = global || window;
+    }
+
+	win = window;
+	dom = window['document'];
+} catch(e) {
+	win = Ti.App.Properties;
+}
+
+
+
+if(dom == undefined) {
     var Callback = require('../Callback');
     var Constants = require('../Constants');
     var Adapter = require('../Adapter/Adapter');
@@ -186,6 +202,6 @@ function ServiceHandler() {
 
 
 
-if(window['document'] == undefined) {
+if(dom == undefined) {
     exports.getInstance = getInstance;
 }

@@ -15,13 +15,27 @@
  * limitations under the License.
  **/
 
+var win;
+var dom;
+
+try {
+
+    if(!window) {
+    	window = global || window;
+    }
+
+	win = window;
+	dom = window['document'];
+} catch(e) {
+	win = Ti.App.Properties;
+}
 
 
 /*
     Import Required Siminov
  */
 
-if(window['document'] != undefined) {
+if(dom != undefined) {
     document.write('<script type="text/javascript" src="Siminov/Import.js"></script>');
 } else {
     

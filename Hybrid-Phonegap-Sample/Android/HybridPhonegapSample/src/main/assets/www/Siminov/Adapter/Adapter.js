@@ -22,7 +22,25 @@
 
 	@module Adapter
 */
-if(window['document'] == undefined) {
+
+var win;
+var dom;
+
+try {
+
+    if(!window) {
+    	window = global || window;
+    }
+
+	win = window;
+	dom = window['document'];
+} catch(e) {
+	win = Ti.App.Properties;
+}
+
+
+
+if(dom == undefined) {
     
     var Utils = require('../Utils/Utils');
     var Dictionary = require('../Collection/Dictionary');
@@ -34,10 +52,27 @@ if(window['document'] == undefined) {
     /*
      * React Native Imports
      */
-    var SIHReactInterceptor = require('NativeModules').SIHReactInterceptor;
-    var RCTDeviceEventEmitter = require('RCTDeviceEventEmitter');
+    var SIHReactInterceptor;
+    var RCTDeviceEventEmitter;
+
+    try {
+		SIHReactInterceptor = require('NativeModules').SIHReactInterceptor;
+    	RCTDeviceEventEmitter = require('RCTDeviceEventEmitter');
+    } catch(e) {
+    
+    }
     
     
+    /*
+     * Titanium Imports
+     */
+    var TitaniumInterceptor;
+    try {
+    	TitaniumInterceptor = require('hybrid.titanium.module');
+    } catch(e) {
+    	
+    }
+
     module.exports = Adapter;
 }
 
@@ -153,7 +188,12 @@ function Adapter() {
 }
 
 
-Adapter.requests;
+if(!win.AdapterRequests) {
+	win.AdapterRequests = new Dictionary();
+}
+
+win.adapterRequestsInitialized = true;
+
 
 Adapter.REQUEST_SYNC_MODE = "SYNC";
 Adapter.REQUEST_ASYNC_MODE = "ASYNC";
@@ -167,10 +207,6 @@ Adapter.REQUEST_ASYNC_MODE = "ASYNC";
 */
 Adapter.invoke = function(adapter) {
 
-    if(!Adapter.requests) {
-        Adapter.requests = new Dictionary();
-    }
-    
 	var adapterName = adapter.getAdapterName();
     var handlerName = adapter.getHandlerName();
     var adapterMode = adapter.getAdapterMode();
@@ -186,7 +222,7 @@ Adapter.invoke = function(adapter) {
 		var parameter = parameters[i];
 		if(parameter != undefined) {
             
-            if(window.SIMINOV != undefined) {
+            if(win.SIMINOV != undefined) {
                 parameter = encodeURI(parameters[i]);
             } else {
                 parameter = encodeURI(encodeURI(parameters[i]));
@@ -206,17 +242,17 @@ Adapter.invoke = function(adapter) {
     /**
      * Android Native Bridge
      */
-    if(window.SIMINOV) {
+    if(win.SIMINOV) {
     
     	if(adapterMode && adapterMode == Adapter.REQUEST_ASYNC_MODE) {
     		
-	    	Adapter.requests.add(adapter.getRequestId(), adapter);	
+	    	win.AdapterRequests.add(adapter.getRequestId(), adapter);	
     	
     		Log.debug("Adapter", "invoke", "handleHybridToNativeAsync: REQUEST ID: " + adapter.getRequestId() + ", ADAPTER NAME: " + adapterName + ", HANDLER NAME: " + handlerName + ", DATA: " + json);
-	        return window.SIMINOV.handleHybridToNativeAsync(adapter.getRequestId(), adapterName + "." + handlerName, json);
+	        return win.SIMINOV.handleHybridToNativeAsync(adapter.getRequestId(), adapterName + "." + handlerName, json);
     	} 
     	
-        return window.SIMINOV.handleHybridToNative(adapterName + "." + handlerName, json);
+        return win.SIMINOV.handleHybridToNative(adapterName + "." + handlerName, json);
     }
 
     
@@ -236,7 +272,7 @@ Adapter.invoke = function(adapter) {
                 alert("react sync callback");
             }
         } else {
-            Adapter.requests.add(adapter.getRequestId(), adapter);
+            win.AdapterRequests.add(adapter.getRequestId(), adapter);
             
             SIHReactInterceptor.handleHybridToNativeAsync(Constants.HTTP_POST_METHOD, adapter.getRequestId(), adapterName + "." + handlerName, json);
         }
@@ -244,6 +280,31 @@ Adapter.invoke = function(adapter) {
         return;
     }
 
+    
+    /**
+     * Titanium Native Bridge 
+     */
+    if(TitaniumInterceptor) {
+    	Log.debug("Adapter", "invoke", "handleHybridToNativeAsync: REQUEST ID: " + adapter.getRequestId() + ", ADAPTER NAME: " + adapterName + ", HANDLER NAME: " + handlerName + ", DATA: " + json);
+        
+        if(adapterMode == undefined || adapterMode == null || adapterMode == Adapter.ADAPTER_SYNC_MODE) {
+            TitaniumInterceptor.handleHybridToNative(Constants.HTTP_POST_METHOD, adapterName + "." + handlerName, json, reactSyncCallback);
+            
+            function reactSyncCallback() {
+                alert("react sync callback");
+            }
+        } else {
+            win.AdapterRequests.add(adapter.getRequestId(), adapter);
+            
+            try {
+	            TitaniumInterceptor.handleHybridToNativeAsync(Constants.HTTP_POST_METHOD, adapter.getRequestId(), adapterName + "." + handlerName, json);
+            } catch(e) {
+		    	Log.debug("Adapter", "invoke", "handleHybridToNativeAsync: REQUEST ID: " + adapter.getRequestId() + ", ADAPTER NAME: " + adapterName + ", HANDLER NAME: " + handlerName + ", DATA: " + json + ", ERROR: " + e);
+            }
+      	}
+        
+        return;
+    }
     
     
     /**
@@ -263,7 +324,7 @@ Adapter.invoke = function(adapter) {
     /**
      * iOS and Windows Async Native Bridge
      */
-    Adapter.requests.add(adapter.getRequestId(), adapter);
+    win.AdapterRequests.add(adapter.getRequestId(), adapter);
     
     Log.debug("Adapter", "invoke", "handleHybridToNativeAsync: REQUEST ID: " + adapter.getRequestId() + ", ADAPTER NAME: " + adapterName + ", HANDLER NAME: " + handlerName + ", DATA: " + json);
     
@@ -296,7 +357,7 @@ Adapter.handle = function(action, data) {
 Adapter.handleAsync = function(requestId, data) {
 	Log.debug("Adapter", "handleAsync", "SIMINOV NATIVE TO HYBRID ASYNC - REQUEST ID: " + requestId + ", DATA: " + data);
 	
-	var request = Adapter.requests.get(requestId);
+	var request = win.AdapterRequests.get(requestId);
 	if(request == undefined) {
 		Log.debug("Adapter", "handleAsync", "NO REQUEST FOUND: " + requestId);
 		return;
@@ -309,7 +370,7 @@ Adapter.handleAsync = function(requestId, data) {
 	/**
 	 * Remove Request From Queue
 	*/
-	Adapter.requests.remove(requestId);
+	win.AdapterRequests.remove(requestId);
 }
 
 
@@ -324,10 +385,10 @@ if(RCTDeviceEventEmitter) {
     
     var REACT_INTECEPTOR = RCTDeviceEventEmitter.addListener(
         'Adapter',
-        handler
+        reactNativeHandler
     );
     
-    function handler(parameters) {
+    function reactNativeHandler(parameters) {
         
         var api = parameters[REACT_CALLBACK_API];
         var action = parameters[REACT_CALLBACK_ACTION];
@@ -339,5 +400,50 @@ if(RCTDeviceEventEmitter) {
             Adapter.handleAsync(action, params);
         }
     }
+}
+
+
+if(TitaniumInterceptor) {
+	
+	var TITANIUM_CALLBACK_API = "api";
+    var TITANIUM_CALLBACK_ACTION = "action";
+    var TITANIUM_CALLBACK_PARAMETERS = "parameters";
+    
+    var TITANIUM_CALLBACK_API_HANDLE = "handle";
+    var TITANIUM_CALLBACK_API_HANDLE_ASYNC = "handleAsync";
+    
+	
+	if(!win.hasTitaniumInterceptorRegistered) {
+		Log.debug("Adapter", "titaniumHandler", "Register Adapter Event Handler");
+		
+		TitaniumInterceptor.addEventListener(
+			'Adapter',
+			titaniumHandler
+		);
+	}
+	
+	win.hasTitaniumInterceptorRegistered = true;
+	
+	function titaniumHandler(parameters) {
+		
+		Log.debug("Adapter", "titaniumHandler", "Parameters: " + parameters);
+		
+		var api = parameters[TITANIUM_CALLBACK_API];
+        var action = parameters[TITANIUM_CALLBACK_ACTION];
+        var params = parameters[TITANIUM_CALLBACK_PARAMETERS];
+        
+		Log.debug("Adapter", "titaniumHandler", "api: " + api);
+		Log.debug("Adapter", "titaniumHandler", "action: " + action);
+		Log.debug("Adapter", "titaniumHandler", "params: " + params);
+		
+		
+        if(api === TITANIUM_CALLBACK_API_HANDLE) {
+            Adapter.handle(action, params);
+        } else if(api === TITANIUM_CALLBACK_API_HANDLE_ASYNC) {
+            Adapter.handleAsync(action, params);
+        }
+        
+        return false;
+	}
 }
 

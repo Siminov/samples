@@ -22,6 +22,22 @@
 
 	@module Model
 */
+var win;
+var dom;
+
+try {
+
+    if(!window) {
+    	window = global || window;
+    }
+
+	win = window;
+	dom = window['document'];
+} catch(e) {
+	win = Ti.App.Properties;
+}
+
+
 
 var HybridSiminovDatas = {
 
@@ -45,7 +61,7 @@ HybridSiminovDatas.HybridSiminovData.HybridSiminovValue = {
 };
 
 
-if(window['document'] == undefined) {
+if(dom == undefined) {
     module.exports = HybridSiminovDatas;
 }
 

@@ -26,7 +26,24 @@
 	@module Sync
 */
 
-if(window['document'] == undefined) {
+var win;
+var dom;
+
+try {
+
+    if(!window) {
+    	window = global || window;
+    }
+
+	win = window;
+	dom = window['document'];
+} catch(e) {
+	win = Ti.App.Properties;
+}
+
+
+
+if(dom == undefined) {
     var HybridSiminovDatas = require('../Model/HybridSiminovDatas');
     var Constants = require('../Constants');
     var Callback = require('../Callback');
@@ -180,6 +197,6 @@ function SyncHandler() {
 };
 
 
-if(window['document'] == undefined) {
+if(dom == undefined) {
     exports.getInstance = getInstance;    
 }

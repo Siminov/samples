@@ -24,7 +24,24 @@
 	@module Database
 */
 
-if(window['document'] == undefined) {
+var win;
+var dom;
+
+try {
+
+    if(!window) {
+    	window = global || window;
+    }
+
+	win = window;
+	dom = window['document'];
+} catch(e) {
+	win = Ti.App.Properties;
+}
+
+
+
+if(dom == undefined) {
     var Clause = require('./Clause');
     
     module.exports = Select;
@@ -278,7 +295,7 @@ function Select(object) {
 		var callback = arguments && arguments[0];
 		var transaction = arguments && arguments[1];
         
-        if(window['document'] == undefined) {
+        if(dom == undefined) {
             var DatabaseInstance = require('./Database');
         }
         
@@ -328,49 +345,49 @@ function Select(object) {
 
         if(this.interfaceName ==  "ICount") {
             
-            if(window['document'] != undefined) {
+            if(dom != undefined) {
                 return Database.count(object.getFunctionName(), column, distinct, whereCondition, groupBy, havingCondition, callback, transaction);
             } else {
                 return DatabaseInstance.count(object.getFunctionName(), column, distinct, whereCondition, groupBy, havingCondition, callback, transaction);
             }
         } else if(this.interfaceName == "IAverage") {
             
-            if(window['document'] != undefined) {
+            if(dom != undefined) {
                 return Database.avg(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback, transaction);
             } else {
                 return DatabaseInstance.avg(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback, transaction);
             }
         } else if(this.interfaceName == "ISum") {
             
-            if(window['document'] != undefined) {
+            if(dom != undefined) {
                 return Database.sum(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback, transaction);
             } else {
                 return DatabaseInstance.sum(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback, transaction);
             }
         } else if(this.interfaceName == "ITotal") {
             
-            if(window['document'] != undefined) {
+            if(dom != undefined) {
                 return Database.total(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback, transaction);
             } else {
                 return DatabaseInstance.total(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback, transaction);
             }
         } else if(this.interfaceName == "IMax") {
             
-            if(window['document'] != undefined) {
+            if(dom != undefined) {
                 return Database.max(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback, transaction);
             } else {
                 return DatabaseInstance.max(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback, transaction);
             }
         } else if(this.interfaceName == "IMin") {
             
-            if(window['document'] != undefined) {
+            if(dom != undefined) {
                 return Database.min(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback, transaction);
             } else {
                 return DatabaseInstance.min(object.getFunctionName(), column, whereCondition, groupBy, havingCondition, callback, transaction);
             }
         } else if(this.interfaceName == "IGroupConcat") {
             
-            if(window['document'] != undefined) {
+            if(dom != undefined) {
                 return Database.groupConcat(object.getFunctionName(), column, delimiter, whereCondition, groupBy, havingCondition, callback, transaction);
             } else {
                 return DatabaseInstance.groupConcat(object.getFunctionName(), column, delimiter, whereCondition, groupBy, havingCondition, callback, transaction);
@@ -382,14 +399,14 @@ function Select(object) {
                 var datas = SIDatasHelper.toSI(object);
                 var json = SIJsonHelper.toJson(datas);
 
-                if(window['document'] != undefined) {
+                if(dom != undefined) {
                     Database['delete'](object.getFunctionName(), undefined, json, callback, transaction);
                 } else {
                     DatabaseInstance['delete'](object.getFunctionName(), undefined, json, callback, transaction);
                 }
             } else {
                 
-                if(window['document'] != undefined) {
+                if(dom != undefined) {
                     Database['delete'](object.getFunctionName(), whereCondition, undefined, callback, transaction);
                 } else {
                     DatabaseInstance['delete'](object.getFunctionName(), whereCondition, undefined, callback, transaction);
@@ -399,14 +416,14 @@ function Select(object) {
 
 			if(callback) {
                 
-                if(window['document'] != undefined) {
+                if(dom != undefined) {
                     Database.select(object.getFunctionName(), distinct, whereCondition, columns, groupBy, havingCondition, orderBy, whichOrderBy, limit, callback, transaction);
                 } else {
                     DatabaseInstance.select(object.getFunctionName(), distinct, whereCondition, columns, groupBy, havingCondition, orderBy, whichOrderBy, limit, callback, transaction);
                 }
 			} else {
                 
-                if(window['document'] != undefined) {
+                if(dom != undefined) {
                     return Database.select(object.getFunctionName(), distinct, whereCondition, columns, groupBy, having, orderBy, whichOrderBy, limit);
                 } else {
                     return DatabaseInstance.select(object.getFunctionName(), distinct, whereCondition, columns, groupBy, having, orderBy, whichOrderBy, limit);

@@ -23,7 +23,23 @@
 	@module Resource
 */
 
-if(window['document'] == undefined) {
+var win;
+var dom;
+
+try {
+
+    if(!window) {
+    	window = global || window;
+    }
+
+	win = window;
+	dom = window['document'];
+} catch(e) {
+	win = Ti.App.Properties;
+}
+
+
+if(dom == undefined) {
     var Callback = require('../Callback');
     var Adapter = require('../Adapter/Adapter');
     var Constants = require('../Constants');
@@ -99,7 +115,7 @@ function ResourceManager() {
 	
         function getApplicationDescriptorCallback(data) {
 			
-            var datas = window['document'] == undefined?JSON.parse(eval('(' + data + ')')):JSON.parse(data);
+            var datas = dom == undefined?JSON.parse(eval('(' + data + ')')):JSON.parse(data);
             var applicationDescriptor = SIDatasHelper.toModels(datas);
 		        
             if(callback) {
@@ -475,7 +491,7 @@ function ResourceManager() {
 }
 
 
-if(window['document'] == undefined) {
+if(dom == undefined) {
     exports.getInstance = getInstance;    
 }
 
