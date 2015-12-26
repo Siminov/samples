@@ -1,0 +1,61 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "fd1b11e1-8a76-fa26-8177-ce57b7db7bff++505",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "2a832735-7825-fd93-35b4-ce57b7db7bff++505" : {
+
+    },
+    "377377af-5e9f-608b-7f43-ce57b7db7bff++505" : {
+      "DVTSourceControlWorkingCopyRepositoryBranchesLocationKey" : "branches",
+      "DVTSourceControlWorkingCopyRepositoryTagsLocationKey" : "tags",
+      "DVTSourceControlWorkingCopyRepositoryPrimaryBranchLocationKey" : "trunk"
+    },
+    "4ecf5bd0-4575-aad2-d85c-ce57b7db7bff++505" : {
+      "DVTSourceControlWorkingCopyRepositoryBranchesLocationKey" : "branches",
+      "DVTSourceControlWorkingCopyRepositoryTagsLocationKey" : "tags",
+      "DVTSourceControlWorkingCopyRepositoryPrimaryBranchLocationKey" : "trunk"
+    },
+    "fd1b11e1-8a76-fa26-8177-ce57b7db7bff++505" : {
+      "DVTSourceControlWorkingCopyRepositoryBranchesLocationKey" : "branches",
+      "DVTSourceControlWorkingCopyRepositoryTagsLocationKey" : "tags",
+      "DVTSourceControlWorkingCopyRepositoryPrimaryBranchLocationKey" : "trunk"
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "2a832735-7825-fd93-35b4-ce57b7db7bff++505" : 0,
+    "377377af-5e9f-608b-7f43-ce57b7db7bff++505" : 0,
+    "4ecf5bd0-4575-aad2-d85c-ce57b7db7bff++505" : 0,
+    "fd1b11e1-8a76-fa26-8177-ce57b7db7bff++505" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "6B7128A6-A9D4-4184-BAF8-24B689C1213D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "2a832735-7825-fd93-35b4-ce57b7db7bff++505" : "Core\/",
+    "377377af-5e9f-608b-7f43-ce57b7db7bff++505" : "Hybrid\/",
+    "4ecf5bd0-4575-aad2-d85c-ce57b7db7bff++505" : "Connect\/",
+    "fd1b11e1-8a76-fa26-8177-ce57b7db7bff++505" : "Samples\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Hybrid-Titanium-Module",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Hybrid-Titanium-Module\/Hybrid-Titanium-Module.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Siminov\/core",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2a832735-7825-fd93-35b4-ce57b7db7bff++505"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Siminov\/hybrid",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "377377af-5e9f-608b-7f43-ce57b7db7bff++505"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Siminov\/connect",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4ecf5bd0-4575-aad2-d85c-ce57b7db7bff++505"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Siminov\/samples",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "fd1b11e1-8a76-fa26-8177-ce57b7db7bff++505"
+    }
+  ]
+}
