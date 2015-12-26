@@ -1,0 +1,8 @@
+<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="pageLoaded">
+  <StackLayout>
+	<TextField hint="Username"/>
+	<TextField hint="Password"/>	
+	<Button text="Login" tap="{{ tapLogin }}" />
+	<Button text="Initialize" tap="{{ tapInitialize }}" />
+  </StackLayout>
+</Page>
