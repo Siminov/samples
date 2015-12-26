@@ -286,6 +286,7 @@
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/hybrid-sample-azdvmzlaormkedenokxopdxanfgk/Build/Products/Debug-universal",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/hybrid-sample-azdvmzlaormkedenokxopdxanfgk/Build/Products/Debug-iphoneos",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -303,6 +304,7 @@
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/hybrid-sample-azdvmzlaormkedenokxopdxanfgk/Build/Products/Debug-universal",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/hybrid-sample-azdvmzlaormkedenokxopdxanfgk/Build/Products/Debug-iphoneos",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
