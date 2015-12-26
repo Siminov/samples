@@ -1,0 +1,18 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 1.0.0
+apiversion: 2
+architectures: armv7 arm64 i386 x86_64
+description: Hybrid-Titanium-Module
+author: Your Name
+license: Specify your license
+copyright: Copyright (c) 2015 by Your Company
+
+# these should not be edited
+name: Hybrid-Titanium-Module
+moduleid: hybrid.titanium.module
+guid: 20929635-466a-4d24-a449-d4b5b77b1423
+platform: iphone
+minsdk: 5.1.1.GA

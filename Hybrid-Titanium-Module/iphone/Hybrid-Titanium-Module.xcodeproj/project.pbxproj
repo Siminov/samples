@@ -1,0 +1,1137 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		24416B8111C4CA220047AFDD /* Build & Test */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 24416B8A11C4CA520047AFDD /* Build configuration list for PBXAggregateTarget "Build & Test" */;
+			buildPhases = (
+				24416B8011C4CA220047AFDD /* ShellScript */,
+			);
+			dependencies = (
+				24416B8511C4CA280047AFDD /* PBXTargetDependency */,
+			);
+			name = "Build & Test";
+			productName = "Build & test";
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		24DD6CF91134B3F500162E58 /* HybridTitaniumModuleModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DD6CF71134B3F500162E58 /* HybridTitaniumModuleModule.h */; };
+		24DD6CFA1134B3F500162E58 /* HybridTitaniumModuleModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DD6CF81134B3F500162E58 /* HybridTitaniumModuleModule.m */; };
+		24DE9E1111C5FE74003F90F6 /* HybridTitaniumModuleModuleAssets.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DE9E0F11C5FE74003F90F6 /* HybridTitaniumModuleModuleAssets.h */; };
+		24DE9E1211C5FE74003F90F6 /* HybridTitaniumModuleModuleAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DE9E1011C5FE74003F90F6 /* HybridTitaniumModuleModuleAssets.m */; };
+		AA747D9F0F9514B9006C5449 /* HybridTitaniumModule_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* HybridTitaniumModule_Prefix.pch */; };
+		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		CEBF7FC21C21C95E0031E531 /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F0E1C21C95E0031E531 /* Reachability.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FC31C21C95E0031E531 /* SICApplicationDescriptor.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F0F1C21C95E0031E531 /* SICApplicationDescriptor.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FC41C21C95E0031E531 /* SICApplicationDescriptorReader.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F101C21C95E0031E531 /* SICApplicationDescriptorReader.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FC51C21C95E0031E531 /* SICClassUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F111C21C95E0031E531 /* SICClassUtils.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FC61C21C95E0031E531 /* SICClause.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F121C21C95E0031E531 /* SICClause.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FC71C21C95E0031E531 /* SICConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F131C21C95E0031E531 /* SICConstants.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FC81C21C95E0031E531 /* SICDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F141C21C95E0031E531 /* SICDatabase.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FC91C21C95E0031E531 /* SICDatabaseBundle.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F151C21C95E0031E531 /* SICDatabaseBundle.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FCA1C21C95E0031E531 /* SICDatabaseDescriptor.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F161C21C95E0031E531 /* SICDatabaseDescriptor.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FCB1C21C95E0031E531 /* SICDatabaseDescriptorReader.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F171C21C95E0031E531 /* SICDatabaseDescriptorReader.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FCC1C21C95E0031E531 /* SICDatabaseException.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F181C21C95E0031E531 /* SICDatabaseException.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FCD1C21C95E0031E531 /* SICDatabaseFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F191C21C95E0031E531 /* SICDatabaseFactory.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FCE1C21C95E0031E531 /* SICDatabaseHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F1A1C21C95E0031E531 /* SICDatabaseHelper.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FCF1C21C95E0031E531 /* SICDatabaseImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F1B1C21C95E0031E531 /* SICDatabaseImpl.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FD01C21C95E0031E531 /* SICDatabaseUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F1C1C21C95E0031E531 /* SICDatabaseUtils.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FD11C21C95E0031E531 /* SICDataTypeHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F1D1C21C95E0031E531 /* SICDataTypeHandler.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FD21C21C95E0031E531 /* SICDeploymentException.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F1E1C21C95E0031E531 /* SICDeploymentException.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FD31C21C95E0031E531 /* SICEntityDescriptor.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F1F1C21C95E0031E531 /* SICEntityDescriptor.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FD41C21C95E0031E531 /* SICEventHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F201C21C95E0031E531 /* SICEventHandler.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FD51C21C95E0031E531 /* SICFileUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F211C21C95E0031E531 /* SICFileUtils.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FD61C21C95E0031E531 /* SICIAverage.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F221C21C95E0031E531 /* SICIAverage.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FD71C21C95E0031E531 /* SICIAverageClause.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F231C21C95E0031E531 /* SICIAverageClause.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FD81C21C95E0031E531 /* SICICount.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F241C21C95E0031E531 /* SICICount.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FD91C21C95E0031E531 /* SICICountClause.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F251C21C95E0031E531 /* SICICountClause.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FDA1C21C95E0031E531 /* SICIDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F261C21C95E0031E531 /* SICIDatabase.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FDB1C21C95E0031E531 /* SICIDatabaseEvents.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F271C21C95E0031E531 /* SICIDatabaseEvents.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FDC1C21C95E0031E531 /* SICIDatabaseImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F281C21C95E0031E531 /* SICIDatabaseImpl.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FDD1C21C95E0031E531 /* SICIDataTypeHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F291C21C95E0031E531 /* SICIDataTypeHandler.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FDE1C21C95E0031E531 /* SICIDelete.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F2A1C21C95E0031E531 /* SICIDelete.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FDF1C21C95E0031E531 /* SICIDeleteClause.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F2B1C21C95E0031E531 /* SICIDeleteClause.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FE01C21C95E0031E531 /* SICIDescriptor.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F2C1C21C95E0031E531 /* SICIDescriptor.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FE11C21C95E0031E531 /* SICIException.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F2D1C21C95E0031E531 /* SICIException.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FE21C21C95E0031E531 /* SICIGroupConcat.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F2E1C21C95E0031E531 /* SICIGroupConcat.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FE31C21C95E0031E531 /* SICIGroupConcatClause.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F2F1C21C95E0031E531 /* SICIGroupConcatClause.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FE41C21C95E0031E531 /* SICIInitializer.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F301C21C95E0031E531 /* SICIInitializer.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FE51C21C95E0031E531 /* SICIMax.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F311C21C95E0031E531 /* SICIMax.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FE61C21C95E0031E531 /* SICIMaxClause.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F321C21C95E0031E531 /* SICIMaxClause.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FE71C21C95E0031E531 /* SICIMin.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F331C21C95E0031E531 /* SICIMin.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FE81C21C95E0031E531 /* SICIMinClause.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F341C21C95E0031E531 /* SICIMinClause.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FE91C21C95E0031E531 /* SICInitializer.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F351C21C95E0031E531 /* SICInitializer.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FEA1C21C95E0031E531 /* SICIQueryBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F361C21C95E0031E531 /* SICIQueryBuilder.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FEB1C21C95E0031E531 /* SICISelect.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F371C21C95E0031E531 /* SICISelect.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FEC1C21C95E0031E531 /* SICISelectClause.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F381C21C95E0031E531 /* SICISelectClause.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FED1C21C95E0031E531 /* SICISiminovEvents.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F391C21C95E0031E531 /* SICISiminovEvents.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FEE1C21C95E0031E531 /* SICISum.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F3A1C21C95E0031E531 /* SICISum.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FEF1C21C95E0031E531 /* SICISumClause.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F3B1C21C95E0031E531 /* SICISumClause.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FF01C21C95E0031E531 /* SICITotal.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F3C1C21C95E0031E531 /* SICITotal.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FF11C21C95E0031E531 /* SICITotalClause.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F3D1C21C95E0031E531 /* SICITotalClause.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FF21C21C95E0031E531 /* SICLibraryDescriptor.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F3E1C21C95E0031E531 /* SICLibraryDescriptor.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FF31C21C95E0031E531 /* SICLibraryDescriptorReader.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F3F1C21C95E0031E531 /* SICLibraryDescriptorReader.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FF41C21C95E0031E531 /* SICLog.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F401C21C95E0031E531 /* SICLog.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FF51C21C95E0031E531 /* SICPrematureEndOfParseException.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F411C21C95E0031E531 /* SICPrematureEndOfParseException.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FF61C21C95E0031E531 /* SICQueryBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F421C21C95E0031E531 /* SICQueryBuilder.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FF71C21C95E0031E531 /* SICQuickEntityDescriptorReader.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F431C21C95E0031E531 /* SICQuickEntityDescriptorReader.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FF81C21C95E0031E531 /* SICResourceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F441C21C95E0031E531 /* SICResourceManager.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FF91C21C95E0031E531 /* SICSiminov.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F451C21C95E0031E531 /* SICSiminov.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FFA1C21C95E0031E531 /* SICSiminovCriticalException.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F461C21C95E0031E531 /* SICSiminovCriticalException.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FFB1C21C95E0031E531 /* SICSiminovException.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F471C21C95E0031E531 /* SICSiminovException.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FFC1C21C95E0031E531 /* SICSiminovSAXDefaultHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F481C21C95E0031E531 /* SICSiminovSAXDefaultHandler.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FFD1C21C95E0031E531 /* SICWhere.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F491C21C95E0031E531 /* SICWhere.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FFE1C21C95E0031E531 /* SIHAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F4A1C21C95E0031E531 /* SIHAdapter.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF7FFF1C21C95E0031E531 /* SIHAdapterDescriptor.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F4B1C21C95E0031E531 /* SIHAdapterDescriptor.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80001C21C95E0031E531 /* SIHAdapterDescriptorReader.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F4C1C21C95E0031E531 /* SIHAdapterDescriptorReader.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80011C21C95E0031E531 /* SIHAdapterFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F4D1C21C95E0031E531 /* SIHAdapterFactory.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80021C21C95E0031E531 /* SIHAdapterHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F4E1C21C95E0031E531 /* SIHAdapterHandler.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80031C21C95E0031E531 /* SIHApplicationDescriptor.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F4F1C21C95E0031E531 /* SIHApplicationDescriptor.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80041C21C95E0031E531 /* SIHApplicationDescriptorReader.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F501C21C95E0031E531 /* SIHApplicationDescriptorReader.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80051C21C95E0031E531 /* SIHConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F511C21C95E0031E531 /* SIHConstants.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80061C21C95E0031E531 /* SIHDatabaseEventHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F521C21C95E0031E531 /* SIHDatabaseEventHandler.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80071C21C95E0031E531 /* SIHDatabaseHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F531C21C95E0031E531 /* SIHDatabaseHandler.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80081C21C95E0031E531 /* SIHDataTypeHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F541C21C95E0031E531 /* SIHDataTypeHandler.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80091C21C95E0031E531 /* SIHEventHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F551C21C95E0031E531 /* SIHEventHandler.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF800A1C21C95E0031E531 /* SIHGenericService.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F561C21C95E0031E531 /* SIHGenericService.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF800B1C21C95E0031E531 /* SIHGenericSyncHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F571C21C95E0031E531 /* SIHGenericSyncHandler.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF800C1C21C95E0031E531 /* SIHHybridAdapterDescriptor.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F581C21C95E0031E531 /* SIHHybridAdapterDescriptor.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF800D1C21C95E0031E531 /* SIHHybridApplicationDescriptor.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F591C21C95E0031E531 /* SIHHybridApplicationDescriptor.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF800E1C21C95E0031E531 /* SIHHybridConnectionRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F5A1C21C95E0031E531 /* SIHHybridConnectionRequest.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF800F1C21C95E0031E531 /* SIHHybridConnectionResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F5B1C21C95E0031E531 /* SIHHybridConnectionResponse.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80101C21C95E0031E531 /* SIHHybridDatabaseDescriptor.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F5C1C21C95E0031E531 /* SIHHybridDatabaseDescriptor.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80111C21C95E0031E531 /* SIHHybridEntityDescriptor.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F5D1C21C95E0031E531 /* SIHHybridEntityDescriptor.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80121C21C95E0031E531 /* SIHHybridEventHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F5E1C21C95E0031E531 /* SIHHybridEventHandler.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80131C21C95E0031E531 /* SIHHybridLibraryDescriptor.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F5F1C21C95E0031E531 /* SIHHybridLibraryDescriptor.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80141C21C95E0031E531 /* SIHHybridMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F601C21C95E0031E531 /* SIHHybridMessage.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80151C21C95E0031E531 /* SIHHybridNotificationException.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F611C21C95E0031E531 /* SIHHybridNotificationException.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80161C21C95E0031E531 /* SIHHybridRegistration.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F621C21C95E0031E531 /* SIHHybridRegistration.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80171C21C95E0031E531 /* SIHHybridServiceHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F631C21C95E0031E531 /* SIHHybridServiceHandler.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80181C21C95E0031E531 /* SIHHybridSiminovDataReader.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F641C21C95E0031E531 /* SIHHybridSiminovDataReader.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80191C21C95E0031E531 /* SIHHybridSiminovDatas.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F651C21C95E0031E531 /* SIHHybridSiminovDatas.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF801A1C21C95E0031E531 /* SIHHybridSiminovDataWritter.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F661C21C95E0031E531 /* SIHHybridSiminovDataWritter.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF801B1C21C95E0031E531 /* SIHHybridSiminovException.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F671C21C95E0031E531 /* SIHHybridSiminovException.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF801C1C21C95E0031E531 /* SIHHybridSyncRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F681C21C95E0031E531 /* SIHHybridSyncRequest.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF801D1C21C95E0031E531 /* SIHIAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F691C21C95E0031E531 /* SIHIAdapter.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF801E1C21C95E0031E531 /* SIHIHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F6A1C21C95E0031E531 /* SIHIHandler.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF801F1C21C95E0031E531 /* SIHInitializer.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F6B1C21C95E0031E531 /* SIHInitializer.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80201C21C95E0031E531 /* SIHLibraryDescriptor.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F6C1C21C95E0031E531 /* SIHLibraryDescriptor.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80211C21C95E0031E531 /* SIHLibraryDescriptorReader.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F6D1C21C95E0031E531 /* SIHLibraryDescriptorReader.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80221C21C95E0031E531 /* SIHNotificationEventHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F6E1C21C95E0031E531 /* SIHNotificationEventHandler.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80231C21C95E0031E531 /* SIHNotificationHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F6F1C21C95E0031E531 /* SIHNotificationHandler.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80241C21C95E0031E531 /* SIHResourceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F701C21C95E0031E531 /* SIHResourceManager.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80251C21C95E0031E531 /* SIHResourcesHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F711C21C95E0031E531 /* SIHResourcesHandler.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80261C21C95E0031E531 /* SIHServiceHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F721C21C95E0031E531 /* SIHServiceHandler.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80271C21C95E0031E531 /* SIHSiminov.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F731C21C95E0031E531 /* SIHSiminov.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80281C21C95E0031E531 /* SIHSiminovEventHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F741C21C95E0031E531 /* SIHSiminovEventHandler.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80291C21C95E0031E531 /* SIHSyncEventHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F751C21C95E0031E531 /* SIHSyncEventHandler.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF802A1C21C95E0031E531 /* SIHSyncHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F761C21C95E0031E531 /* SIHSyncHandler.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF802B1C21C95E0031E531 /* SIHSyncWorker.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F771C21C95E0031E531 /* SIHSyncWorker.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF802C1C21C95E0031E531 /* SIHUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F781C21C95E0031E531 /* SIHUtils.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF802D1C21C95E0031E531 /* SIKApplicationDescriptor.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F791C21C95E0031E531 /* SIKApplicationDescriptor.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF802E1C21C95E0031E531 /* SIKApplicationDescriptorReader.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F7A1C21C95E0031E531 /* SIKApplicationDescriptorReader.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF802F1C21C95E0031E531 /* SIKAsyncServiceWorker.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F7B1C21C95E0031E531 /* SIKAsyncServiceWorker.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80301C21C95E0031E531 /* SIKConnectionException.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F7C1C21C95E0031E531 /* SIKConnectionException.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80311C21C95E0031E531 /* SIKConnectionHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F7D1C21C95E0031E531 /* SIKConnectionHelper.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80321C21C95E0031E531 /* SIKConnectionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F7E1C21C95E0031E531 /* SIKConnectionManager.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80331C21C95E0031E531 /* SIKConnectionRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F7F1C21C95E0031E531 /* SIKConnectionRequest.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80341C21C95E0031E531 /* SIKConnectionResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F801C21C95E0031E531 /* SIKConnectionResponse.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80351C21C95E0031E531 /* SIKConnectionStatusCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F811C21C95E0031E531 /* SIKConnectionStatusCodes.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80361C21C95E0031E531 /* SIKConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F821C21C95E0031E531 /* SIKConstants.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80371C21C95E0031E531 /* SIKEventHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F831C21C95E0031E531 /* SIKEventHandler.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80381C21C95E0031E531 /* SIKHttpConnectionWorker.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F841C21C95E0031E531 /* SIKHttpConnectionWorker.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80391C21C95E0031E531 /* SIKHttpsConnectionWorker.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F851C21C95E0031E531 /* SIKHttpsConnectionWorker.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF803A1C21C95E0031E531 /* SIKIConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F861C21C95E0031E531 /* SIKIConnection.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF803B1C21C95E0031E531 /* SIKIConnectionRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F871C21C95E0031E531 /* SIKIConnectionRequest.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF803C1C21C95E0031E531 /* SIKIConnectionResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F881C21C95E0031E531 /* SIKIConnectionResponse.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF803D1C21C95E0031E531 /* SIKIMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F891C21C95E0031E531 /* SIKIMessage.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF803E1C21C95E0031E531 /* SIKInitializer.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F8A1C21C95E0031E531 /* SIKInitializer.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF803F1C21C95E0031E531 /* SIKINotification.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F8B1C21C95E0031E531 /* SIKINotification.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80401C21C95E0031E531 /* SIKINotificationEvents.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F8C1C21C95E0031E531 /* SIKINotificationEvents.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80411C21C95E0031E531 /* SIKIRegistration.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F8D1C21C95E0031E531 /* SIKIRegistration.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80421C21C95E0031E531 /* SIKIRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F8E1C21C95E0031E531 /* SIKIRequest.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80431C21C95E0031E531 /* SIKIResource.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F8F1C21C95E0031E531 /* SIKIResource.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80441C21C95E0031E531 /* SIKIService.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F901C21C95E0031E531 /* SIKIService.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80451C21C95E0031E531 /* SIKIServiceEvents.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F911C21C95E0031E531 /* SIKIServiceEvents.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80461C21C95E0031E531 /* SIKISyncEvents.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F921C21C95E0031E531 /* SIKISyncEvents.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80471C21C95E0031E531 /* SIKISyncRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F931C21C95E0031E531 /* SIKISyncRequest.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80481C21C95E0031E531 /* SIKIWorker.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F941C21C95E0031E531 /* SIKIWorker.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80491C21C95E0031E531 /* SIKLibraryDescriptor.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F951C21C95E0031E531 /* SIKLibraryDescriptor.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF804A1C21C95E0031E531 /* SIKLibraryDescriptorReader.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F961C21C95E0031E531 /* SIKLibraryDescriptorReader.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF804B1C21C95E0031E531 /* SIKMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F971C21C95E0031E531 /* SIKMessage.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF804C1C21C95E0031E531 /* SIKNotificationDescriptor.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F981C21C95E0031E531 /* SIKNotificationDescriptor.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF804D1C21C95E0031E531 /* SIKNotificationException.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F991C21C95E0031E531 /* SIKNotificationException.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF804E1C21C95E0031E531 /* SIKNotificationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F9A1C21C95E0031E531 /* SIKNotificationManager.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF804F1C21C95E0031E531 /* SIKNotificationReceiver.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F9B1C21C95E0031E531 /* SIKNotificationReceiver.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80501C21C95E0031E531 /* SIKNotificationService.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F9C1C21C95E0031E531 /* SIKNotificationService.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80511C21C95E0031E531 /* SIKQuickServiceDescriptorReader.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F9D1C21C95E0031E531 /* SIKQuickServiceDescriptorReader.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80521C21C95E0031E531 /* SIKRegistration.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F9E1C21C95E0031E531 /* SIKRegistration.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80531C21C95E0031E531 /* SIKResourceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7F9F1C21C95E0031E531 /* SIKResourceManager.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80541C21C95E0031E531 /* SIKResourceUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7FA01C21C95E0031E531 /* SIKResourceUtils.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80551C21C95E0031E531 /* SIKService.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7FA11C21C95E0031E531 /* SIKService.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80561C21C95E0031E531 /* SIKServiceDescriptor.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7FA21C21C95E0031E531 /* SIKServiceDescriptor.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80571C21C95E0031E531 /* SIKServiceDescriptorReader.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7FA31C21C95E0031E531 /* SIKServiceDescriptorReader.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80581C21C95E0031E531 /* SIKServiceException.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7FA41C21C95E0031E531 /* SIKServiceException.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80591C21C95E0031E531 /* SIKServiceHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7FA51C21C95E0031E531 /* SIKServiceHandler.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF805A1C21C95E0031E531 /* SIKServiceRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7FA61C21C95E0031E531 /* SIKServiceRequest.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF805B1C21C95E0031E531 /* SIKServiceRequestResource.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7FA71C21C95E0031E531 /* SIKServiceRequestResource.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF805C1C21C95E0031E531 /* SIKSiminov.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7FA81C21C95E0031E531 /* SIKSiminov.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF805D1C21C95E0031E531 /* SIKSyncDescriptor.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7FA91C21C95E0031E531 /* SIKSyncDescriptor.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF805E1C21C95E0031E531 /* SIKSyncDescriptorReader.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7FAA1C21C95E0031E531 /* SIKSyncDescriptorReader.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF805F1C21C95E0031E531 /* SIKSyncException.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7FAB1C21C95E0031E531 /* SIKSyncException.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80601C21C95E0031E531 /* SIKSyncHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7FAC1C21C95E0031E531 /* SIKSyncHandler.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80611C21C95E0031E531 /* SIKSyncRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7FAD1C21C95E0031E531 /* SIKSyncRequest.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80621C21C95E0031E531 /* SIKSyncServiceWorker.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7FAE1C21C95E0031E531 /* SIKSyncServiceWorker.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80631C21C95E0031E531 /* SIKSyncWorker.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7FAF1C21C95E0031E531 /* SIKSyncWorker.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80641C21C95E0031E531 /* SIKUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBF7FB01C21C95E0031E531 /* SIKUtils.h */; settings = {ASSET_TAGS = (); }; };
+		CEBF80651C21C95E0031E531 /* libHybrid.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBF7FC11C21C95E0031E531 /* libHybrid.a */; settings = {ASSET_TAGS = (); }; };
+		CEED72B61C22B46400F15FE9 /* libHybrid.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEBF7FC11C21C95E0031E531 /* libHybrid.a */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		24416B8411C4CA280047AFDD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = "Hybrid-Titanium-Module";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CEED72B51C22B44500F15FE9 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CEED72B61C22B46400F15FE9 /* libHybrid.a in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		24DD6CF71134B3F500162E58 /* HybridTitaniumModuleModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HybridTitaniumModuleModule.h; path = Classes/HybridTitaniumModuleModule.h; sourceTree = "<group>"; };
+		24DD6CF81134B3F500162E58 /* HybridTitaniumModuleModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HybridTitaniumModuleModule.m; path = Classes/HybridTitaniumModuleModule.m; sourceTree = "<group>"; };
+		24DD6D1B1134B66800162E58 /* titanium.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = titanium.xcconfig; sourceTree = "<group>"; };
+		24DE9E0F11C5FE74003F90F6 /* HybridTitaniumModuleModuleAssets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HybridTitaniumModuleModuleAssets.h; path = Classes/HybridTitaniumModuleModuleAssets.h; sourceTree = "<group>"; };
+		24DE9E1011C5FE74003F90F6 /* HybridTitaniumModuleModuleAssets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HybridTitaniumModuleModuleAssets.m; path = Classes/HybridTitaniumModuleModuleAssets.m; sourceTree = "<group>"; };
+		AA747D9E0F9514B9006C5449 /* HybridTitaniumModule_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HybridTitaniumModule_Prefix.pch; sourceTree = SOURCE_ROOT; };
+		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CEBF7F0E1C21C95E0031E531 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		CEBF7F0F1C21C95E0031E531 /* SICApplicationDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICApplicationDescriptor.h; sourceTree = "<group>"; };
+		CEBF7F101C21C95E0031E531 /* SICApplicationDescriptorReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICApplicationDescriptorReader.h; sourceTree = "<group>"; };
+		CEBF7F111C21C95E0031E531 /* SICClassUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICClassUtils.h; sourceTree = "<group>"; };
+		CEBF7F121C21C95E0031E531 /* SICClause.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICClause.h; sourceTree = "<group>"; };
+		CEBF7F131C21C95E0031E531 /* SICConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICConstants.h; sourceTree = "<group>"; };
+		CEBF7F141C21C95E0031E531 /* SICDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICDatabase.h; sourceTree = "<group>"; };
+		CEBF7F151C21C95E0031E531 /* SICDatabaseBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICDatabaseBundle.h; sourceTree = "<group>"; };
+		CEBF7F161C21C95E0031E531 /* SICDatabaseDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICDatabaseDescriptor.h; sourceTree = "<group>"; };
+		CEBF7F171C21C95E0031E531 /* SICDatabaseDescriptorReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICDatabaseDescriptorReader.h; sourceTree = "<group>"; };
+		CEBF7F181C21C95E0031E531 /* SICDatabaseException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICDatabaseException.h; sourceTree = "<group>"; };
+		CEBF7F191C21C95E0031E531 /* SICDatabaseFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICDatabaseFactory.h; sourceTree = "<group>"; };
+		CEBF7F1A1C21C95E0031E531 /* SICDatabaseHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICDatabaseHelper.h; sourceTree = "<group>"; };
+		CEBF7F1B1C21C95E0031E531 /* SICDatabaseImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICDatabaseImpl.h; sourceTree = "<group>"; };
+		CEBF7F1C1C21C95E0031E531 /* SICDatabaseUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICDatabaseUtils.h; sourceTree = "<group>"; };
+		CEBF7F1D1C21C95E0031E531 /* SICDataTypeHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICDataTypeHandler.h; sourceTree = "<group>"; };
+		CEBF7F1E1C21C95E0031E531 /* SICDeploymentException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICDeploymentException.h; sourceTree = "<group>"; };
+		CEBF7F1F1C21C95E0031E531 /* SICEntityDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICEntityDescriptor.h; sourceTree = "<group>"; };
+		CEBF7F201C21C95E0031E531 /* SICEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICEventHandler.h; sourceTree = "<group>"; };
+		CEBF7F211C21C95E0031E531 /* SICFileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICFileUtils.h; sourceTree = "<group>"; };
+		CEBF7F221C21C95E0031E531 /* SICIAverage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICIAverage.h; sourceTree = "<group>"; };
+		CEBF7F231C21C95E0031E531 /* SICIAverageClause.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICIAverageClause.h; sourceTree = "<group>"; };
+		CEBF7F241C21C95E0031E531 /* SICICount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICICount.h; sourceTree = "<group>"; };
+		CEBF7F251C21C95E0031E531 /* SICICountClause.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICICountClause.h; sourceTree = "<group>"; };
+		CEBF7F261C21C95E0031E531 /* SICIDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICIDatabase.h; sourceTree = "<group>"; };
+		CEBF7F271C21C95E0031E531 /* SICIDatabaseEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICIDatabaseEvents.h; sourceTree = "<group>"; };
+		CEBF7F281C21C95E0031E531 /* SICIDatabaseImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICIDatabaseImpl.h; sourceTree = "<group>"; };
+		CEBF7F291C21C95E0031E531 /* SICIDataTypeHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICIDataTypeHandler.h; sourceTree = "<group>"; };
+		CEBF7F2A1C21C95E0031E531 /* SICIDelete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICIDelete.h; sourceTree = "<group>"; };
+		CEBF7F2B1C21C95E0031E531 /* SICIDeleteClause.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICIDeleteClause.h; sourceTree = "<group>"; };
+		CEBF7F2C1C21C95E0031E531 /* SICIDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICIDescriptor.h; sourceTree = "<group>"; };
+		CEBF7F2D1C21C95E0031E531 /* SICIException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICIException.h; sourceTree = "<group>"; };
+		CEBF7F2E1C21C95E0031E531 /* SICIGroupConcat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICIGroupConcat.h; sourceTree = "<group>"; };
+		CEBF7F2F1C21C95E0031E531 /* SICIGroupConcatClause.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICIGroupConcatClause.h; sourceTree = "<group>"; };
+		CEBF7F301C21C95E0031E531 /* SICIInitializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICIInitializer.h; sourceTree = "<group>"; };
+		CEBF7F311C21C95E0031E531 /* SICIMax.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICIMax.h; sourceTree = "<group>"; };
+		CEBF7F321C21C95E0031E531 /* SICIMaxClause.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICIMaxClause.h; sourceTree = "<group>"; };
+		CEBF7F331C21C95E0031E531 /* SICIMin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICIMin.h; sourceTree = "<group>"; };
+		CEBF7F341C21C95E0031E531 /* SICIMinClause.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICIMinClause.h; sourceTree = "<group>"; };
+		CEBF7F351C21C95E0031E531 /* SICInitializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICInitializer.h; sourceTree = "<group>"; };
+		CEBF7F361C21C95E0031E531 /* SICIQueryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICIQueryBuilder.h; sourceTree = "<group>"; };
+		CEBF7F371C21C95E0031E531 /* SICISelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICISelect.h; sourceTree = "<group>"; };
+		CEBF7F381C21C95E0031E531 /* SICISelectClause.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICISelectClause.h; sourceTree = "<group>"; };
+		CEBF7F391C21C95E0031E531 /* SICISiminovEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICISiminovEvents.h; sourceTree = "<group>"; };
+		CEBF7F3A1C21C95E0031E531 /* SICISum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICISum.h; sourceTree = "<group>"; };
+		CEBF7F3B1C21C95E0031E531 /* SICISumClause.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICISumClause.h; sourceTree = "<group>"; };
+		CEBF7F3C1C21C95E0031E531 /* SICITotal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICITotal.h; sourceTree = "<group>"; };
+		CEBF7F3D1C21C95E0031E531 /* SICITotalClause.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICITotalClause.h; sourceTree = "<group>"; };
+		CEBF7F3E1C21C95E0031E531 /* SICLibraryDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICLibraryDescriptor.h; sourceTree = "<group>"; };
+		CEBF7F3F1C21C95E0031E531 /* SICLibraryDescriptorReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICLibraryDescriptorReader.h; sourceTree = "<group>"; };
+		CEBF7F401C21C95E0031E531 /* SICLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICLog.h; sourceTree = "<group>"; };
+		CEBF7F411C21C95E0031E531 /* SICPrematureEndOfParseException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICPrematureEndOfParseException.h; sourceTree = "<group>"; };
+		CEBF7F421C21C95E0031E531 /* SICQueryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICQueryBuilder.h; sourceTree = "<group>"; };
+		CEBF7F431C21C95E0031E531 /* SICQuickEntityDescriptorReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICQuickEntityDescriptorReader.h; sourceTree = "<group>"; };
+		CEBF7F441C21C95E0031E531 /* SICResourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICResourceManager.h; sourceTree = "<group>"; };
+		CEBF7F451C21C95E0031E531 /* SICSiminov.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICSiminov.h; sourceTree = "<group>"; };
+		CEBF7F461C21C95E0031E531 /* SICSiminovCriticalException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICSiminovCriticalException.h; sourceTree = "<group>"; };
+		CEBF7F471C21C95E0031E531 /* SICSiminovException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICSiminovException.h; sourceTree = "<group>"; };
+		CEBF7F481C21C95E0031E531 /* SICSiminovSAXDefaultHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICSiminovSAXDefaultHandler.h; sourceTree = "<group>"; };
+		CEBF7F491C21C95E0031E531 /* SICWhere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SICWhere.h; sourceTree = "<group>"; };
+		CEBF7F4A1C21C95E0031E531 /* SIHAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHAdapter.h; sourceTree = "<group>"; };
+		CEBF7F4B1C21C95E0031E531 /* SIHAdapterDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHAdapterDescriptor.h; sourceTree = "<group>"; };
+		CEBF7F4C1C21C95E0031E531 /* SIHAdapterDescriptorReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHAdapterDescriptorReader.h; sourceTree = "<group>"; };
+		CEBF7F4D1C21C95E0031E531 /* SIHAdapterFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHAdapterFactory.h; sourceTree = "<group>"; };
+		CEBF7F4E1C21C95E0031E531 /* SIHAdapterHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHAdapterHandler.h; sourceTree = "<group>"; };
+		CEBF7F4F1C21C95E0031E531 /* SIHApplicationDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHApplicationDescriptor.h; sourceTree = "<group>"; };
+		CEBF7F501C21C95E0031E531 /* SIHApplicationDescriptorReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHApplicationDescriptorReader.h; sourceTree = "<group>"; };
+		CEBF7F511C21C95E0031E531 /* SIHConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHConstants.h; sourceTree = "<group>"; };
+		CEBF7F521C21C95E0031E531 /* SIHDatabaseEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHDatabaseEventHandler.h; sourceTree = "<group>"; };
+		CEBF7F531C21C95E0031E531 /* SIHDatabaseHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHDatabaseHandler.h; sourceTree = "<group>"; };
+		CEBF7F541C21C95E0031E531 /* SIHDataTypeHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHDataTypeHandler.h; sourceTree = "<group>"; };
+		CEBF7F551C21C95E0031E531 /* SIHEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHEventHandler.h; sourceTree = "<group>"; };
+		CEBF7F561C21C95E0031E531 /* SIHGenericService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHGenericService.h; sourceTree = "<group>"; };
+		CEBF7F571C21C95E0031E531 /* SIHGenericSyncHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHGenericSyncHandler.h; sourceTree = "<group>"; };
+		CEBF7F581C21C95E0031E531 /* SIHHybridAdapterDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHHybridAdapterDescriptor.h; sourceTree = "<group>"; };
+		CEBF7F591C21C95E0031E531 /* SIHHybridApplicationDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHHybridApplicationDescriptor.h; sourceTree = "<group>"; };
+		CEBF7F5A1C21C95E0031E531 /* SIHHybridConnectionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHHybridConnectionRequest.h; sourceTree = "<group>"; };
+		CEBF7F5B1C21C95E0031E531 /* SIHHybridConnectionResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHHybridConnectionResponse.h; sourceTree = "<group>"; };
+		CEBF7F5C1C21C95E0031E531 /* SIHHybridDatabaseDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHHybridDatabaseDescriptor.h; sourceTree = "<group>"; };
+		CEBF7F5D1C21C95E0031E531 /* SIHHybridEntityDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHHybridEntityDescriptor.h; sourceTree = "<group>"; };
+		CEBF7F5E1C21C95E0031E531 /* SIHHybridEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHHybridEventHandler.h; sourceTree = "<group>"; };
+		CEBF7F5F1C21C95E0031E531 /* SIHHybridLibraryDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHHybridLibraryDescriptor.h; sourceTree = "<group>"; };
+		CEBF7F601C21C95E0031E531 /* SIHHybridMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHHybridMessage.h; sourceTree = "<group>"; };
+		CEBF7F611C21C95E0031E531 /* SIHHybridNotificationException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHHybridNotificationException.h; sourceTree = "<group>"; };
+		CEBF7F621C21C95E0031E531 /* SIHHybridRegistration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHHybridRegistration.h; sourceTree = "<group>"; };
+		CEBF7F631C21C95E0031E531 /* SIHHybridServiceHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHHybridServiceHandler.h; sourceTree = "<group>"; };
+		CEBF7F641C21C95E0031E531 /* SIHHybridSiminovDataReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHHybridSiminovDataReader.h; sourceTree = "<group>"; };
+		CEBF7F651C21C95E0031E531 /* SIHHybridSiminovDatas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHHybridSiminovDatas.h; sourceTree = "<group>"; };
+		CEBF7F661C21C95E0031E531 /* SIHHybridSiminovDataWritter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHHybridSiminovDataWritter.h; sourceTree = "<group>"; };
+		CEBF7F671C21C95E0031E531 /* SIHHybridSiminovException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHHybridSiminovException.h; sourceTree = "<group>"; };
+		CEBF7F681C21C95E0031E531 /* SIHHybridSyncRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHHybridSyncRequest.h; sourceTree = "<group>"; };
+		CEBF7F691C21C95E0031E531 /* SIHIAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHIAdapter.h; sourceTree = "<group>"; };
+		CEBF7F6A1C21C95E0031E531 /* SIHIHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHIHandler.h; sourceTree = "<group>"; };
+		CEBF7F6B1C21C95E0031E531 /* SIHInitializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHInitializer.h; sourceTree = "<group>"; };
+		CEBF7F6C1C21C95E0031E531 /* SIHLibraryDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHLibraryDescriptor.h; sourceTree = "<group>"; };
+		CEBF7F6D1C21C95E0031E531 /* SIHLibraryDescriptorReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHLibraryDescriptorReader.h; sourceTree = "<group>"; };
+		CEBF7F6E1C21C95E0031E531 /* SIHNotificationEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHNotificationEventHandler.h; sourceTree = "<group>"; };
+		CEBF7F6F1C21C95E0031E531 /* SIHNotificationHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHNotificationHandler.h; sourceTree = "<group>"; };
+		CEBF7F701C21C95E0031E531 /* SIHResourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHResourceManager.h; sourceTree = "<group>"; };
+		CEBF7F711C21C95E0031E531 /* SIHResourcesHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHResourcesHandler.h; sourceTree = "<group>"; };
+		CEBF7F721C21C95E0031E531 /* SIHServiceHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHServiceHandler.h; sourceTree = "<group>"; };
+		CEBF7F731C21C95E0031E531 /* SIHSiminov.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHSiminov.h; sourceTree = "<group>"; };
+		CEBF7F741C21C95E0031E531 /* SIHSiminovEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHSiminovEventHandler.h; sourceTree = "<group>"; };
+		CEBF7F751C21C95E0031E531 /* SIHSyncEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHSyncEventHandler.h; sourceTree = "<group>"; };
+		CEBF7F761C21C95E0031E531 /* SIHSyncHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHSyncHandler.h; sourceTree = "<group>"; };
+		CEBF7F771C21C95E0031E531 /* SIHSyncWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHSyncWorker.h; sourceTree = "<group>"; };
+		CEBF7F781C21C95E0031E531 /* SIHUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHUtils.h; sourceTree = "<group>"; };
+		CEBF7F791C21C95E0031E531 /* SIKApplicationDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKApplicationDescriptor.h; sourceTree = "<group>"; };
+		CEBF7F7A1C21C95E0031E531 /* SIKApplicationDescriptorReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKApplicationDescriptorReader.h; sourceTree = "<group>"; };
+		CEBF7F7B1C21C95E0031E531 /* SIKAsyncServiceWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKAsyncServiceWorker.h; sourceTree = "<group>"; };
+		CEBF7F7C1C21C95E0031E531 /* SIKConnectionException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKConnectionException.h; sourceTree = "<group>"; };
+		CEBF7F7D1C21C95E0031E531 /* SIKConnectionHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKConnectionHelper.h; sourceTree = "<group>"; };
+		CEBF7F7E1C21C95E0031E531 /* SIKConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKConnectionManager.h; sourceTree = "<group>"; };
+		CEBF7F7F1C21C95E0031E531 /* SIKConnectionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKConnectionRequest.h; sourceTree = "<group>"; };
+		CEBF7F801C21C95E0031E531 /* SIKConnectionResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKConnectionResponse.h; sourceTree = "<group>"; };
+		CEBF7F811C21C95E0031E531 /* SIKConnectionStatusCodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKConnectionStatusCodes.h; sourceTree = "<group>"; };
+		CEBF7F821C21C95E0031E531 /* SIKConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKConstants.h; sourceTree = "<group>"; };
+		CEBF7F831C21C95E0031E531 /* SIKEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKEventHandler.h; sourceTree = "<group>"; };
+		CEBF7F841C21C95E0031E531 /* SIKHttpConnectionWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKHttpConnectionWorker.h; sourceTree = "<group>"; };
+		CEBF7F851C21C95E0031E531 /* SIKHttpsConnectionWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKHttpsConnectionWorker.h; sourceTree = "<group>"; };
+		CEBF7F861C21C95E0031E531 /* SIKIConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKIConnection.h; sourceTree = "<group>"; };
+		CEBF7F871C21C95E0031E531 /* SIKIConnectionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKIConnectionRequest.h; sourceTree = "<group>"; };
+		CEBF7F881C21C95E0031E531 /* SIKIConnectionResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKIConnectionResponse.h; sourceTree = "<group>"; };
+		CEBF7F891C21C95E0031E531 /* SIKIMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKIMessage.h; sourceTree = "<group>"; };
+		CEBF7F8A1C21C95E0031E531 /* SIKInitializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKInitializer.h; sourceTree = "<group>"; };
+		CEBF7F8B1C21C95E0031E531 /* SIKINotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKINotification.h; sourceTree = "<group>"; };
+		CEBF7F8C1C21C95E0031E531 /* SIKINotificationEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKINotificationEvents.h; sourceTree = "<group>"; };
+		CEBF7F8D1C21C95E0031E531 /* SIKIRegistration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKIRegistration.h; sourceTree = "<group>"; };
+		CEBF7F8E1C21C95E0031E531 /* SIKIRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKIRequest.h; sourceTree = "<group>"; };
+		CEBF7F8F1C21C95E0031E531 /* SIKIResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKIResource.h; sourceTree = "<group>"; };
+		CEBF7F901C21C95E0031E531 /* SIKIService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKIService.h; sourceTree = "<group>"; };
+		CEBF7F911C21C95E0031E531 /* SIKIServiceEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKIServiceEvents.h; sourceTree = "<group>"; };
+		CEBF7F921C21C95E0031E531 /* SIKISyncEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKISyncEvents.h; sourceTree = "<group>"; };
+		CEBF7F931C21C95E0031E531 /* SIKISyncRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKISyncRequest.h; sourceTree = "<group>"; };
+		CEBF7F941C21C95E0031E531 /* SIKIWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKIWorker.h; sourceTree = "<group>"; };
+		CEBF7F951C21C95E0031E531 /* SIKLibraryDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKLibraryDescriptor.h; sourceTree = "<group>"; };
+		CEBF7F961C21C95E0031E531 /* SIKLibraryDescriptorReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKLibraryDescriptorReader.h; sourceTree = "<group>"; };
+		CEBF7F971C21C95E0031E531 /* SIKMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKMessage.h; sourceTree = "<group>"; };
+		CEBF7F981C21C95E0031E531 /* SIKNotificationDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKNotificationDescriptor.h; sourceTree = "<group>"; };
+		CEBF7F991C21C95E0031E531 /* SIKNotificationException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKNotificationException.h; sourceTree = "<group>"; };
+		CEBF7F9A1C21C95E0031E531 /* SIKNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKNotificationManager.h; sourceTree = "<group>"; };
+		CEBF7F9B1C21C95E0031E531 /* SIKNotificationReceiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKNotificationReceiver.h; sourceTree = "<group>"; };
+		CEBF7F9C1C21C95E0031E531 /* SIKNotificationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKNotificationService.h; sourceTree = "<group>"; };
+		CEBF7F9D1C21C95E0031E531 /* SIKQuickServiceDescriptorReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKQuickServiceDescriptorReader.h; sourceTree = "<group>"; };
+		CEBF7F9E1C21C95E0031E531 /* SIKRegistration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKRegistration.h; sourceTree = "<group>"; };
+		CEBF7F9F1C21C95E0031E531 /* SIKResourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKResourceManager.h; sourceTree = "<group>"; };
+		CEBF7FA01C21C95E0031E531 /* SIKResourceUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKResourceUtils.h; sourceTree = "<group>"; };
+		CEBF7FA11C21C95E0031E531 /* SIKService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKService.h; sourceTree = "<group>"; };
+		CEBF7FA21C21C95E0031E531 /* SIKServiceDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKServiceDescriptor.h; sourceTree = "<group>"; };
+		CEBF7FA31C21C95E0031E531 /* SIKServiceDescriptorReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKServiceDescriptorReader.h; sourceTree = "<group>"; };
+		CEBF7FA41C21C95E0031E531 /* SIKServiceException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKServiceException.h; sourceTree = "<group>"; };
+		CEBF7FA51C21C95E0031E531 /* SIKServiceHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKServiceHandler.h; sourceTree = "<group>"; };
+		CEBF7FA61C21C95E0031E531 /* SIKServiceRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKServiceRequest.h; sourceTree = "<group>"; };
+		CEBF7FA71C21C95E0031E531 /* SIKServiceRequestResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKServiceRequestResource.h; sourceTree = "<group>"; };
+		CEBF7FA81C21C95E0031E531 /* SIKSiminov.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKSiminov.h; sourceTree = "<group>"; };
+		CEBF7FA91C21C95E0031E531 /* SIKSyncDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKSyncDescriptor.h; sourceTree = "<group>"; };
+		CEBF7FAA1C21C95E0031E531 /* SIKSyncDescriptorReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKSyncDescriptorReader.h; sourceTree = "<group>"; };
+		CEBF7FAB1C21C95E0031E531 /* SIKSyncException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKSyncException.h; sourceTree = "<group>"; };
+		CEBF7FAC1C21C95E0031E531 /* SIKSyncHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKSyncHandler.h; sourceTree = "<group>"; };
+		CEBF7FAD1C21C95E0031E531 /* SIKSyncRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKSyncRequest.h; sourceTree = "<group>"; };
+		CEBF7FAE1C21C95E0031E531 /* SIKSyncServiceWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKSyncServiceWorker.h; sourceTree = "<group>"; };
+		CEBF7FAF1C21C95E0031E531 /* SIKSyncWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKSyncWorker.h; sourceTree = "<group>"; };
+		CEBF7FB01C21C95E0031E531 /* SIKUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIKUtils.h; sourceTree = "<group>"; };
+		CEBF7FB21C21C95E0031E531 /* DatabaseDescriptor.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DatabaseDescriptor.xml; sourceTree = "<group>"; };
+		CEBF7FB31C21C95E0031E531 /* ServiceRequest.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ServiceRequest.xml; sourceTree = "<group>"; };
+		CEBF7FB41C21C95E0031E531 /* ServiceRequestResource.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ServiceRequestResource.xml; sourceTree = "<group>"; };
+		CEBF7FB61C21C95E0031E531 /* DatabaseAdapter.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DatabaseAdapter.xml; sourceTree = "<group>"; };
+		CEBF7FB71C21C95E0031E531 /* EventHandlerAdapter.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = EventHandlerAdapter.xml; sourceTree = "<group>"; };
+		CEBF7FB81C21C95E0031E531 /* LibraryDescriptor.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LibraryDescriptor.xml; sourceTree = "<group>"; };
+		CEBF7FB91C21C95E0031E531 /* NotificationAdapter.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = NotificationAdapter.xml; sourceTree = "<group>"; };
+		CEBF7FBA1C21C95E0031E531 /* ResourcesAdapter.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ResourcesAdapter.xml; sourceTree = "<group>"; };
+		CEBF7FBB1C21C95E0031E531 /* ServiceAdapter.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ServiceAdapter.xml; sourceTree = "<group>"; };
+		CEBF7FBC1C21C95E0031E531 /* ServiceEventHandlerAdapter.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ServiceEventHandlerAdapter.xml; sourceTree = "<group>"; };
+		CEBF7FBD1C21C95E0031E531 /* SiminovExceptionAdapter.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SiminovExceptionAdapter.xml; sourceTree = "<group>"; };
+		CEBF7FBE1C21C95E0031E531 /* SiminovHybridAdapter.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SiminovHybridAdapter.xml; sourceTree = "<group>"; };
+		CEBF7FBF1C21C95E0031E531 /* SiminovNativeAdapter.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SiminovNativeAdapter.xml; sourceTree = "<group>"; };
+		CEBF7FC01C21C95E0031E531 /* SyncAdapter.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SyncAdapter.xml; sourceTree = "<group>"; };
+		CEBF7FC11C21C95E0031E531 /* libHybrid.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libHybrid.a; sourceTree = "<group>"; };
+		D2AAC07E0554694100DB518D /* libHybridTitaniumModule.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libHybridTitaniumModule.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2AAC07C0554694100DB518D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEBF80651C21C95E0031E531 /* libHybrid.a in Frameworks */,
+				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2AAC07E0554694100DB518D /* libHybridTitaniumModule.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* Hybrid-Titanium-Module */ = {
+			isa = PBXGroup;
+			children = (
+				CEBF7F0D1C21C95E0031E531 /* include */,
+				CEBF7FC11C21C95E0031E531 /* libHybrid.a */,
+				08FB77AEFE84172EC02AAC07 /* Classes */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				0867D69AFE84028FC02AAC07 /* Frameworks */,
+				034768DFFF38A50411DB9C8B /* Products */,
+			);
+			name = "Hybrid-Titanium-Module";
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		08FB77AEFE84172EC02AAC07 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				24DE9E0F11C5FE74003F90F6 /* HybridTitaniumModuleModuleAssets.h */,
+				24DE9E1011C5FE74003F90F6 /* HybridTitaniumModuleModuleAssets.m */,
+				24DD6CF71134B3F500162E58 /* HybridTitaniumModuleModule.h */,
+				24DD6CF81134B3F500162E58 /* HybridTitaniumModuleModule.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				AA747D9E0F9514B9006C5449 /* HybridTitaniumModule_Prefix.pch */,
+				24DD6D1B1134B66800162E58 /* titanium.xcconfig */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		CEBF7F0D1C21C95E0031E531 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				CEBF7F0E1C21C95E0031E531 /* Reachability.h */,
+				CEBF7F0F1C21C95E0031E531 /* SICApplicationDescriptor.h */,
+				CEBF7F101C21C95E0031E531 /* SICApplicationDescriptorReader.h */,
+				CEBF7F111C21C95E0031E531 /* SICClassUtils.h */,
+				CEBF7F121C21C95E0031E531 /* SICClause.h */,
+				CEBF7F131C21C95E0031E531 /* SICConstants.h */,
+				CEBF7F141C21C95E0031E531 /* SICDatabase.h */,
+				CEBF7F151C21C95E0031E531 /* SICDatabaseBundle.h */,
+				CEBF7F161C21C95E0031E531 /* SICDatabaseDescriptor.h */,
+				CEBF7F171C21C95E0031E531 /* SICDatabaseDescriptorReader.h */,
+				CEBF7F181C21C95E0031E531 /* SICDatabaseException.h */,
+				CEBF7F191C21C95E0031E531 /* SICDatabaseFactory.h */,
+				CEBF7F1A1C21C95E0031E531 /* SICDatabaseHelper.h */,
+				CEBF7F1B1C21C95E0031E531 /* SICDatabaseImpl.h */,
+				CEBF7F1C1C21C95E0031E531 /* SICDatabaseUtils.h */,
+				CEBF7F1D1C21C95E0031E531 /* SICDataTypeHandler.h */,
+				CEBF7F1E1C21C95E0031E531 /* SICDeploymentException.h */,
+				CEBF7F1F1C21C95E0031E531 /* SICEntityDescriptor.h */,
+				CEBF7F201C21C95E0031E531 /* SICEventHandler.h */,
+				CEBF7F211C21C95E0031E531 /* SICFileUtils.h */,
+				CEBF7F221C21C95E0031E531 /* SICIAverage.h */,
+				CEBF7F231C21C95E0031E531 /* SICIAverageClause.h */,
+				CEBF7F241C21C95E0031E531 /* SICICount.h */,
+				CEBF7F251C21C95E0031E531 /* SICICountClause.h */,
+				CEBF7F261C21C95E0031E531 /* SICIDatabase.h */,
+				CEBF7F271C21C95E0031E531 /* SICIDatabaseEvents.h */,
+				CEBF7F281C21C95E0031E531 /* SICIDatabaseImpl.h */,
+				CEBF7F291C21C95E0031E531 /* SICIDataTypeHandler.h */,
+				CEBF7F2A1C21C95E0031E531 /* SICIDelete.h */,
+				CEBF7F2B1C21C95E0031E531 /* SICIDeleteClause.h */,
+				CEBF7F2C1C21C95E0031E531 /* SICIDescriptor.h */,
+				CEBF7F2D1C21C95E0031E531 /* SICIException.h */,
+				CEBF7F2E1C21C95E0031E531 /* SICIGroupConcat.h */,
+				CEBF7F2F1C21C95E0031E531 /* SICIGroupConcatClause.h */,
+				CEBF7F301C21C95E0031E531 /* SICIInitializer.h */,
+				CEBF7F311C21C95E0031E531 /* SICIMax.h */,
+				CEBF7F321C21C95E0031E531 /* SICIMaxClause.h */,
+				CEBF7F331C21C95E0031E531 /* SICIMin.h */,
+				CEBF7F341C21C95E0031E531 /* SICIMinClause.h */,
+				CEBF7F351C21C95E0031E531 /* SICInitializer.h */,
+				CEBF7F361C21C95E0031E531 /* SICIQueryBuilder.h */,
+				CEBF7F371C21C95E0031E531 /* SICISelect.h */,
+				CEBF7F381C21C95E0031E531 /* SICISelectClause.h */,
+				CEBF7F391C21C95E0031E531 /* SICISiminovEvents.h */,
+				CEBF7F3A1C21C95E0031E531 /* SICISum.h */,
+				CEBF7F3B1C21C95E0031E531 /* SICISumClause.h */,
+				CEBF7F3C1C21C95E0031E531 /* SICITotal.h */,
+				CEBF7F3D1C21C95E0031E531 /* SICITotalClause.h */,
+				CEBF7F3E1C21C95E0031E531 /* SICLibraryDescriptor.h */,
+				CEBF7F3F1C21C95E0031E531 /* SICLibraryDescriptorReader.h */,
+				CEBF7F401C21C95E0031E531 /* SICLog.h */,
+				CEBF7F411C21C95E0031E531 /* SICPrematureEndOfParseException.h */,
+				CEBF7F421C21C95E0031E531 /* SICQueryBuilder.h */,
+				CEBF7F431C21C95E0031E531 /* SICQuickEntityDescriptorReader.h */,
+				CEBF7F441C21C95E0031E531 /* SICResourceManager.h */,
+				CEBF7F451C21C95E0031E531 /* SICSiminov.h */,
+				CEBF7F461C21C95E0031E531 /* SICSiminovCriticalException.h */,
+				CEBF7F471C21C95E0031E531 /* SICSiminovException.h */,
+				CEBF7F481C21C95E0031E531 /* SICSiminovSAXDefaultHandler.h */,
+				CEBF7F491C21C95E0031E531 /* SICWhere.h */,
+				CEBF7F4A1C21C95E0031E531 /* SIHAdapter.h */,
+				CEBF7F4B1C21C95E0031E531 /* SIHAdapterDescriptor.h */,
+				CEBF7F4C1C21C95E0031E531 /* SIHAdapterDescriptorReader.h */,
+				CEBF7F4D1C21C95E0031E531 /* SIHAdapterFactory.h */,
+				CEBF7F4E1C21C95E0031E531 /* SIHAdapterHandler.h */,
+				CEBF7F4F1C21C95E0031E531 /* SIHApplicationDescriptor.h */,
+				CEBF7F501C21C95E0031E531 /* SIHApplicationDescriptorReader.h */,
+				CEBF7F511C21C95E0031E531 /* SIHConstants.h */,
+				CEBF7F521C21C95E0031E531 /* SIHDatabaseEventHandler.h */,
+				CEBF7F531C21C95E0031E531 /* SIHDatabaseHandler.h */,
+				CEBF7F541C21C95E0031E531 /* SIHDataTypeHandler.h */,
+				CEBF7F551C21C95E0031E531 /* SIHEventHandler.h */,
+				CEBF7F561C21C95E0031E531 /* SIHGenericService.h */,
+				CEBF7F571C21C95E0031E531 /* SIHGenericSyncHandler.h */,
+				CEBF7F581C21C95E0031E531 /* SIHHybridAdapterDescriptor.h */,
+				CEBF7F591C21C95E0031E531 /* SIHHybridApplicationDescriptor.h */,
+				CEBF7F5A1C21C95E0031E531 /* SIHHybridConnectionRequest.h */,
+				CEBF7F5B1C21C95E0031E531 /* SIHHybridConnectionResponse.h */,
+				CEBF7F5C1C21C95E0031E531 /* SIHHybridDatabaseDescriptor.h */,
+				CEBF7F5D1C21C95E0031E531 /* SIHHybridEntityDescriptor.h */,
+				CEBF7F5E1C21C95E0031E531 /* SIHHybridEventHandler.h */,
+				CEBF7F5F1C21C95E0031E531 /* SIHHybridLibraryDescriptor.h */,
+				CEBF7F601C21C95E0031E531 /* SIHHybridMessage.h */,
+				CEBF7F611C21C95E0031E531 /* SIHHybridNotificationException.h */,
+				CEBF7F621C21C95E0031E531 /* SIHHybridRegistration.h */,
+				CEBF7F631C21C95E0031E531 /* SIHHybridServiceHandler.h */,
+				CEBF7F641C21C95E0031E531 /* SIHHybridSiminovDataReader.h */,
+				CEBF7F651C21C95E0031E531 /* SIHHybridSiminovDatas.h */,
+				CEBF7F661C21C95E0031E531 /* SIHHybridSiminovDataWritter.h */,
+				CEBF7F671C21C95E0031E531 /* SIHHybridSiminovException.h */,
+				CEBF7F681C21C95E0031E531 /* SIHHybridSyncRequest.h */,
+				CEBF7F691C21C95E0031E531 /* SIHIAdapter.h */,
+				CEBF7F6A1C21C95E0031E531 /* SIHIHandler.h */,
+				CEBF7F6B1C21C95E0031E531 /* SIHInitializer.h */,
+				CEBF7F6C1C21C95E0031E531 /* SIHLibraryDescriptor.h */,
+				CEBF7F6D1C21C95E0031E531 /* SIHLibraryDescriptorReader.h */,
+				CEBF7F6E1C21C95E0031E531 /* SIHNotificationEventHandler.h */,
+				CEBF7F6F1C21C95E0031E531 /* SIHNotificationHandler.h */,
+				CEBF7F701C21C95E0031E531 /* SIHResourceManager.h */,
+				CEBF7F711C21C95E0031E531 /* SIHResourcesHandler.h */,
+				CEBF7F721C21C95E0031E531 /* SIHServiceHandler.h */,
+				CEBF7F731C21C95E0031E531 /* SIHSiminov.h */,
+				CEBF7F741C21C95E0031E531 /* SIHSiminovEventHandler.h */,
+				CEBF7F751C21C95E0031E531 /* SIHSyncEventHandler.h */,
+				CEBF7F761C21C95E0031E531 /* SIHSyncHandler.h */,
+				CEBF7F771C21C95E0031E531 /* SIHSyncWorker.h */,
+				CEBF7F781C21C95E0031E531 /* SIHUtils.h */,
+				CEBF7F791C21C95E0031E531 /* SIKApplicationDescriptor.h */,
+				CEBF7F7A1C21C95E0031E531 /* SIKApplicationDescriptorReader.h */,
+				CEBF7F7B1C21C95E0031E531 /* SIKAsyncServiceWorker.h */,
+				CEBF7F7C1C21C95E0031E531 /* SIKConnectionException.h */,
+				CEBF7F7D1C21C95E0031E531 /* SIKConnectionHelper.h */,
+				CEBF7F7E1C21C95E0031E531 /* SIKConnectionManager.h */,
+				CEBF7F7F1C21C95E0031E531 /* SIKConnectionRequest.h */,
+				CEBF7F801C21C95E0031E531 /* SIKConnectionResponse.h */,
+				CEBF7F811C21C95E0031E531 /* SIKConnectionStatusCodes.h */,
+				CEBF7F821C21C95E0031E531 /* SIKConstants.h */,
+				CEBF7F831C21C95E0031E531 /* SIKEventHandler.h */,
+				CEBF7F841C21C95E0031E531 /* SIKHttpConnectionWorker.h */,
+				CEBF7F851C21C95E0031E531 /* SIKHttpsConnectionWorker.h */,
+				CEBF7F861C21C95E0031E531 /* SIKIConnection.h */,
+				CEBF7F871C21C95E0031E531 /* SIKIConnectionRequest.h */,
+				CEBF7F881C21C95E0031E531 /* SIKIConnectionResponse.h */,
+				CEBF7F891C21C95E0031E531 /* SIKIMessage.h */,
+				CEBF7F8A1C21C95E0031E531 /* SIKInitializer.h */,
+				CEBF7F8B1C21C95E0031E531 /* SIKINotification.h */,
+				CEBF7F8C1C21C95E0031E531 /* SIKINotificationEvents.h */,
+				CEBF7F8D1C21C95E0031E531 /* SIKIRegistration.h */,
+				CEBF7F8E1C21C95E0031E531 /* SIKIRequest.h */,
+				CEBF7F8F1C21C95E0031E531 /* SIKIResource.h */,
+				CEBF7F901C21C95E0031E531 /* SIKIService.h */,
+				CEBF7F911C21C95E0031E531 /* SIKIServiceEvents.h */,
+				CEBF7F921C21C95E0031E531 /* SIKISyncEvents.h */,
+				CEBF7F931C21C95E0031E531 /* SIKISyncRequest.h */,
+				CEBF7F941C21C95E0031E531 /* SIKIWorker.h */,
+				CEBF7F951C21C95E0031E531 /* SIKLibraryDescriptor.h */,
+				CEBF7F961C21C95E0031E531 /* SIKLibraryDescriptorReader.h */,
+				CEBF7F971C21C95E0031E531 /* SIKMessage.h */,
+				CEBF7F981C21C95E0031E531 /* SIKNotificationDescriptor.h */,
+				CEBF7F991C21C95E0031E531 /* SIKNotificationException.h */,
+				CEBF7F9A1C21C95E0031E531 /* SIKNotificationManager.h */,
+				CEBF7F9B1C21C95E0031E531 /* SIKNotificationReceiver.h */,
+				CEBF7F9C1C21C95E0031E531 /* SIKNotificationService.h */,
+				CEBF7F9D1C21C95E0031E531 /* SIKQuickServiceDescriptorReader.h */,
+				CEBF7F9E1C21C95E0031E531 /* SIKRegistration.h */,
+				CEBF7F9F1C21C95E0031E531 /* SIKResourceManager.h */,
+				CEBF7FA01C21C95E0031E531 /* SIKResourceUtils.h */,
+				CEBF7FA11C21C95E0031E531 /* SIKService.h */,
+				CEBF7FA21C21C95E0031E531 /* SIKServiceDescriptor.h */,
+				CEBF7FA31C21C95E0031E531 /* SIKServiceDescriptorReader.h */,
+				CEBF7FA41C21C95E0031E531 /* SIKServiceException.h */,
+				CEBF7FA51C21C95E0031E531 /* SIKServiceHandler.h */,
+				CEBF7FA61C21C95E0031E531 /* SIKServiceRequest.h */,
+				CEBF7FA71C21C95E0031E531 /* SIKServiceRequestResource.h */,
+				CEBF7FA81C21C95E0031E531 /* SIKSiminov.h */,
+				CEBF7FA91C21C95E0031E531 /* SIKSyncDescriptor.h */,
+				CEBF7FAA1C21C95E0031E531 /* SIKSyncDescriptorReader.h */,
+				CEBF7FAB1C21C95E0031E531 /* SIKSyncException.h */,
+				CEBF7FAC1C21C95E0031E531 /* SIKSyncHandler.h */,
+				CEBF7FAD1C21C95E0031E531 /* SIKSyncRequest.h */,
+				CEBF7FAE1C21C95E0031E531 /* SIKSyncServiceWorker.h */,
+				CEBF7FAF1C21C95E0031E531 /* SIKSyncWorker.h */,
+				CEBF7FB01C21C95E0031E531 /* SIKUtils.h */,
+				CEBF7FB11C21C95E0031E531 /* Siminov.Connect.Resource */,
+				CEBF7FB51C21C95E0031E531 /* Siminov.Hybrid.Adapter.Resources */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		CEBF7FB11C21C95E0031E531 /* Siminov.Connect.Resource */ = {
+			isa = PBXGroup;
+			children = (
+				CEBF7FB21C21C95E0031E531 /* DatabaseDescriptor.xml */,
+				CEBF7FB31C21C95E0031E531 /* ServiceRequest.xml */,
+				CEBF7FB41C21C95E0031E531 /* ServiceRequestResource.xml */,
+			);
+			path = Siminov.Connect.Resource;
+			sourceTree = "<group>";
+		};
+		CEBF7FB51C21C95E0031E531 /* Siminov.Hybrid.Adapter.Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CEBF7FB61C21C95E0031E531 /* DatabaseAdapter.xml */,
+				CEBF7FB71C21C95E0031E531 /* EventHandlerAdapter.xml */,
+				CEBF7FB81C21C95E0031E531 /* LibraryDescriptor.xml */,
+				CEBF7FB91C21C95E0031E531 /* NotificationAdapter.xml */,
+				CEBF7FBA1C21C95E0031E531 /* ResourcesAdapter.xml */,
+				CEBF7FBB1C21C95E0031E531 /* ServiceAdapter.xml */,
+				CEBF7FBC1C21C95E0031E531 /* ServiceEventHandlerAdapter.xml */,
+				CEBF7FBD1C21C95E0031E531 /* SiminovExceptionAdapter.xml */,
+				CEBF7FBE1C21C95E0031E531 /* SiminovHybridAdapter.xml */,
+				CEBF7FBF1C21C95E0031E531 /* SiminovNativeAdapter.xml */,
+				CEBF7FC01C21C95E0031E531 /* SyncAdapter.xml */,
+			);
+			path = Siminov.Hybrid.Adapter.Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D2AAC07A0554694100DB518D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEBF801B1C21C95E0031E531 /* SIHHybridSiminovException.h in Headers */,
+				CEBF802A1C21C95E0031E531 /* SIHSyncHandler.h in Headers */,
+				CEBF80571C21C95E0031E531 /* SIKServiceDescriptorReader.h in Headers */,
+				CEBF80061C21C95E0031E531 /* SIHDatabaseEventHandler.h in Headers */,
+				CEBF7FE61C21C95E0031E531 /* SICIMaxClause.h in Headers */,
+				CEBF7FDF1C21C95E0031E531 /* SICIDeleteClause.h in Headers */,
+				CEBF80261C21C95E0031E531 /* SIHServiceHandler.h in Headers */,
+				CEBF7FCD1C21C95E0031E531 /* SICDatabaseFactory.h in Headers */,
+				CEBF7FD01C21C95E0031E531 /* SICDatabaseUtils.h in Headers */,
+				CEBF805B1C21C95E0031E531 /* SIKServiceRequestResource.h in Headers */,
+				CEBF804B1C21C95E0031E531 /* SIKMessage.h in Headers */,
+				CEBF80221C21C95E0031E531 /* SIHNotificationEventHandler.h in Headers */,
+				CEBF80641C21C95E0031E531 /* SIKUtils.h in Headers */,
+				CEBF80451C21C95E0031E531 /* SIKIServiceEvents.h in Headers */,
+				CEBF7FFF1C21C95E0031E531 /* SIHAdapterDescriptor.h in Headers */,
+				CEBF7FFC1C21C95E0031E531 /* SICSiminovSAXDefaultHandler.h in Headers */,
+				CEBF80621C21C95E0031E531 /* SIKSyncServiceWorker.h in Headers */,
+				CEBF80141C21C95E0031E531 /* SIHHybridMessage.h in Headers */,
+				CEBF802F1C21C95E0031E531 /* SIKAsyncServiceWorker.h in Headers */,
+				CEBF7FE71C21C95E0031E531 /* SICIMin.h in Headers */,
+				CEBF803B1C21C95E0031E531 /* SIKIConnectionRequest.h in Headers */,
+				CEBF80091C21C95E0031E531 /* SIHEventHandler.h in Headers */,
+				CEBF7FE51C21C95E0031E531 /* SICIMax.h in Headers */,
+				CEBF805D1C21C95E0031E531 /* SIKSyncDescriptor.h in Headers */,
+				CEBF803E1C21C95E0031E531 /* SIKInitializer.h in Headers */,
+				CEBF7FFE1C21C95E0031E531 /* SIHAdapter.h in Headers */,
+				CEBF803F1C21C95E0031E531 /* SIKINotification.h in Headers */,
+				CEBF80531C21C95E0031E531 /* SIKResourceManager.h in Headers */,
+				CEBF80601C21C95E0031E531 /* SIKSyncHandler.h in Headers */,
+				CEBF7FF71C21C95E0031E531 /* SICQuickEntityDescriptorReader.h in Headers */,
+				CEBF801E1C21C95E0031E531 /* SIHIHandler.h in Headers */,
+				CEBF7FE41C21C95E0031E531 /* SICIInitializer.h in Headers */,
+				CEBF7FCA1C21C95E0031E531 /* SICDatabaseDescriptor.h in Headers */,
+				CEBF80561C21C95E0031E531 /* SIKServiceDescriptor.h in Headers */,
+				CEBF800F1C21C95E0031E531 /* SIHHybridConnectionResponse.h in Headers */,
+				CEBF7FCC1C21C95E0031E531 /* SICDatabaseException.h in Headers */,
+				CEBF7FC31C21C95E0031E531 /* SICApplicationDescriptor.h in Headers */,
+				AA747D9F0F9514B9006C5449 /* HybridTitaniumModule_Prefix.pch in Headers */,
+				CEBF7FF61C21C95E0031E531 /* SICQueryBuilder.h in Headers */,
+				CEBF80331C21C95E0031E531 /* SIKConnectionRequest.h in Headers */,
+				CEBF805E1C21C95E0031E531 /* SIKSyncDescriptorReader.h in Headers */,
+				CEBF80151C21C95E0031E531 /* SIHHybridNotificationException.h in Headers */,
+				CEBF80191C21C95E0031E531 /* SIHHybridSiminovDatas.h in Headers */,
+				CEBF7FF01C21C95E0031E531 /* SICITotal.h in Headers */,
+				CEBF7FFD1C21C95E0031E531 /* SICWhere.h in Headers */,
+				CEBF800C1C21C95E0031E531 /* SIHHybridAdapterDescriptor.h in Headers */,
+				CEBF7FDB1C21C95E0031E531 /* SICIDatabaseEvents.h in Headers */,
+				CEBF80201C21C95E0031E531 /* SIHLibraryDescriptor.h in Headers */,
+				CEBF7FEE1C21C95E0031E531 /* SICISum.h in Headers */,
+				CEBF7FF81C21C95E0031E531 /* SICResourceManager.h in Headers */,
+				CEBF7FF11C21C95E0031E531 /* SICITotalClause.h in Headers */,
+				CEBF805C1C21C95E0031E531 /* SIKSiminov.h in Headers */,
+				CEBF801C1C21C95E0031E531 /* SIHHybridSyncRequest.h in Headers */,
+				CEBF7FD61C21C95E0031E531 /* SICIAverage.h in Headers */,
+				CEBF7FC41C21C95E0031E531 /* SICApplicationDescriptorReader.h in Headers */,
+				CEBF801D1C21C95E0031E531 /* SIHIAdapter.h in Headers */,
+				CEBF80161C21C95E0031E531 /* SIHHybridRegistration.h in Headers */,
+				CEBF7FD71C21C95E0031E531 /* SICIAverageClause.h in Headers */,
+				CEBF7FC21C21C95E0031E531 /* Reachability.h in Headers */,
+				CEBF80351C21C95E0031E531 /* SIKConnectionStatusCodes.h in Headers */,
+				CEBF7FC71C21C95E0031E531 /* SICConstants.h in Headers */,
+				CEBF803A1C21C95E0031E531 /* SIKIConnection.h in Headers */,
+				CEBF7FE91C21C95E0031E531 /* SICInitializer.h in Headers */,
+				CEBF80521C21C95E0031E531 /* SIKRegistration.h in Headers */,
+				CEBF80071C21C95E0031E531 /* SIHDatabaseHandler.h in Headers */,
+				CEBF7FE11C21C95E0031E531 /* SICIException.h in Headers */,
+				CEBF7FEF1C21C95E0031E531 /* SICISumClause.h in Headers */,
+				CEBF80121C21C95E0031E531 /* SIHHybridEventHandler.h in Headers */,
+				CEBF7FE01C21C95E0031E531 /* SICIDescriptor.h in Headers */,
+				CEBF80251C21C95E0031E531 /* SIHResourcesHandler.h in Headers */,
+				24DD6CF91134B3F500162E58 /* HybridTitaniumModuleModule.h in Headers */,
+				CEBF80021C21C95E0031E531 /* SIHAdapterHandler.h in Headers */,
+				CEBF80501C21C95E0031E531 /* SIKNotificationService.h in Headers */,
+				CEBF803C1C21C95E0031E531 /* SIKIConnectionResponse.h in Headers */,
+				CEBF80421C21C95E0031E531 /* SIKIRequest.h in Headers */,
+				CEBF802D1C21C95E0031E531 /* SIKApplicationDescriptor.h in Headers */,
+				CEBF7FE21C21C95E0031E531 /* SICIGroupConcat.h in Headers */,
+				CEBF80371C21C95E0031E531 /* SIKEventHandler.h in Headers */,
+				CEBF802C1C21C95E0031E531 /* SIHUtils.h in Headers */,
+				CEBF7FC61C21C95E0031E531 /* SICClause.h in Headers */,
+				CEBF801A1C21C95E0031E531 /* SIHHybridSiminovDataWritter.h in Headers */,
+				CEBF7FFB1C21C95E0031E531 /* SICSiminovException.h in Headers */,
+				CEBF80101C21C95E0031E531 /* SIHHybridDatabaseDescriptor.h in Headers */,
+				CEBF804E1C21C95E0031E531 /* SIKNotificationManager.h in Headers */,
+				CEBF80591C21C95E0031E531 /* SIKServiceHandler.h in Headers */,
+				CEBF804D1C21C95E0031E531 /* SIKNotificationException.h in Headers */,
+				CEBF80581C21C95E0031E531 /* SIKServiceException.h in Headers */,
+				CEBF7FF21C21C95E0031E531 /* SICLibraryDescriptor.h in Headers */,
+				CEBF80431C21C95E0031E531 /* SIKIResource.h in Headers */,
+				CEBF80211C21C95E0031E531 /* SIHLibraryDescriptorReader.h in Headers */,
+				CEBF7FE81C21C95E0031E531 /* SICIMinClause.h in Headers */,
+				CEBF80381C21C95E0031E531 /* SIKHttpConnectionWorker.h in Headers */,
+				CEBF7FED1C21C95E0031E531 /* SICISiminovEvents.h in Headers */,
+				CEBF805A1C21C95E0031E531 /* SIKServiceRequest.h in Headers */,
+				CEBF80111C21C95E0031E531 /* SIHHybridEntityDescriptor.h in Headers */,
+				CEBF80231C21C95E0031E531 /* SIHNotificationHandler.h in Headers */,
+				CEBF7FC81C21C95E0031E531 /* SICDatabase.h in Headers */,
+				CEBF7FF91C21C95E0031E531 /* SICSiminov.h in Headers */,
+				CEBF7FD81C21C95E0031E531 /* SICICount.h in Headers */,
+				CEBF80241C21C95E0031E531 /* SIHResourceManager.h in Headers */,
+				CEBF80311C21C95E0031E531 /* SIKConnectionHelper.h in Headers */,
+				CEBF80441C21C95E0031E531 /* SIKIService.h in Headers */,
+				CEBF80411C21C95E0031E531 /* SIKIRegistration.h in Headers */,
+				CEBF80511C21C95E0031E531 /* SIKQuickServiceDescriptorReader.h in Headers */,
+				CEBF80471C21C95E0031E531 /* SIKISyncRequest.h in Headers */,
+				CEBF7FEB1C21C95E0031E531 /* SICISelect.h in Headers */,
+				CEBF80541C21C95E0031E531 /* SIKResourceUtils.h in Headers */,
+				CEBF801F1C21C95E0031E531 /* SIHInitializer.h in Headers */,
+				CEBF80481C21C95E0031E531 /* SIKIWorker.h in Headers */,
+				CEBF7FF41C21C95E0031E531 /* SICLog.h in Headers */,
+				CEBF80461C21C95E0031E531 /* SIKISyncEvents.h in Headers */,
+				CEBF800A1C21C95E0031E531 /* SIHGenericService.h in Headers */,
+				CEBF802B1C21C95E0031E531 /* SIHSyncWorker.h in Headers */,
+				CEBF800E1C21C95E0031E531 /* SIHHybridConnectionRequest.h in Headers */,
+				CEBF80081C21C95E0031E531 /* SIHDataTypeHandler.h in Headers */,
+				24DE9E1111C5FE74003F90F6 /* HybridTitaniumModuleModuleAssets.h in Headers */,
+				CEBF80491C21C95E0031E531 /* SIKLibraryDescriptor.h in Headers */,
+				CEBF7FC91C21C95E0031E531 /* SICDatabaseBundle.h in Headers */,
+				CEBF7FCF1C21C95E0031E531 /* SICDatabaseImpl.h in Headers */,
+				CEBF7FE31C21C95E0031E531 /* SICIGroupConcatClause.h in Headers */,
+				CEBF80051C21C95E0031E531 /* SIHConstants.h in Headers */,
+				CEBF80131C21C95E0031E531 /* SIHHybridLibraryDescriptor.h in Headers */,
+				CEBF7FEC1C21C95E0031E531 /* SICISelectClause.h in Headers */,
+				CEBF7FCE1C21C95E0031E531 /* SICDatabaseHelper.h in Headers */,
+				CEBF7FD11C21C95E0031E531 /* SICDataTypeHandler.h in Headers */,
+				CEBF7FDC1C21C95E0031E531 /* SICIDatabaseImpl.h in Headers */,
+				CEBF80341C21C95E0031E531 /* SIKConnectionResponse.h in Headers */,
+				CEBF7FD21C21C95E0031E531 /* SICDeploymentException.h in Headers */,
+				CEBF80391C21C95E0031E531 /* SIKHttpsConnectionWorker.h in Headers */,
+				CEBF80401C21C95E0031E531 /* SIKINotificationEvents.h in Headers */,
+				CEBF80551C21C95E0031E531 /* SIKService.h in Headers */,
+				CEBF803D1C21C95E0031E531 /* SIKIMessage.h in Headers */,
+				CEBF7FDA1C21C95E0031E531 /* SICIDatabase.h in Headers */,
+				CEBF805F1C21C95E0031E531 /* SIKSyncException.h in Headers */,
+				CEBF7FF51C21C95E0031E531 /* SICPrematureEndOfParseException.h in Headers */,
+				CEBF80281C21C95E0031E531 /* SIHSiminovEventHandler.h in Headers */,
+				CEBF80171C21C95E0031E531 /* SIHHybridServiceHandler.h in Headers */,
+				CEBF80291C21C95E0031E531 /* SIHSyncEventHandler.h in Headers */,
+				CEBF7FFA1C21C95E0031E531 /* SICSiminovCriticalException.h in Headers */,
+				CEBF804C1C21C95E0031E531 /* SIKNotificationDescriptor.h in Headers */,
+				CEBF7FD41C21C95E0031E531 /* SICEventHandler.h in Headers */,
+				CEBF7FDD1C21C95E0031E531 /* SICIDataTypeHandler.h in Headers */,
+				CEBF80001C21C95E0031E531 /* SIHAdapterDescriptorReader.h in Headers */,
+				CEBF804A1C21C95E0031E531 /* SIKLibraryDescriptorReader.h in Headers */,
+				CEBF80181C21C95E0031E531 /* SIHHybridSiminovDataReader.h in Headers */,
+				CEBF80301C21C95E0031E531 /* SIKConnectionException.h in Headers */,
+				CEBF7FEA1C21C95E0031E531 /* SICIQueryBuilder.h in Headers */,
+				CEBF80361C21C95E0031E531 /* SIKConstants.h in Headers */,
+				CEBF7FC51C21C95E0031E531 /* SICClassUtils.h in Headers */,
+				CEBF7FCB1C21C95E0031E531 /* SICDatabaseDescriptorReader.h in Headers */,
+				CEBF80041C21C95E0031E531 /* SIHApplicationDescriptorReader.h in Headers */,
+				CEBF800B1C21C95E0031E531 /* SIHGenericSyncHandler.h in Headers */,
+				CEBF802E1C21C95E0031E531 /* SIKApplicationDescriptorReader.h in Headers */,
+				CEBF800D1C21C95E0031E531 /* SIHHybridApplicationDescriptor.h in Headers */,
+				CEBF7FD91C21C95E0031E531 /* SICICountClause.h in Headers */,
+				CEBF80611C21C95E0031E531 /* SIKSyncRequest.h in Headers */,
+				CEBF804F1C21C95E0031E531 /* SIKNotificationReceiver.h in Headers */,
+				CEBF7FDE1C21C95E0031E531 /* SICIDelete.h in Headers */,
+				CEBF7FD31C21C95E0031E531 /* SICEntityDescriptor.h in Headers */,
+				CEBF7FD51C21C95E0031E531 /* SICFileUtils.h in Headers */,
+				CEBF80031C21C95E0031E531 /* SIHApplicationDescriptor.h in Headers */,
+				CEBF80631C21C95E0031E531 /* SIKSyncWorker.h in Headers */,
+				CEBF80011C21C95E0031E531 /* SIHAdapterFactory.h in Headers */,
+				CEBF80271C21C95E0031E531 /* SIHSiminov.h in Headers */,
+				CEBF80321C21C95E0031E531 /* SIKConnectionManager.h in Headers */,
+				CEBF7FF31C21C95E0031E531 /* SICLibraryDescriptorReader.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D2AAC07D0554694100DB518D /* Hybrid-Titanium-Module */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "Hybrid-Titanium-Module" */;
+			buildPhases = (
+				D2AAC07A0554694100DB518D /* Headers */,
+				D2AAC07B0554694100DB518D /* Sources */,
+				D2AAC07C0554694100DB518D /* Frameworks */,
+				CEED72B51C22B44500F15FE9 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Hybrid-Titanium-Module";
+			productName = "Hybrid-Titanium-Module";
+			productReference = D2AAC07E0554694100DB518D /* libHybridTitaniumModule.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+			};
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "Hybrid-Titanium-Module" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 0867D691FE84028FC02AAC07 /* Hybrid-Titanium-Module */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2AAC07D0554694100DB518D /* Hybrid-Titanium-Module */,
+				24416B8111C4CA220047AFDD /* Build & Test */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		24416B8011C4CA220047AFDD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here\n\npython \"${TITANIUM_SDK}/titanium.py\" run --dir=\"${PROJECT_DIR}\"\nexit $?\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2AAC07B0554694100DB518D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24DD6CFA1134B3F500162E58 /* HybridTitaniumModuleModule.m in Sources */,
+				24DE9E1211C5FE74003F90F6 /* HybridTitaniumModuleModuleAssets.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		24416B8511C4CA280047AFDD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2AAC07D0554694100DB518D /* Hybrid-Titanium-Module */;
+			targetProxy = 24416B8411C4CA280047AFDD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB921F08733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DSTROOT = /tmp/HybridTitaniumModule.dst;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = HybridTitaniumModule_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)";
+				OTHER_CFLAGS = (
+					"-DDEBUG",
+					"-DTI_POST_1_2",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = HybridTitaniumModule;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = "arm64 armv7 armv7s x86_64 i386";
+			};
+			name = Debug;
+		};
+		1DEB922008733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DSTROOT = /tmp/HybridTitaniumModule.dst;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = HybridTitaniumModule_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)";
+				OTHER_CFLAGS = "-DTI_POST_1_2";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = HybridTitaniumModule;
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = "arm64 armv7 armv7s x86_64 i386";
+			};
+			name = Release;
+		};
+		1DEB922308733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				CLANG_CXX_LIBRARY = "libstdc++";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DSTROOT = /tmp/HybridTitaniumModule.dst;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = HybridTitaniumModule_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INSTALL_PATH = /usr/local/lib;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = (
+					"-DDEBUG",
+					"-DTI_POST_1_2",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = HybridTitaniumModule;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		1DEB922408733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LIBRARY = "libstdc++";
+				DSTROOT = /tmp/HybridTitaniumModule.dst;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = HybridTitaniumModule_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DTI_POST_1_2";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = HybridTitaniumModule;
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
+		24416B8211C4CA220047AFDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "Build & test";
+			};
+			name = Debug;
+		};
+		24416B8311C4CA220047AFDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = "Build & test";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "Hybrid-Titanium-Module" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB921F08733DC00010E9CD /* Debug */,
+				1DEB922008733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "Hybrid-Titanium-Module" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB922308733DC00010E9CD /* Debug */,
+				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		24416B8A11C4CA520047AFDD /* Build configuration list for PBXAggregateTarget "Build & Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24416B8211C4CA220047AFDD /* Debug */,
+				24416B8311C4CA220047AFDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}
