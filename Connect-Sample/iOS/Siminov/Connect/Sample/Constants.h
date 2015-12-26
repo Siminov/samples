@@ -18,46 +18,42 @@
 #import <Foundation/Foundation.h>
 
 /*
- * Liquors Constants
+ * Books Constants
  */
-static NSString *GET_LIQUORS_WS_LIQUORS = @"liquors";
-static NSString *GET_LIQUORS_WS_LIQUOR = @"liquor";
-static NSString *GET_LIQUORS_WS_LIQUOR_NAME = @"name";
-static NSString *GET_LIQUORS_WS_LIQUOR_DESCRIPTION = @"description";
-static NSString *GET_LIQUORS_WS_LIQUOR_HISTROY = @"histroy";
-static NSString *GET_LIQUORS_WS_LIQUOR_LINK = @"link";
-static NSString *GET_LIQUORS_WS_LIQUOR_ALCHOL_CONTENT = @"alchol_content";
+static NSString *GET_BOOKS_WS_BOOKS = @"books";
+static NSString *GET_BOOKS_WS_BOOK = @"book";
+static NSString *GET_BOOKS_WS_BOOK_TITLE = @"name";
+static NSString *GET_BOOKS_WS_BOOK_DESCRIPTION = @"description";
+static NSString *GET_BOOKS_WS_BOOK_AUTHOR = @"author";
+static NSString *GET_BOOKS_WS_BOOK_LINK = @"link";
 
 
 /*
- * Liquor Brands Constants
+ * Lessions Constants
  */
-static NSString *GET_LIQUOR_BRANDS_WS_BRANDS = @"brands";
-static NSString *GET_LIQUOR_BRANDS_WS_BRAND = @"brand";
-static NSString *GET_LIQUOR_BRANDS_WS_BRAND_NAME = @"name";
-static NSString *GET_LIQUOR_BRANDS_WS_BRAND_COUNTRY = @"country";
-static NSString *GET_LIQUOR_BRANDS_WS_BRAND_DESCRIPTION = @"description";
-static NSString *GET_LIQUOR_BRANDS_WS_BRAND_LINK = @"link";
+static NSString *GET_LESSIONS_WS_LESSIONS = @"lessions";
+static NSString *GET_LESSIONS_WS_LESSION = @"lession";
+static NSString *GET_LESSIONS_WS_LESSION_NAME = @"name";
+static NSString *GET_LESSIONS_WS_LESSION_DESCRIPTION = @"description";
+static NSString *GET_LESSIONS_WS_LESSION_LINK = @"link";
 
 /*
  * Sync Constants
  */
-static NSString *SYNC_LIQUORS = @"SYNC-LIQUORS";
-static NSString *SYNC_LIQUOR_BRANDS = @"SYNC-LIQUOR-BRANDS";
+static NSString *SYNC_BOOKS = @"SYNC-BOOKS";
+static NSString *SYNC_LESSIONS = @"SYNC-LESSIONS";
 
 
 /*
- * Add Liquor Constants
+ * Add Book Constants
  */
-static NSString *ADD_LIQUOR_WS_LIQUOR = @"liquor";
-static NSString *ADD_LIQUOR_WS_LIQUOR_NAME = @"name";
-static NSString *ADD_LIQUOR_WS_LIQUOR_DESCRIPTION = @"description";
-static NSString *ADD_LIQUOR_WS_LIQUOR_HISTORY = @"histroy";
-static NSString *ADD_LIQUOR_WS_LIQUOR_LINK = @"link";
-static NSString *ADD_LIQUOR_WS_LIQUOR_ALCHOL_CONTENT = @"alchol_content";
-static NSString *ADD_LIQUOR_WS_BRANDS = @"brands";
-static NSString *ADD_LIQUOR_WS_BRAND = @"brand";
-static NSString *ADD_LIQUOR_WS_BRAND_NAME = @"name";
-static NSString *ADD_LIQUOR_WS_BRAND_COUNTRY = @"country";
-static NSString *ADD_LIQUOR_WS_BRAND_DESCRIPTION = @"description";
-static NSString *ADD_LIQUOR_WS_BRAND_LINK = @"link";
+static NSString *ADD_BOOK_WS_BOOK = @"book";
+static NSString *ADD_BOOK_WS_BOOK_TITLE = @"title";
+static NSString *ADD_BOOK_WS_BOOK_DESCRIPTION = @"description";
+static NSString *ADD_BOOK_WS_BOOK_AUTHOR = @"author";
+static NSString *ADD_BOOK_WS_BOOK_LINK = @"link";
+static NSString *ADD_BOOK_WS_LESSIONS = @"brands";
+static NSString *ADD_BOOK_WS_LESSION = @"brand";
+static NSString *ADD_BOOK_WS_LESSION_NAME = @"name";
+static NSString *ADD_BOOK_WS_LESSION_DESCRIPTION = @"description";
+static NSString *ADD_BOOK_WS_LESSION_LINK = @"link";

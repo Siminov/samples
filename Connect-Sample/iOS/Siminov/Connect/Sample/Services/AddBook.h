@@ -1,5 +1,5 @@
 //
-//  AddLiquor.h
+//  AddBook.h
 //  connect-sample
 //
 //  Created by Geetika on 28/05/15.
@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "SIKService.h"
 
-@interface AddLiquor : SIKService
+@interface AddBook : SIKService
 
 @end

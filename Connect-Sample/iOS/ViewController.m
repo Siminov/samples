@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "CredentialManager.h"
 #import "SICISelectClause.h"
-#import "LiquorListViewController.h"
+#import "BooksListViewController.h"
 
 @interface ViewController ()
 
@@ -30,7 +30,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)moveToLiquorList:(id)sender {
+- (IBAction)moveToBooksList:(id)sender {
     
     if (!isAccountPresent) {
         
@@ -62,7 +62,7 @@
         
     }
     
-    LiquorListViewController *aMessageViewController = [[LiquorListViewController alloc] initWithNibName:@"LiquorListViewController" bundle:nil];
+    BooksListViewController *aMessageViewController = [[BooksListViewController alloc] initWithNibName:@"BooksListViewController" bundle:nil];
     [self presentViewController:aMessageViewController animated:YES completion:nil];
 }
 

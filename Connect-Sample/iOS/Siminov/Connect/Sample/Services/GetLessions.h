@@ -1,5 +1,5 @@
 //
-//  GetLiquorBrands.h
+//  GetLessions.h
 //  connect-sample
 //
 //  Created by Geetika on 29/05/15.
@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "SIKService.h"
 
-@interface GetLiquorBrands : SIKService
+@interface GetLessions : SIKService
 
 @end

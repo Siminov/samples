@@ -1,5 +1,5 @@
 //
-//  DeleteLiquor.h
+//  DeleteBook.h
 //  connect-sample
 //
 //  Created by Geetika on 29/05/15.
@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "SIKService.h"
 
-@interface DeleteLiquor : SIKService
+@interface DeleteBook : SIKService
 
 @end

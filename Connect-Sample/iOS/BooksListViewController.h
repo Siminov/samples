@@ -16,16 +16,11 @@
 ///
 
 #import <UIKit/UIKit.h>
-#import "Liquor.h"
 
-@interface LiquorDetailViewController : UIViewController <UITableViewDelegate> {
-    NSArray *liquorBrands;
+@interface BooksListViewController : UIViewController <UITableViewDelegate> {
+    NSArray *books;
 }
 
-@property (strong, nonatomic) IBOutlet UINavigationBar *detailNavigationBar;
-@property (strong, nonatomic) IBOutlet UITableView *detailTableView;
-@property (strong, nonatomic) Liquor *liquor;
-
-- (IBAction)backToLiquorList:(id)sender;
+@property (strong, nonatomic) IBOutlet UITableView *listTableView;
 
 @end

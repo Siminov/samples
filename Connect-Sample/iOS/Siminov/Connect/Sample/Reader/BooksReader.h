@@ -1,5 +1,5 @@
 //
-//  LiquorsReader.h
+//  BooksReader.h
 //  connect-sample
 //
 //  Created by Geetika on 29/05/15.
@@ -7,16 +7,16 @@
 //
 
 #import "SICSiminovSAXDefaultHandler.h"
-#import "Liquor.h"
+#import "Book.h"
 
-@interface LiquorsReader : SICSiminovSAXDefaultHandler {
-    NSMutableArray *liquors;
-    Liquor *liquor;
+@interface BooksReader : SICSiminovSAXDefaultHandler {
+    NSMutableArray *books;
+    Book *book;
     
     NSMutableString *tempValue;
 }
 
 - (id)initWithData:(NSData * const)data;;
-- (NSEnumerator *)getLiquors;
+- (NSEnumerator *)getBooks;
 
 @end

@@ -1,20 +1,21 @@
 //
-//  GetLiquors.m
+//  GetBooks.m
 //  connect-sample
 //
 //  Created by Geetika on 29/05/15.
 //  Copyright (c) 2015 Siminov. All rights reserved.
 //
 
-#import "GetLiquors.h"
+#import "GetBooks.h"
 #import "SIKIConnectionResponse.h"
-#import "Liquor.h"
-#import "LiquorsReader.h"
+#import "Book.h"
+#import "Lession.h"
+#import "BooksReader.h"
 
-static NSString * const SERVICE_NAME = @"SIMINOV-CONNECT-LIQUORS-SERVICE";
-static NSString * const REQUEST_NAME = @"GET-LIQUORS";
+static NSString * const SERVICE_NAME = @"SIMINOV-CONNECT-BOOKS-SERVICE";
+static NSString * const REQUEST_NAME = @"GET-BOOKS";
 
-@implementation GetLiquors
+@implementation GetBooks
 
 
 - (id)init {
@@ -50,22 +51,22 @@ static NSString * const REQUEST_NAME = @"GET-LIQUORS";
 }
 
 - (void)onRequestFinish:(id<SIKIConnectionResponse>)connectionResponse {
-   
+    
     if ([connectionResponse getResponse] == nil) {
         return;
     }
     
-    LiquorsReader *liquorsReader = [[LiquorsReader alloc]initWithData:[connectionResponse getResponse]];
-    NSEnumerator *liquors = [liquorsReader getLiquors];
+    BooksReader *booksReader = [[BooksReader alloc]initWithData:[connectionResponse getResponse]];
+    NSEnumerator *books = [booksReader getBooks];
     
-    Liquor *liquorObject;
-    while (liquorObject = [liquors nextObject]) {
+    Book *bookObject;
+    while (bookObject = [books nextObject]) {
         
         @try {
-            [liquorObject saveOrUpdate];
+            [bookObject saveOrUpdate];
         }
         @catch (SICDatabaseException *exception) {
-            [SICLog error:NSStringFromClass([self class]) methodName:@"onServiceApiFinish" message:[NSString stringWithFormat:@"Database Exception caught while saving liquors in database, %@",[exception reason]]];
+            [SICLog error:NSStringFromClass([self class]) methodName:@"onServiceApiFinish" message:[NSString stringWithFormat:@"Database Exception caught while saving books in database, %@",[exception reason]]];
         }
     }
 }

@@ -20,10 +20,10 @@
 
 
 <sync-descriptor>
-    <property name="name">SYNC-LIQUOR-BRANDS</property>
+    <property name="name">SYNC-LESSIONS</property>
     <property name="interval">5000</property>
     
     <service-descriptors>
-        <service-descriptor>SIMINOV-CONNECT-LIQUOR-BRANDS-SERVICE.GET-LIQUOR-BRANDS</service-descriptor>
+        <service-descriptor>SIMINOV-CONNECT-LESSIONS-SERVICE.GET-LESSIONS</service-descriptor>
     </service-descriptors>
 </sync-descriptor>

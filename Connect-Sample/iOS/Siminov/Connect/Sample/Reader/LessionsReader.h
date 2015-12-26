@@ -17,16 +17,16 @@
 
 #import <UIKit/UIKit.h>
 #import "SICSiminovSAXDefaultHandler.h"
-#import "LiquorBrand.h"
+#import "Lession.h"
 
-@interface LiquorBrandsReader : SICSiminovSAXDefaultHandler {
-    NSMutableArray *liquorBrands;
-    LiquorBrand *liquorBrand;
+@interface LessionsReader : SICSiminovSAXDefaultHandler {
+    NSMutableArray *lessions;
+    Lession *lession;
     
     NSMutableString *tempValue;
 }
 
 - (id)initWithData:(NSData * const)data;
-- (NSEnumerator *)getLiquorBrands;
+- (NSEnumerator *)getLessions;
 
 @end

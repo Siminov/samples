@@ -22,14 +22,14 @@
 
 <entity-descriptor>
     
-    <property name="table_name">LIQUOR</property>
-    <property name="class_name">Liquor</property>
+    <property name="table_name">BOOK</property>
+    <property name="class_name">Book</property>
     
     <attributes>
         
         <attribute>
-            <property name="variable_name">liquorType</property>
-            <property name="column_name">LIQUOR_TYPE</property>
+            <property name="variable_name">title</property>
+            <property name="column_name">TITLE</property>
             <property name="type">string</property>
             <property name="primary_key">true</property>
             <property name="not_null">true</property>
@@ -43,8 +43,8 @@
         </attribute>
         
         <attribute>
-            <property name="variable_name">history</property>
-            <property name="column_name">HISTORY</property>
+            <property name="variable_name">author</property>
+            <property name="column_name">AUTHOR</property>
             <property name="type">string</property>
         </attribute>
         
@@ -55,20 +55,14 @@
             <property name="default">www.wikipedia.org</property>
         </attribute>
         
-        <attribute>
-            <property name="variable_name">alcholContent</property>
-            <property name="column_name">ALCHOL_CONTENT</property>
-            <property name="type">string</property>
-        </attribute>
-        
     </attributes>
     
     <indexes>
         
         <index>
-            <property name="name">LIQUOR_INDEX_BASED_ON_LINK</property>
+            <property name="name">BOOK_INDEX_BASED_ON_AUTHOR</property>
             <property name="unique">true</property>
-            <property name="column">HISTORY</property>
+            <property name="column">AUTHOR</property>
         </index>
         
     </indexes>
@@ -78,13 +72,13 @@
         
         <relationship>
             <property name="type">one-to-many</property>
-            <property name="refer">liquorBrands</property>
-            <property name="refer_to">LiquorBrand</property>
+            <property name="refer">lessions</property>
+            <property name="refer_to">Lession</property>
             <property name="on_update">cascade</property>
             <property name="on_delete">cascade</property>
             <property name="load">true</property>
-        </relationship>		
+        </relationship>
         
     </relationships>
     
-</entity-descriptor>		
+</entity-descriptor>

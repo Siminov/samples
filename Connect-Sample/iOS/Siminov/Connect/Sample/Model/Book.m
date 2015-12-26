@@ -15,24 +15,16 @@
 /// limitations under the License.
 ///
 
-#import "LiquorBrand.h"
+#import "Book.h"
 
-@implementation LiquorBrand
+@implementation Book
 
--(Liquor *)getLiquor {
-    return liquor;
+-(NSString *)getTitle {
+    return title;
 }
 
--(void)setLiquor: (Liquor *)liq {
-    liquor = liq;
-}
-
--(NSString *)getBrandName {
-    return brandName;
-}
-
--(void)setBrandName: (NSString *)brand {
-    brandName = brand;
+-(void)setTitle:(NSString *)tit {
+    title = tit;
 }
 
 -(NSString *)getDescription {
@@ -43,6 +35,14 @@
     description = desc;
 }
 
+-(NSString *)getAuthor {
+    return author;
+}
+
+-(void)setAuthor: (NSString *)aut {
+    author = aut;
+}
+
 -(NSString *)getLink {
     return link;
 }
@@ -51,12 +51,16 @@
     link = lin;
 }
 
--(NSString *)getCountry {
-    return country;
+-(NSEnumerator *)getLessions {
+    return [lessions objectEnumerator];
 }
 
--(void)setCountry: (NSString *)coun {
-    country = coun;
+-(void)setLessions: (NSEnumerator *)less {
+    
+    NSString *lession;
+    while (lession = [less nextObject]) {
+        [lessions addObject:less];
+    }
 }
 
 @end

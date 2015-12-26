@@ -1,5 +1,5 @@
 //
-//  LiquorWritter.h
+//  BookWritter.h
 //  connect-sample
 //
 //  Created by Geetika on 28/05/15.
@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Liquor.h"
+#import "Book.h"
 
-@interface LiquorWritter : NSObject
+@interface BookWritter : NSObject
 
-- (NSData *)build:(Liquor *)liquor;
+- (NSData *)build:(Book *)book;
 
 @end

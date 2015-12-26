@@ -29,8 +29,8 @@
     
     <entity-descriptors>
         <entity-descriptor>Entity-Descriptors/Credential.xml</entity-descriptor>
-        <entity-descriptor>Entity-Descriptors/Liquor.xml</entity-descriptor>
-        <entity-descriptor>Entity-Descriptors/LiquorBrand.xml</entity-descriptor>
+        <entity-descriptor>Entity-Descriptors/Book.xml</entity-descriptor>
+        <entity-descriptor>Entity-Descriptors/Lession.xml</entity-descriptor>
     </entity-descriptors>
     
 </database-descriptor>

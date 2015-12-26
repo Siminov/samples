@@ -17,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 
-- (IBAction)moveToLiquorList:(id)sender;
+- (IBAction)moveToBooksList:(id)sender;
 - (IBAction)cancelLogin:(id)sender;
 
 @end

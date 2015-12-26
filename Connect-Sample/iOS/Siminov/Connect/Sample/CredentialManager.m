@@ -10,6 +10,7 @@
 #import "SICClassUtils.h"
 #import "SICICountClause.h"
 #import "SICISelectClause.h"
+#import "Credential.h"
 
 static CredentialManager *credentialManager = nil;
 Credential *activeCredential = nil;

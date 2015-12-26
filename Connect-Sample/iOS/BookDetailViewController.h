@@ -15,20 +15,17 @@
 /// limitations under the License.
 ///
 
-#import "SiminovEventHandler.h"
-#import "DatabaseUtil.h"
-#import "Lession.h"
+#import <UIKit/UIKit.h>
+#import "Book.h"
 
-@implementation SiminovEventHandler
-
--(void)onFirstTimeSiminovInitialized {
-    //[[[DatabaseUtil alloc] init] prepareData];
+@interface BookDetailViewController : UIViewController <UITableViewDelegate> {
+    NSArray *lessions;
 }
 
-- (void) onSiminovInitialized {
-}
+@property (strong, nonatomic) IBOutlet UINavigationBar *detailNavigationBar;
+@property (strong, nonatomic) IBOutlet UITableView *detailTableView;
+@property (strong, nonatomic) Book *book;
 
-- (void) onSiminovStopped {
-}
+- (IBAction)backToBooksList:(id)sender;
 
 @end

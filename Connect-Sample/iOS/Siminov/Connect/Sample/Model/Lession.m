@@ -15,12 +15,40 @@
 /// limitations under the License.
 ///
 
-#import <UIKit/UIKit.h>
+#import "Lession.h"
 
-@interface LiquorListViewController : UIViewController <UITableViewDelegate> {
-    NSArray *liquors;
+@implementation Lession
+
+-(Book *)getBook {
+    return book;
 }
 
-@property (strong, nonatomic) IBOutlet UITableView *listTableView;
+-(void)setBook: (Book *)bk {
+    book = bk;
+}
+
+-(NSString *)getName {
+    return name;
+}
+
+-(void)setName: (NSString *)nme {
+    name = nme;
+}
+
+-(NSString *)getDescription {
+    return description;
+}
+
+-(void)setDescription: (NSString *)desc {
+    description = desc;
+}
+
+-(NSString *)getLink {
+    return link;
+}
+
+-(void)setLink: (NSString *)lin {
+    link = lin;
+}
 
 @end
