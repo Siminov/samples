@@ -1,0 +1,575 @@
+
+<!--
+ 
+ /**
+ * [SIMINOV FRAMEWORK]
+ * Copyright [2015] [Siminov Software Solution LLP|support@siminov.com]
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **/
+ 
+ 
+ 
+ -->
+
+<html>
+    
+    <head>
+        
+        <script src="Cordova/cordova-2.3.0.js"></script>
+        
+        <link rel="stylesheet" href="Jquery/css/jquery.css" />
+        <script src="Jquery/js/jquery.js"></script>
+        <script src="Jquery/js/jquery-mobile.js"></script>
+        
+        
+        <script src="Siminov/Siminov.js"></script>
+        
+        <script src="Book/Models/Book.js"></script>
+        <script src="Book/Models/Lession.js"></script>
+        <script src="Book/Models/Credential.js"></script>
+        
+        <script src="Book/Constants.js"></script>
+        
+        <script src="Book/Events/SiminovEventHandler.js"></script>
+        <script src="Book/Events/DatabaseEventHandler.js"></script>
+        <script src="Book/Events/NotificationEventHandler.js"></script>
+        <script src="Book/Events/SyncEventHandler.js"></script>
+        
+        <script src="Book/ReaderWritter/BooksReader.js"></script>
+        <script src="Book/ReaderWritter/LessionsReader.js"></script>
+        
+        <script src="Book/Services/AddBook.js"></script>
+        <script src="Book/Services/DeleteBook.js"></script>
+        <script src="Book/Services/GetLessions.js"></script>
+        <script src="Book/Services/GetBooks.js"></script>
+        <script src="Book/Services/RegisterDevice.js"></script>
+        <script src="Book/Services/UnregisterDevice.js"></script>
+
+        
+        <script>
+            
+            var credential;
+            var books;
+            
+            document.addEventListener("deviceready", deviceReady, false);
+            
+            $(document).on("click", ".show-page-loading-msg", function() {
+                           var $this = $( this ),
+                           theme = $this.jqmData("theme") || $.mobile.loader.prototype.options.theme,
+                           msgText = $this.jqmData("msgtext") || $.mobile.loader.prototype.options.text,
+                           textVisible = $this.jqmData("textvisible") || $.mobile.loader.prototype.options.textVisible,
+                           textonly = !!$this.jqmData("textonly");
+                           html = $this.jqmData("html") || "";
+                           $.mobile.loading( 'show', {
+                                            text: msgText,
+                                            textVisible: textVisible,
+                                            theme: theme,
+                                            textonly: textonly,
+                                            html: html
+                                            });
+                           })
+                           .on("click", ".hide-page-loading-msg", function() {
+                               $.mobile.loading( 'hide' );
+                               });
+                               
+                               
+                               function deviceReady() {
+                                   //document.addEventListener("backbutton", onBackKeyPressed, false);
+                                   //document.getElementById('show-loader').click();
+                                   
+                                   //Siminov.initialize();
+                               }
+        
+        
+        function onBackKeyPressed() {
+            var currentPage = window.location;
+            
+            if(currentPage == "file:///android_asset/www/home.html#login-page" || currentPage == "file:///android_asset/www/home.html") {
+                closeApp();
+            } else if(currentPage == "file:///android_asset/www/home.html#home-page") {
+                closeApp();
+            } else {
+                window.history.back();
+            }
+            
+        }
+        
+        
+        function closeApp() {
+            Siminov.shutdown();
+        }
+        
+        
+        function exitApp() {
+            navigator.app.exitApp();
+        }
+        
+        function initializeApp() {
+            
+            var callback = new Callback();
+            callback.onSuccess = function() {
+                
+                Log.debug("Home", "initializeApp", "App Initialized");
+
+                /*var book = ResourceManager.getInstance();
+                 var groupConcat = book.getDatabaseDescriptorBasedOnTableNameAsync('BOOK', callback);
+                 alert("Group Concat: " + groupConcat);
+                 
+                 var notificationManager = NotificationManager.getInstance();
+                 notificationManager.doUnregistration();*/
+            }
+            
+            callback.onFailure = function() {
+                alert("initialize error");
+            }
+            
+            
+            if(BookConstants.REQUEST == BookConstants.ASYNC_REQUEST || BookConstants.REQUEST == BookConstants.ASYNC_TRANSACTION_REQUEST) {
+                Siminov.initializeAsync(callback);
+            } else if(BookConstants.REQUEST == BookConstants.SYNC_REQUEST) {
+                Siminov.initialize();
+            }
+        }
+        
+        function initialize() {
+            //var queryParameter = new ServiceDescriptor.Request.QueryParameter();
+            
+            /*var credentialManager = CredentialManager.getInstance();
+             var authentications = credentialManager.getCredentials();
+             
+             if(authentications != undefined && authentications != null && authentications.length > 0) {
+             authentication = authentications[0];
+             } else {
+             }*/
+            
+            //document.getElementById('hide-loader').click();
+        }
+        
+        
+        function login() {
+            
+            if(credential != undefined && credential != null) {
+                var accountId = document.getElementById('user-name').value;
+                var password = document.getElementById('password').value;
+                
+                if(credential != undefined) {
+                    if(credential.getAccountId() === accountId) {
+                        if(credential.getToken() === password) {
+                            navHome();
+                        } else {
+                            alert("Invalid Passsword.");
+                        }
+                    } else {
+                        alert("No Such Account.");
+                    }
+                }
+                
+            } else {
+                //document.getElementById('show-loader').click();
+                
+                var accountId = document.getElementById('user-name').value;
+                var password = document.getElementById('password').value;
+                
+                credential = new Credential();
+                
+                credential.setAccountId(accountId);
+                credential.setToken(password);
+                credential.setActive(true);
+                
+                
+                var credentialCallback = new Callback();
+                credentialCallback.onExecute = function(transaction) {
+                    credential.saveOrUpdateAsync(undefined, transaction);
+                }
+                
+                credentialCallback.onSuccess = function() {
+                    navHome();
+                }
+                
+                credentialCallback.onFailure = function() {
+                    alert("credential error");
+                }
+                
+                
+                if(BookConstants.REQUEST == BookConstants.ASYNC_REQUEST) {
+                    credential.saveOrUpdateAsync(credentialCallback);
+                } else if(BookConstants.REQUEST == BookConstants.ASYNC_TRANSACTION_REQUEST) {
+                    var databaseDescriptor = new BookBrand().getDatabaseDescriptor();
+                    Database.beginTransactionAsync(databaseDescriptor, credentialCallback);
+                } else if(BookConstants.REQUEST == BookConstants.SYNC_REQUEST) {
+                    
+                    try {
+                        credential.saveOrUpdate();
+                    } catch(e) {
+                        alert("error while saving credential");
+                    }
+                    
+                    navHome();
+                }
+            }
+        }
+        
+        
+        function navHome() {
+            
+            /*var callback = new Callback();
+             callback.onSuccess = function() {
+             alert("Books Sync Done");
+             }
+             
+             var syncRequest = new SyncRequest();
+             syncRequest.setName(SYNC_BOOKS);
+             
+             var syncHandler = SyncHandler.getInstance();
+             syncHandler.handleAsync(syncRequest, callback);*/
+            
+            
+            var getBooks = new GetBooks();
+            getBooks.setService(GetBooks.SERVICE_NAME);
+            getBooks.setRequest(GetBooks.REQUEST_NAME);
+            
+            
+            var getBooksCallback = new Callback();
+            getBooksCallback.onSuccess = function() {
+               
+            }
+            
+            getBooksCallback.onFailure = function() {
+                alert("get books error");
+            }
+            
+            if(BookConstants.REQUEST == BookConstants.ASYNC_REQUEST || BookConstants.REQUEST == BookConstants.ASYNC_TRANSACTION_REQUEST) {
+                getBooks.invokeAsync(getBooksCallback);
+            } else if(BookConstants.REQUEST == BookConstants.SYNC_REQUEST) {
+                getBooks.invoke();
+            }
+            
+            //populateHome();
+        }
+        
+        function populateHome() {
+            
+            $.mobile.changePage($('#home-page'));
+            //document.getElementById('show-loader').click();
+            
+            $('book-types').empty();
+            
+            
+            var callback = new Callback();
+            callback.onExecute = function(transaction) {
+                
+                var selectCallback = new Callback();
+                selectCallback.onSuccess = function(getBooks) {
+                    books = getBooks;
+                }
+                
+                new Book().select().executeAsync(selectCallback, transaction);
+            }
+            
+            callback.onSuccess = function(savedBooks) {
+                Log.debug("Home", "populateHome", "Saved Books: " + savedBooks);
+                
+                if(BookConstants.REQUEST == BookConstants.ASYNC_REQUEST) {
+                    books = savedBooks;
+                }
+                
+                loadTasks();
+            }
+            
+            callback.onFailure = function() {
+                alert("select books error");
+            }
+            
+            
+            if(BookConstants.REQUEST == BookConstants.ASYNC_REQUEST) {
+                books = new Book().select().executeAsync(callback);
+            } else if(BookConstants.REQUEST == BookConstants.ASYNC_TRANSACTION_REQUEST) {
+                var databaseDescriptor = new BookBrand().getDatabaseDescriptor();
+                Database.beginTransactionAsync(databaseDescriptor, callback);
+            } else if(BookConstants.REQUEST == BookConstants.SYNC_REQUEST) {
+                books = new Book().select().execute();
+                loadTasks();
+            }
+            
+            function loadTasks() {
+                
+                Log.debug("Database", "home.html", "Books: " + books);
+                if(books != undefined) {
+                    
+                    for(var i = 0;i < books.length;i++) {
+                        var book = books[i];
+                        Log.debug("Database", "home.html", "Add Book: " + book);
+                        
+                        $('#book-types').append('<li onclick="navDetail(' + i + ')" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c">' +
+                                                  '<div class="ui-btn-inner ui-li">' +
+                                                  '<div class="ui-btn-text">'+
+                                                  '<a href="index.html" class="ui-link-inherit">' +
+                                                  '<img src="Book/Resources/Images/book.png" class="ui-li-thumb">' +
+                                                  '<h3 class="ui-li-heading">' + book.getTitle() + '</h3>' +
+                                                  '<p class="ui-li-desc">' + book.getDescription() + '</p>' +
+                                                  '</a>' +
+                                                  '</div>' +
+                                                  
+                                                  '<span class="ui-icon ui-icon-arrow-r ui-icon-shadow">' +
+                                                  '&nbsp;' +
+                                                  '</span>' +
+                                                  '</div>' +
+                                                  '</li>');
+                                                  
+                    }
+                }
+            }
+            
+            //document.getElementById('hide-loader').click();
+        }
+        
+        
+        function navDetail(id) {
+            
+            $.mobile.changePage($('#detail-page'));
+
+            var book = books[0];
+
+            var callback = new Callback();
+            callback.onSuccess = function() {
+                
+            }
+            
+            var syncRequest = new SyncRequest();
+            syncRequest.setName(BookConstants.SYNC_LESSIONS);
+            
+            syncRequest.addResource(GetLessions.BOOK_TITLE, book.getTitle());
+            syncRequest.addResource(GetLessions.BOOK, book);
+            
+            var syncHandler = SyncHandler.getInstance();
+            
+            if(BookConstants.REQUEST == BookConstants.ASYNC_REQUEST || BookConstants.REQUEST == BookConstants.ASYNC_TRANSACTION_REQUEST) {
+                syncHandler.handleAsync(syncRequest, callback);
+            } else if(BookConstants.REQUEST == BookConstants.SYNC_REQUEST) {
+                syncHandler.handle(syncRequest);
+            }
+            
+            
+            
+            /*var callback = new Callback();
+             callback.onSuccess = function() {
+             Log.debug("Home", "nacDetail", "Get Lessions Success");
+             
+             populateDetail(book.getTitle());
+             }
+             
+             
+             var getLessions = new GetLessions();
+             getLessions.setService(GetLessions.SERVICE_NAME);
+             getLessions.setRequest(GetLessions.REQUEST_NAME);
+             
+             getLessions.addResource(GetLessions.BOOK_TITLE, book.getTitle());
+             
+             getLessions.invokeAsync(callback);*/
+            
+            //populateDetail(book.getTitle());
+        }
+        
+        
+        function populateDetail(bookTitle) {
+            
+            var book;
+            for(var i = 0;i < books.length;i++) {
+                
+                if(books[i].getTitle() === bookTitle) {
+                    book = books[i];
+                    break;
+                }
+            }
+            
+            
+            $('#lessions').empty();
+            $('#lessions').html('');
+            
+            
+            document.getElementById('book-title').innerHTML = book.getTitle();
+            document.getElementById('book-description').innerHTML = book.getDescription();
+            document.getElementById('book-author').innerHTML = book.getAuthor();
+            document.getElementById('book-link').innerHTML = book.getLink();
+            
+            var lessions;
+            
+            var callback = new Callback();
+            callback.onExecute = function(transaction) {
+                
+                var getLessions = new Callback();
+                getLessions.onSuccess = function(getLessions) {
+                    lessions = getLessions;
+                }
+                
+                new Lession().select().where("TITLE").equalTo(book.getTitle()).executeAsync(getLessions, transaction);
+            }
+            
+            callback.onSuccess = function(savedLessions) {
+                Log.debug("Home", "populateDetail", "Get Lessions Success: " + savedLessions);
+                
+                if(BookConstants.REQUEST == BookConstants.ASYNC_REQUEST) {
+                    lessions = savedLessions;
+                }
+                
+                loadLessions();
+            }
+            
+            callback.onFailure = function() {
+                alert("get lessions error");
+            }
+            
+            
+            if(BookConstants.REQUEST == BookConstants.ASYNC_REQUEST) {
+                new Lession().select().where("TITLE").equalTo(book.getTitle()).executeAsync(callback);
+            } else if(BookConstants.REQUEST == BookConstants.ASYNC_TRANSACTION_REQUEST) {
+                var databaseDescriptor = new Lession().getDatabaseDescriptor();
+                Database.beginTransactionAsync(databaseDescriptor, callback);
+            } else if(BookConstants.REQUEST == BookConstants.SYNC_REQUEST) {
+                lessions = new Lession().select().where("TITLE").equalTo(book.getTitle()).execute();
+                loadLessions();
+            }
+            
+            
+            function loadLessions() {
+
+                Log.debug("Home", "populateDetail", "Populate Lessions: " + lessions);
+                if(lessions != undefined && lessions != null && lessions.length > 0) {
+                    
+                    for(var i = 0;i < lessions.length;i++) {
+                        
+                        var lession = lessions[i];
+	                    			
+                                    $('#lessions').append('<li class="ui-li ui-li-static ui-btn-up-c">' +
+                                                               lession.getName() +
+                                                               '</li>');
+                                                               
+                    }
+                }
+            }
+        }
+        
+            </script>
+        
+    </head>
+    
+    
+    <body onload="deviceReady();">
+        
+        <button id="show-loader" class="show-page-loading-msg" data-theme="b" data-textonly="false" data-textvisible="true" data-msgtext="Please wait..." data-icon="arrow-r" data-iconpos="right" style="display:none;"></button>
+        <button id="hide-loader" class="hide-page-loading-msg" data-icon="delete" data-iconpos="right" style="display:none"></button>
+        
+        
+        <div data-role="page" id="login-page">
+            <div data-role="header">
+                <h1>App</h1>
+            </div>
+            
+            <div data-role="content">
+                
+                <div>
+                    Account Id: <input type="text" id="user-name" />
+                    Token: <input type="password" id="password" />
+                    
+                    <input type="button" value="Cancel" onclick="closeApp();"/>
+                    <input id="login" type="button" value="Login" onclick="login();" />
+                    <input type="button" value="Initialize" onclick="initializeApp();"/>
+                    <input type="button" value="Home" onclick="navHome();"/>
+                    <input type="button" value="Populate Home" onclick="populateHome();"/>
+                </div>
+                
+            </div> 
+        </div>
+        
+        <div data-role="page" id="home-page">
+            <div data-role="header">
+                <h1>Framework</h1>
+            </div>
+            
+            <div data-role="content">
+                <ul id="book-types" data-role="listview" class="ui-listview">
+                    
+                </ul>
+            </div>
+        </div>
+        
+        <div data-role="page" id="detail-page">
+            
+            <div data-role="header">
+                <h1>Framework</h1>
+            </div>
+            
+            <div data-role="content">
+                
+                <table cellspacing="0" border-spacing: 0;>
+                    
+                    <tr>
+                        <td>&nbsp; &nbsp; <b>Brand</b></td>
+                    </tr>
+                    
+                    <tr>
+                        <td id="book-title" style="background-color: #FFFFFF; width:100%; padding-left: 10px; padding-right: 10px;"></td>
+                        <td style="width:100%; background-color: #FFFFFF;">&nbsp;</td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="padding-top: 15px;">&nbsp; &nbsp; <b>Description</b></td>
+                    </tr>
+                    
+                    <tr>
+                        <td id="book-description" style="background-color: #FFFFFF; width:100%; padding-left: 10px; padding-right: 10px;"></td>
+                        <td style="width:100%; background-color: #FFFFFF">&nbsp;</td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="padding-top: 15px;">&nbsp; &nbsp; <b>History</b></td>
+                    </tr>
+                    
+                    <tr>
+                        <td id="book-author" style="background-color: #FFFFFF; width:100%; padding-left: 10px; padding-right: 10px;"></td>
+                        <td style="width:100%; background-color: #FFFFFF">&nbsp;</td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="padding-top: 15px;">&nbsp; &nbsp; <b>Alchol Content</b></td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="padding-top: 15px;">&nbsp; &nbsp; <b>Link</b></td>
+                    </tr>
+                    
+                    <tr>
+                        <td id="book-link" style="background-color: #FFFFFF; width:100%; padding-left: 10px; padding-right: 10px;"></td>
+                        <td style="width:100%; background-color: #FFFFFF">&nbsp;</td>
+                    </tr>				
+                    
+                </table>
+                
+                <div style="padding-top: 15px;">
+                    &nbsp; &nbsp; <b>Brands</b>
+                </div>
+                
+                <div data-role="content">
+                    <ol data-role="listview" id="lessions" class="ui-listview">
+                        
+                    </ol>
+                </div>
+                
+            </div>
+            
+        </div>
+        
+    </body>
+    
+</html>
