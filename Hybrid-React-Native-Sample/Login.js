@@ -5,7 +5,7 @@
 'use strict';
 
 var React = require('react-native');
-var LiquorList = require('./LiquorList');
+var BooksList = require('./BooksList');
 
 var Siminov = require('./Siminov/Siminov');
 var Callback = require('./Siminov/Callback');
@@ -13,37 +13,37 @@ var Database = require('./Siminov/Database/Database');
 
 
 /*
- * Liquor Models
+ * Books Models
  */
-var Liquor = require('./Liquor/Models/Liquor');
-var LiquorBrand = require('./Liquor/Models/LiquorBrand');
-var Credential = require('./Liquor/Models/Credential');
+var Book = require('./Book/Models/Book');
+var Lession = require('./Book/Models/Lession');
+var Credential = require('./Book/Models/Credential');
 
 /*
- * Liquor Services
+ * Book Services
  */
-var AddLiquor = require('./Liquor/Services/AddLiquor');
-var DeleteLiquor = require('./Liquor/Services/DeleteLiquor');
-var GetLiquorBrands = require('./Liquor/Services/GetLiquorBrands');
-var GetLiquors = require('./Liquor/Services/GetLiquors');
-var RegisterDevice = require('./Liquor/Services/RegisterDevice');
-var UnregisterDevice = require('./Liquor/Services/UnregisterDevice');
-var LiquorConstants = require('./Liquor/Constants');
+var AddBook = require('./Book/Services/AddBook');
+var DeleteBook = require('./Book/Services/DeleteBook');
+var GetLessions = require('./Book/Services/GetLessions');
+var GetBooks = require('./Book/Services/GetBooks');
+var RegisterDevice = require('./Book/Services/RegisterDevice');
+var UnregisterDevice = require('./Book/Services/UnregisterDevice');
+var BookConstants = require('./Book/Constants');
 
 /*
- * Liquor Reader Writter
+ * Book Reader Writter
  */
-var LiquorBrandsReader = require('./Liquor/ReaderWritter/LiquorBrandsReader');
-var LiquorsReader = require('./Liquor/ReaderWritter/LiquorsReader');
+var LessionsReader = require('./Book/ReaderWritter/LessionsReader');
+var BooksReader = require('./Book/ReaderWritter/BooksReader');
 
 
 /*
- * Liquor Event Handler
+ * Book Event Handler
  */
-var DatabaseEventHandler = require('./Liquor/Events/DatabaseEventHandler');
-var NotificationEventHandler = require('./Liquor/Events/NotificationEventHandler');
-var SiminovEventHandler = require('./Liquor/Events/SiminovEventHandler');
-var SyncEventHandler = require('./Liquor/Events/SyncEventHandler');
+var DatabaseEventHandler = require('./Book/Events/DatabaseEventHandler');
+var NotificationEventHandler = require('./Book/Events/NotificationEventHandler');
+var SiminovEventHandler = require('./Book/Events/SiminovEventHandler');
+var SyncEventHandler = require('./Book/Events/SyncEventHandler');
 
 
 
@@ -117,9 +117,9 @@ var Login = React.createClass({
         }
                               
                               
-        if(LiquorConstants.REQUEST == LiquorConstants.ASYNC_REQUEST || LiquorConstants.REQUEST == LiquorConstants.ASYNC_TRANSACTION_REQUEST) {
+        if(BookConstants.REQUEST == BookConstants.ASYNC_REQUEST || BookConstants.REQUEST == BookConstants.ASYNC_TRANSACTION_REQUEST) {
             Siminov.initializeAsync(callback);
-        } else if(LiquorConstants.REQUEST == LiquorConstants.SYNC_REQUEST) {
+        } else if(BookConstants.REQUEST == BookConstants.SYNC_REQUEST) {
             Siminov.initialize();
             console.log('sync initialized');
         }
@@ -143,7 +143,7 @@ var Login = React.createClass({
         credentialCallback.onSuccess = function() {
             console.log('Save Success');
                               
-            getLiqs();
+            getBks();
         }
                               
         credentialCallback.onError = function() {
@@ -155,9 +155,9 @@ var Login = React.createClass({
         credential.setAccountId('si');
                               
                               
-        if(LiquorConstants.REQUEST == LiquorConstants.ASYNC_REQUEST) {
+        if(BookConstants.REQUEST == BookConstants.ASYNC_REQUEST) {
             credential.saveOrUpdateAsync(credentialCallback);
-        } else if(LiquorConstants.REQUEST == LiquorConstants.ASYNC_TRANSACTION_REQUEST) {
+        } else if(BookConstants.REQUEST == BookConstants.ASYNC_TRANSACTION_REQUEST) {
                               
             var databaseDescriptorCallback = new Callback();
             databaseDescriptorCallback.onSuccess = function(databaseDescriptor) {
@@ -165,7 +165,7 @@ var Login = React.createClass({
             }
                               
             new Credential().getDatabaseDescriptorAsync(databaseDescriptorCallback);
-        } else if(LiquorConstants.REQUEST == LiquorConstants.SYNC_REQUEST) {
+        } else if(BookConstants.REQUEST == BookConstants.SYNC_REQUEST) {
                               
             try {
                 credential.saveOrUpdate();
@@ -173,31 +173,31 @@ var Login = React.createClass({
                 console.log('error while saving credential');
             }
                               
-            getLiqs();
+            getBks();
         }
                         
 
-        function getLiqs() {
+        function getBks() {
     
-            var getLiquors = new GetLiquors();
-            getLiquors.setService(GetLiquors.SERVICE_NAME);
-            getLiquors.setRequest(GetLiquors.REQUEST_NAME);
-            getLiquors.addResource("HOME", me);
+            var getBooks = new GetBooks();
+            getBooks.setService(GetBooks.SERVICE_NAME);
+            getBooks.setRequest(GetBooks.REQUEST_NAME);
+            getBooks.addResource("HOME", me);
                               
                               
-            var getLiquorsCallback = new Callback();
-            getLiquorsCallback.onSuccess = function() {
+            var getBooksCallback = new Callback();
+            getBooksCallback.onSuccess = function() {
                 
             }
                               
-            getLiquorsCallback.onFailure = function() {
-                 console.log('get liquors error');
+            getBooksCallback.onFailure = function() {
+                 console.log('get books error');
             }
                               
-            if(LiquorConstants.REQUEST == LiquorConstants.ASYNC_REQUEST || LiquorConstants.REQUEST == LiquorConstants.ASYNC_TRANSACTION_REQUEST) {
-              getLiquors.invokeAsync(getLiquorsCallback);
-            } else if(LiquorConstants.REQUEST == LiquorConstants.SYNC_REQUEST) {
-              getLiquors.invoke();
+            if(BookConstants.REQUEST == BookConstants.ASYNC_REQUEST || BookConstants.REQUEST == BookConstants.ASYNC_TRANSACTION_REQUEST) {
+              getBooks.invokeAsync(getBooksCallback);
+            } else if(BookConstants.REQUEST == BookConstants.SYNC_REQUEST) {
+              getBooks.invoke();
             }
         }
     }

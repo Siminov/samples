@@ -4,10 +4,7 @@ include ':app'
 include ':Core'
 include ':Connect'
 include ':Hybrid'
-include ':Hybrid-Library-Samples'
 
-project(':Core').projectDir = new File(settingsDir,'../../Core/Core')
-project(':Connect').projectDir = new File(settingsDir,'../../Connect/Connect')
-project(':Hybrid').projectDir = new File(settingsDir,'../../Hybrid/Hybrid')
-project(':Hybrid-Library-Samples').projectDir = new File(settingsDir,'../../Hybrid-Library-Samples/HybridLibrarySamples')
-
+project(':Core').projectDir = new File(settingsDir,'../../../Core/Android/Core')
+project(':Connect').projectDir = new File(settingsDir,'../../../Connect/Android/Connect')
+project(':Hybrid').projectDir = new File(settingsDir,'../../../Hybrid/Android/Hybrid')

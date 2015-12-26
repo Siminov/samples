@@ -1,5 +1,6 @@
-<!-- 
-/** 
+
+<!--
+ /**
  * [SIMINOV FRAMEWORK]
  * Copyright [2015] [Siminov Software Solution LLP|support@siminov.com]
  *
@@ -15,27 +16,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  **/
-
- -->
  
+ -->
 
-
-<database-descriptor>
-
-	<property name="database_name">SIMINOV-HYBRID-PHONEGAP-SAMPLE</property>
-	<property name="description">Siminov Hybrid Phonegap Sample Database Config</property>
-	<property name="version">1</property>
-	<property name="transaction_safe">true</property>
-	<property name="external_storage">false</property>
-
-	<entity-descriptors>
-		<entity-descriptor>Entity-Descriptors/Credential.si.xml</entity-descriptor>
-		<entity-descriptor>Entity-Descriptors/Liquor.si.xml</entity-descriptor>
-		<entity-descriptor>Entity-Descriptors/LiquorBrand.si.xml</entity-descriptor>
-	</entity-descriptors>
-
-</database-descriptor>
-
-
-
-
+<sync-descriptor>
+    <property name="name">SYNC-LESSIONS</property>
+    <property name="interval">5000</property>
+    
+    <service-descriptors>
+        <service-descriptor>SIMINOV-HYBRID-LESSIONS-SERVICE.GET-LESSIONS</service-descriptor>
+    </service-descriptors>
+</sync-descriptor>

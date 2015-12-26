@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		008F07F31AC5B25A0029DE68 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 008F07F21AC5B25A0029DE68 /* main.jsbundle */; };
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
 		00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302C01ABCB91800DB3ED1 /* libRCTImage.a */; };
@@ -23,17 +22,11 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		CEF355881BD69B7400E88259 /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = CEF355871BD69B7400E88259 /* Assets */; settings = {ASSET_TAGS = (); }; };
-		CEF355981BD69BA900E88259 /* Liquor in Resources */ = {isa = PBXBuildFile; fileRef = CEF355971BD69BA900E88259 /* Liquor */; settings = {ASSET_TAGS = (); }; };
-		CEF3559A1BD69BAF00E88259 /* Siminov in Resources */ = {isa = PBXBuildFile; fileRef = CEF355991BD69BAF00E88259 /* Siminov */; settings = {ASSET_TAGS = (); }; };
-		CEF3559E1BD69BB700E88259 /* LiquorDetail.js in Resources */ = {isa = PBXBuildFile; fileRef = CEF3559B1BD69BB700E88259 /* LiquorDetail.js */; settings = {ASSET_TAGS = (); }; };
-		CEF3559F1BD69BB700E88259 /* LiquorList.js in Resources */ = {isa = PBXBuildFile; fileRef = CEF3559C1BD69BB700E88259 /* LiquorList.js */; settings = {ASSET_TAGS = (); }; };
-		CEF355A01BD69BB700E88259 /* Login.js in Resources */ = {isa = PBXBuildFile; fileRef = CEF3559D1BD69BB700E88259 /* Login.js */; settings = {ASSET_TAGS = (); }; };
-		CEF355AD1BD69C0400E88259 /* SIHReactInterceptor.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF355AC1BD69C0400E88259 /* SIHReactInterceptor.m */; settings = {ASSET_TAGS = (); }; };
-		CEF355B61BD69E8900E88259 /* include in Resources */ = {isa = PBXBuildFile; fileRef = CEF355B41BD69E8900E88259 /* include */; settings = {ASSET_TAGS = (); }; };
-		CEF355B71BD69E8900E88259 /* libHybrid.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF355B51BD69E8900E88259 /* libHybrid.a */; settings = {ASSET_TAGS = (); }; };
-		CEF355C31BD69EFC00E88259 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF355C21BD69EFC00E88259 /* libsqlite3.tbd */; };
-		CEF355C51BD69F7300E88259 /* index.ios.js in Resources */ = {isa = PBXBuildFile; fileRef = CEF355C41BD69F7300E88259 /* index.ios.js */; settings = {ASSET_TAGS = (); }; };
+		CE38B5721C033D14009ADCD2 /* SIHReactInterceptor.m in Sources */ = {isa = PBXBuildFile; fileRef = CE38B5711C033D14009ADCD2 /* SIHReactInterceptor.m */; settings = {ASSET_TAGS = (); }; };
+		CE38B5881C033E9E009ADCD2 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CE38B5871C033E9E009ADCD2 /* libsqlite3.0.tbd */; };
+		CE38B58A1C0351F7009ADCD2 /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = CE38B5891C0351F7009ADCD2 /* Assets */; };
+		CE80DF1C1C2EA5F9009E8193 /* include in Resources */ = {isa = PBXBuildFile; fileRef = CE80DF1A1C2EA5F9009E8193 /* include */; settings = {ASSET_TAGS = (); }; };
+		CE80DF1D1C2EA5F9009E8193 /* libHybrid.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE80DF1B1C2EA5F9009E8193 /* libHybrid.a */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,18 +131,12 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
-		CEF355871BD69B7400E88259 /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Assets; path = ../Assets; sourceTree = "<group>"; };
-		CEF355971BD69BA900E88259 /* Liquor */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Liquor; path = ../Liquor; sourceTree = "<group>"; };
-		CEF355991BD69BAF00E88259 /* Siminov */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Siminov; path = ../Siminov; sourceTree = "<group>"; };
-		CEF3559B1BD69BB700E88259 /* LiquorDetail.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = LiquorDetail.js; path = ../LiquorDetail.js; sourceTree = "<group>"; };
-		CEF3559C1BD69BB700E88259 /* LiquorList.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = LiquorList.js; path = ../LiquorList.js; sourceTree = "<group>"; };
-		CEF3559D1BD69BB700E88259 /* Login.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = Login.js; path = ../Login.js; sourceTree = "<group>"; };
-		CEF355AB1BD69C0400E88259 /* SIHReactInterceptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SIHReactInterceptor.h; path = HybridReactSample/SIHReactInterceptor.h; sourceTree = "<group>"; };
-		CEF355AC1BD69C0400E88259 /* SIHReactInterceptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SIHReactInterceptor.m; path = HybridReactSample/SIHReactInterceptor.m; sourceTree = "<group>"; };
-		CEF355B41BD69E8900E88259 /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; name = include; path = "../../../../../../Library/Developer/Xcode/DerivedData/HybridReactSample-fctdhdwvghbzeoazrhpbvphctsqq/Build/Products/Debug-iphoneos/include"; sourceTree = "<group>"; };
-		CEF355B51BD69E8900E88259 /* libHybrid.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libHybrid.a; path = "../../../../../../Library/Developer/Xcode/DerivedData/HybridReactSample-fctdhdwvghbzeoazrhpbvphctsqq/Build/Products/Debug-iphoneos/libHybrid.a"; sourceTree = "<group>"; };
-		CEF355C21BD69EFC00E88259 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		CEF355C41BD69F7300E88259 /* index.ios.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = index.ios.js; path = ../index.ios.js; sourceTree = "<group>"; };
+		CE38B5701C033D14009ADCD2 /* SIHReactInterceptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIHReactInterceptor.h; sourceTree = "<group>"; };
+		CE38B5711C033D14009ADCD2 /* SIHReactInterceptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIHReactInterceptor.m; sourceTree = "<group>"; };
+		CE38B5871C033E9E009ADCD2 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		CE38B5891C0351F7009ADCD2 /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Assets; path = ../Assets; sourceTree = "<group>"; };
+		CE80DF1A1C2EA5F9009E8193 /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; name = include; path = "../../../../../Library/Developer/Xcode/DerivedData/Build/Products/Debug-universal/include"; sourceTree = "<group>"; };
+		CE80DF1B1C2EA5F9009E8193 /* libHybrid.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libHybrid.a; path = "../../../../../Library/Developer/Xcode/DerivedData/Build/Products/Debug-universal/libHybrid.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,15 +151,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEF355C31BD69EFC00E88259 /* libsqlite3.tbd in Frameworks */,
+				CE38B5881C033E9E009ADCD2 /* libsqlite3.0.tbd in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
+				CE80DF1D1C2EA5F9009E8193 /* libHybrid.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
 				133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */,
 				00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */,
 				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
-				CEF355B71BD69E8900E88259 /* libHybrid.a in Frameworks */,
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
@@ -258,21 +245,15 @@
 		13B07FAE1A68108700A75B9A /* HybridReactSample */ = {
 			isa = PBXGroup;
 			children = (
-				CEF355C41BD69F7300E88259 /* index.ios.js */,
-				CEF3559B1BD69BB700E88259 /* LiquorDetail.js */,
-				CEF3559C1BD69BB700E88259 /* LiquorList.js */,
-				CEF3559D1BD69BB700E88259 /* Login.js */,
-				CEF355991BD69BAF00E88259 /* Siminov */,
-				CEF355971BD69BA900E88259 /* Liquor */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
-				CEF355AB1BD69C0400E88259 /* SIHReactInterceptor.h */,
-				CEF355AC1BD69C0400E88259 /* SIHReactInterceptor.m */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				CE38B5701C033D14009ADCD2 /* SIHReactInterceptor.h */,
+				CE38B5711C033D14009ADCD2 /* SIHReactInterceptor.m */,
 			);
 			name = HybridReactSample;
 			sourceTree = "<group>";
@@ -321,10 +302,10 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				CEF355C21BD69EFC00E88259 /* libsqlite3.tbd */,
-				CEF355B41BD69E8900E88259 /* include */,
-				CEF355B51BD69E8900E88259 /* libHybrid.a */,
-				CEF355871BD69B7400E88259 /* Assets */,
+				CE80DF1A1C2EA5F9009E8193 /* include */,
+				CE80DF1B1C2EA5F9009E8193 /* libHybrid.a */,
+				CE38B5891C0351F7009ADCD2 /* Assets */,
+				CE38B5871C033E9E009ADCD2 /* libsqlite3.0.tbd */,
 				13B07FAE1A68108700A75B9A /* HybridReactSample */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* HybridReactSampleTests */,
@@ -371,6 +352,7 @@
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
+				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 			);
 			buildRules = (
 			);
@@ -542,21 +524,31 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEF3559F1BD69BB700E88259 /* LiquorList.js in Resources */,
-				CEF3559A1BD69BAF00E88259 /* Siminov in Resources */,
-				CEF355981BD69BA900E88259 /* Liquor in Resources */,
-				CEF355B61BD69E8900E88259 /* include in Resources */,
-				CEF355A01BD69BB700E88259 /* Login.js in Resources */,
-				CEF355C51BD69F7300E88259 /* index.ios.js in Resources */,
-				008F07F31AC5B25A0029DE68 /* main.jsbundle in Resources */,
-				CEF355881BD69B7400E88259 /* Assets in Resources */,
+				CE38B58A1C0351F7009ADCD2 /* Assets in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				CEF3559E1BD69BB700E88259 /* LiquorDetail.js in Resources */,
+				CE80DF1C1C2EA5F9009E8193 /* include in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Bundle React Native code and images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "../node_modules/react-native/packager/react-native-xcode.sh";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		00E356EA1AD99517003FC87E /* Sources */ = {
@@ -571,7 +563,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEF355AD1BD69C0400E88259 /* SIHReactInterceptor.m in Sources */,
+				CE38B5721C033D14009ADCD2 /* SIHReactInterceptor.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);

@@ -10,9 +10,6 @@ import com.facebook.react.ReactRootView;
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
-import siminov.core.IInitializer;
-import siminov.hybrid.interceptor.ReactInterceptorFactory;
-
 
 public class MainActivity extends Activity implements DefaultHardwareBackBtnHandler {
 
@@ -22,8 +19,6 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initializeSiminov();
-
         mReactRootView = new ReactRootView(this);
 
         mReactInstanceManager = ReactInstanceManager.builder()
@@ -31,7 +26,6 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
                 .setBundleAssetName("index.android.bundle")
                 .setJSMainModuleName("index.android")
                 .addPackage(new MainReactPackage())
-                .addPackage(new ReactInterceptorFactory())
                 .setUseDeveloperSupport(BuildConfig.DEBUG)
                 .setInitialLifecycleState(LifecycleState.RESUMED)
                 .build();
@@ -40,17 +34,6 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
 
         setContentView(mReactRootView);
     }
-
-    private void initializeSiminov() {
-
-        IInitializer initializer = siminov.hybrid.Siminov.initializer();
-
-        initializer.addParameter(getApplicationContext());
-        initializer.addParameter((Activity) this);
-
-        initializer.initialize();
-    }
-
 
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
