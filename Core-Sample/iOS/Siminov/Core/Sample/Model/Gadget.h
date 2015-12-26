@@ -17,7 +17,7 @@
 
 #import <Foundation/Foundation.h>
 
-static NSString * const LIQUOR_BRANDS_LABEL = @"LIQUOR_BRANDS_LABEL";
+static NSString * const LESSIONS_LABEL = @"LESSIONS_LABEL";
 
 @interface Gadget : NSObject
 {

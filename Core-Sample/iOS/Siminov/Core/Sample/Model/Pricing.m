@@ -42,12 +42,12 @@
     discount = disc;
 }
 
--(LiquorBrand *)getLiquorBrand {
-    return liquorBrand;
+-(Book *)getBook {
+    return book;
 }
 
--(void)setLiquorBrand:(LiquorBrand *)brand {
-    liquorBrand = brand;
+-(void)setBook:(Book *)bk {
+    book = bk;
 }
 
 

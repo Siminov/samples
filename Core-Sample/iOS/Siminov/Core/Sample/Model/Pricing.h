@@ -8,7 +8,7 @@
 
 #import "SICDatabase.h"
 
-@class LiquorBrand;
+@class Book;
 
 //Table Name
 static NSString * const PRICING_TABLE_NAME = @"PRICING";
@@ -28,7 +28,7 @@ static NSString * const DISCOUNT = @"DISCOUNT";
     NSNumber *tax;
     NSNumber *discount;
     
-    LiquorBrand *liquorBrand;
+    Book *book;
 }
 
 //Methods
@@ -44,8 +44,8 @@ static NSString * const DISCOUNT = @"DISCOUNT";
 -(NSNumber *)getDiscount;
 -(void)setDiscount:(NSNumber *)disc;
 
--(LiquorBrand *)getLiquorBrand;
--(void)setLiquorBrand:(LiquorBrand *)brand;
+-(Book *)getBook;
+-(void)setBook:(Book *)bk;
 
 
 @end

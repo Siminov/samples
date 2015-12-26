@@ -11,8 +11,6 @@
 		02188BF91AA5CB5A0097CFEE /* DatabaseEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 02188BEE1AA5CB5A0097CFEE /* DatabaseEventHandler.m */; };
 		02188BFA1AA5CB5A0097CFEE /* SiminovEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 02188BF01AA5CB5A0097CFEE /* SiminovEventHandler.m */; };
 		02188BFB1AA5CB5A0097CFEE /* Gadget.m in Sources */ = {isa = PBXBuildFile; fileRef = 02188BF31AA5CB5A0097CFEE /* Gadget.m */; };
-		02188BFC1AA5CB5A0097CFEE /* Liquor.m in Sources */ = {isa = PBXBuildFile; fileRef = 02188BF51AA5CB5A0097CFEE /* Liquor.m */; };
-		02188BFD1AA5CB5A0097CFEE /* LiquorBrand.m in Sources */ = {isa = PBXBuildFile; fileRef = 02188BF71AA5CB5A0097CFEE /* LiquorBrand.m */; };
 		0297C3E71AA1DD2C006672E9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0297C3DC1AA1DD2C006672E9 /* AppDelegate.m */; };
 		0297C3E81AA1DD2C006672E9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0297C3DE1AA1DD2C006672E9 /* LaunchScreen.xib */; };
 		0297C3E91AA1DD2C006672E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0297C3E01AA1DD2C006672E9 /* Main.storyboard */; };
@@ -20,17 +18,19 @@
 		0297C3EC1AA1DD2C006672E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0297C3E41AA1DD2C006672E9 /* main.m */; };
 		0297C3ED1AA1DD2C006672E9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0297C3E61AA1DD2C006672E9 /* ViewController.m */; };
 		0297C3EE1AA1DF7E006672E9 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0297C3E31AA1DD2C006672E9 /* Info.plist */; };
-		0297C4281AA1E370006672E9 /* LiquorDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0297C4101AA1E370006672E9 /* LiquorDetailViewController.m */; };
-		0297C4291AA1E370006672E9 /* LiquorDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0297C4111AA1E370006672E9 /* LiquorDetailViewController.xib */; };
-		0297C42A1AA1E370006672E9 /* LiquorListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0297C4131AA1E370006672E9 /* LiquorListViewController.m */; };
-		0297C42B1AA1E370006672E9 /* LiquorListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0297C4141AA1E370006672E9 /* LiquorListViewController.xib */; };
 		0297C4321AA1E370006672E9 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0297C4271AA1E370006672E9 /* ViewController.xib */; };
 		0297C4A81AA2F167006672E9 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0297C4A71AA2F167006672E9 /* libsqlite3.0.dylib */; };
 		02DD1B681AA5BE7400D02F0D /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = 02DD1B671AA5BE7400D02F0D /* Assets */; };
+		CE2D1E301C2BE49C002C3219 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2D1E2F1C2BE49C002C3219 /* Book.m */; settings = {ASSET_TAGS = (); }; };
+		CE2D1E331C2BE8B9002C3219 /* Lession.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2D1E321C2BE8B9002C3219 /* Lession.m */; settings = {ASSET_TAGS = (); }; };
+		CE2D1E361C2BE93A002C3219 /* BookShopMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2D1E351C2BE93A002C3219 /* BookShopMapping.m */; settings = {ASSET_TAGS = (); }; };
+		CE2D1E391C2BE9D4002C3219 /* BookAndLessionJoin.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2D1E381C2BE9D4002C3219 /* BookAndLessionJoin.m */; settings = {ASSET_TAGS = (); }; };
+		CE2D1E3F1C2C06C0002C3219 /* BooksListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2D1E3E1C2C06C0002C3219 /* BooksListViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		CE2D1E421C2C06E7002C3219 /* BooksListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2D1E411C2C06E7002C3219 /* BooksListViewController.m */; settings = {ASSET_TAGS = (); }; };
+		CE2D1E441C2C0921002C3219 /* BookDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2D1E431C2C0921002C3219 /* BookDetailViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		CE2D1E471C2C0935002C3219 /* BookDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2D1E461C2C0935002C3219 /* BookDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
 		CE7113391ADBC09600163D06 /* Shop.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7113381ADBC09600163D06 /* Shop.m */; };
 		CE71133C1ADBC6CC00163D06 /* Pricing.m in Sources */ = {isa = PBXBuildFile; fileRef = CE71133B1ADBC6CC00163D06 /* Pricing.m */; };
-		CE71133F1ADBC97800163D06 /* LiquorShopMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = CE71133E1ADBC97800163D06 /* LiquorShopMapping.m */; };
-		CEA587AE1ADE9E5100F75374 /* LiquorAndLiquorBrandJoin.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA587AD1ADE9E5100F75374 /* LiquorAndLiquorBrandJoin.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,10 +42,6 @@
 		02188BF01AA5CB5A0097CFEE /* SiminovEventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SiminovEventHandler.m; sourceTree = "<group>"; };
 		02188BF21AA5CB5A0097CFEE /* Gadget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gadget.h; sourceTree = "<group>"; };
 		02188BF31AA5CB5A0097CFEE /* Gadget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gadget.m; sourceTree = "<group>"; };
-		02188BF41AA5CB5A0097CFEE /* Liquor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Liquor.h; sourceTree = "<group>"; };
-		02188BF51AA5CB5A0097CFEE /* Liquor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Liquor.m; sourceTree = "<group>"; };
-		02188BF61AA5CB5A0097CFEE /* LiquorBrand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiquorBrand.h; sourceTree = "<group>"; };
-		02188BF71AA5CB5A0097CFEE /* LiquorBrand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiquorBrand.m; sourceTree = "<group>"; };
 		0297C3B21AA1DA4C006672E9 /* core-sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "core-sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0297C3DB1AA1DD2C006672E9 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0297C3DC1AA1DD2C006672E9 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -56,23 +52,27 @@
 		0297C3E41AA1DD2C006672E9 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0297C3E51AA1DD2C006672E9 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		0297C3E61AA1DD2C006672E9 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		0297C40F1AA1E370006672E9 /* LiquorDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiquorDetailViewController.h; sourceTree = "<group>"; };
-		0297C4101AA1E370006672E9 /* LiquorDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiquorDetailViewController.m; sourceTree = "<group>"; };
-		0297C4111AA1E370006672E9 /* LiquorDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiquorDetailViewController.xib; sourceTree = "<group>"; };
-		0297C4121AA1E370006672E9 /* LiquorListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiquorListViewController.h; sourceTree = "<group>"; };
-		0297C4131AA1E370006672E9 /* LiquorListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiquorListViewController.m; sourceTree = "<group>"; };
-		0297C4141AA1E370006672E9 /* LiquorListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiquorListViewController.xib; sourceTree = "<group>"; };
 		0297C4271AA1E370006672E9 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		0297C4A71AA2F167006672E9 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		02DD1B671AA5BE7400D02F0D /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
+		CE2D1E2E1C2BE49C002C3219 /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
+		CE2D1E2F1C2BE49C002C3219 /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
+		CE2D1E311C2BE8B9002C3219 /* Lession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lession.h; sourceTree = "<group>"; };
+		CE2D1E321C2BE8B9002C3219 /* Lession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lession.m; sourceTree = "<group>"; };
+		CE2D1E341C2BE93A002C3219 /* BookShopMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookShopMapping.h; sourceTree = "<group>"; };
+		CE2D1E351C2BE93A002C3219 /* BookShopMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookShopMapping.m; sourceTree = "<group>"; };
+		CE2D1E371C2BE9D4002C3219 /* BookAndLessionJoin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookAndLessionJoin.h; sourceTree = "<group>"; };
+		CE2D1E381C2BE9D4002C3219 /* BookAndLessionJoin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookAndLessionJoin.m; sourceTree = "<group>"; };
+		CE2D1E3E1C2C06C0002C3219 /* BooksListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BooksListViewController.xib; sourceTree = "<group>"; };
+		CE2D1E401C2C06E7002C3219 /* BooksListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BooksListViewController.h; sourceTree = "<group>"; };
+		CE2D1E411C2C06E7002C3219 /* BooksListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BooksListViewController.m; sourceTree = "<group>"; };
+		CE2D1E431C2C0921002C3219 /* BookDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookDetailViewController.xib; sourceTree = "<group>"; };
+		CE2D1E451C2C0935002C3219 /* BookDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookDetailViewController.h; sourceTree = "<group>"; };
+		CE2D1E461C2C0935002C3219 /* BookDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookDetailViewController.m; sourceTree = "<group>"; };
 		CE7113371ADBC09600163D06 /* Shop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shop.h; sourceTree = "<group>"; };
 		CE7113381ADBC09600163D06 /* Shop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shop.m; sourceTree = "<group>"; };
 		CE71133A1ADBC6CC00163D06 /* Pricing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pricing.h; sourceTree = "<group>"; };
 		CE71133B1ADBC6CC00163D06 /* Pricing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pricing.m; sourceTree = "<group>"; };
-		CE71133D1ADBC97800163D06 /* LiquorShopMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiquorShopMapping.h; sourceTree = "<group>"; };
-		CE71133E1ADBC97800163D06 /* LiquorShopMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiquorShopMapping.m; sourceTree = "<group>"; };
-		CEA587AC1ADE9E5100F75374 /* LiquorAndLiquorBrandJoin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiquorAndLiquorBrandJoin.h; sourceTree = "<group>"; };
-		CEA587AD1ADE9E5100F75374 /* LiquorAndLiquorBrandJoin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiquorAndLiquorBrandJoin.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,18 +138,18 @@
 			children = (
 				02188BF21AA5CB5A0097CFEE /* Gadget.h */,
 				02188BF31AA5CB5A0097CFEE /* Gadget.m */,
-				02188BF41AA5CB5A0097CFEE /* Liquor.h */,
-				02188BF51AA5CB5A0097CFEE /* Liquor.m */,
-				02188BF61AA5CB5A0097CFEE /* LiquorBrand.h */,
-				02188BF71AA5CB5A0097CFEE /* LiquorBrand.m */,
 				CE7113371ADBC09600163D06 /* Shop.h */,
 				CE7113381ADBC09600163D06 /* Shop.m */,
 				CE71133A1ADBC6CC00163D06 /* Pricing.h */,
 				CE71133B1ADBC6CC00163D06 /* Pricing.m */,
-				CE71133D1ADBC97800163D06 /* LiquorShopMapping.h */,
-				CE71133E1ADBC97800163D06 /* LiquorShopMapping.m */,
-				CEA587AC1ADE9E5100F75374 /* LiquorAndLiquorBrandJoin.h */,
-				CEA587AD1ADE9E5100F75374 /* LiquorAndLiquorBrandJoin.m */,
+				CE2D1E2E1C2BE49C002C3219 /* Book.h */,
+				CE2D1E2F1C2BE49C002C3219 /* Book.m */,
+				CE2D1E311C2BE8B9002C3219 /* Lession.h */,
+				CE2D1E321C2BE8B9002C3219 /* Lession.m */,
+				CE2D1E341C2BE93A002C3219 /* BookShopMapping.h */,
+				CE2D1E351C2BE93A002C3219 /* BookShopMapping.m */,
+				CE2D1E371C2BE9D4002C3219 /* BookAndLessionJoin.h */,
+				CE2D1E381C2BE9D4002C3219 /* BookAndLessionJoin.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -157,15 +157,15 @@
 		0297C3A91AA1DA4C006672E9 = {
 			isa = PBXGroup;
 			children = (
+				CE2D1E451C2C0935002C3219 /* BookDetailViewController.h */,
+				CE2D1E461C2C0935002C3219 /* BookDetailViewController.m */,
+				CE2D1E431C2C0921002C3219 /* BookDetailViewController.xib */,
+				CE2D1E401C2C06E7002C3219 /* BooksListViewController.h */,
+				CE2D1E411C2C06E7002C3219 /* BooksListViewController.m */,
+				CE2D1E3E1C2C06C0002C3219 /* BooksListViewController.xib */,
 				02188BE61AA5CB5A0097CFEE /* Siminov */,
 				02DD1B671AA5BE7400D02F0D /* Assets */,
 				0297C4A71AA2F167006672E9 /* libsqlite3.0.dylib */,
-				0297C40F1AA1E370006672E9 /* LiquorDetailViewController.h */,
-				0297C4101AA1E370006672E9 /* LiquorDetailViewController.m */,
-				0297C4111AA1E370006672E9 /* LiquorDetailViewController.xib */,
-				0297C4121AA1E370006672E9 /* LiquorListViewController.h */,
-				0297C4131AA1E370006672E9 /* LiquorListViewController.m */,
-				0297C4141AA1E370006672E9 /* LiquorListViewController.xib */,
 				0297C4271AA1E370006672E9 /* ViewController.xib */,
 				0297C3DB1AA1DD2C006672E9 /* AppDelegate.h */,
 				0297C3DC1AA1DD2C006672E9 /* AppDelegate.m */,
@@ -253,14 +253,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE2D1E441C2C0921002C3219 /* BookDetailViewController.xib in Resources */,
 				02DD1B681AA5BE7400D02F0D /* Assets in Resources */,
 				0297C4321AA1E370006672E9 /* ViewController.xib in Resources */,
-				0297C4291AA1E370006672E9 /* LiquorDetailViewController.xib in Resources */,
-				0297C42B1AA1E370006672E9 /* LiquorListViewController.xib in Resources */,
 				0297C3EE1AA1DF7E006672E9 /* Info.plist in Resources */,
 				0297C3EA1AA1DD2C006672E9 /* Images.xcassets in Resources */,
 				0297C3E81AA1DD2C006672E9 /* LaunchScreen.xib in Resources */,
 				0297C3E91AA1DD2C006672E9 /* Main.storyboard in Resources */,
+				CE2D1E3F1C2C06C0002C3219 /* BooksListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,19 +272,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				02188BF91AA5CB5A0097CFEE /* DatabaseEventHandler.m in Sources */,
-				02188BFD1AA5CB5A0097CFEE /* LiquorBrand.m in Sources */,
-				0297C42A1AA1E370006672E9 /* LiquorListViewController.m in Sources */,
+				CE2D1E331C2BE8B9002C3219 /* Lession.m in Sources */,
 				0297C3ED1AA1DD2C006672E9 /* ViewController.m in Sources */,
 				02188BF81AA5CB5A0097CFEE /* DatabaseUtil.m in Sources */,
-				CEA587AE1ADE9E5100F75374 /* LiquorAndLiquorBrandJoin.m in Sources */,
 				0297C3EC1AA1DD2C006672E9 /* main.m in Sources */,
 				02188BFB1AA5CB5A0097CFEE /* Gadget.m in Sources */,
 				02188BFA1AA5CB5A0097CFEE /* SiminovEventHandler.m in Sources */,
-				CE71133F1ADBC97800163D06 /* LiquorShopMapping.m in Sources */,
 				CE71133C1ADBC6CC00163D06 /* Pricing.m in Sources */,
+				CE2D1E391C2BE9D4002C3219 /* BookAndLessionJoin.m in Sources */,
 				0297C3E71AA1DD2C006672E9 /* AppDelegate.m in Sources */,
-				0297C4281AA1E370006672E9 /* LiquorDetailViewController.m in Sources */,
-				02188BFC1AA5CB5A0097CFEE /* Liquor.m in Sources */,
+				CE2D1E301C2BE49C002C3219 /* Book.m in Sources */,
+				CE2D1E471C2C0935002C3219 /* BookDetailViewController.m in Sources */,
+				CE2D1E361C2BE93A002C3219 /* BookShopMapping.m in Sources */,
+				CE2D1E421C2C06E7002C3219 /* BooksListViewController.m in Sources */,
 				CE7113391ADBC09600163D06 /* Shop.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

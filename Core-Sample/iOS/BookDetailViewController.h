@@ -16,11 +16,16 @@
 ///
 
 #import <UIKit/UIKit.h>
+#import "Book.h"
 
-@interface LiquorListViewController : UIViewController <UITableViewDelegate> {
-    NSArray *liquors;
+@interface BookDetailViewController : UIViewController <UITableViewDelegate> {
+    NSArray *lessions;
 }
 
-@property (strong, nonatomic) IBOutlet UITableView *listTableView;
+@property (strong, nonatomic) IBOutlet UINavigationBar *detailNavigationBar;
+@property (strong, nonatomic) IBOutlet UITableView *detailTableView;
+@property (strong, nonatomic) Book *book;
+
+- (IBAction)backToBookList:(id)sender;
 
 @end

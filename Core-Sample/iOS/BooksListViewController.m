@@ -15,22 +15,22 @@
 /// limitations under the License.
 ///
 
-#import "LiquorListViewController.h"
+#import "BooksListViewController.h"
 #import "ViewController.h"
-#import "Liquor.h"
-#import "LiquorDetailViewController.h"
+#import "Book.h"
+#import "BookDetailViewController.h"
 
-@interface LiquorListViewController ()
+@interface BooksListViewController ()
 
 @end
 
-@implementation LiquorListViewController
+@implementation BooksListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    liquors = [[[[Liquor alloc] init] select] execute];
+    books = [[[[Book alloc] init] select] execute];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,17 +39,17 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [liquors count];
+    return [books count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -61,16 +61,16 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];
     }
     
-    cell.textLabel.text = [[liquors objectAtIndex:indexPath.row] getLiquorType];
-    cell.detailTextLabel.text = [[liquors objectAtIndex:indexPath.row] getDescription];
+    cell.textLabel.text = [[books objectAtIndex:indexPath.row] getTitle];
+    cell.detailTextLabel.text = [[books objectAtIndex:indexPath.row] getDescription];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    LiquorDetailViewController *liquorDetail = [[LiquorDetailViewController alloc] initWithNibName:@"LiquorDetailViewController" bundle:nil];
-    liquorDetail.liquor = [liquors objectAtIndex:indexPath.row];
+    BookDetailViewController *bookDetail = [[BookDetailViewController alloc] initWithNibName:@"BookDetailViewController" bundle:nil];
+    bookDetail.book = [books objectAtIndex:indexPath.row];
     
-    [self presentViewController:liquorDetail animated:YES completion:nil];
+    [self presentViewController:bookDetail animated:YES completion:nil];
 }
 
 

@@ -17,17 +17,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController {
-    BOOL isAccountPresent;
-    IBOutlet UITextField *accountIdField;
-    IBOutlet UITextField *tokenField;
+@interface BooksListViewController : UIViewController <UITableViewDelegate> {
+    NSArray *books;
 }
 
-@property (weak, nonatomic) IBOutlet UIButton *loginButton;
-@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
-
-- (IBAction)moveToBooksList:(id)sender;
-- (IBAction)cancelLogin:(id)sender;
+@property (strong, nonatomic) IBOutlet UITableView *listTableView;
 
 @end
-

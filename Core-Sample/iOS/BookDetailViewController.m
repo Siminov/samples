@@ -15,26 +15,26 @@
 /// limitations under the License.
 ///
 
-#import "LiquorDetailViewController.h"
-#import "LiquorBrand.h"
+#import "BookDetailViewController.h"
+#import "Lession.h"
 #import "SICISelectClause.h"
 
-@interface LiquorDetailViewController ()
+@interface BookDetailViewController ()
 
 @end
 
-@implementation LiquorDetailViewController
+@implementation BookDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
     @try {
-        liquorBrands = [[[[[[LiquorBrand alloc] init] select] where:LIQUOR_BRAND_LIQUOR_TYPE] equalTo:self.liquor.getLiquorType] execute];
+        lessions = [[[[[[Lession alloc] init] select] where:LESSION_BOOK_TITLE] equalTo:self.book.getTitle] execute];
     } @catch(SICDatabaseException *databaseException) {
-        [SICLog error:NSStringFromClass([self class]) methodName:@"getLiquorBrands" message:[NSString stringWithFormat:@"DatabaseException caught while getting liquor brands, %@",[databaseException getMessage]]];
+        [SICLog error:NSStringFromClass([self class]) methodName:@"getLessions" message:[NSString stringWithFormat:@"DatabaseException caught while getting lessions, %@",[databaseException getMessage]]];
     }
-    self.detailNavigationBar.topItem.title = [self.liquor getLiquorType];
+    self.detailNavigationBar.topItem.title = [self.book getTitle];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,14 +43,14 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 #pragma mark -
 #pragma mark UITableView Delegate/Datasource
@@ -83,7 +83,7 @@
     
     switch (section) {
         case 4:
-            rows = liquorBrands.count;
+            rows = lessions.count;
             break;
         default:
             break;
@@ -92,7 +92,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    
     if (indexPath.section == 4) {
         static NSString *StatisticsCellIdentifier = @"StatisticsCell";
         
@@ -101,10 +101,10 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:StatisticsCellIdentifier];
         }
         
-        cell.textLabel.text = [[liquorBrands objectAtIndex:indexPath.row] getBrandName];
+        cell.textLabel.text = [[lessions objectAtIndex:indexPath.row] getName];
         return cell;
     }
-
+    
     static NSString *MyIdentifier = @"MyIdentifier";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
     
@@ -120,16 +120,13 @@
     NSString *text;
     switch (indexPath.section) {
         case 0:
-            text = [self.liquor getDescription];
+            text = [self.book getDescription];
             break;
         case 1:
-            text = [self.liquor getHistory];
+            text = [self.book getAuthor];
             break;
-        case 2: {
-            text = [self.liquor getAlcholContent];
-        }; break;
         case 3:
-            text = [self.liquor getLink];
+            text = [self.book getLink];
             break;
         default:
             text = @"";
@@ -138,7 +135,7 @@
     return text;
 }
 
-- (IBAction)backToLiquorList:(id)sender {
-     [self dismissViewControllerAnimated:YES completion:nil];
+- (IBAction)backToBookList:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

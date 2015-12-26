@@ -1,21 +1,21 @@
 //
-//  LiquorShopMapping.m
+//  Lession.m
 //  core-sample
 //
 //  Created by user on 13/04/15.
 //  Copyright (c) 2015 Siminov. All rights reserved.
 //
 
-#import "LiquorShopMapping.h"
+#import "BookShopMapping.h"
 
-@implementation LiquorShopMapping
+@implementation BookShopMapping
 
--(Liquor *)getLiquor {
-    return liquor;
+-(Book *)getBook {
+    return book;
 }
 
--(void)setLiquor:(Liquor *)liq {
-    liquor = liq;
+-(void)setBook:(Book *)bk {
+    book = bk;
 }
 
 

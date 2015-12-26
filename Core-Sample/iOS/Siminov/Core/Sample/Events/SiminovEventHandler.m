@@ -17,7 +17,7 @@
 
 #import "SiminovEventHandler.h"
 #import "DatabaseUtil.h"
-#import "LiquorBrand.h"
+#import "Lession.h"
 
 @implementation SiminovEventHandler
 

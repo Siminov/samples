@@ -18,7 +18,7 @@
 #import "ViewController.h"
 
 #import "CredentialAPI.h"
-#import "LiquorListViewController.h"
+#import "BooksListViewController.h"
 
 @interface ViewController ()
 
@@ -39,7 +39,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)moveToLiquorList:(id)sender {
+- (IBAction)moveToBooksList:(id)sender {
     
     if (!isAccountPresent) {
         @try {
@@ -60,7 +60,7 @@
         return;
     }
     
-    LiquorListViewController *aMessageViewController = [[LiquorListViewController alloc] initWithNibName:@"LiquorListViewController" bundle:nil];
+    BooksListViewController *aMessageViewController = [[BooksListViewController alloc] initWithNibName:@"BooksListViewController" bundle:nil];
     [self presentViewController:aMessageViewController animated:YES completion:nil];
 }
 

@@ -1,5 +1,5 @@
 //
-//  LiquorShopMapping.h
+//  Lession.h
 //  core-sample
 //
 //  Created by user on 13/04/15.
@@ -8,23 +8,23 @@
 
 #import "SICDatabase.h"
 
-#import "Liquor.h"
+#import "Book.h"
 #import "Shop.h"
 
 //Table Name
-static NSString * const LIQUOR_SHOP_MAPPING_TABLE_NAME = @"LIQUOR_SHOP_MAPPING";
+static NSString * const BOOK_SHOP_MAPPING_TABLE_NAME = @"BOOK_SHOP_MAPPING";
 
 
-@interface LiquorShopMapping : SICDatabase
+@interface BookShopMapping : SICDatabase
 {
     //Variables
-    Liquor *liquor;
+    Book *book;
     Shop *shop;
 }
 
 //Method Names
--(Liquor *)getLiquor;
--(void)setLiquor:(Liquor *)liquor;
+-(Book *)getBook;
+-(void)setBook:(Book *)bk;
 
 -(Shop *)getShop;
 -(void)setShop:(Shop *)shop;
