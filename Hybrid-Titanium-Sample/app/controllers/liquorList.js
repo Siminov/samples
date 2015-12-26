@@ -1,3 +1,5 @@
+var testTitanium = null;
+
 var myLiquors = Alloy.Collections.liquors;
  
 var gin = Alloy.createModel('liquors',{
@@ -33,6 +35,14 @@ myLiquors.add(vodka);
 vodka.save();
 
 function showLiquorDetail(event) {
+	var test = require('hybrid.titanium.module');
+	Ti.API.info("module is => " + test);
+	//alert(test.example());
+	
+	test.timedEvent("openCrust 2.0.27", function(result) {
+		alert(result);
+	});
+	
 	var selectedLiquor = event.source;
     var args = {
         liquorName: selectedLiquor.title,

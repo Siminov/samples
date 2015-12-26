@@ -3,7 +3,8 @@
         <View layout="vertical" id="login">
             <TextField id="username" hintText="Username..."></TextField>
             <TextField id="password" hintText="Password..."></TextField>
-            <Button id="insertBookButton" onClick="showLiquorList">Login</Button>
+            <Button id="insertLoginButton" onClick="showHome">Login</Button>
+            <Button id="insertInitializeButton" onClick="doInitialize">Initialize</Button>
         </View>
     </Window>
 </Alloy>
