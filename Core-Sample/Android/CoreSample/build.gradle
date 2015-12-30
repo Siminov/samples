@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-
 android {
     compileSdkVersion 22
     buildToolsVersion "23.0.2"
@@ -19,7 +18,7 @@ android {
 }
 
 dependencies {
-    compile files('libs/android-support-v4.jar')
+    compile project(':android-support-v4')
     compile project(':Core')
     compile project(':Core-Library-Sample')
 }
