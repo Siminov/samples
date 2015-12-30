@@ -17,5 +17,8 @@ android {
 }
 
 dependencies {
-    
+    compile project(':Core')
+    compile project(':Connect')
+    compile project(':Hybrid')
+    compile project(':Hybrid-Library-Samples')
 }
