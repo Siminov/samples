@@ -166,14 +166,14 @@
     </SDKReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\..\Connect\Windows\universal8.1\connect.csproj">
-      <Project>{e0c859aa-497b-4633-828a-a17e7e400fdd}</Project>
-      <Name>connect</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\..\..\Core\Windows\universal8.1\core.csproj">
-      <Project>{bab29a50-621e-48c6-9f73-c0a9bba3b2d5}</Project>
-      <Name>core</Name>
-    </ProjectReference>
+    <Reference Include="connect, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Connect\Build\v2.0\build.windows\v2.0\connect.dll</HintPath>
+    </Reference>
+    <Reference Include="core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Core\Build\v2.0\build.windows\core.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>

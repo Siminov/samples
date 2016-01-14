@@ -37,7 +37,7 @@ namespace Siminov.Connect.Sample.Services
         public static readonly String SERVICE_NAME = "SIMINOV-CONNECT-LESSIONS-SERVICE";
         public static readonly String REQUEST_NAME = "GET-LESSIONS";
 
-        public static readonly String BOOK_TITLE = "TITLE";
+        public static readonly String BOOK_TITLE = "BOOK-TITLE";
         public static readonly String BOOK = "BOOK";
         public static readonly String UI_COMPONENT = "UI_COMPONENT";
 

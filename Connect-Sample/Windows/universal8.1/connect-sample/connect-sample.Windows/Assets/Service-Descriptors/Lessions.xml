@@ -31,7 +31,7 @@
 
       <property name="name">GET-LESSIONS</property>
       <property name="type">GET</property>
-      <property name="api">get_brands.php</property>
+      <property name="api">get_lessions.php</property>
       <property name="handler">Siminov.Connect.Sample.Services.GetLessions</property>
       <property name="mode">SYNC</property>
 
