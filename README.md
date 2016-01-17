@@ -1,4 +1,5 @@
-Siminov Framework - Samples
+![siminov](https://raw.githubusercontent.com/Siminov/samples/master/Core-Sample/Android/CoreSample/src/main/resources/logo.png)
+
 ===================================================
 
 Siminov Framework is a open source Object/Relational Mapping solution for Android environments. It maps data from an object model representation to a relational data model representation (and visa versa). 
