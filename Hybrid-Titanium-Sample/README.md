@@ -1,10 +1,12 @@
-Siminov Framework - iOS Samples
+![siminov](https://raw.githubusercontent.com/Siminov/samples/master/Core-Sample/Android/CoreSample/src/main/resources/logo.png)
+
 ===================================================
+[![Build Status](https://travis-ci.org/Siminov/samples.svg?branch=master)](https://travis-ci.org/Siminov/samples) [![Gitter chat](https://badges.gitter.im/gitterHQ/services.png)](https://gitter.im/Siminov) [![NPM version](https://badge.fury.io/js/siminov.svg)](https://npmjs.org/package/siminov)
 
-Siminov Framework is a open source Object/Relational Mapping solution for iOS environments. It maps data from an object model representation to a relational data model representation (and visa versa). 
 
-Siminov not only takes care of the mapping from Objective-C/JavaScript classes to database tables (and from Objective-C/JavaScript data types to SQL data types), but also provides data query and retrieval facilities. 
+Siminov is a open source framework which allows you to easily build your mobile apps without worrying about data storage and backend communication. 
 
+It is supported on all major mobile platforms - (Android - Java, iOS - Objective-C|Swift, Windows - C#, OS X - Objective-C|Swift, Cordova, React Native, Xamarine, Titanium, NativeScript). 
 
 LICENSE
 -------
@@ -12,7 +14,7 @@ LICENSE
  
  [SIMINOV FRAMEWORK]
  <p>
- Copyright [2013] [Siminov Software Solution|support@siminov.com]
+ Copyright [2014-2016] [Siminov Software Solution|support@siminov.com]
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -25,4 +27,3 @@ LICENSE
  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  See the License for the specific language governing permissions and
  limitations under the License.
-
