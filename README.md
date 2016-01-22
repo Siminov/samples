@@ -14,7 +14,7 @@ LICENSE
  
  [SIMINOV FRAMEWORK]
  <p>
- Copyright [2013] [Siminov Software Solution|support@siminov.com]
+ Copyright [2014-2016] [Siminov Software Solution|support@siminov.com]
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -27,7 +27,3 @@ LICENSE
  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  See the License for the specific language governing permissions and
  limitations under the License.
-
-
-[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/f423e443f4fc035eeb0ccf84cb7abdbe "githalytics.com")](http://githalytics.com/Siminov/android-templates)
-
