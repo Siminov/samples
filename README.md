@@ -6,7 +6,7 @@
 
 Siminov is a open source framework which allows you to easily build your mobile apps without worrying about data storage and backend communication. 
 
-It is supported for all different environments - (Android - Java, iOS - Objective-C|Swift, Windows - C#, OS X - Objective-C|Swift, Cordova, React Native, Xamarine, Titanium, NativeScript). 
+It is supported on all major mobile platforms - (Android - Java, iOS - Objective-C|Swift, Windows - C#, OS X - Objective-C|Swift, Cordova, React Native, Xamarine, Titanium, NativeScript). 
 
 LICENSE
 -------
