@@ -1,6 +1,8 @@
 ![siminov](https://raw.githubusercontent.com/Siminov/samples/master/Core-Sample/Android/CoreSample/src/main/resources/logo.png)
 
 ===================================================
+[![Build Status](https://travis-ci.org/Siminov/samples.svg?branch=master)](https://travis-ci.org/Siminov/samples) [![Gitter chat](https://badges.gitter.im/gitterHQ/services.png)](https://gitter.im/Siminov) [![NPM version](https://badge.fury.io/js/siminov.svg)](https://npmjs.org/package/siminov)
+
 
 Siminov Framework is a open source Object/Relational Mapping solution for Android environments. It maps data from an object model representation to a relational data model representation (and visa versa). 
 
