@@ -1,29 +1,12 @@
-Siminov Core (Object Relationship Mapping) - Android, iOS, Windows - Library Sample Application
+![siminov](https://raw.githubusercontent.com/Siminov/samples/master/Core-Sample/Android/CoreSample/src/main/resources/logo.png)
+
 ===================================================
-
-Siminov Core Framework
-------------
-
-Siminov Core is a open source Object/Relational Mapping solution for Android environments. It maps data from an object model representation to a relational data model representation (and visa versa). 
-
-Siminov Core not only takes care of the mapping from Java classes to database tables (and from Java data types to SQL data types), but also provides data query and retrieval facilities. 
+[![Build Status](https://travis-ci.org/Siminov/samples.svg?branch=master)](https://travis-ci.org/Siminov/samples) [![Gitter chat](https://badges.gitter.im/gitterHQ/services.png)](https://gitter.im/Siminov) [![NPM version](https://badge.fury.io/js/siminov.svg)](https://npmjs.org/package/siminov)
 
 
-About Siminov Library Design
-----------------------------
-An Android library project is a development project that holds shared Android source code and resources. Other Andriod application projects can reference the library project and, at build time, include its compiled sources in their .apk files. Multiple application projects can reference the same library project and any single application project can reference multiple library projects.
+Siminov is a open source framework which allows you to easily build your mobile apps without worrying about data storage and backend communication. 
 
-Siminov Core provides mechanism to configure ORM for your library projects.
-
-
-
-About This
--------------
-It is a library sample based on Siminov Framework, using this application app developer can get an idea how to use Siminov Framework for library.
-
-This library stores application credentials.
-
-
+It is supported on all major mobile platforms - (Android - Java, iOS - Objective-C|Swift, Windows - C#, OS X - Objective-C|Swift, Cordova, React Native, Xamarine, Titanium, NativeScript). 
 
 LICENSE
 -------
@@ -31,7 +14,7 @@ LICENSE
  
  [SIMINOV FRAMEWORK]
  <p>
- Copyright [2015] [Siminov Software Solution|support@siminov.com]
+ Copyright [2014-2016] [Siminov Software Solution|support@siminov.com]
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -44,7 +27,3 @@ LICENSE
  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  See the License for the specific language governing permissions and
  limitations under the License.
-
-
-[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/f423e443f4fc035eeb0ccf84cb7abdbe "githalytics.com")](http://githalytics.com/Siminov/android-samples)
-
