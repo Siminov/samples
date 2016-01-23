@@ -32,16 +32,16 @@
 
     <!-- Service Descriptors -->
     <service-descriptors>
-        <service-descriptor>Service-Descriptors/Liquors.xml</service-descriptor>
-        <service-descriptor>Service-Descriptors/LiquorBrands.xml</service-descriptor>
+        <service-descriptor>Service-Descriptors/Books.xml</service-descriptor>
+        <service-descriptor>Service-Descriptors/Lessions.xml</service-descriptor>
         <service-descriptor>Service-Descriptors/NotificationService.xml</service-descriptor>
     </service-descriptors>
 
 
     <!-- Sync Descriptors -->
     <syn-descriptors>
-        <sync-descriptor>Sync-Descriptors/Liquors.xml</sync-descriptor>
-        <sync-descriptor>Sync-Descriptors/LiquorBrands.xml</sync-descriptor>
+        <sync-descriptor>Sync-Descriptors/Books.xml</sync-descriptor>
+        <sync-descriptor>Sync-Descriptors/Lessions.xml</sync-descriptor>
     </syn-descriptors>
 
 

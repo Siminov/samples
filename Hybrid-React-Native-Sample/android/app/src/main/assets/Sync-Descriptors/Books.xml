@@ -21,10 +21,10 @@
  -->
 
 <sync-descriptor>
-    <property name="name">SYNC-LIQUORS</property>
+    <property name="name">SYNC-BOOKS</property>
     <property name="interval">5000</property>
 
     <service-descriptors>
-        <service-descriptor>SIMINOV-HYBRID-LIQUORS-SERVICE.GET-LIQUORS</service-descriptor>
+        <service-descriptor>SIMINOV-HYBRID-BOOKS-SERVICE.GET-BOOKS</service-descriptor>
     </service-descriptors>
 </sync-descriptor>

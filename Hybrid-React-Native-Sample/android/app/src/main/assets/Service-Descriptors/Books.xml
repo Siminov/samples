@@ -20,8 +20,8 @@
 
 <service-descriptor>
 
-    <property name="name">SIMINOV-HYBRID-LIQUORS-SERVICE</property>
-    <property name="description">Siminov Hybrid Liquors Service</property>
+    <property name="name">SIMINOV-HYBRID-BOOKS-SERVICE</property>
+    <property name="description">Siminov Hybrid Books Service</property>
     <property name="protocol">HTTP</property>
     <property name="instance">siminov.com</property>
     <property name="port">80</property>
@@ -30,10 +30,10 @@
     <requests>
         <request>
 
-            <property name="name">GET-LIQUORS</property>
+            <property name="name">GET-BOOKS</property>
             <property name="type">GET</property>
-            <property name="api">get_liquors.php</property>
-            <property name="handler">GetLiquors</property>
+            <property name="api">get_books.php</property>
+            <property name="handler">GetBooks</property>
             <property name="mode">SYNC</property>
 
             <header-parameters>
@@ -50,10 +50,10 @@
         </request>
         <request>
 
-            <property name="name">ADD-LIQUOR</property>
+            <property name="name">ADD-BOOK</property>
             <property name="type">POST</property>
-            <property name="api">add-liquor</property>
-            <property name="handler">AddLiquor</property>
+            <property name="api">add-book</property>
+            <property name="handler">AddBook</property>
             <property name="mode">ASYNC</property>
 
             <header-parameters>
@@ -70,10 +70,10 @@
         </request>
         <request>
 
-            <property name="name">MODIFY-LIQUOR</property>
+            <property name="name">MODIFY-BOOK</property>
             <property name="type">PUT</property>
-            <property name="api">modify-liquor</property>
-            <property name="handler">ModifyLiquor</property>
+            <property name="api">modify-book</property>
+            <property name="handler">ModifyBook</property>
             <property name="mode">ASYNC</property>
 
             <header-parameters>
@@ -90,10 +90,10 @@
         </request>
         <request>
 
-            <property name="name">DELETE-LIQUOR</property>
+            <property name="name">DELETE-BOOK</property>
             <property name="type">DELETE</property>
-            <property name="api">delete-liquor</property>
-            <property name="handler">DeleteLiquor</property>
+            <property name="api">delete-book</property>
+            <property name="handler">DeleteBook</property>
             <property name="mode">ASYNC</property>
 
             <header-parameters>
@@ -107,7 +107,7 @@
                 </header-parameter>
                 <header-parameter>
                     <property name="name">name</property>
-                    <property name="value">{@resource LIQUOR_NAME}</property>
+                    <property name="value">{@resource BOOK_NAME}</property>
                 </header-parameter>
             </header-parameters>
 
