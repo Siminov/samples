@@ -1,6 +1,0 @@
-include ':CoreSqlcipherSample'
-include ':Core'
-include ':Sqlcipher-DB-Impl'
-
-project(':Core').projectDir = new File(settingsDir,'../../../Core/Android/Core')
-project(':Sqlcipher-DB-Impl').projectDir = new File(settingsDir,'../../../Sqlcipher-DB-Impl/SqlcipherDBImpl')
