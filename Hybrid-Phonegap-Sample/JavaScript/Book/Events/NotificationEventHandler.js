@@ -33,8 +33,8 @@ try {
 }
 
 if(dom == undefined) {
-    var INotificationEvents = require('../../Siminov/Events/INotificationEvents');
-    var Function = require('../../Siminov/Function/Function');
+    var INotificationEvents = require('siminov/Events/INotificationEvents');
+    var Function = require('siminov/Function/Function');
     
     module.exports = NotificationEventHandler;    
 }

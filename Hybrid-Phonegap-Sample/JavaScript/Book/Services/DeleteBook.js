@@ -33,9 +33,9 @@ try {
 }
 
 if(dom == undefined) {
-    var Log = require('../../Siminov/Log/Log');
-    var Function = require('../../Siminov/Function/Function');
-    var Service = require('../../Siminov/Service/Service');
+    var Log = require('siminov/Log/Log');
+    var Function = require('siminov/Function/Function');
+    var Service = require('siminov/Service/Service');
 
     module.exports = DeleteBook;
 }

@@ -35,8 +35,8 @@ try {
 
 
 if(dom == undefined) {
-    var IDatabaseEvents = require('../../Siminov/Events/IDatabaseEvents');
-    var Function = require('../../Siminov/Function/Function');
+    var IDatabaseEvents = require('siminov/Events/IDatabaseEvents');
+    var Function = require('siminov/Function/Function');
     
     module.exports = DatabaseEventHandler;
 }

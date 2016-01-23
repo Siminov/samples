@@ -34,8 +34,8 @@ try {
 
 
 if(dom == undefined) {
-    var ISiminovEvents = require('../../Siminov/Events/ISiminovEvents');
-    var Function = require('../../Siminov/Function/Function');
+    var ISiminovEvents = require('siminov/Events/ISiminovEvents');
+    var Function = require('siminov/Function/Function');
     
     module.exports = SiminovEventHandler;    
 }

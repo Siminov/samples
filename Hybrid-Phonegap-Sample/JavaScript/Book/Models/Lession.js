@@ -35,8 +35,8 @@ try {
 
 
 if(dom == undefined) {
-    var Database = require('../../Siminov/Database/Database');
-    var Function = require('../../Siminov/Function/Function');
+    var Database = require('siminov/Database/Database');
+    var Function = require('siminov/Function/Function');
 
     module.exports = Lession;
 }

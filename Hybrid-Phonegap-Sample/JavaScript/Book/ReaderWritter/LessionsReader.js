@@ -33,9 +33,9 @@ try {
 }
 
 if(dom == undefined) {
-    var Function = require('../../Siminov/Function/Function');
-    var ServiceException = require('../../Siminov/Exception/ServiceException');
-    var Log = require('../../Siminov/Log/Log');
+    var Function = require('siminov/Function/Function');
+    var ServiceException = require('siminov/Exception/ServiceException');
+    var Log = require('siminov/Log/Log');
 
     var Lession = require('../Models/Lession');
     var BookConstants = require('../Constants');

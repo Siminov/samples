@@ -33,8 +33,8 @@ try {
 
 
 if(dom == undefined) {
-    var ISyncEvents = require('../../Siminov/Events/ISyncEvents');
-    var Function = require('../../Siminov/Function/Function');
+    var ISyncEvents = require('siminov/Events/ISyncEvents');
+    var Function = require('siminov/Function/Function');
     
     module.exports = SyncEventHandler;    
 }

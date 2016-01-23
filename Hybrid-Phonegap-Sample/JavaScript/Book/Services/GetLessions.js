@@ -33,12 +33,12 @@ try {
 }
 
 if(dom == undefined) {
-    var Log = require('../../Siminov/Log/Log');
-    var Function = require('../../Siminov/Function/Function');
-    var Service = require('../../Siminov/Service/Service');
-    var Callback = require('../../Siminov/Callback');
-    var Database = require('../../Siminov/Database/Database');
-    var ResourceManager = require('../../Siminov/Resource/ResourceManager');
+    var Log = require('siminov/Log/Log');
+    var Function = require('siminov/Function/Function');
+    var Service = require('siminov/Service/Service');
+    var Callback = require('siminov/Callback');
+    var Database = require('siminov/Database/Database');
+    var ResourceManager = require('siminov/Resource/ResourceManager');
 
     var Book = require('../Models/Book');
     var Lession = require('../Models/Lession');
