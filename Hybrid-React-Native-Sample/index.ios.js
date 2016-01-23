@@ -5,9 +5,9 @@
 'use strict';
 
 var React = require('react-native');
+var Siminov = require('siminov');
+
 var Login = require('./Login');
-
-
 
 var {
   AppRegistry,
