@@ -1,7 +1,7 @@
 ![siminov](https://raw.githubusercontent.com/Siminov/samples/master/Core-Sample/Android/CoreSample/src/main/resources/logo.png)
 
 ===================================================
-[![Build Status](https://travis-ci.org/Siminov/samples.svg?branch=master)](https://travis-ci.org/Siminov/samples) [![Gitter chat](https://badges.gitter.im/gitterHQ/services.png)](https://gitter.im/Siminov) [![NPM version](https://badge.fury.io/js/siminov.svg)](https://npmjs.org/package/siminov)
+[![Build Status](https://travis-ci.org/Siminov/samples.svg?branch=master)](https://travis-ci.org/Siminov/samples) [![Gitter chat](https://badges.gitter.im/gitterHQ/services.png)](https://gitter.im/Siminov) [![NPM version](https://badge.fury.io/js/siminov.svg)](https://npmjs.org/package/siminov) [![Documentation](https://img.shields.io/badge/docs-latest-brightgreen.svg?style=flat)](https://github.com/Siminov/hybrid/wiki)
 
 
 Siminov is a open source framework which allows you to easily build your mobile apps without worrying about data storage and backend communication. 
