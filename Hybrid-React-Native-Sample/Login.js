@@ -7,9 +7,9 @@
 var React = require('react-native');
 var BooksList = require('./BooksList');
 
-var Siminov = require('./Siminov/Siminov');
-var Callback = require('./Siminov/Callback');
-var Database = require('./Siminov/Database/Database');
+var Siminov = require('siminov/Siminov');
+var Callback = require('siminov/Callback');
+var Database = require('siminov/Database/Database');
 
 
 /*
