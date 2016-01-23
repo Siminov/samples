@@ -65,8 +65,8 @@
     
     
     <!-- Library Descriptors -->
-    <library-descriptors>
+    <!--<library-descriptors>
      <library-descriptor>Siminov.Hybrid.Phonegap.Library.Sample.Resources</library-descriptor>
-    </library-descriptors> 
+    </library-descriptors> -->
  			
 </siminov>
